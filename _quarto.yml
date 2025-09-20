@@ -2,13 +2,13 @@ project:
   type: website
 
 website:
-  title: REPO_NAME
+  title: CHR 2025 - Seeing History Unseen
   favicon: android-chrome-512x512.png
   open-graph: true
   twitter-card: true
-  site-url: https://USERNAME.github.io/REPO_NAME/
-  repo-url: https://github.com/USERNAME/REPO_NAME/
-  issue-url: https://github.com/USERNAME/REPO_NAME/issues/new/choose
+  site-url: https://maehr.github.io/chr2025-seeing-history-unseen/
+  repo-url: https://github.com/maehr/chr2025-seeing-history-unseen/
+  issue-url: https://github.com/maehr/chr2025-seeing-history-unseen/issues/new/choose
   repo-actions: [edit, issue]
   page-navigation: true
   bread-crumbs: true
@@ -18,11 +18,11 @@ website:
     type: overlay
   navbar:
     logo: android-chrome-512x512.png
-    logo-alt: ''
-    title: REPO_NAME
+    logo-alt: 'CHR 2025'
+    title: CHR 2025 - Seeing History Unseen
     tools:
       - icon: github
-        url: https://github.com/USERNAME/REPO_NAME/
+        url: https://github.com/maehr/chr2025-seeing-history-unseen/
     left:
       - text: Readme
         href: index.qmd
@@ -31,7 +31,7 @@ website:
 
   sidebar:
     contents:
-      - section: REPO_NAME
+      - section: CHR 2025 Materials
         href: index.qmd
         contents:
           - text: Changelog

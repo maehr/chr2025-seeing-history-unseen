@@ -1,0 +1,17 @@
+[0] Config.pm:307> INFO - This is Biber 2.19
+[0] Config.pm:310> INFO - Logfile is 'paper.blg'
+[68] biber:340> INFO - === Sat Sep 20, 2025, 10:51:11
+[81] Biber.pm:419> INFO - Reading 'paper.bcf'
+[132] Biber.pm:979> INFO - Found 9 citekeys in bib section 0
+[142] Biber.pm:4419> INFO - Processing section 0
+[150] Biber.pm:4610> INFO - Looking for bibtex file 'bibliography.bib' for section 0
+[151] bibtex.pm:1713> INFO - LaTeX decoding ...
+[157] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliography.bib'
+[228] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[228] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[229] Biber.pm:4239> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[229] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[238] bbl.pm:660> INFO - Writing 'paper.bbl' with encoding 'UTF-8'
+[241] bbl.pm:763> INFO - Output to paper.bbl
+[241] Biber.pm:131> WARN - legacy year field 'n.d.' in entry 'a11ychecklist' is not an integer - this will probably not sort properly.
+[241] Biber.pm:133> INFO - WARNINGS: 1
