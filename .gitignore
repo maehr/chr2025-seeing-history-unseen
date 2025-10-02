@@ -483,3 +483,22 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/r,git,node,linux,macos,dotenv,python,windows,visualstudiocode
+
+# LaTeX intermediate files
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fls
+*.fdb_latexmk
+*.log
+*.out
+*.synctex.gz
+*.run.xml
+*.toc
+*.lof
+*.lot
+*.dvi
+*.bak
+*-blx.bib
+*.spl

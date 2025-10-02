@@ -1,5 +1,5 @@
 ---
-title: Open Research Data
+title: CHR 2025 Conference Materials
 format:
   html:
     embed-resources: true
