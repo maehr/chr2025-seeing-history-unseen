@@ -6,9 +6,7 @@ Usage:
     python -m src.benchmarking benchmark --model MODEL_NAME
 """
 
-import sys
-
-from .cli import main
+from .cli import cli
 
 if __name__ == "__main__":
-    sys.exit(main())
+    cli()

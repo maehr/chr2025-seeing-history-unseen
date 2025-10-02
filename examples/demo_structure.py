@@ -59,17 +59,17 @@ def main() -> None:
     print("-" * 70)
     print("""
 # List available VLM models
-python -m src.benchmarking list-models
+uv run python -m src.benchmarking list-models
 
 # Benchmark a single model with WCAG tasks
-python -m src.benchmarking benchmark \\
+uv run python -m src.benchmarking benchmark \\
     --model "openai/gpt-4-vision-preview" \\
     --task-set wcag \\
     --output results.json \\
     --verbose
 
 # Compare multiple models
-python -m src.benchmarking benchmark-multiple \\
+uv run python -m src.benchmarking benchmark-multiple \\
     --models "model1,model2,model3" \\
     --task-set all \\
     --output comparison.json

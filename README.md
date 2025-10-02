@@ -147,11 +147,10 @@ The repository includes a Python module for benchmarking vision-language models 
 
 #### Quick Start
 
-1. Install Python dependencies:
+1. Install Python dependencies with uv:
 
 ```bash
-pip install -r requirements.txt
-# Or with uv: uv add requests python-dotenv
+uv sync
 ```
 
 2. Set up your OpenRouter API key in a `.env` file:
@@ -164,13 +163,13 @@ cp example.env .env
 3. List available VLM models:
 
 ```bash
-python -m src.benchmarking list-models
+uv run python -m src.benchmarking list-models
 ```
 
 4. Benchmark a specific model:
 
 ```bash
-python -m src.benchmarking benchmark --model "openai/gpt-4-vision-preview" --task-set wcag
+uv run python -m src.benchmarking benchmark --model "openai/gpt-4-vision-preview" --task-set wcag
 ```
 
 For detailed documentation, see [src/benchmarking/README.md](src/benchmarking/README.md).

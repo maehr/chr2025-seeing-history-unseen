@@ -11,7 +11,7 @@ Shows the structure of the benchmarking module, available task sets, and expecte
 **Run:**
 
 ```bash
-python examples/demo_structure.py
+uv run python examples/demo_structure.py
 ```
 
 **What it demonstrates:**
@@ -36,7 +36,7 @@ cp example.env .env
 **Run:**
 
 ```bash
-python examples/benchmark_example.py
+uv run python examples/benchmark_example.py
 ```
 
 **What it demonstrates:**
@@ -52,7 +52,7 @@ python examples/benchmark_example.py
 1. **Explore the module structure** (no API key needed):
 
    ```bash
-   python examples/demo_structure.py
+   uv run python examples/demo_structure.py
    ```
 
 2. **Set up your environment** for actual benchmarking:
@@ -60,12 +60,12 @@ python examples/benchmark_example.py
    ```bash
    cp example.env .env
    # Add your OPENROUTER_API_KEY to .env
-   pip install -r requirements.txt
+   uv sync
    ```
 
 3. **Try the full example**:
    ```bash
-   python examples/benchmark_example.py
+   uv run python examples/benchmark_example.py
    ```
 
 ## Using the CLI Directly
@@ -74,13 +74,13 @@ For actual benchmarking, use the CLI commands:
 
 ```bash
 # List available models
-python -m src.benchmarking list-models
+uv run python -m src.benchmarking list-models
 
 # Benchmark a single model
-python -m src.benchmarking benchmark --model "openai/gpt-4-vision-preview" --task-set wcag
+uv run python -m src.benchmarking benchmark --model "openai/gpt-4-vision-preview" --task-set wcag
 
 # Compare multiple models
-python -m src.benchmarking benchmark-multiple --models "model1,model2" --output results.json
+uv run python -m src.benchmarking benchmark-multiple --models "model1,model2" --output results.json
 ```
 
 ## More Information

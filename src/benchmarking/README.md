@@ -30,16 +30,16 @@ flowchart TD
 
 - Python 3.10 or higher
 - OpenRouter API key (get one at [openrouter.ai](https://openrouter.ai/))
+- [uv](https://github.com/astral-sh/uv) package manager
 
 ### Install Dependencies
 
 ```bash
-# Using pip
-pip install requests python-dotenv
-
-# Or using uv (recommended)
-uv add requests python-dotenv
+# Install dependencies using uv
+uv sync
 ```
+
+This will install all required dependencies including `click`, `requests`, and `python-dotenv`.
 
 ## Configuration
 
@@ -65,31 +65,31 @@ The module can be run as a Python module with several commands:
 #### 1. List Available Models
 
 ```bash
-python -m src.benchmarking list-models
+uv run python -m src.benchmarking list-models
 ```
 
 List only vision-language models (default):
 
 ```bash
-python -m src.benchmarking list-models
+uv run python -m src.benchmarking list-models
 ```
 
 List all models:
 
 ```bash
-python -m src.benchmarking list-models --all-models
+uv run python -m src.benchmarking list-models --all-models
 ```
 
 #### 2. Benchmark a Single Model
 
 ```bash
-python -m src.benchmarking benchmark --model "openai/gpt-4-vision-preview"
+uv run python -m src.benchmarking benchmark --model "openai/gpt-4-vision-preview"
 ```
 
 With options:
 
 ```bash
-python -m src.benchmarking benchmark \
+uv run python -m src.benchmarking benchmark \
     --model "anthropic/claude-3-opus" \
     --task-set wcag \
     --max-tokens 1000 \
@@ -100,7 +100,7 @@ python -m src.benchmarking benchmark \
 #### 3. Benchmark Multiple Models
 
 ```bash
-python -m src.benchmarking benchmark-multiple \
+uv run python -m src.benchmarking benchmark-multiple \
     --models "openai/gpt-4-vision-preview,anthropic/claude-3-opus" \
     --task-set all \
     --output comparison.json
