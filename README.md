@@ -172,7 +172,7 @@ uv run python -m src.benchmarking list-models
 uv run python -m src.benchmarking benchmark --model "openai/gpt-4-vision-preview" --task-set wcag
 ```
 
-For detailed documentation, see [src/benchmarking/README.md](src/benchmarking/README.md).
+For detailed documentation, see [src/benchmarking/README.md](https://github.com/maehr/chr2025-seeing-history-unseen/blob/main/src/benchmarking/README.md).
 
 ## Support
 

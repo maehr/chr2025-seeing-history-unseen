@@ -87,5 +87,5 @@ uv run python -m src.benchmarking benchmark-multiple --models "model1,model2" --
 
 For complete documentation, see:
 
-- [Benchmarking Module README](../src/benchmarking/README.md)
-- [Main Repository README](../README.md)
+- [Benchmarking Module README](https://github.com/maehr/chr2025-seeing-history-unseen/blob/main/src/benchmarking/README.md)
+- [Main Repository README](https://github.com/maehr/chr2025-seeing-history-unseen/blob/main/README.md)
