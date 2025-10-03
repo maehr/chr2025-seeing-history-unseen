@@ -32,6 +32,7 @@ Our research explores the feasibility, accuracy, and ethics of using state-of-th
 - `abstract/`: Contains the LaTeX source, class files, and bibliography for the conference abstract
 - `presentation/`: Will contain presentation slides and supporting materials
 - `documentation/`: Additional documentation and resources
+- `src/benchmarking/`: Python module for benchmarking vision-language models via OpenRouter API
 
 ## Installation
 
@@ -139,6 +140,39 @@ Generate a changelog:
 ```bash
 npm run changelog
 ```
+
+### VLM Benchmarking
+
+The repository includes a Python module for benchmarking vision-language models via the OpenRouter API. This tool supports the research by providing systematic evaluation of VLM performance on alt-text generation tasks.
+
+#### Quick Start
+
+1. Install Python dependencies with uv:
+
+```bash
+uv sync
+```
+
+2. Set up your OpenRouter API key in a `.env` file:
+
+```bash
+cp example.env .env
+# Edit .env to add your OPENROUTER_API_KEY
+```
+
+3. List available VLM models:
+
+```bash
+uv run python -m src.benchmarking list-models
+```
+
+4. Benchmark a specific model:
+
+```bash
+uv run python -m src.benchmarking benchmark --model "openai/gpt-4-vision-preview" --task-set wcag
+```
+
+For detailed documentation, see [src/benchmarking/README.md](https://github.com/maehr/chr2025-seeing-history-unseen/blob/main/src/benchmarking/README.md).
 
 ## Support
 
