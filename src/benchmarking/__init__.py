@@ -5,6 +5,7 @@ This module provides tools for benchmarking vision-language models
 available through the OpenRouter API.
 """
 
+from .image_benchmark import ImageBenchmark, get_default_prompt
 from .openrouter_benchmark import (
     aggregate_results,
     benchmark_model,
@@ -15,4 +16,6 @@ __all__ = [
     "list_models",
     "benchmark_model",
     "aggregate_results",
+    "ImageBenchmark",
+    "get_default_prompt",
 ]

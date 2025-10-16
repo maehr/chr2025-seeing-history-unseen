@@ -238,5 +238,168 @@ def benchmark_multiple(
         sys.exit(1)
 
 
+@cli.command("benchmark-images")
+@click.option(
+    "--image-dir",
+    type=click.Path(exists=True, file_okay=False, dir_okay=True),
+    required=True,
+    help="Directory containing images to benchmark",
+)
+@click.option(
+    "--prompt",
+    type=str,
+    help="Prompt to use for all images (default: standard description prompt)",
+)
+@click.option(
+    "--models",
+    type=str,
+    help="Comma-separated list of models (default: selected models)",
+)
+@click.option(
+    "--output",
+    "-o",
+    type=click.Path(),
+    required=True,
+    help="Output CSV file for results",
+)
+@click.option(
+    "--max-tokens",
+    type=int,
+    default=1000,
+    help="Maximum tokens for responses (default: 1000)",
+)
+def benchmark_images(
+    image_dir: str, prompt: str, models: str, output: str, max_tokens: int
+) -> None:
+    """Benchmark models on images for understanding tasks."""
+    try:
+        from pathlib import Path
+
+        from .image_benchmark import ImageBenchmark, get_default_prompt
+
+        api_key = get_api_key()
+        benchmark = ImageBenchmark(api_key)
+
+        # Get image files
+        image_path = Path(image_dir)
+        image_files = []
+        for ext in ["*.jpg", "*.jpeg", "*.png", "*.gif", "*.webp"]:
+            image_files.extend(image_path.glob(ext))
+            image_files.extend(image_path.glob(ext.upper()))
+
+        if not image_files:
+            click.echo("No image files found in directory", err=True)
+            sys.exit(1)
+
+        click.echo(f"Found {len(image_files)} images")
+
+        # Use default prompt if not provided
+        if not prompt:
+            prompt = get_default_prompt()
+
+        # Parse models if provided
+        model_list = None
+        if models:
+            model_list = [m.strip() for m in models.split(",")]
+
+        # Infer image types from filenames or use generic type
+        image_types = []
+        for img_file in image_files:
+            # Try to infer from filename
+            name_lower = img_file.stem.lower()
+            if "artwork" in name_lower or "art" in name_lower:
+                img_type = "artwork"
+            elif "photo" in name_lower:
+                if "arch" in name_lower or "site" in name_lower:
+                    img_type = "photograph_archaeological_site"
+                else:
+                    img_type = "photograph_object"
+            elif "newspaper" in name_lower:
+                img_type = "scan_newspaper"
+            elif "poster" in name_lower:
+                img_type = "scan_poster"
+            elif "drawing" in name_lower or "sketch" in name_lower:
+                img_type = "drawing"
+            elif "map" in name_lower:
+                img_type = "map"
+            elif "diagram" in name_lower:
+                img_type = "diagram"
+            elif "figure" in name_lower or "chart" in name_lower or "graph" in name_lower:
+                img_type = "statistical_figure"
+            else:
+                img_type = "unknown"
+            image_types.append(img_type)
+
+        # Run benchmark
+        click.echo(f"\nRunning benchmark with prompt: {prompt[:80]}...")
+        df = benchmark.benchmark_images(
+            image_files, image_types, prompt, model_list, max_tokens
+        )
+
+        # Export to CSV
+        benchmark.export_to_csv(df, Path(output))
+
+        # Show summary
+        click.echo(f"\nBenchmark complete!")
+        click.echo(f"Total runs: {len(df)}")
+        click.echo(f"Successful: {df['success'].sum()}")
+        click.echo(f"Failed: {(~df['success']).sum()}")
+
+    except Exception as e:
+        click.echo(f"Error: {e}", err=True)
+        import traceback
+        traceback.print_exc()
+        sys.exit(1)
+
+
+@cli.command("compute-stats")
+@click.option(
+    "--input",
+    "-i",
+    "input_file",
+    type=click.Path(exists=True),
+    required=True,
+    help="Input CSV file with benchmark results and rankings",
+)
+@click.option(
+    "--output",
+    "-o",
+    type=click.Path(),
+    required=True,
+    help="Output CSV file for statistics",
+)
+def compute_stats(input_file: str, output: str) -> None:
+    """Compute descriptive statistics from ranked benchmark results."""
+    try:
+        import pandas as pd
+        from pathlib import Path
+
+        from .image_benchmark import ImageBenchmark
+
+        # Load results
+        df = pd.read_csv(input_file)
+
+        # Create benchmark instance to use statistics function
+        api_key = get_api_key()  # Still needed for instantiation
+        benchmark = ImageBenchmark(api_key)
+
+        # Compute statistics
+        stats_df = benchmark.compute_statistics(df)
+
+        # Save statistics
+        stats_df.to_csv(output, index=False)
+        click.echo(f"Statistics saved to {output}")
+
+        # Display summary
+        click.echo("\nModel Statistics:")
+        click.echo(stats_df.to_string())
+
+    except Exception as e:
+        click.echo(f"Error: {e}", err=True)
+        import traceback
+        traceback.print_exc()
+        sys.exit(1)
+
+
 if __name__ == "__main__":
     cli()

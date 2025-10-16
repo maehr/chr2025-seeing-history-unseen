@@ -1,13 +1,26 @@
 # OpenRouter VLM Benchmarking
 
-This module provides tools for benchmarking vision-language models (VLMs) available through the [OpenRouter API](https://openrouter.ai/). It is designed to evaluate models on tasks related to generating WCAG-compliant alt-text for digital heritage collections.
+This module provides tools for benchmarking vision-language models (VLMs) available through the [OpenRouter API](https://openrouter.ai/).
 
 ## Features
+
+### Text-Based Benchmarking
 
 - **List Available Models**: Query OpenRouter API to discover all available models
 - **Benchmark Individual Models**: Run benchmark tasks on a specific model
 - **Compare Multiple Models**: Benchmark and compare multiple models simultaneously
 - **Pre-defined Task Sets**: Built-in task sets for WCAG alt-text, simple descriptions, and detailed analysis
+
+### Image-Based Benchmarking (NEW)
+
+- **Multi-Model Image Testing**: Run multiple VLM models on image collections
+- **DataFrame-Based Results**: Collect results in pandas DataFrames for easy analysis
+- **CSV Export**: Export results for human expert ranking
+- **Descriptive Statistics**: Compute statistics after expert rankings are added
+- **See [IMAGE_BENCHMARKING.md](IMAGE_BENCHMARKING.md) for detailed documentation**
+
+### General Features
+
 - **Type-Safe Implementation**: Full type hints throughout the codebase
 - **Detailed Metrics**: Track response time, success rate, token usage, and cost
 
