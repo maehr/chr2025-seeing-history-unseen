@@ -81,16 +81,11 @@ def cli() -> None:
 
 
 @cli.command("list-models")
-@click.option(
-    "--all-models",
-    is_flag=True,
-    help="Show all models, not just vision models",
-)
-def list_models_cmd(all_models: bool) -> None:
-    """List available VLM models."""
+def list_models_cmd() -> None:
+    """List all available models."""
     try:
         api_key = get_api_key()
-        models = list_models(api_key, filter_vllm=not all_models)
+        models = list_models(api_key)
 
         click.echo(f"Found {len(models)} models:")
         for model in models:

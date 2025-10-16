@@ -4,7 +4,7 @@ This module provides tools for benchmarking vision-language models (VLMs) availa
 
 ## Features
 
-- **List Available Models**: Query OpenRouter API to discover available VLM models
+- **List Available Models**: Query OpenRouter API to discover all available models
 - **Benchmark Individual Models**: Run benchmark tasks on a specific model
 - **Compare Multiple Models**: Benchmark and compare multiple models simultaneously
 - **Pre-defined Task Sets**: Built-in task sets for WCAG alt-text, simple descriptions, and detailed analysis
@@ -15,7 +15,7 @@ This module provides tools for benchmarking vision-language models (VLMs) availa
 
 ```mermaid
 flowchart TD
-    A[Start Benchmark] --> B[List available vllm models from OpenRouter API]
+    A[Start Benchmark] --> B[List available models from OpenRouter API]
     B --> C[Select model/s to benchmark]
     C --> D[Loop: For each benchmark task]
     D --> E[Send prompt to model via API]
@@ -66,18 +66,6 @@ The module can be run as a Python module with several commands:
 
 ```bash
 uv run python -m src.benchmarking list-models
-```
-
-List only vision-language models (default):
-
-```bash
-uv run python -m src.benchmarking list-models
-```
-
-List all models:
-
-```bash
-uv run python -m src.benchmarking list-models --all-models
 ```
 
 #### 2. Benchmark a Single Model
@@ -131,7 +119,7 @@ api_key = os.getenv("OPENROUTER_API_KEY")
 
 # List available models
 models = list_models(api_key)
-print(f"Found {len(models)} vision models")
+print(f"Found {len(models)} models")
 
 # Benchmark a single model
 tasks = get_wcag_alttext_tasks()
@@ -164,14 +152,13 @@ src/benchmarking/
 
 ## API Reference
 
-### `list_models(api_key: str, filter_vllm: bool = True) -> List[str]`
+### `list_models(api_key: str) -> List[str]`
 
-List available models from OpenRouter API.
+List all available models from OpenRouter API.
 
 **Parameters:**
 
 - `api_key`: OpenRouter API key
-- `filter_vllm`: If True, filter to only vision-language models
 
 **Returns:**
 

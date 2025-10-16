@@ -73,13 +73,12 @@ class OpenRouterClient:
         return response.json()
 
 
-def list_models(api_key: str, filter_vllm: bool = True) -> List[str]:
+def list_models(api_key: str) -> List[str]:
     """
-    List available VLM models from OpenRouter API.
+    List all available models from OpenRouter API.
 
     Args:
         api_key: OpenRouter API key for authentication
-        filter_vllm: If True, filter to only vision-language models
 
     Returns:
         List of model identifiers
@@ -96,18 +95,7 @@ def list_models(api_key: str, filter_vllm: bool = True) -> List[str]:
     model_ids = []
     for model in models:
         model_id = model.get("id", "")
-        # Filter for vision-language models if requested
-        if filter_vllm:
-            # Vision models typically have "vision" in the name or support vision
-            supports_vision = (
-                "vision" in model_id.lower()
-                or "vision" in model.get("name", "").lower()
-                or model.get("architecture", {}).get("modality") == "multimodal"
-            )
-            if supports_vision:
-                model_ids.append(model_id)
-        else:
-            model_ids.append(model_id)
+        model_ids.append(model_id)
 
     return model_ids
 
