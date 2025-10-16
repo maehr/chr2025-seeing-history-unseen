@@ -24,4 +24,4 @@ reported vulnerability, what to expect if the vulnerability is accepted or
 declined, etc.
 -->
 
-To report a security issue, please email [INSERT CONTACT METHOD] with a description of the issue, the steps you took to create the issue, affected versions, and, if known, mitigations for the issue. This project follows a 90 day disclosure timeline.
+To report a security issue, please use [GitHub's private security reporting feature](https://github.com/maehr/chr2025-seeing-history-unseen/security/advisories/new) with a description of the issue, the steps you took to create the issue, affected versions, and, if known, mitigations for the issue. This project follows a 90 day disclosure timeline.
