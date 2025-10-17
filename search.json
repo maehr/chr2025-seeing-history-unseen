@@ -465,7 +465,11 @@
     "href": "survey/index.html",
     "title": "Alt Text Rankings",
     "section": "",
-    "text": "Back to top"
+    "text": "Back to top",
+    "crumbs": [
+      "Readme",
+      "Survey"
+    ]
   },
   {
     "objectID": "SECURITY.html",
