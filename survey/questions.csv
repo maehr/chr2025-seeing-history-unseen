@@ -1,0 +1,9 @@
+question_id,question_text,option_id,option_label
+q1,Bitte ranken Sie die folgenden Kriterien,o1,Geschwindigkeit
+q1,Bitte ranken Sie die folgenden Kriterien,o2,Genauigkeit
+q1,Bitte ranken Sie die folgenden Kriterien,o3,Nutzbarkeit
+q1,Bitte ranken Sie die folgenden Kriterien,o4,Nachhaltigkeit
+q2,Bitte priorisieren Sie die Features,o1,Export
+q2,Bitte priorisieren Sie die Features,o2,Suche
+q2,Bitte priorisieren Sie die Features,o3,Offline
+q2,Bitte priorisieren Sie die Features,o4,API
