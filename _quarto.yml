@@ -30,6 +30,8 @@ website:
         href: index.qmd
       - text: Report
         href: report.md
+      - text: Survey
+        href: survey/survey.qmd
 
   sidebar:
     contents:
@@ -50,6 +52,8 @@ website:
             href: SECURITY.md
       - href: report.md
         contents: project-management/*
+      - section: Survey
+        href: survey/survey.qmd
 
 format:
   html:
