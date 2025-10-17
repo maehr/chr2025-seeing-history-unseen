@@ -1,0 +1,29 @@
+objectid,prompt,google__gemini-2.5-flash-lite__content,google__gemini-2.5-flash-lite__finish_reason,google__gemini-2.5-flash-lite__usage_prompt_tokens,google__gemini-2.5-flash-lite__usage_completion_tokens,google__gemini-2.5-flash-lite__usage_total_tokens,google__gemini-2.5-flash-lite__usage_cost,google__gemini-2.5-flash-lite__provider,google__gemini-2.5-flash-lite__created,google__gemini-2.5-flash-lite__id,mistralai__pixtral-12b__content,mistralai__pixtral-12b__finish_reason,mistralai__pixtral-12b__usage_prompt_tokens,mistralai__pixtral-12b__usage_completion_tokens,mistralai__pixtral-12b__usage_total_tokens,mistralai__pixtral-12b__usage_cost,mistralai__pixtral-12b__provider,mistralai__pixtral-12b__created,mistralai__pixtral-12b__id,openai__gpt-4.1-nano__content,openai__gpt-4.1-nano__finish_reason,openai__gpt-4.1-nano__usage_prompt_tokens,openai__gpt-4.1-nano__usage_completion_tokens,openai__gpt-4.1-nano__usage_total_tokens,openai__gpt-4.1-nano__usage_cost,openai__gpt-4.1-nano__provider,openai__gpt-4.1-nano__created,openai__gpt-4.1-nano__id,allenai__molmo-7b-d__content,allenai__molmo-7b-d__finish_reason,allenai__molmo-7b-d__usage_prompt_tokens,allenai__molmo-7b-d__usage_completion_tokens,allenai__molmo-7b-d__usage_total_tokens,allenai__molmo-7b-d__usage_cost,allenai__molmo-7b-d__provider,allenai__molmo-7b-d__created,allenai__molmo-7b-d__id,created_utc
+m93036,"**Prompt (für vLLM oder ähnliche Modelle):**
+
+Schreibe barrierefreie Alternativtexte für Bilder nach WCAG 2.2 (SC 1.1.1) und W3C WAI-Standards.
+
+**Ziel:** Funktionale, kontextabhängige, prägnante Alt-Texte.
+
+**Regeln:**
+
+* Beschreibe Bedeutung, nicht Aussehen.
+* Max. 125 Zeichen, nur was für Inhalt/Zweck relevant ist.
+* Für dekorative Bilder: `alt=""""`.
+* Für funktionale Bilder: Funktion oder Ziel nennen („Zum Warenkorb“).
+* Keine Formulierungen wie „Bild von“ oder „Foto von“.
+* Für komplexe Grafiken: Ausführliche Erklärung.
+
+**Ausgabe:** Nur der Alternativtext (kein HTML, keine Erklärungen).
+
+**Eingabe:**
+
+* Nutzungskontext: Plattform mit historischen Quellen und Forschungsdaten für Forschende und Studierende aus historischen und archäologischen Disziplinen.
+* Metadaten:
+  * Titel: In der Migros Rebgasse, 1968
+  * Beschreibung: MM Rebgasse (10 Jahre) [Migros].
+  * Datum (Extended Date Time Format): 1968
+  * Epoche: 20. Jahrhundert
+  * Ersteller: [Hans Bertolf](https://www.wikidata.org/wiki/Q110460588)
+  * Herausgeber: [Staatsarchiv Basel-Stadt](https://dls.staatsarchiv.bs.ch/records/545111)
+  * Quelle: Keine Quelle","Migros-Filiale Rebgasse, Basel, 1968. Angebot für Äpfel und Bananen.",stop,2155,24,2179,0.0002251,Google,1760692977,gen-1760692977-T9GQAgtTu9yEfsFBjggA,"Historischer Supermarkt mit Kunden und einer Vielzahl von frischen Produkten, 1968.",stop,362,23,385,3.85e-05,Hyperbolic,1760692979,gen-1760692979-heUNiYdYoNxVhlSGSGFQ,"Händlerinnen und Kunden im Lebensmitteleinzelhandel mit Früchten und Werbeplakaten, 1968, Schwarz-Weiß-Foto.",stop,1443,33,1476,0.0001575,OpenAI,1760692981,gen-1760692980-7LgDNO3EsyYXMt1akhZS,[ERROR] JSONDecodeError: Expecting value: line 159 column 1 (char 869),,,,,,,,,2025-10-17T09:22:56+00:00

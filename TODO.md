@@ -12,15 +12,15 @@ This file tracks the setup and development tasks for the CHR 2025 conference mat
 - [x] **Commit Changes**: Using standardized commit messages
 - [x] **Finalize README**: Updated `README.md` to reflect actual repository purpose (CHR 2025 conference materials)
 - [x] **LaTeX Setup**: Verified LaTeX compilation works correctly for the abstract
+- [x] **Enable GitHub Security Alerts**: Go to repository "Security" tab on GitHub and enable security alerts
+- [x] **Protect the Main Branch**: In repository settings on GitHub (under "Branches"), protect the `main` branch
+- [x] **Update Remaining Placeholders**: Replace `[INSERT CONTACT METHOD]` in remaining files
 
 ### In Progress 🔄
 
-- [ ] **Enable GitHub Security Alerts**: Go to repository "Security" tab on GitHub and enable security alerts
-- [ ] **Protect the Main Branch**: In repository settings on GitHub (under "Branches"), protect the `main` branch
 - [ ] **Set Up Zenodo Integration**: Follow the [Zenodo guide](https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content) to connect repository to Zenodo
 - [ ] **Set Up Zenodo DOI Badge**: Replace `GITHUB_REPO_ID` with `id` from `https://api.github.com/repos/maehr/chr2025-seeing-history-unseen`
 - [ ] **Add Zenodo DOI to README**: Once Zenodo DOI is obtained, add it to `README.md` by replacing `ZENODO_RECORD`
-- [ ] **Update Remaining Placeholders**: Replace `[INSERT CONTACT METHOD]` in remaining files
 
 ### Optional Tasks
 
