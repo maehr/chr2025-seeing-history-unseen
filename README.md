@@ -31,8 +31,12 @@ Our research explores the feasibility, accuracy, and ethics of using state-of-th
 
 - `abstract/`: Contains the LaTeX source, class files, and bibliography for the conference abstract
 - `presentation/`: Will contain presentation slides and supporting materials
-- `documentation/`: Additional documentation and resources
-- `src/benchmarking/`: Python module for benchmarking vision-language models via OpenRouter API
+- `documentation/`: Additional documentation and resources (including WCAG guidelines in `notes.md`)
+- `src/`: Alt-text generation pipeline
+  - `main.py`: Standalone script for generating WCAG-compliant alt-text using OpenRouter models
+  - `playground.ipynb`: Interactive Jupyter notebook for experimenting with the pipeline
+- `runs/`: Output directory for generated alt-text results, including raw API responses and CSV/JSONL/Parquet tables
+- `data/`: Data directories for raw and cleaned datasets
 
 ## Installation
 
@@ -141,9 +145,18 @@ Generate a changelog:
 npm run changelog
 ```
 
-### VLM Benchmarking
+### Alt-Text Generation Pipeline
 
-The repository includes a Python module for benchmarking vision-language models via the OpenRouter API. This tool supports the research by providing systematic evaluation of VLM performance on alt-text generation tasks.
+The repository includes a focused Python pipeline for generating WCAG-compliant alternative texts using OpenRouter-compatible vision-language models. The pipeline supports systematic evaluation of VLM performance on alt-text generation tasks for digital heritage collections.
+
+#### Features
+
+- **Automated alt-text generation** using multiple VLM models in parallel
+- **WCAG 2.2 compliance** with structured prompts based on accessibility guidelines
+- **Metadata integration** from remote sources with provenance tracking
+- **Wide-format output** with model responses in CSV, JSONL, and Parquet formats
+- **Raw API response storage** for reproducibility and analysis
+- **Interactive playground** via Jupyter notebook for experimentation
 
 #### Quick Start
 
@@ -160,19 +173,46 @@ cp example.env .env
 # Edit .env to add your OPENROUTER_API_KEY
 ```
 
-3. List available VLM models:
+3. Run the alt-text generation pipeline:
 
 ```bash
-uv run python -m src.benchmarking list-models
+uv run python src/main.py
 ```
 
-4. Benchmark a specific model:
+This will:
+
+- Fetch metadata from the configured URL
+- Generate alt-text for specified media IDs using all configured models
+- Save results in `runs/YYYYmmdd_HHMMSS/` including:
+  - `metadata.json`: Copy of fetched metadata for provenance
+  - `alt_text_runs_*.csv`: Wide-format table with all model responses
+  - `alt_text_runs_*.jsonl`: Same data in JSONL format
+  - `alt_text_runs_*.parquet`: Same data in Parquet format (if available)
+  - `raw/*.json`: Individual raw API responses from each model
+  - `manifest.json`: Run metadata including configuration and file paths
+
+4. Experiment interactively with the Jupyter notebook:
 
 ```bash
-uv run python -m src.benchmarking benchmark --model "openai/gpt-4-vision-preview" --task-set wcag
+uv run jupyter notebook src/playground.ipynb
 ```
 
-For detailed documentation, see [src/benchmarking/README.md](https://github.com/maehr/chr2025-seeing-history-unseen/blob/main/src/benchmarking/README.md).
+#### Configuration
+
+Edit `src/main.py` to customize:
+
+- `MODELS`: List of OpenRouter model identifiers to use
+- `MEDIA_IDS`: List of media object IDs to process
+- `METADATA_URL`: URL to fetch media metadata JSON
+
+Current models configured:
+
+- `google/gemini-2.5-flash-lite`
+- `mistralai/pixtral-12b`
+- `openai/gpt-4.1-nano`
+- `allenai/molmo-7b-d`
+
+For WCAG compliance guidelines and prompt engineering notes, see [documentation/notes.md](documentation/notes.md).
 
 ## Support
 
