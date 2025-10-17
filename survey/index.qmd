@@ -1,0 +1,12 @@
+---
+title: Alt Text Rankings
+format:
+  html:
+    embed-resources: true
+    toc: false
+    include-after-body:
+    - survey.html
+    include-in-header:
+    - form.html
+    raw-html: true
+---

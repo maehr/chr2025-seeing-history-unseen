@@ -1,5 +1,7 @@
 project:
   type: website
+  resources:
+    - survey/questions.csv
 
 website:
   title: CHR 2025 - Seeing History Unseen
