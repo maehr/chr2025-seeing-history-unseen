@@ -1,0 +1,40 @@
+{
+  "id": "gen-1760766980-B9PQc6X0S5TRMNTBPcvW",
+  "provider": "OpenAI",
+  "model": "openai/gpt-4.1-nano",
+  "object": "chat.completion",
+  "created": 1760766980,
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "native_finish_reason": "completed",
+      "message": {
+        "role": "assistant",
+        "content": "Frau verkauft Blumen an einem Markstand auf dem Marktplatz, 1938, im 20. Jahrhundert.",
+        "refusal": null,
+        "reasoning": null
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1857,
+    "completion_tokens": 25,
+    "total_tokens": 1882,
+    "cost": 0.0001957,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": null,
+      "upstream_inference_prompt_cost": 0.0001857,
+      "upstream_inference_completions_cost": 1e-05
+    }
+  }
+}

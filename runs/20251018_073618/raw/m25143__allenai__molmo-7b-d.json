@@ -1,0 +1,40 @@
+{
+  "id": "gen-1760766598-b74TLCcSo2E8Pp4JzlBC",
+  "provider": "Parasail",
+  "model": "allenai/molmo-7b-d",
+  "object": "chat.completion",
+  "created": 1760766598,
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": " *Musterbuch der Emanuel Hoffmann-Werthemann Seidenbandfirma (1770/1780)*\n\n*Typische marmorierte Struktur der abgebildeten Moirébänder entstand durch Pressung. Solche Seidenbänder galten als kostbarer als die einfachen Florettseidenbänder.*\n\n*Zur Darstellung des Sortiments der Firma Emanuel Hoffmann-Werthemann.*\n\n*Herausgeber: Historisches Museum Basel (HMB Inv. Nr. 1917-887, S. 55)*",
+        "refusal": null,
+        "reasoning": null
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1635,
+    "completion_tokens": 132,
+    "total_tokens": 1767,
+    "cost": 0.0001899,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": null,
+      "upstream_inference_prompt_cost": 0.0001635,
+      "upstream_inference_completions_cost": 2.64e-05
+    }
+  }
+}

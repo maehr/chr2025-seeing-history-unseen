@@ -1,0 +1,40 @@
+{
+  "id": "gen-1760767084-Ev6SpxmaOXhwCAv17MGI",
+  "provider": "Mistral",
+  "model": "mistralai/pixtral-12b",
+  "object": "chat.completion",
+  "created": 1760767084,
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "1. Steinplattengrab, Aufsicht\n2. Steinplattengrab, Frontalansicht\n3. Mauergräber, Aufsicht\n4. Mauergräber, Frontalansicht\n5. Kammergrab, Aufsicht\n6. Kammergrab, Querschnitt\n7. Kammergrab mit Hügel, Aufsicht\n8. Brandgrab, Querschnitt\n9. Einfache Erdbestattung, Aufsicht\n10. Einfache Erdbestattung, Frontalansicht",
+        "refusal": null,
+        "reasoning": null
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2875,
+    "completion_tokens": 118,
+    "total_tokens": 2993,
+    "cost": 0.00044895,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": null,
+      "upstream_inference_prompt_cost": 0.00043125,
+      "upstream_inference_completions_cost": 1.77e-05
+    }
+  }
+}

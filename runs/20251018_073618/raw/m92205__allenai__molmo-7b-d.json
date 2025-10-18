@@ -1,0 +1,40 @@
+{
+  "id": "gen-1760766344-VE67w3J0Q8gqmWzbHe5v",
+  "provider": "Parasail",
+  "model": "allenai/molmo-7b-d",
+  "object": "chat.completion",
+  "created": 1760766344,
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": " *Nutzungskontext: Plattform mit historischen Quellen und Forschungsdaten für Forschende und Studierende aus historischen und archäologischen Disziplinen.*\n\n*Metadaten:\n  * Titel: Mustermesse Basel, 1972\n  * Beschreibung: Stand Digital\n  * Datum (Extended Date Time Format): 1972\n  * Epoche: 20. Jahrhundert\n  * Ersteller: Foto Dierks\n  * Herausgeber: [Staatsarchiv Basel-Stadt](https://dls.staatsarchiv.bs.ch/)\n  * Quelle: [Staatsarchiv Basel-Stadt, PA 1189b E 34 (1) 5-8, Foto Dierks](https://dls.staatsarchiv.bs.ch/records/950028)*\n\n*Alternativtext: Digital-Verkaufsstand in der 1972er Basel Messe, prägungsvolles Beispiel der digitalen Technologie in der Epoche.*",
+        "refusal": null,
+        "reasoning": null
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1611,
+    "completion_tokens": 244,
+    "total_tokens": 1855,
+    "cost": 0.0002099,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": null,
+      "upstream_inference_prompt_cost": 0.0001611,
+      "upstream_inference_completions_cost": 4.88e-05
+    }
+  }
+}

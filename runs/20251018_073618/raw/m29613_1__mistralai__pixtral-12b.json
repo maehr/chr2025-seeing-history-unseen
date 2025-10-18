@@ -1,0 +1,40 @@
+{
+  "id": "gen-1760765833-G86r1GiQnfIeYzoszs8E",
+  "provider": "Mistral",
+  "model": "mistralai/pixtral-12b",
+  "object": "chat.completion",
+  "created": 1760765833,
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "Karte des Gallischen Sonderreichs zwischen 260 und 274 n. Chr., zeigt Territorien und wichtige Städte.",
+        "refusal": null,
+        "reasoning": null
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 3021,
+    "completion_tokens": 30,
+    "total_tokens": 3051,
+    "cost": 0.00045765,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": null,
+      "upstream_inference_prompt_cost": 0.00045315,
+      "upstream_inference_completions_cost": 4.5e-06
+    }
+  }
+}

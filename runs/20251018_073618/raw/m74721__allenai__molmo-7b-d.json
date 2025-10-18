@@ -1,0 +1,40 @@
+{
+  "id": "gen-1760765934-5brm8n0N6Zcc7jn8Fu4d",
+  "provider": "Parasail",
+  "model": "allenai/molmo-7b-d",
+  "object": "chat.completion",
+  "created": 1760765934,
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": " *Plattform mit historischen Quellen und Forschungsdaten für Forschende und Studierende aus historischen und archäologischen Disziplinen.*\n\n*Marktplatz-Parkplatz, 1950. 20. Jahrhundert. 1950. 1950-01-01T00:00:00Z. 1950-12-31T23:59:59Z. Hans Bertolf. Staatsarchiv Basel-Stadt. BSL 1013 1-279 1. Foto Hans Bertolf. https://dls.staatsarchiv.bs.ch/records/521579*",
+        "refusal": null,
+        "reasoning": null
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1642,
+    "completion_tokens": 164,
+    "total_tokens": 1806,
+    "cost": 0.000197,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": null,
+      "upstream_inference_prompt_cost": 0.0001642,
+      "upstream_inference_completions_cost": 3.28e-05
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "gen-1760766764-1NkmcFbaDUrHLGKCRlUj",
+  "provider": "Parasail",
+  "model": "allenai/molmo-7b-d",
+  "object": "chat.completion",
+  "created": 1760766764,
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": " *Zusammenfassung der französischen Revolution und der politischen Instabilität in Frankreich und Europa, dargestellt durch die Metapher eines zerhackten Käse. Die französische Revolution hat die Nation in die Verwandlung gebracht und hat die politischen und gesellschaftlichen Strukturen verändert. Die Karikatur verherrlicht die Revolution und verurteilt die Veränderungen, die in Folge des Krieges und der Revolution entstanden sind. Der französische Revolutionäre verursachte die Instabilität in Frankreich und Europa und verursachte den Krieg. Die Karikatur verurteilt den Verlust der alten politischen Struktur und die Verwandlung der französischen Gesellschaft. Der französische Revolutionäre verursachte die Instabilität in Frankreich und Europa und verursachte den Krieg. Die Karikatur verurteilt den Verlust der alten politischen Struktur und die Verwandlung der französisischen Gesellschaft.*",
+        "refusal": null,
+        "reasoning": null
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1921,
+    "completion_tokens": 230,
+    "total_tokens": 2151,
+    "cost": 0.0002381,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": null,
+      "upstream_inference_prompt_cost": 0.0001921,
+      "upstream_inference_completions_cost": 4.6e-05
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "gen-1760766825-Filmidk9r8gxN6Rca17c",
+  "provider": "Parasail",
+  "model": "allenai/molmo-7b-d",
+  "object": "chat.completion",
+  "created": 1760766825,
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": " Fundstelle des murus Gallicus auf dem Münsterhügel. Ausgrabungen ergänzt die 1971 entdeckte keltische Befestigungsanlage. Steine im Vordereingriff gehören zur Trockenmauer, Holzbalken im Hintergrund vermodert.",
+        "refusal": null,
+        "reasoning": null
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1680,
+    "completion_tokens": 73,
+    "total_tokens": 1753,
+    "cost": 0.0001826,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": null,
+      "upstream_inference_prompt_cost": 0.000168,
+      "upstream_inference_completions_cost": 1.46e-05
+    }
+  }
+}

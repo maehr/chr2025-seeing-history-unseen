@@ -1,0 +1,40 @@
+{
+  "id": "gen-1760766844-yVCWKtdxRVl9XUfTj8Lb",
+  "provider": "OpenAI",
+  "model": "openai/gpt-4.1-nano",
+  "object": "chat.completion",
+  "created": 1760766844,
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "native_finish_reason": "completed",
+      "message": {
+        "role": "assistant",
+        "content": "Steigen und Fall der Leerstandsquote in Basel, 1960–2020, mit Schwankungen bei Wohnungsknappheit und -angebot.",
+        "refusal": null,
+        "reasoning": null
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1105,
+    "completion_tokens": 33,
+    "total_tokens": 1138,
+    "cost": 0.0001237,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": null,
+      "upstream_inference_prompt_cost": 0.0001105,
+      "upstream_inference_completions_cost": 1.32e-05
+    }
+  }
+}

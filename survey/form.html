@@ -1,6 +1,6 @@
 <script type="module">
-	/* ---------- Konfiguration ---------- */
-	const CSV_URL = 'questions.csv'; // liegt neben dem .qmd
+	/* ---------- Configuration ---------- */
+	const CSV_URL = 'questions.csv'; // sits next to the .qmd
 	const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xrbyjror';
 
 	/* ---------- Util: Seed, RNG, Shuffle ---------- */
@@ -36,7 +36,7 @@
 		return h >>> 0;
 	}
 
-	/* ---------- Papa Parse laden ---------- */
+	/* ---------- Load Papa Parse ---------- */
 	await new Promise((ok, err) => {
 		const s = document.createElement('script');
 		s.src = 'https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js';
@@ -45,24 +45,43 @@
 		document.head.appendChild(s);
 	});
 
-	/* ---------- Daten laden ---------- */
+	/* ---------- Data loading (updated for wide CSV) ---------- */
+	// Expected headers:
+	// question_id,question_text,
+	// option_1_id,option_1_label,option_2_id,option_2_label,option_3_id,option_3_label,option_4_id,option_4_label
 	async function loadQuestions() {
 		const res = await fetch(CSV_URL, { cache: 'no-store' });
 		const text = await res.text();
 		const { data } = Papa.parse(text, { header: true, skipEmptyLines: true });
-		const map = new Map();
+
+		const questions = [];
 		for (const row of data) {
+			if (!row || row.question_id == null) continue;
 			const qid = String(row.question_id).trim();
-			const qtext = row.question_text;
-			const oid = String(row.option_id).trim();
-			const olab = row.option_label;
-			if (!map.has(qid)) map.set(qid, { id: qid, text: qtext, options: [] });
-			map.get(qid).options.push({ id: oid, label: olab });
+			const qtext = row.question_text ?? '';
+
+			// Collect option pairs option_i_id / option_i_label
+			const options = [];
+			// Support up to 50 pairs defensively; adjust as needed.
+			for (let i = 1; i <= 50; i++) {
+				const oidRaw = row[`option_${i}_id`];
+				const olab = row[`option_${i}_label`];
+				if (oidRaw == null && olab == null) continue; // skip completely empty pairs
+				if (oidRaw == null || olab == null) continue; // skip incomplete pairs
+				const oid = String(oidRaw).trim();
+				if (!oid || !String(olab).trim()) continue;
+				options.push({ id: oid, label: olab });
+			}
+
+			// Only keep questions that have at least two options
+			if (options.length >= 2) {
+				questions.push({ id: qid, text: qtext, options });
+			}
 		}
-		return [...map.values()];
+		return questions;
 	}
 
-	/* ---------- Zustand ---------- */
+	/* ---------- State ---------- */
 	const state = {
 		seed: seedFromCrypto(),
 		email: '',
@@ -73,7 +92,7 @@
 		answers: {}
 	};
 
-	/* ---------- UI-Refs ---------- */
+	/* ---------- UI refs ---------- */
 	const pageEmail = document.getElementById('page-email');
 	const pageQ = document.getElementById('page-q');
 	const pageFinish = document.getElementById('page-finish');
@@ -121,7 +140,7 @@
 		else ranklist.appendChild(dragEl);
 	});
 
-	/* ---------- Render ---------- */
+	/* ---------- Rendering ---------- */
 	function currentQuestion() {
 		const qid = state.qOrder[state.idx];
 		return state.questions.find((q) => q.id === qid);
@@ -129,13 +148,15 @@
 
 	function renderQuestion() {
 		const q = currentQuestion();
-		qTitle.textContent = q.text;
-		progress.textContent = `Frage ${state.idx + 1} von ${state.qOrder.length}`;
+		qTitle.innerHTML = q.text;
+		progress.textContent = `Question ${state.idx + 1} of ${state.qOrder.length}`;
 		ranklist.innerHTML = '';
-		// geshuffelte Startreihenfolge, stabil pro Frage
+
+		// Stable shuffled start order per question
 		const R = rng(hashSeed(state.seed, q.id));
 		const opts = shuffle(q.options, R);
 		const startList = state.answers[q.id]?.map((id) => q.options.find((x) => x.id === id)) ?? opts;
+
 		for (const o of startList) {
 			const li = document.createElement('li');
 			li.className = 'list-group-item';
@@ -145,10 +166,10 @@
 			ranklist.appendChild(li);
 		}
 		prevBtn.classList.toggle('disabled', state.idx === 0);
-		nextBtn.textContent = state.idx === state.qOrder.length - 1 ? 'Weiter zur Abgabe' : 'Weiter';
+		nextBtn.textContent = state.idx === state.qOrder.length - 1 ? 'Proceed to submit' : 'Next';
 	}
 
-	/* ---------- Serialisierung ---------- */
+	/* ---------- Serialization ---------- */
 	function captureCurrent() {
 		const q = currentQuestion();
 		const order = [...ranklist.querySelectorAll('li')].map((li) => li.dataset.choice);
@@ -157,16 +178,16 @@
 		return true;
 	}
 
-	/* ---------- Ablauf ---------- */
+	/* ---------- Flow ---------- */
 	startBtn.addEventListener('click', async () => {
 		state.email = email.value.trim();
 		state.consent = consent.checked;
 		if (!state.consent) {
-			emailMsg.textContent = 'Bitte Zustimmung erteilen.';
+			emailMsg.textContent = 'Please give consent.';
 			return;
 		}
 		if (state.email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(state.email)) {
-			emailMsg.textContent = 'Bitte gültige E-Mail oder leer lassen.';
+			emailMsg.textContent = 'Please enter a valid email or leave empty.';
 			return;
 		}
 
@@ -184,14 +205,14 @@
 
 	nextBtn.addEventListener('click', () => {
 		if (!captureCurrent()) {
-			alert('Bitte alle Optionen ordnen.');
+			alert('Please rank all options.');
 			return;
 		}
 		if (state.idx < state.qOrder.length - 1) {
 			state.idx += 1;
 			renderQuestion();
 		} else {
-			summary.textContent = `Bereit zum Senden. ${state.qOrder.length} Fragen beantwortet.`;
+			summary.textContent = `Ready to submit. ${state.qOrder.length} questions answered.`;
 			show(pageFinish);
 		}
 	});
@@ -205,7 +226,7 @@
 
 	submitBtn.addEventListener('click', async () => {
 		if (!captureCurrent()) {
-			alert('Bitte Optionen ordnen.');
+			alert('Please rank all options.');
 			return;
 		}
 		const payload = {
@@ -214,7 +235,7 @@
 			q_order: state.qOrder,
 			answers: state.answers
 		};
-		sendMsg.textContent = 'Sende…';
+		sendMsg.textContent = 'Sending…';
 		try {
 			const r = await fetch(FORMSPREE_ENDPOINT, {
 				method: 'POST',
@@ -222,14 +243,72 @@
 				body: JSON.stringify(payload)
 			});
 			if (r.ok) {
-				sendMsg.textContent = 'Danke. Antworten gespeichert.';
+				sendMsg.textContent = 'Thanks. Answers saved.';
 				submitBtn.disabled = true;
 			} else {
 				const t = await r.text();
-				sendMsg.textContent = 'Fehler beim Senden: ' + t.slice(0, 200);
+				sendMsg.textContent = 'Submit error: ' + t.slice(0, 200);
 			}
 		} catch (err) {
-			sendMsg.textContent = 'Netzwerkfehler: ' + err;
+			sendMsg.textContent = 'Network error: ' + err;
 		}
 	});
 </script>
+
+<div class="container my-4" id="app">
+	<!-- Page 1: Email -->
+	<div class="card" id="page-email">
+		<div class="card-body">
+			<h3 class="card-title mb-3">Contact</h3>
+			<p class="text-muted">Email for follow-up. Optional.</p>
+
+			<div class="mb-3">
+				<label for="email" class="form-label">Email</label>
+				<input id="email" type="email" class="form-control" placeholder="name@example.org" />
+			</div>
+
+			<div class="form-check mb-3">
+				<input class="form-check-input" type="checkbox" id="consent" />
+				<label class="form-check-label" for="consent">
+					I consent to the processing of my data for this study.
+				</label>
+			</div>
+
+			<button id="start" class="btn btn-primary">Start</button>
+			<p id="email-msg" class="text-muted mt-2"></p>
+		</div>
+	</div>
+
+	<!-- Page 2: Question -->
+	<div class="card d-none" id="page-q">
+		<div class="card-body">
+			<div id="progress" class="text-muted mb-2"></div>
+			<h3 id="q-title" class="card-title mb-2">Question</h3>
+			<p class="text-muted">Drag to rank (top = rank 1).</p>
+
+			<ul class="list-group mb-3" id="ranklist"></ul>
+
+			<div class="d-flex gap-2">
+				<button id="prev" class="btn btn-outline-secondary">Back</button>
+				<button id="next" class="btn btn-primary">Next</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- Page 3: Finish -->
+	<div class="card d-none" id="page-finish">
+		<div class="card-body">
+			<h3 class="card-title mb-3">Finish</h3>
+			<p class="text-muted" id="summary">Submitting…</p>
+			<button id="submit" class="btn btn-primary">Submit answers</button>
+			<div id="send-msg" class="text-muted mt-2"></div>
+		</div>
+	</div>
+</div>
+
+<style>
+	/* small UX helper */
+	#ranklist .list-group-item {
+		cursor: grab;
+	}
+</style>

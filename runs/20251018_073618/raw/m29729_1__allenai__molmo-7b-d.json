@@ -1,0 +1,40 @@
+{
+  "id": "gen-1760765824-gAtuZ7e13SdINxCJrr3Z",
+  "provider": "Parasail",
+  "model": "allenai/molmo-7b-d",
+  "object": "chat.completion",
+  "created": 1760765824,
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": " Provinzeinteilung nach der Verwaltungsreform Diokletians\n\nDie spätrömische Provinzeinteilung nördlich der Alpen und das angenommen alamannische Siedlungsgebiet. Die Provinz Maxima Sequanorum entstand im Jahr 297 durch Aufteilung der ehemaligen Provinz Germania Superior im Rahmen der Verwaltungs- und Militärreformen unter Kaiser Diokletian. Sie war in vier Regionen unterteilt: Die civitas Vesontiensium (Hauptort Besançon), die civitas Helvetiorum (Avenches),die Colonia Iulia Equestris (Nyon) und die Colonia Augusta Raurica (Augst/Kaiseraugst).\n\nRömische Provinzen im Alpenraum um 395 n. Chr.",
+        "refusal": null,
+        "reasoning": null
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1851,
+    "completion_tokens": 195,
+    "total_tokens": 2046,
+    "cost": 0.0002241,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": null,
+      "upstream_inference_prompt_cost": 0.0001851,
+      "upstream_inference_completions_cost": 3.9e-05
+    }
+  }
+}

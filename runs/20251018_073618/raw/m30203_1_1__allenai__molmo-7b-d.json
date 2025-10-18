@@ -1,0 +1,40 @@
+{
+  "id": "gen-1760765811-PC2e2buT1BvReMrtnx9u",
+  "provider": "Parasail",
+  "model": "allenai/molmo-7b-d",
+  "object": "chat.completion",
+  "created": 1760765811,
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": " Fundstellen der Spätantike im Umland von Basel\n\nSiedlungslandschaft im Umfeld des Kastells Kaiseraugst gemäss dem aktuellen Forschungsstand. Kartiert sind die bekannten Fundstellen des späten 3. und 4. Jahrhunderts n. Chr.\n\nGeschichte der Fundstellen\nAntike\nBasel\n2010\nAndreas Kettner\nNico Görlich\nMoritz Salvisberg",
+        "refusal": null,
+        "reasoning": null
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1473,
+    "completion_tokens": 103,
+    "total_tokens": 1576,
+    "cost": 0.0001679,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": null,
+      "upstream_inference_prompt_cost": 0.0001473,
+      "upstream_inference_completions_cost": 2.06e-05
+    }
+  }
+}

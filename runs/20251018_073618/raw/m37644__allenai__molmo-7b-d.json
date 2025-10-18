@@ -1,0 +1,40 @@
+{
+  "id": "gen-1760767029-AGrxyRqRnq76TZp6ICAC",
+  "provider": "Parasail",
+  "model": "allenai/molmo-7b-d",
+  "object": "chat.completion",
+  "created": 1760767029,
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": " Markgräfin Mathilde von Tuszien und Abt Hugo von Cluny treten in diesem historischen Miniaturabbild vor Papst Gregor VII. Hugo, der Pate des Königs Heinrich IV., vermittelt, dass der König und der Papst sich verständigen. Mathilde und Hugo ver弯曲膝盖, symbolisch für ihre demütige Rolle in den Verhandlungen. Hugo führt den König in die Kneeling position, um die Bitte um Versöhnung für Heinrich IV. vor dem Papst zu bringen.",
+        "refusal": null,
+        "reasoning": null
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1756,
+    "completion_tokens": 120,
+    "total_tokens": 1876,
+    "cost": 0.0001996,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": null,
+      "upstream_inference_prompt_cost": 0.0001756,
+      "upstream_inference_completions_cost": 2.4e-05
+    }
+  }
+}

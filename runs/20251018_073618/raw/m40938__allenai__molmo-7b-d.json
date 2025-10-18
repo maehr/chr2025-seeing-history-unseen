@@ -1,0 +1,40 @@
+{
+  "id": "gen-1760767078-IciOpjkiA8HBmwsar23I",
+  "provider": "Parasail",
+  "model": "allenai/molmo-7b-d",
+  "object": "chat.completion",
+  "created": 1760767078,
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": " Basler Merianplan (1617) - North view of Basel. Central Birsig River flows from northeast to southwest. Urban area with dense housing. Green spaces and gardens visible along the riverbanks. Well-organized city without visible waste heaps or damaged fences. Various garden types and layout clearly shown.",
+        "refusal": null,
+        "reasoning": null
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1457,
+    "completion_tokens": 65,
+    "total_tokens": 1522,
+    "cost": 0.0001587,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": null,
+      "upstream_inference_prompt_cost": 0.0001457,
+      "upstream_inference_completions_cost": 1.3e-05
+    }
+  }
+}

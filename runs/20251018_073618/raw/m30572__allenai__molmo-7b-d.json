@@ -1,0 +1,40 @@
+{
+  "id": "gen-1760765916-JcOQbLrHeoybb7vhUsZy",
+  "provider": "Parasail",
+  "model": "allenai/molmo-7b-d",
+  "object": "chat.completion",
+  "created": 1760765916,
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": " Barrierefreier alternativer Text:\n\nEin 2-meter-tiefer Lössprofil an der Schäublinstrasse 115 im Bruderholzquartier wurde 2014 freigelegt. Dieses historische Fundament entstand während der letzt Eiszeit und hat sich in Windstaub沉积中发育而来. Es bietet Einblicke in die klimatische Geschichte des Regiones.",
+        "refusal": null,
+        "reasoning": null
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1430,
+    "completion_tokens": 92,
+    "total_tokens": 1522,
+    "cost": 0.0001614,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": null,
+      "upstream_inference_prompt_cost": 0.000143,
+      "upstream_inference_completions_cost": 1.84e-05
+    }
+  }
+}

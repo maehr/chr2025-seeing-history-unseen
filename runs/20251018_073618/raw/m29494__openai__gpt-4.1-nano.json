@@ -1,0 +1,40 @@
+{
+  "id": "gen-1760766020-sAbzGt75X3CWuZBlJR1y",
+  "provider": "OpenAI",
+  "model": "openai/gpt-4.1-nano",
+  "object": "chat.completion",
+  "created": 1760766020,
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "native_finish_reason": "completed",
+      "message": {
+        "role": "assistant",
+        "content": "Spätlatènezeitliche Straße mit Balkengräben und Abbruchschicht bei Ausgrabung im Basel-Münsterhügel, zeigt archäologische Substratstrukturen.",
+        "refusal": null,
+        "reasoning": null
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1500,
+    "completion_tokens": 40,
+    "total_tokens": 1540,
+    "cost": 0.000166,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": null,
+      "upstream_inference_prompt_cost": 0.00015,
+      "upstream_inference_completions_cost": 1.6e-05
+    }
+  }
+}

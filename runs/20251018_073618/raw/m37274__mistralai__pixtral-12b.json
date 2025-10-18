@@ -1,0 +1,40 @@
+{
+  "id": "gen-1760766388-Bi3QuBUGhtRBItLLcILH",
+  "provider": "Hyperbolic",
+  "model": "mistralai/pixtral-12b",
+  "object": "chat.completion",
+  "created": 1760766388,
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "Karte der Eidgenossenschaft aus dem Jahr 1513, zeigt die Schweiz und umliegende Gebiete.",
+        "refusal": null,
+        "reasoning": null
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 537,
+    "completion_tokens": 28,
+    "total_tokens": 565,
+    "cost": 5.65e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": null,
+      "upstream_inference_prompt_cost": 5.37e-05,
+      "upstream_inference_completions_cost": 2.8e-06
+    }
+  }
+}

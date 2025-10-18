@@ -1,0 +1,40 @@
+{
+  "id": "gen-1760766273-A1FFNqrTGSWDSwaBxh2J",
+  "provider": "Google",
+  "model": "google/gemini-2.5-flash-lite",
+  "object": "chat.completion",
+  "created": 1760766273,
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "native_finish_reason": "STOP",
+      "message": {
+        "role": "assistant",
+        "content": "Rekonstruktion: Spätrömische Gürtelgarnitur eines ranghohen Offiziers, bronzenes Zierelement.",
+        "refusal": null,
+        "reasoning": null
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2185,
+    "completion_tokens": 28,
+    "total_tokens": 2213,
+    "cost": 0.0002297,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": null,
+      "upstream_inference_prompt_cost": 0.0002185,
+      "upstream_inference_completions_cost": 1.12e-05
+    }
+  }
+}

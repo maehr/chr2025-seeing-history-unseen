@@ -1,0 +1,40 @@
+{
+  "id": "gen-1760765804-BwDZ7soXjsz6WtQ6jk9A",
+  "provider": "Mistral",
+  "model": "mistralai/pixtral-12b",
+  "object": "chat.completion",
+  "created": 1760765804,
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "native_finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "Kartierung historischer Fundstellen im Umland von Basel, spätes 3. und 4. Jahrhundert n. Chr.",
+        "refusal": null,
+        "reasoning": null
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 2127,
+    "completion_tokens": 28,
+    "total_tokens": 2155,
+    "cost": 0.00032325,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": null,
+      "upstream_inference_prompt_cost": 0.00031905,
+      "upstream_inference_completions_cost": 4.2e-06
+    }
+  }
+}
