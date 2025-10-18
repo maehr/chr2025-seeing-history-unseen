@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760803871-eW5KvppFwABPXWLULyk2",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760803871,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " *Umschrift der Grabinschrift des römischen Offiziers und Statthalters Lucius Munatius Plancus von seinem Grabmal\n*Diese Grabinschrift des römischen Offiziers und Statthalters Lucius Munatius Plancus, der in Rom starb und in Cap Gaëta, südlich von Rom, beigeschart wurde, enthält wichtige Informationen über seine Karriere. Es ist noch heute vorhanden und kann besichtigt werden.\n*Plancus gründete in Gallien die Kolonien Lugudunum (heutiges Lyon) und Raurica (heutige Basel oder Kaiseraugst).\n*Seine Beiträge zur Kolonialisierung Galliens halfen der Römischen Republik in dieser schwierigen Region.\n*Plancus starb im Jahr -0015 und wurde von seiner Frau und Söhnen beigeschart.\n*Seine Grabinschrift hat wertvolle Informationen für Historiker und Archäologen, die die römische Expansion in Gallien untersuchen möchten.*",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1083,
+		"completion_tokens": 235,
+		"total_tokens": 1318,
+		"cost": 0.0001553,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001083,
+			"upstream_inference_completions_cost": 4.7e-5
+		}
+	}
+}

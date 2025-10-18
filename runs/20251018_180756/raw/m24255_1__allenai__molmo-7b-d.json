@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804411-fWdciak202L08cqsX8HW",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760804411,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " Barrierefreier alternativer Text:\n\nDie Karte zeigt die Säumigen Schuldner des Basler Kartäuserklosters im Jahr 1660. Sie veranschaulicht, wo diese Schuldner wohnten. Weitere Schuldner, nicht auf der Karte dargestellt, waren der römisch-deutsche König, das Fürstentum Österreich und das Landству des Landes Baden.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1759,
+		"completion_tokens": 95,
+		"total_tokens": 1854,
+		"cost": 0.0001949,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001759,
+			"upstream_inference_completions_cost": 1.9e-5
+		}
+	}
+}

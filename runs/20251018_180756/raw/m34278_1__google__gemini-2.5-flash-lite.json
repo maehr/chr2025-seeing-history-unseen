@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804360-aI8JQ98kvHI7rO81LO0s",
+	"provider": "Google",
+	"model": "google/gemini-2.5-flash-lite",
+	"object": "chat.completion",
+	"created": 1760804360,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "STOP",
+			"message": {
+				"role": "assistant",
+				"content": "Schema der Dreifelderwirtschaft im Mittelalter mit Zeitlichem Ablauf der Bewirtschaftung.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1690,
+		"completion_tokens": 18,
+		"total_tokens": 1708,
+		"cost": 0.0001762,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.000169,
+			"upstream_inference_completions_cost": 7.2e-6
+		}
+	}
+}

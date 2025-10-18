@@ -1,40 +1,40 @@
 {
-  "id": "gen-1760766230-QAguuuCGblyRBrlziSMR",
-  "provider": "Parasail",
-  "model": "allenai/molmo-7b-d",
-  "object": "chat.completion",
-  "created": 1760766230,
-  "choices": [
-    {
-      "index": 0,
-      "finish_reason": "length",
-      "native_finish_reason": "length",
-      "message": {
-        "role": "assistant",
-        "content": " * Rekonstruktionsvorschlag zur Benutzung des Mörtelmischers\n* Die Rekonstruktion verdeutlicht das eindrückliche Ausmass der an der Martinsgasse 6 + 8 gefundenen Anlage.\n* Funktion: Verbindung des oberen und unteren Teils des Mörtelmischers\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n",
-        "refusal": null,
-        "reasoning": null
-      }
-    }
-  ],
-  "usage": {
-    "prompt_tokens": 990,
-    "completion_tokens": 1888,
-    "total_tokens": 2878,
-    "cost": 0.0004766,
-    "is_byok": false,
-    "prompt_tokens_details": {
-      "cached_tokens": 0,
-      "audio_tokens": 0
-    },
-    "completion_tokens_details": {
-      "reasoning_tokens": 0,
-      "image_tokens": 0
-    },
-    "cost_details": {
-      "upstream_inference_cost": null,
-      "upstream_inference_prompt_cost": 9.9e-05,
-      "upstream_inference_completions_cost": 0.0003776
-    }
-  }
+	"id": "gen-1760766230-QAguuuCGblyRBrlziSMR",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760766230,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "length",
+			"native_finish_reason": "length",
+			"message": {
+				"role": "assistant",
+				"content": " * Rekonstruktionsvorschlag zur Benutzung des Mörtelmischers\n* Die Rekonstruktion verdeutlicht das eindrückliche Ausmass der an der Martinsgasse 6 + 8 gefundenen Anlage.\n* Funktion: Verbindung des oberen und unteren Teils des Mörtelmischers\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n* Bedingungen: Keine\n",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 990,
+		"completion_tokens": 1888,
+		"total_tokens": 2878,
+		"cost": 0.0004766,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 9.9e-5,
+			"upstream_inference_completions_cost": 0.0003776
+		}
+	}
 }

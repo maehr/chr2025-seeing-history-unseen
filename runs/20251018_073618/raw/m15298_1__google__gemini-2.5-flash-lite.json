@@ -1,40 +1,40 @@
 {
-  "id": "gen-1760766849-YAJeGJRTtGZjYyHrXLBa",
-  "provider": "Google",
-  "model": "google/gemini-2.5-flash-lite",
-  "object": "chat.completion",
-  "created": 1760766849,
-  "choices": [
-    {
-      "index": 0,
-      "finish_reason": "stop",
-      "native_finish_reason": "STOP",
-      "message": {
-        "role": "assistant",
-        "content": "Karte der zwischen 1912 und 1966 in Basel erbauten Gotteshäuser mit Legende für Konfessionen.",
-        "refusal": null,
-        "reasoning": null
-      }
-    }
-  ],
-  "usage": {
-    "prompt_tokens": 1868,
-    "completion_tokens": 28,
-    "total_tokens": 1896,
-    "cost": 0.000198,
-    "is_byok": false,
-    "prompt_tokens_details": {
-      "cached_tokens": 0,
-      "audio_tokens": 0
-    },
-    "completion_tokens_details": {
-      "reasoning_tokens": 0,
-      "image_tokens": 0
-    },
-    "cost_details": {
-      "upstream_inference_cost": null,
-      "upstream_inference_prompt_cost": 0.0001868,
-      "upstream_inference_completions_cost": 1.12e-05
-    }
-  }
+	"id": "gen-1760766849-YAJeGJRTtGZjYyHrXLBa",
+	"provider": "Google",
+	"model": "google/gemini-2.5-flash-lite",
+	"object": "chat.completion",
+	"created": 1760766849,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "STOP",
+			"message": {
+				"role": "assistant",
+				"content": "Karte der zwischen 1912 und 1966 in Basel erbauten Gotteshäuser mit Legende für Konfessionen.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1868,
+		"completion_tokens": 28,
+		"total_tokens": 1896,
+		"cost": 0.000198,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001868,
+			"upstream_inference_completions_cost": 1.12e-5
+		}
+	}
 }

@@ -1,40 +1,40 @@
 {
-  "id": "gen-1760766778-gdvfGqXoNtBwylxyVvXh",
-  "provider": "OpenAI",
-  "model": "openai/gpt-4.1-nano",
-  "object": "chat.completion",
-  "created": 1760766778,
-  "choices": [
-    {
-      "index": 0,
-      "finish_reason": "stop",
-      "native_finish_reason": "completed",
-      "message": {
-        "role": "assistant",
-        "content": "Blick vom Isteiner Klotz rheinaufwärts gegen Basel, zeigt viele Nebenarme des Rheins und Landschaften im 19. Jahrhundert.",
-        "refusal": null,
-        "reasoning": null
-      }
-    }
-  ],
-  "usage": {
-    "prompt_tokens": 1501,
-    "completion_tokens": 33,
-    "total_tokens": 1534,
-    "cost": 0.0001633,
-    "is_byok": false,
-    "prompt_tokens_details": {
-      "cached_tokens": 0,
-      "audio_tokens": 0
-    },
-    "completion_tokens_details": {
-      "reasoning_tokens": 0,
-      "image_tokens": 0
-    },
-    "cost_details": {
-      "upstream_inference_cost": null,
-      "upstream_inference_prompt_cost": 0.0001501,
-      "upstream_inference_completions_cost": 1.32e-05
-    }
-  }
+	"id": "gen-1760766778-gdvfGqXoNtBwylxyVvXh",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4.1-nano",
+	"object": "chat.completion",
+	"created": 1760766778,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "completed",
+			"message": {
+				"role": "assistant",
+				"content": "Blick vom Isteiner Klotz rheinaufwärts gegen Basel, zeigt viele Nebenarme des Rheins und Landschaften im 19. Jahrhundert.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1501,
+		"completion_tokens": 33,
+		"total_tokens": 1534,
+		"cost": 0.0001633,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001501,
+			"upstream_inference_completions_cost": 1.32e-5
+		}
+	}
 }

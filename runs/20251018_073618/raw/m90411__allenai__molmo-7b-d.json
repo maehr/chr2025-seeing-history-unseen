@@ -1,40 +1,40 @@
 {
-  "id": "gen-1760766198-US4pqvRO4tHFoWGONHHF",
-  "provider": "Parasail",
-  "model": "allenai/molmo-7b-d",
-  "object": "chat.completion",
-  "created": 1760766198,
-  "choices": [
-    {
-      "index": 0,
-      "finish_reason": "stop",
-      "native_finish_reason": "stop",
-      "message": {
-        "role": "assistant",
-        "content": " Missions der Basler Mission\n\nWeltkarte des Missionswerks als Befreier vom heidnischen Aberglauben. Die Karte illustriert den Anspruch auf zivilisatorische Überlegenheit, auf dessen Grundlage man für selbstlos halten konnte, was heute als selbstgerecht erscheint. Und profitabel war – nicht nur, sondern auch im Fall der Basler Handelsgesellschaft.\n\nDatum: 1903\nEpoche: 20. Jahrhundert\nErsteller: Kein Ersteller\nHerausgeber: Historisches Museum Basel\nQuelle: Inv. 2007.40., Foto Peter Portner",
-        "refusal": null,
-        "reasoning": null
-      }
-    }
-  ],
-  "usage": {
-    "prompt_tokens": 1641,
-    "completion_tokens": 152,
-    "total_tokens": 1793,
-    "cost": 0.0001945,
-    "is_byok": false,
-    "prompt_tokens_details": {
-      "cached_tokens": 0,
-      "audio_tokens": 0
-    },
-    "completion_tokens_details": {
-      "reasoning_tokens": 0,
-      "image_tokens": 0
-    },
-    "cost_details": {
-      "upstream_inference_cost": null,
-      "upstream_inference_prompt_cost": 0.0001641,
-      "upstream_inference_completions_cost": 3.04e-05
-    }
-  }
+	"id": "gen-1760766198-US4pqvRO4tHFoWGONHHF",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760766198,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " Missions der Basler Mission\n\nWeltkarte des Missionswerks als Befreier vom heidnischen Aberglauben. Die Karte illustriert den Anspruch auf zivilisatorische Überlegenheit, auf dessen Grundlage man für selbstlos halten konnte, was heute als selbstgerecht erscheint. Und profitabel war – nicht nur, sondern auch im Fall der Basler Handelsgesellschaft.\n\nDatum: 1903\nEpoche: 20. Jahrhundert\nErsteller: Kein Ersteller\nHerausgeber: Historisches Museum Basel\nQuelle: Inv. 2007.40., Foto Peter Portner",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1641,
+		"completion_tokens": 152,
+		"total_tokens": 1793,
+		"cost": 0.0001945,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001641,
+			"upstream_inference_completions_cost": 3.04e-5
+		}
+	}
 }

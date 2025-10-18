@@ -12,7 +12,9 @@ Python: 3.13
 """
 
 from __future__ import annotations
-
+import base64
+import mimetypes
+import csv
 import json
 import os
 import sys
@@ -400,6 +402,20 @@ def persist_json(path: Path, data: dict | list | str | int | float | None) -> No
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
+def image_data_uri(url: str) -> str:  # NEW
+    """Fetch image bytes and return a data-URI string."""
+    r = requests.get(url, timeout=TIMEOUT_SECONDS)
+    if r.status_code != 200:
+        raise FileNotFoundError(f"Failed to fetch image [{r.status_code}]: {url}")
+    mime = r.headers.get("Content-Type")
+    if not mime:
+        mime, _ = mimetypes.guess_type(url)
+    if not mime:
+        mime = "image/jpeg"
+    b64 = base64.b64encode(r.content).decode("ascii")
+    return f"data:{mime};base64,{b64}"
+
+
 # ---------------------------
 # Main
 # ---------------------------
@@ -424,6 +440,7 @@ def main() -> None:
 
     # Prepare table with one row per media id
     rows: list[dict[str, Any]] = []
+    questions_rows: list[list[str]] = []
 
     for mid in MEDIA_IDS:
         media = db[mid]
@@ -471,6 +488,33 @@ def main() -> None:
 
         rows.append(row)
 
+        # --- build questions.csv row for this media id ---
+        try:
+            data_uri = image_data_uri(str(media.object_thumb))
+            img_tag = f'<img src="{data_uri}">'
+        except Exception as e:
+            img_tag = f"[ERROR fetching image: {type(e).__name__}: {e}]"
+
+        def content_for(idx: int) -> str:
+            m = MODELS[idx]
+            return row.get(f"{m.replace('/', '__')}__content") or ""
+
+        questions_rows.append(
+            [
+                mid,
+                img_tag,
+                MODELS[0],
+                content_for(0),
+                MODELS[1],
+                content_for(1),
+                MODELS[2],
+                content_for(2),
+                MODELS[3],
+                content_for(3),
+            ]
+        )
+    # --- end for mid ---
+
     # Build DataFrame (wide format)
     df = pd.DataFrame(rows)
 
@@ -487,6 +531,25 @@ def main() -> None:
         for record in df.to_dict(orient="records"):
             f.write(json.dumps(record, ensure_ascii=False) + "\n")
 
+    # --- write questions.csv with the exact header and order ---
+    questions_csv = run_dir / "questions.csv"
+    header = [
+        "question_id",
+        "question_text",
+        "option_1_id",
+        "option_1_label",
+        "option_2_id",
+        "option_2_label",
+        "option_3_id",
+        "option_3_label",
+        "option_4_id",
+        "option_4_label",
+    ]
+    with questions_csv.open("w", encoding="utf-8", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(header)
+        writer.writerows(questions_rows)
+
     manifest = {
         "created_utc": utc_now_iso(),
         "runs_dir": str(run_dir.resolve()),
@@ -497,6 +560,7 @@ def main() -> None:
         "table_csv": str(Path(f"{table_base}.csv").resolve()),
         "table_parquet": str(Path(f"{table_base}.parquet").resolve()),
         "table_jsonl": str(Path(f"{table_base}.jsonl").resolve()),
+        "questions_csv": str(questions_csv.resolve()),
         "python_version": sys.version,
     }
     persist_json(run_dir / "manifest.json", manifest)

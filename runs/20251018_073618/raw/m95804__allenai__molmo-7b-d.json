@@ -1,40 +1,40 @@
 {
-  "id": "gen-1760766701-Zxi4iA0p9Sdx8H2lzETO",
-  "provider": "Parasail",
-  "model": "allenai/molmo-7b-d",
-  "object": "chat.completion",
-  "created": 1760766701,
-  "choices": [
-    {
-      "index": 0,
-      "finish_reason": "stop",
-      "native_finish_reason": "stop",
-      "message": {
-        "role": "assistant",
-        "content": " * Abbruch des St. Alban-Schwibbogens und innerstädtischer Stadtmauer\n* 19. Jahrhundert, Abbruch der letzten Teile der innerstädtischen Stadtmauer\n* Funktionalität: Darstellung des historischen Abbruchs\n* Kontext: Archäologische Forschung und Bildung",
-        "refusal": null,
-        "reasoning": null
-      }
-    }
-  ],
-  "usage": {
-    "prompt_tokens": 1771,
-    "completion_tokens": 78,
-    "total_tokens": 1849,
-    "cost": 0.0001927,
-    "is_byok": false,
-    "prompt_tokens_details": {
-      "cached_tokens": 0,
-      "audio_tokens": 0
-    },
-    "completion_tokens_details": {
-      "reasoning_tokens": 0,
-      "image_tokens": 0
-    },
-    "cost_details": {
-      "upstream_inference_cost": null,
-      "upstream_inference_prompt_cost": 0.0001771,
-      "upstream_inference_completions_cost": 1.56e-05
-    }
-  }
+	"id": "gen-1760766701-Zxi4iA0p9Sdx8H2lzETO",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760766701,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " * Abbruch des St. Alban-Schwibbogens und innerstädtischer Stadtmauer\n* 19. Jahrhundert, Abbruch der letzten Teile der innerstädtischen Stadtmauer\n* Funktionalität: Darstellung des historischen Abbruchs\n* Kontext: Archäologische Forschung und Bildung",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1771,
+		"completion_tokens": 78,
+		"total_tokens": 1849,
+		"cost": 0.0001927,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001771,
+			"upstream_inference_completions_cost": 1.56e-5
+		}
+	}
 }

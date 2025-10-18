@@ -1,40 +1,40 @@
 {
-  "id": "gen-1760767089-fmb2IOKcavNQf4kmNG4Q",
-  "provider": "Parasail",
-  "model": "allenai/molmo-7b-d",
-  "object": "chat.completion",
-  "created": 1760767089,
-  "choices": [
-    {
-      "index": 0,
-      "finish_reason": "stop",
-      "native_finish_reason": "stop",
-      "message": {
-        "role": "assistant",
-        "content": " Steinplattengrab:\nEin Steinplattegrab besteht aus einer flach gelegten Steinplatte, die den Leichnam bedeckt. Man findet diese Grabart in der Frühzeit des fruhmittelalterlichen Basel. Es handelt sich um eine einfache Erdbestattungstype, die man oftmal in Gruppen anordnete.\n\nMauergrab (Aufsicht):\nEin Mauergrab hat eine Mauer als Verteidigung und Front. Man sieht sowohl den Auflageplan als auch den Querschnitt. Es war eine typische Grabform in fruhmittelalterlichen Basel, um den Leichnam zu schützen und zu Ehren zu halten.\n\nMauergrab (Querschnitt):\nEin Querschnitt des Mauergrabs zeigt den inneren Struktur und Bestand der Grabung. Man sieht den Leichnam, eventuelle Gegenstände und die Struktur der Mauer.\n\nKammergrab (Aufsicht):\nEin Kammergrab hat eine Hölle, in der der Leichnam vergraben wurde. Man sieht sowohl den Auflageplan als auch den Querschnitt. Es war eine typische Grabform in fruhmittelalterlichen Basel, um den Leichnam zu schützen und zu Ehren zu halten.\n\nKammergrab (Querschnitt):\nEin Querschnitt des Kammergrabs zeigt den inneren Struktur und Bestand der Grabung. Man sieht den Leichnam, eventuelle Gegenstände und die Struktur der Hölle.\n\nBrandgrab:\nEin Brandgrab besteht aus einer Feuer bestattung. Man sieht den Querschnitt, in dem der Leichnam vergraben wurde. Es war eine typische Grabform in fruhmittelalterlichen Basel, um den Leichnam zu schützen und zu Ehren zu halten.\n\nEinfache Erdbestattung:\nEin einfache Erdbestattung bedeutet, dass der Leichnam in den Boden vergraben wurde. Man sieht sowohl den Auflageplan als auch den Querschnitt. Es war eine typische Grabform in fruhmittelalterlichen Basel, um den Leichnam zu schützen und zu Ehren zu halten.",
-        "refusal": null,
-        "reasoning": null
-      }
-    }
-  ],
-  "usage": {
-    "prompt_tokens": 1685,
-    "completion_tokens": 471,
-    "total_tokens": 2156,
-    "cost": 0.0002627,
-    "is_byok": false,
-    "prompt_tokens_details": {
-      "cached_tokens": 0,
-      "audio_tokens": 0
-    },
-    "completion_tokens_details": {
-      "reasoning_tokens": 0,
-      "image_tokens": 0
-    },
-    "cost_details": {
-      "upstream_inference_cost": null,
-      "upstream_inference_prompt_cost": 0.0001685,
-      "upstream_inference_completions_cost": 9.42e-05
-    }
-  }
+	"id": "gen-1760767089-fmb2IOKcavNQf4kmNG4Q",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760767089,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " Steinplattengrab:\nEin Steinplattegrab besteht aus einer flach gelegten Steinplatte, die den Leichnam bedeckt. Man findet diese Grabart in der Frühzeit des fruhmittelalterlichen Basel. Es handelt sich um eine einfache Erdbestattungstype, die man oftmal in Gruppen anordnete.\n\nMauergrab (Aufsicht):\nEin Mauergrab hat eine Mauer als Verteidigung und Front. Man sieht sowohl den Auflageplan als auch den Querschnitt. Es war eine typische Grabform in fruhmittelalterlichen Basel, um den Leichnam zu schützen und zu Ehren zu halten.\n\nMauergrab (Querschnitt):\nEin Querschnitt des Mauergrabs zeigt den inneren Struktur und Bestand der Grabung. Man sieht den Leichnam, eventuelle Gegenstände und die Struktur der Mauer.\n\nKammergrab (Aufsicht):\nEin Kammergrab hat eine Hölle, in der der Leichnam vergraben wurde. Man sieht sowohl den Auflageplan als auch den Querschnitt. Es war eine typische Grabform in fruhmittelalterlichen Basel, um den Leichnam zu schützen und zu Ehren zu halten.\n\nKammergrab (Querschnitt):\nEin Querschnitt des Kammergrabs zeigt den inneren Struktur und Bestand der Grabung. Man sieht den Leichnam, eventuelle Gegenstände und die Struktur der Hölle.\n\nBrandgrab:\nEin Brandgrab besteht aus einer Feuer bestattung. Man sieht den Querschnitt, in dem der Leichnam vergraben wurde. Es war eine typische Grabform in fruhmittelalterlichen Basel, um den Leichnam zu schützen und zu Ehren zu halten.\n\nEinfache Erdbestattung:\nEin einfache Erdbestattung bedeutet, dass der Leichnam in den Boden vergraben wurde. Man sieht sowohl den Auflageplan als auch den Querschnitt. Es war eine typische Grabform in fruhmittelalterlichen Basel, um den Leichnam zu schützen und zu Ehren zu halten.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1685,
+		"completion_tokens": 471,
+		"total_tokens": 2156,
+		"cost": 0.0002627,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001685,
+			"upstream_inference_completions_cost": 9.42e-5
+		}
+	}
 }

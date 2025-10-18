@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804172-aH15xBTxqtUpD5LPVi0I",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760804172,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " * Rekonstruktionszeichnung einer spätrömischen Gürtelgarnitur\n* Kerbschnittverzierte, bronzene Militärgürtel (cingulum militare) gefunden in einer spätrömischen Bestattung in Aeschenvorstadt\n* Tragweise: Unterstützte den Schild und die Wurzel der Wurzelschicht\n* Funktionalität: Unterstützte die Beweglichkeit des Soldaten während des Krieges\n* Stil: Römischer Realismus\n* Material: Bronze\n* Alter: 4xxx\n* Epoche: Frühgeschichte\n* Ersteller: Heidi Colombi\n* Herausgeber: [Archäologische Bodenforschung Basel-Stadt](https://www.bs.ch/pd/kultur/museen-und-andere-dienststellen/archaeologie)\n* Quelle: ABBS, T23735",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1350,
+		"completion_tokens": 204,
+		"total_tokens": 1554,
+		"cost": 0.0001758,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.000135,
+			"upstream_inference_completions_cost": 4.08e-5
+		}
+	}
+}

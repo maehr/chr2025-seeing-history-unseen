@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760803862-SV86HHLasJ7xiornZg2K",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760803862,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " *Wohnung in schlechten Zustand. Drei Betten in eng gestellter Raum. Wohlf杂e und mager. Keine genügende Platz für Bewegung. Keine angemessene Hygiene-Infrastruktur. Bedingte hygienische Verhältnisse. Bedingte hygienische Verhältnisse. Bedingte hygienische Verhältnisse.*",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1343,
+		"completion_tokens": 92,
+		"total_tokens": 1435,
+		"cost": 0.0001527,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001343,
+			"upstream_inference_completions_cost": 1.84e-5
+		}
+	}
+}

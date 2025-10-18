@@ -1,40 +1,40 @@
 {
-  "id": "gen-1760766960-YrVJf3103sI6wfG5vWQp",
-  "provider": "OpenAI",
-  "model": "openai/gpt-4.1-nano",
-  "object": "chat.completion",
-  "created": 1760766960,
-  "choices": [
-    {
-      "index": 0,
-      "finish_reason": "stop",
-      "native_finish_reason": "completed",
-      "message": {
-        "role": "assistant",
-        "content": "Römischer Gutshof bei der Ausgrabung 1930, Mauerreste wurden vor Ort zerkleinert.",
-        "refusal": null,
-        "reasoning": null
-      }
-    }
-  ],
-  "usage": {
-    "prompt_tokens": 1953,
-    "completion_tokens": 26,
-    "total_tokens": 1979,
-    "cost": 0.0002057,
-    "is_byok": false,
-    "prompt_tokens_details": {
-      "cached_tokens": 0,
-      "audio_tokens": 0
-    },
-    "completion_tokens_details": {
-      "reasoning_tokens": 0,
-      "image_tokens": 0
-    },
-    "cost_details": {
-      "upstream_inference_cost": null,
-      "upstream_inference_prompt_cost": 0.0001953,
-      "upstream_inference_completions_cost": 1.04e-05
-    }
-  }
+	"id": "gen-1760766960-YrVJf3103sI6wfG5vWQp",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4.1-nano",
+	"object": "chat.completion",
+	"created": 1760766960,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "completed",
+			"message": {
+				"role": "assistant",
+				"content": "Römischer Gutshof bei der Ausgrabung 1930, Mauerreste wurden vor Ort zerkleinert.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1953,
+		"completion_tokens": 26,
+		"total_tokens": 1979,
+		"cost": 0.0002057,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001953,
+			"upstream_inference_completions_cost": 1.04e-5
+		}
+	}
 }

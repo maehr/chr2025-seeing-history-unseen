@@ -1,40 +1,40 @@
 {
-  "id": "gen-1760766141-4r6qSmk4J3CP5iRWKhlq",
-  "provider": "Parasail",
-  "model": "allenai/molmo-7b-d",
-  "object": "chat.completion",
-  "created": 1760766141,
-  "choices": [
-    {
-      "index": 0,
-      "finish_reason": "stop",
-      "native_finish_reason": "stop",
-      "message": {
-        "role": "assistant",
-        "content": " * Skelett eines Berberaffen, 15. Jahrhundert.\n* Die vorgefunde Knochen verursachen Missverständnisse. Obwohl sie den Sterblichen eines nordafrikanischen Berberaffen zuführen, erlauben sie nur wenige ungesicherte Schlüsse über sein Leben. Sein Lebenslauf hat wahrscheinlich in weniger geordneten Bahnen verlaufen, als die Präsentation insinuiert. Als Basis für eine neuere Geschichte Basel's im Spätmittelalter eignet sich dieser außergewöhnliche Fund jedoch.\n* Datum (Extended Date Time Format): 15xx\n* Epoche: Mittelalter\n* Ersteller: Philippe Saurbeck\n* Herausgeber: [Archäologische Bodenforschung Basel-Stadt](https://www.bs.ch/pd/kultur/museen-und-andere-dienststellen/archaeologie)\n* Quelle: ABBS, T25286",
-        "refusal": null,
-        "reasoning": null
-      }
-    }
-  ],
-  "usage": {
-    "prompt_tokens": 1458,
-    "completion_tokens": 221,
-    "total_tokens": 1679,
-    "cost": 0.00019,
-    "is_byok": false,
-    "prompt_tokens_details": {
-      "cached_tokens": 0,
-      "audio_tokens": 0
-    },
-    "completion_tokens_details": {
-      "reasoning_tokens": 0,
-      "image_tokens": 0
-    },
-    "cost_details": {
-      "upstream_inference_cost": null,
-      "upstream_inference_prompt_cost": 0.0001458,
-      "upstream_inference_completions_cost": 4.42e-05
-    }
-  }
+	"id": "gen-1760766141-4r6qSmk4J3CP5iRWKhlq",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760766141,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " * Skelett eines Berberaffen, 15. Jahrhundert.\n* Die vorgefunde Knochen verursachen Missverständnisse. Obwohl sie den Sterblichen eines nordafrikanischen Berberaffen zuführen, erlauben sie nur wenige ungesicherte Schlüsse über sein Leben. Sein Lebenslauf hat wahrscheinlich in weniger geordneten Bahnen verlaufen, als die Präsentation insinuiert. Als Basis für eine neuere Geschichte Basel's im Spätmittelalter eignet sich dieser außergewöhnliche Fund jedoch.\n* Datum (Extended Date Time Format): 15xx\n* Epoche: Mittelalter\n* Ersteller: Philippe Saurbeck\n* Herausgeber: [Archäologische Bodenforschung Basel-Stadt](https://www.bs.ch/pd/kultur/museen-und-andere-dienststellen/archaeologie)\n* Quelle: ABBS, T25286",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1458,
+		"completion_tokens": 221,
+		"total_tokens": 1679,
+		"cost": 0.00019,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001458,
+			"upstream_inference_completions_cost": 4.42e-5
+		}
+	}
 }

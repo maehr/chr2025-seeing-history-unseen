@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804610-KKez8T9jrMJ03UmgcBaC",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760804610,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " Der Spalenschwibbogen und das Kornhaus kurz vor dem Abbruch im 19. Jahrhundert, Aquarell von Johann Jakob Neustück, 1837\n\nEin historisches Aquarell zeigt die abgegangenen Befestigungen der inneren Stadtmauer von Basel. Der Spalenschwibbogen und das Kornhaus standen in der Nähe. Die Darstellung illustriert die Nachwirkungen des Erdbebens von 1356, das die Stadtmauer erweiterte, um mehr Wohnplatz für die Bevölkerung zu schaffen. Der künstlerische Stil des späten 19. Jahrhunderts veranschaulicht die Bedeutung dieser urbanen Veränderungen für die Stadt Basel.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1660,
+		"completion_tokens": 177,
+		"total_tokens": 1837,
+		"cost": 0.0002014,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.000166,
+			"upstream_inference_completions_cost": 3.54e-5
+		}
+	}
+}

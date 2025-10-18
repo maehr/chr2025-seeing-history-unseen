@@ -1,40 +1,40 @@
 {
-  "id": "gen-1760766510-1lKvvma1tRbgytgxbSWG",
-  "provider": "Parasail",
-  "model": "allenai/molmo-7b-d",
-  "object": "chat.completion",
-  "created": 1760766510,
-  "choices": [
-    {
-      "index": 0,
-      "finish_reason": "stop",
-      "native_finish_reason": "stop",
-      "message": {
-        "role": "assistant",
-        "content": " Barrierefreie Alternative:\n\n* Der Anteil der Life-Science-Industrie an der jährlichen Wirtschaftswachstum in der Region Basel war im Jahr 2010 kleiner, als in vielen anderen globalen Regionen wie Schanghai, Singapur oder Cambridge (Massachusetts). Obwohl diese Orte gleicher oder höhere Wachstumsraten hatten, war der Einfluss der Life Sciences am Bruttoinlandprodukt in Basel nicht so gross wie in manchen anderen lokalen markanten Regionen.\n* Datum: 2000 bis 2010\n* Epoche: 21. Jahrhundert\n* Quelle: Interpharma – Verband der forschenden pharmazeutischen Firmen der Schweiz: Pharmastandort Schweiz 2022 Region Basel, S. 14–15. Bearbeitung: Nico Görlich / Moritz Twente",
-        "refusal": null,
-        "reasoning": null
-      }
-    }
-  ],
-  "usage": {
-    "prompt_tokens": 1483,
-    "completion_tokens": 204,
-    "total_tokens": 1687,
-    "cost": 0.0001891,
-    "is_byok": false,
-    "prompt_tokens_details": {
-      "cached_tokens": 0,
-      "audio_tokens": 0
-    },
-    "completion_tokens_details": {
-      "reasoning_tokens": 0,
-      "image_tokens": 0
-    },
-    "cost_details": {
-      "upstream_inference_cost": null,
-      "upstream_inference_prompt_cost": 0.0001483,
-      "upstream_inference_completions_cost": 4.08e-05
-    }
-  }
+	"id": "gen-1760766510-1lKvvma1tRbgytgxbSWG",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760766510,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " Barrierefreie Alternative:\n\n* Der Anteil der Life-Science-Industrie an der jährlichen Wirtschaftswachstum in der Region Basel war im Jahr 2010 kleiner, als in vielen anderen globalen Regionen wie Schanghai, Singapur oder Cambridge (Massachusetts). Obwohl diese Orte gleicher oder höhere Wachstumsraten hatten, war der Einfluss der Life Sciences am Bruttoinlandprodukt in Basel nicht so gross wie in manchen anderen lokalen markanten Regionen.\n* Datum: 2000 bis 2010\n* Epoche: 21. Jahrhundert\n* Quelle: Interpharma – Verband der forschenden pharmazeutischen Firmen der Schweiz: Pharmastandort Schweiz 2022 Region Basel, S. 14–15. Bearbeitung: Nico Görlich / Moritz Twente",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1483,
+		"completion_tokens": 204,
+		"total_tokens": 1687,
+		"cost": 0.0001891,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001483,
+			"upstream_inference_completions_cost": 4.08e-5
+		}
+	}
 }

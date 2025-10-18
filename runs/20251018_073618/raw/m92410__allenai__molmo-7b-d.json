@@ -1,40 +1,40 @@
 {
-  "id": "gen-1760766032-AVZAAq8Rca1nhkFt00GL",
-  "provider": "Parasail",
-  "model": "allenai/molmo-7b-d",
-  "object": "chat.completion",
-  "created": 1760766032,
-  "choices": [
-    {
-      "index": 0,
-      "finish_reason": "stop",
-      "native_finish_reason": "stop",
-      "message": {
-        "role": "assistant",
-        "content": " * Beach scene with two people standing on a wooden deck near water. Man and woman in casual attire. Woman leaning against railing, man standing with hands in pockets. Water visible in background. Sunny day. Seaside atmosphere.*",
-        "refusal": null,
-        "reasoning": null
-      }
-    }
-  ],
-  "usage": {
-    "prompt_tokens": 1300,
-    "completion_tokens": 47,
-    "total_tokens": 1347,
-    "cost": 0.0001394,
-    "is_byok": false,
-    "prompt_tokens_details": {
-      "cached_tokens": 0,
-      "audio_tokens": 0
-    },
-    "completion_tokens_details": {
-      "reasoning_tokens": 0,
-      "image_tokens": 0
-    },
-    "cost_details": {
-      "upstream_inference_cost": null,
-      "upstream_inference_prompt_cost": 0.00013,
-      "upstream_inference_completions_cost": 9.4e-06
-    }
-  }
+	"id": "gen-1760766032-AVZAAq8Rca1nhkFt00GL",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760766032,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " * Beach scene with two people standing on a wooden deck near water. Man and woman in casual attire. Woman leaning against railing, man standing with hands in pockets. Water visible in background. Sunny day. Seaside atmosphere.*",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1300,
+		"completion_tokens": 47,
+		"total_tokens": 1347,
+		"cost": 0.0001394,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00013,
+			"upstream_inference_completions_cost": 9.4e-6
+		}
+	}
 }

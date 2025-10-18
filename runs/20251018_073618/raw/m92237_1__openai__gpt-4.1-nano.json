@@ -1,40 +1,40 @@
 {
-  "id": "gen-1760766787-03aB3FVMMfHDwa6JhyTt",
-  "provider": "OpenAI",
-  "model": "openai/gpt-4.1-nano",
-  "object": "chat.completion",
-  "created": 1760766788,
-  "choices": [
-    {
-      "index": 0,
-      "finish_reason": "stop",
-      "native_finish_reason": "completed",
-      "message": {
-        "role": "assistant",
-        "content": "Vergleich der Einwohnerzahlen in Basel-Stadt und Glarus 1850 und 1910, zeigt starkes Bevölkerungswachstum in Basel-Stadt.",
-        "refusal": null,
-        "reasoning": null
-      }
-    }
-  ],
-  "usage": {
-    "prompt_tokens": 761,
-    "completion_tokens": 35,
-    "total_tokens": 796,
-    "cost": 9.01e-05,
-    "is_byok": false,
-    "prompt_tokens_details": {
-      "cached_tokens": 0,
-      "audio_tokens": 0
-    },
-    "completion_tokens_details": {
-      "reasoning_tokens": 0,
-      "image_tokens": 0
-    },
-    "cost_details": {
-      "upstream_inference_cost": null,
-      "upstream_inference_prompt_cost": 7.61e-05,
-      "upstream_inference_completions_cost": 1.4e-05
-    }
-  }
+	"id": "gen-1760766787-03aB3FVMMfHDwa6JhyTt",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4.1-nano",
+	"object": "chat.completion",
+	"created": 1760766788,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "completed",
+			"message": {
+				"role": "assistant",
+				"content": "Vergleich der Einwohnerzahlen in Basel-Stadt und Glarus 1850 und 1910, zeigt starkes Bevölkerungswachstum in Basel-Stadt.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 761,
+		"completion_tokens": 35,
+		"total_tokens": 796,
+		"cost": 9.01e-5,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 7.61e-5,
+			"upstream_inference_completions_cost": 1.4e-5
+		}
+	}
 }

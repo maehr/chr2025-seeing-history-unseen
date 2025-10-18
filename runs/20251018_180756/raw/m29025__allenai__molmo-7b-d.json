@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804989-hf2vpk9TCcJiK1YooBAA",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760804989,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " Rekonstruktionszeichnung eines frühmittelalterlichen Grubenhauses mit Webstuhl\n\nEin typisches frühmittelalterliches Gebäude, in dem tätigkeiten wie Weben ausgeübt wurden. Es war eingetieft und diente auch als Stall oder Lager.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1342,
+		"completion_tokens": 60,
+		"total_tokens": 1402,
+		"cost": 0.0001462,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001342,
+			"upstream_inference_completions_cost": 1.2e-5
+		}
+	}
+}

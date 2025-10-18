@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804760-vWlGHn5wkuRqlPS9Y8nl",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760804760,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " * 1911: Sozialdemokraten dominoptierten, veränderten Basels politische Dynamics\n* 1914: Parteien um die Kontrolle des Grossrats kämpften\n* 1923: Sozialdemokraten stärkten ihre Position\n* 1930: Parteien jenseits der Freisinnigen um die Macht kämpften\n* 1941: Sozialdemokraten blieben die dominanteste Kraft\n* 1944: Parteien jenseits der Freisinnigen um die Kontrolle kämpften\n* 1964: Sozialdemokraten blieben die stärkste Partei in Basel",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1278,
+		"completion_tokens": 169,
+		"total_tokens": 1447,
+		"cost": 0.0001616,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001278,
+			"upstream_inference_completions_cost": 3.38e-5
+		}
+	}
+}

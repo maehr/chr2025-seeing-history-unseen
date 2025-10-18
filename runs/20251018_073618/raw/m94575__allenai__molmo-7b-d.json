@@ -1,40 +1,40 @@
 {
-  "id": "gen-1760766813-odfwUEXtOMW8Tgjhb6ub",
-  "provider": "Parasail",
-  "model": "allenai/molmo-7b-d",
-  "object": "chat.completion",
-  "created": 1760766813,
-  "choices": [
-    {
-      "index": 0,
-      "finish_reason": "stop",
-      "native_finish_reason": "stop",
-      "message": {
-        "role": "assistant",
-        "content": " *Zur Information und Prüfung der Handzeichen und der politischen Diskussion in der Basler Ratsherrnkanzel 1832. Die Darstellung des Verhältnisses zwischen Zeitung und Politik während der Regeneration des 19. Jahrhunderts. Es war eine neue und direkte Methode, aber auch ungewohnt. In den 1820er Jahren wurde die Presseberichterstattung des Parlaments noch unterdrückt. Der Ratsherrn Sarasin fragte sich, ob er seine Rede dem Zeitungsschreiber schriftlich übergeben sollte oder nicht. Dieses Problem prägte die Beziehung zwischen Politik und Presse in Basel und war ein Schritt in die moderne Demokratie.*",
-        "refusal": null,
-        "reasoning": null
-      }
-    }
-  ],
-  "usage": {
-    "prompt_tokens": 1424,
-    "completion_tokens": 169,
-    "total_tokens": 1593,
-    "cost": 0.0001762,
-    "is_byok": false,
-    "prompt_tokens_details": {
-      "cached_tokens": 0,
-      "audio_tokens": 0
-    },
-    "completion_tokens_details": {
-      "reasoning_tokens": 0,
-      "image_tokens": 0
-    },
-    "cost_details": {
-      "upstream_inference_cost": null,
-      "upstream_inference_prompt_cost": 0.0001424,
-      "upstream_inference_completions_cost": 3.38e-05
-    }
-  }
+	"id": "gen-1760766813-odfwUEXtOMW8Tgjhb6ub",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760766813,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " *Zur Information und Prüfung der Handzeichen und der politischen Diskussion in der Basler Ratsherrnkanzel 1832. Die Darstellung des Verhältnisses zwischen Zeitung und Politik während der Regeneration des 19. Jahrhunderts. Es war eine neue und direkte Methode, aber auch ungewohnt. In den 1820er Jahren wurde die Presseberichterstattung des Parlaments noch unterdrückt. Der Ratsherrn Sarasin fragte sich, ob er seine Rede dem Zeitungsschreiber schriftlich übergeben sollte oder nicht. Dieses Problem prägte die Beziehung zwischen Politik und Presse in Basel und war ein Schritt in die moderne Demokratie.*",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1424,
+		"completion_tokens": 169,
+		"total_tokens": 1593,
+		"cost": 0.0001762,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001424,
+			"upstream_inference_completions_cost": 3.38e-5
+		}
+	}
 }

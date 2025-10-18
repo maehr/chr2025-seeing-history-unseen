@@ -1,40 +1,40 @@
 {
-  "id": "gen-1760766646-jbVWfxY8Y6UAgYLUVf8Z",
-  "provider": "Parasail",
-  "model": "allenai/molmo-7b-d",
-  "object": "chat.completion",
-  "created": 1760766646,
-  "choices": [
-    {
-      "index": 0,
-      "finish_reason": "stop",
-      "native_finish_reason": "stop",
-      "message": {
-        "role": "assistant",
-        "content": " Giessfass und Handbecken aus Zinn zum Waschen von Kleidung und Gegenstände.",
-        "refusal": null,
-        "reasoning": null
-      }
-    }
-  ],
-  "usage": {
-    "prompt_tokens": 1652,
-    "completion_tokens": 24,
-    "total_tokens": 1676,
-    "cost": 0.00017,
-    "is_byok": false,
-    "prompt_tokens_details": {
-      "cached_tokens": 0,
-      "audio_tokens": 0
-    },
-    "completion_tokens_details": {
-      "reasoning_tokens": 0,
-      "image_tokens": 0
-    },
-    "cost_details": {
-      "upstream_inference_cost": null,
-      "upstream_inference_prompt_cost": 0.0001652,
-      "upstream_inference_completions_cost": 4.8e-06
-    }
-  }
+	"id": "gen-1760766646-jbVWfxY8Y6UAgYLUVf8Z",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760766646,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " Giessfass und Handbecken aus Zinn zum Waschen von Kleidung und Gegenstände.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1652,
+		"completion_tokens": 24,
+		"total_tokens": 1676,
+		"cost": 0.00017,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001652,
+			"upstream_inference_completions_cost": 4.8e-6
+		}
+	}
 }

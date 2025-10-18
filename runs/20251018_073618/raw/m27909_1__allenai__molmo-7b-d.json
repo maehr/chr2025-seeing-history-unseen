@@ -1,40 +1,40 @@
 {
-  "id": "gen-1760765798-Fc6GgjH4PlWA0MTFwfiF",
-  "provider": "Parasail",
-  "model": "allenai/molmo-7b-d",
-  "object": "chat.completion",
-  "created": 1760765798,
-  "choices": [
-    {
-      "index": 0,
-      "finish_reason": "stop",
-      "native_finish_reason": "stop",
-      "message": {
-        "role": "assistant",
-        "content": " Barrierefreie Alternative: Verbreitung der lateinischen Kultur in Europa von 4. bis 1. Jahrhundert v. Chr.",
-        "refusal": null,
-        "reasoning": null
-      }
-    }
-  ],
-  "usage": {
-    "prompt_tokens": 1759,
-    "completion_tokens": 34,
-    "total_tokens": 1793,
-    "cost": 0.0001827,
-    "is_byok": false,
-    "prompt_tokens_details": {
-      "cached_tokens": 0,
-      "audio_tokens": 0
-    },
-    "completion_tokens_details": {
-      "reasoning_tokens": 0,
-      "image_tokens": 0
-    },
-    "cost_details": {
-      "upstream_inference_cost": null,
-      "upstream_inference_prompt_cost": 0.0001759,
-      "upstream_inference_completions_cost": 6.8e-06
-    }
-  }
+	"id": "gen-1760765798-Fc6GgjH4PlWA0MTFwfiF",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760765798,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " Barrierefreie Alternative: Verbreitung der lateinischen Kultur in Europa von 4. bis 1. Jahrhundert v. Chr.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1759,
+		"completion_tokens": 34,
+		"total_tokens": 1793,
+		"cost": 0.0001827,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001759,
+			"upstream_inference_completions_cost": 6.8e-6
+		}
+	}
 }

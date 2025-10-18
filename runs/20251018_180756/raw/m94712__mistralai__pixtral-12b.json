@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804676-X6HjbiEdcmhR5bEZKgsG",
+	"provider": "Hyperbolic",
+	"model": "mistralai/pixtral-12b",
+	"object": "chat.completion",
+	"created": 1760804676,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Karikatur zeigt Kantonstrennung als Teilung eines Käseleibs; Napoleon und britischer Premier teilen Weltkugel; Baselbieter nimmt grosste Teil; Stadtbasler klagt über Ungleichheit.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 649,
+		"completion_tokens": 46,
+		"total_tokens": 695,
+		"cost": 6.95e-5,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 6.49e-5,
+			"upstream_inference_completions_cost": 4.6e-6
+		}
+	}
+}

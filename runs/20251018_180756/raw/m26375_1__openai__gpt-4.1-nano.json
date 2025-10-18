@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804809-oDyP2LdSXOGnnRYxBQmh",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4.1-nano",
+	"object": "chat.completion",
+	"created": 1760804809,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "completed",
+			"message": {
+				"role": "assistant",
+				"content": "Mehrere Balkendiagramm-Diagramm zeigt die Zunahme der Beschäftigten im Dienstleistungssektor im Kanton Basel-Stadt von 1929 bis 1965, inklusive öffentlicher Verwaltung.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1042,
+		"completion_tokens": 46,
+		"total_tokens": 1088,
+		"cost": 0.0001226,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001042,
+			"upstream_inference_completions_cost": 1.84e-5
+		}
+	}
+}

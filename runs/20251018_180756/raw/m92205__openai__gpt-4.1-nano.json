@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804230-FH5GGi4Nzkqs9cY4herF",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4.1-nano",
+	"object": "chat.completion",
+	"created": 1760804231,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "completed",
+			"message": {
+				"role": "assistant",
+				"content": "Mehrere Personen an einem Messestand bei der Mustermesse Basel 1972, mit Computertechnik und Informationsmaterial.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1462,
+		"completion_tokens": 25,
+		"total_tokens": 1487,
+		"cost": 0.0001562,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001462,
+			"upstream_inference_completions_cost": 1e-5
+		}
+	}
+}

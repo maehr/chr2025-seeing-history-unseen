@@ -1,40 +1,40 @@
 {
-  "id": "gen-1760766464-chfdvx3LThh1PDmkrBtR",
-  "provider": "Parasail",
-  "model": "allenai/molmo-7b-d",
-  "object": "chat.completion",
-  "created": 1760766464,
-  "choices": [
-    {
-      "index": 0,
-      "finish_reason": "stop",
-      "native_finish_reason": "stop",
-      "message": {
-        "role": "assistant",
-        "content": " Blutgerichtsstab des Basler Oberstknacks, symbolisiert von einem Totenschädel auf zwei gekreuzten Knochen. Verwendet bei der Verkündigung von Todesurten. Datum: ..1763. Epoche: Frühe Neuzeit.",
-        "refusal": null,
-        "reasoning": null
-      }
-    }
-  ],
-  "usage": {
-    "prompt_tokens": 1653,
-    "completion_tokens": 66,
-    "total_tokens": 1719,
-    "cost": 0.0001785,
-    "is_byok": false,
-    "prompt_tokens_details": {
-      "cached_tokens": 0,
-      "audio_tokens": 0
-    },
-    "completion_tokens_details": {
-      "reasoning_tokens": 0,
-      "image_tokens": 0
-    },
-    "cost_details": {
-      "upstream_inference_cost": null,
-      "upstream_inference_prompt_cost": 0.0001653,
-      "upstream_inference_completions_cost": 1.32e-05
-    }
-  }
+	"id": "gen-1760766464-chfdvx3LThh1PDmkrBtR",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760766464,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " Blutgerichtsstab des Basler Oberstknacks, symbolisiert von einem Totenschädel auf zwei gekreuzten Knochen. Verwendet bei der Verkündigung von Todesurten. Datum: ..1763. Epoche: Frühe Neuzeit.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1653,
+		"completion_tokens": 66,
+		"total_tokens": 1719,
+		"cost": 0.0001785,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001653,
+			"upstream_inference_completions_cost": 1.32e-5
+		}
+	}
 }

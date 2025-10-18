@@ -1,40 +1,40 @@
 {
-  "id": "gen-1760766681-n7wXFBvPiZ0lJP8IRS7H",
-  "provider": "Google",
-  "model": "google/gemini-2.5-flash-lite",
-  "object": "chat.completion",
-  "created": 1760766681,
-  "choices": [
-    {
-      "index": 0,
-      "finish_reason": "stop",
-      "native_finish_reason": "STOP",
-      "message": {
-        "role": "assistant",
-        "content": "Spalenschwibbogen und Kornhaus kurz vor Abbruch, Aquarell 1837",
-        "refusal": null,
-        "reasoning": null
-      }
-    }
-  ],
-  "usage": {
-    "prompt_tokens": 1676,
-    "completion_tokens": 22,
-    "total_tokens": 1698,
-    "cost": 0.0001764,
-    "is_byok": false,
-    "prompt_tokens_details": {
-      "cached_tokens": 0,
-      "audio_tokens": 0
-    },
-    "completion_tokens_details": {
-      "reasoning_tokens": 0,
-      "image_tokens": 0
-    },
-    "cost_details": {
-      "upstream_inference_cost": null,
-      "upstream_inference_prompt_cost": 0.0001676,
-      "upstream_inference_completions_cost": 8.8e-06
-    }
-  }
+	"id": "gen-1760766681-n7wXFBvPiZ0lJP8IRS7H",
+	"provider": "Google",
+	"model": "google/gemini-2.5-flash-lite",
+	"object": "chat.completion",
+	"created": 1760766681,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "STOP",
+			"message": {
+				"role": "assistant",
+				"content": "Spalenschwibbogen und Kornhaus kurz vor Abbruch, Aquarell 1837",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1676,
+		"completion_tokens": 22,
+		"total_tokens": 1698,
+		"cost": 0.0001764,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001676,
+			"upstream_inference_completions_cost": 8.8e-6
+		}
+	}
 }

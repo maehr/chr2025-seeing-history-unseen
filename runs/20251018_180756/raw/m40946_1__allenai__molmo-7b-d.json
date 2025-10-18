@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804222-VfrhcFNKOTeXXbBSvDUr",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760804222,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " Barrierefreier Alternative:\n\nEin Handelsbuch des Basler Kaufmanns Ulrich Meltinger aus dem späten 15. Jahrhundert zeigt, dass dieser in den Jahren 1470 bis 1493 ländliche Boden in der Nähe Basel besaß. Die rot markierten Linie verweist auf die wechselnden Standorte von Kühen und Kälber, die Meltinger in diese ländlichen Gebiete brachte. Dies stützt die These, dass der Kaufmann jährlich in verschiedenen ländlichen Orten des Umlandes tätig war.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1406,
+		"completion_tokens": 134,
+		"total_tokens": 1540,
+		"cost": 0.0001674,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001406,
+			"upstream_inference_completions_cost": 2.68e-5
+		}
+	}
+}

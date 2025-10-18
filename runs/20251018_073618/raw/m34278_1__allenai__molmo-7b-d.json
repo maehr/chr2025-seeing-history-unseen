@@ -1,40 +1,40 @@
 {
-  "id": "gen-1760766482-UROFPvHsX86agls7Qw6W",
-  "provider": "Parasail",
-  "model": "allenai/molmo-7b-d",
-  "object": "chat.completion",
-  "created": 1760766482,
-  "choices": [
-    {
-      "index": 0,
-      "finish_reason": "stop",
-      "native_finish_reason": "stop",
-      "message": {
-        "role": "assistant",
-        "content": " Winterfeld\nSommerfeld\nBrachfeld\nMonat\n\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n\nZur Wirtschaftsplanung und Landwirtschaftsstrategie\nZur Bestockung und Ernteplanung\nZur Organisierung der Arbeitskräfte\nZur Steuererhebung und Steuernachweiz\nZur Bevölkerungsdarstellung und Bevölkerungsentwicklung\nZur Handel und Handwerk\nZur Handel und Handwerk\nZur Handel und Handwerk\nZur Handel und Handwerk\nZur Handel und Handwerk\nZur Handel und Handwerk",
-        "refusal": null,
-        "reasoning": null
-      }
-    }
-  ],
-  "usage": {
-    "prompt_tokens": 974,
-    "completion_tokens": 159,
-    "total_tokens": 1133,
-    "cost": 0.0001292,
-    "is_byok": false,
-    "prompt_tokens_details": {
-      "cached_tokens": 0,
-      "audio_tokens": 0
-    },
-    "completion_tokens_details": {
-      "reasoning_tokens": 0,
-      "image_tokens": 0
-    },
-    "cost_details": {
-      "upstream_inference_cost": null,
-      "upstream_inference_prompt_cost": 9.74e-05,
-      "upstream_inference_completions_cost": 3.18e-05
-    }
-  }
+	"id": "gen-1760766482-UROFPvHsX86agls7Qw6W",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760766482,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " Winterfeld\nSommerfeld\nBrachfeld\nMonat\n\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n\nZur Wirtschaftsplanung und Landwirtschaftsstrategie\nZur Bestockung und Ernteplanung\nZur Organisierung der Arbeitskräfte\nZur Steuererhebung und Steuernachweiz\nZur Bevölkerungsdarstellung und Bevölkerungsentwicklung\nZur Handel und Handwerk\nZur Handel und Handwerk\nZur Handel und Handwerk\nZur Handel und Handwerk\nZur Handel und Handwerk\nZur Handel und Handwerk",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 974,
+		"completion_tokens": 159,
+		"total_tokens": 1133,
+		"cost": 0.0001292,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 9.74e-5,
+			"upstream_inference_completions_cost": 3.18e-5
+		}
+	}
 }

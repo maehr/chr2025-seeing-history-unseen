@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804579-ktS4fH0EznhdUaZg2h5X",
+	"provider": "Google",
+	"model": "google/gemini-2.5-flash-lite",
+	"object": "chat.completion",
+	"created": 1760804579,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "STOP",
+			"message": {
+				"role": "assistant",
+				"content": "Monatsblatt Februar 1745 mit astrologischen Empfehlungen",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1724,
+		"completion_tokens": 13,
+		"total_tokens": 1737,
+		"cost": 0.0001776,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001724,
+			"upstream_inference_completions_cost": 5.2e-6
+		}
+	}
+}

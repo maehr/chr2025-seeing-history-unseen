@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760803852-BGeoLtdSaZW2VTmPy6ln",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760803852,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " *Zusammenkupf einer zirkumpolaren HORIZONTALpanorama der Stadt Basel\nVon einem Kamin des ‹Blauen Hauses› aus erschliesst sich\nin einer 360-Grad-Umsicht ein neuer Blick auf Basel und seine Umgebung.\nDatum (Extended Date Time Format): 1787\nEpoche: Frühe Neuzeit\nErsteller: Franz Feyerabend\nHerausgeber: Staatsarchiv Basel-Stadt\nQuelle: Staatsarchiv Basel-Stadt 511a 800 J 50, 2*",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1436,
+		"completion_tokens": 136,
+		"total_tokens": 1572,
+		"cost": 0.0001708,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001436,
+			"upstream_inference_completions_cost": 2.72e-5
+		}
+	}
+}

@@ -1,40 +1,40 @@
 {
-  "id": "gen-1760766302-AOprA9jNBr6nwm2EFGYb",
-  "provider": "Parasail",
-  "model": "allenai/molmo-7b-d",
-  "object": "chat.completion",
-  "created": 1760766302,
-  "choices": [
-    {
-      "index": 0,
-      "finish_reason": "stop",
-      "native_finish_reason": "stop",
-      "message": {
-        "role": "assistant",
-        "content": " Bürgeraufnahmen und Kriegsausgaben, 1360–1530: Beispiele für die Bevölkerungsentwicklung in Basel während des späten Mittelalters und des Anfangs der Frühen Neuzeit.",
-        "refusal": null,
-        "reasoning": null
-      }
-    }
-  ],
-  "usage": {
-    "prompt_tokens": 1658,
-    "completion_tokens": 58,
-    "total_tokens": 1716,
-    "cost": 0.0001774,
-    "is_byok": false,
-    "prompt_tokens_details": {
-      "cached_tokens": 0,
-      "audio_tokens": 0
-    },
-    "completion_tokens_details": {
-      "reasoning_tokens": 0,
-      "image_tokens": 0
-    },
-    "cost_details": {
-      "upstream_inference_cost": null,
-      "upstream_inference_prompt_cost": 0.0001658,
-      "upstream_inference_completions_cost": 1.16e-05
-    }
-  }
+	"id": "gen-1760766302-AOprA9jNBr6nwm2EFGYb",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760766302,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " Bürgeraufnahmen und Kriegsausgaben, 1360–1530: Beispiele für die Bevölkerungsentwicklung in Basel während des späten Mittelalters und des Anfangs der Frühen Neuzeit.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1658,
+		"completion_tokens": 58,
+		"total_tokens": 1716,
+		"cost": 0.0001774,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001658,
+			"upstream_inference_completions_cost": 1.16e-5
+		}
+	}
 }

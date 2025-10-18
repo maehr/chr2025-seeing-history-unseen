@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804757-HSZ7VRNV3BanjJiYkSw6",
+	"provider": "Hyperbolic",
+	"model": "mistralai/pixtral-12b",
+	"object": "chat.completion",
+	"created": 1760804757,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Historische Mandatsverteilung der Grossräte nach Parteien in Basel, 1911–1964.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 483,
+		"completion_tokens": 28,
+		"total_tokens": 511,
+		"cost": 5.11e-5,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 4.83e-5,
+			"upstream_inference_completions_cost": 2.8e-6
+		}
+	}
+}

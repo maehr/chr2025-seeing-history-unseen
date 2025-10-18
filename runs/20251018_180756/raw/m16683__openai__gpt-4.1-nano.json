@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804583-WOiJvcy540dEck1TkG4O",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4.1-nano",
+	"object": "chat.completion",
+	"created": 1760804584,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "completed",
+			"message": {
+				"role": "assistant",
+				"content": "Alttext: Monatsblatt Februar 1745 mit Kalender, Feiertagen, Marktterminen und astrologischen Berechnungen, in Schwarz und Rot.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1714,
+		"completion_tokens": 31,
+		"total_tokens": 1745,
+		"cost": 0.0001838,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001714,
+			"upstream_inference_completions_cost": 1.24e-5
+		}
+	}
+}

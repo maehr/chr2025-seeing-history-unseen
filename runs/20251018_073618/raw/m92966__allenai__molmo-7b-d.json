@@ -1,40 +1,40 @@
 {
-  "id": "gen-1760766048-yVfW29rYIqIMmeTEGI8D",
-  "provider": "Parasail",
-  "model": "allenai/molmo-7b-d",
-  "object": "chat.completion",
-  "created": 1760766048,
-  "choices": [
-    {
-      "index": 0,
-      "finish_reason": "stop",
-      "native_finish_reason": "stop",
-      "message": {
-        "role": "assistant",
-        "content": " Friedhof an der Wolfgasse: Historische Friedhofsanlage des 19. Jahrhunderts, eingerichtet 1872. Der Wolfgottesacker war bevorzugter Friedhof des Grossbürgertums. Architekt Amadeus Merian entwarf den ersten Plan. Inspiriert von süddeutschen Parkfriedhöfen, legte er den Grundriss einer Kirche und geschwungenen Kieswegen aus.",
-        "refusal": null,
-        "reasoning": null
-      }
-    }
-  ],
-  "usage": {
-    "prompt_tokens": 1716,
-    "completion_tokens": 99,
-    "total_tokens": 1815,
-    "cost": 0.0001914,
-    "is_byok": false,
-    "prompt_tokens_details": {
-      "cached_tokens": 0,
-      "audio_tokens": 0
-    },
-    "completion_tokens_details": {
-      "reasoning_tokens": 0,
-      "image_tokens": 0
-    },
-    "cost_details": {
-      "upstream_inference_cost": null,
-      "upstream_inference_prompt_cost": 0.0001716,
-      "upstream_inference_completions_cost": 1.98e-05
-    }
-  }
+	"id": "gen-1760766048-yVfW29rYIqIMmeTEGI8D",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760766048,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " Friedhof an der Wolfgasse: Historische Friedhofsanlage des 19. Jahrhunderts, eingerichtet 1872. Der Wolfgottesacker war bevorzugter Friedhof des Grossbürgertums. Architekt Amadeus Merian entwarf den ersten Plan. Inspiriert von süddeutschen Parkfriedhöfen, legte er den Grundriss einer Kirche und geschwungenen Kieswegen aus.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1716,
+		"completion_tokens": 99,
+		"total_tokens": 1815,
+		"cost": 0.0001914,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001716,
+			"upstream_inference_completions_cost": 1.98e-5
+		}
+	}
 }

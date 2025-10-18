@@ -1,40 +1,40 @@
 {
-  "id": "gen-1760765931-prYElJGLqIezWDqXgJcF",
-  "provider": "Hyperbolic",
-  "model": "mistralai/pixtral-12b",
-  "object": "chat.completion",
-  "created": 1760765931,
-  "choices": [
-    {
-      "index": 0,
-      "finish_reason": "stop",
-      "native_finish_reason": "stop",
-      "message": {
-        "role": "assistant",
-        "content": "Historischer Marktplatz mit geparkten Autos und Menschen, 1950.",
-        "refusal": null,
-        "reasoning": null
-      }
-    }
-  ],
-  "usage": {
-    "prompt_tokens": 400,
-    "completion_tokens": 20,
-    "total_tokens": 420,
-    "cost": 4.2e-05,
-    "is_byok": false,
-    "prompt_tokens_details": {
-      "cached_tokens": 0,
-      "audio_tokens": 0
-    },
-    "completion_tokens_details": {
-      "reasoning_tokens": 0,
-      "image_tokens": 0
-    },
-    "cost_details": {
-      "upstream_inference_cost": null,
-      "upstream_inference_prompt_cost": 4e-05,
-      "upstream_inference_completions_cost": 2e-06
-    }
-  }
+	"id": "gen-1760765931-prYElJGLqIezWDqXgJcF",
+	"provider": "Hyperbolic",
+	"model": "mistralai/pixtral-12b",
+	"object": "chat.completion",
+	"created": 1760765931,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Historischer Marktplatz mit geparkten Autos und Menschen, 1950.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 400,
+		"completion_tokens": 20,
+		"total_tokens": 420,
+		"cost": 4.2e-5,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 4e-5,
+			"upstream_inference_completions_cost": 2e-6
+		}
+	}
 }

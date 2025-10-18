@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804377-BPvJJG7FMN1mWiY7US7j",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760804377,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " * Lieferung von Seidenbändern der Firma Forcart-Weis nach Chile, 1885\n* Lieferung per Schiff von Antwerpen oder Le Havre nach Arica\n* Transport via Eisenbahn von Arica nach Tacna\n* Verkauf von den Tacna-Bändern durch Moevius Eggers & Co.\n* Erlös in deutschen Mark per Franz Wilzer in Hamburg\n* Basler Erzeuger erhält Erlös\n* Zeitraum: 19. Jahrhundert\n* Historische Handelsgeschichte\n* Globaler Handel\n* Technologie: Seidenbänder\n* Transportmittel: Schiff, Eisenbahn\n* Geographie: Chile, Antwerpen, Le Havre, Tacna\n* Wirtschaftsform: Transkontinentaler Handel\n* betriebliche Struktur: Forcart-Weis, Moevius Eggers & Co., Franz Wilzer, Hamburg*",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1016,
+		"completion_tokens": 212,
+		"total_tokens": 1228,
+		"cost": 0.000144,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001016,
+			"upstream_inference_completions_cost": 4.24e-5
+		}
+	}
+}

@@ -1,40 +1,40 @@
 {
-  "id": "gen-1760766873-KKPmtHWZrlD1upo5lR8F",
-  "provider": "Hyperbolic",
-  "model": "mistralai/pixtral-12b",
-  "object": "chat.completion",
-  "created": 1760766873,
-  "choices": [
-    {
-      "index": 0,
-      "finish_reason": "stop",
-      "native_finish_reason": "stop",
-      "message": {
-        "role": "assistant",
-        "content": "Archaeological excavation in the choir of St. Peter's Church, 1962. Shows foundations of the original rectangular choir (9th/10th century), Romanesque foundations with semi-circular apse (10th/11th century), and foundations of the current Gothic choir (13th century).",
-        "refusal": null,
-        "reasoning": null
-      }
-    }
-  ],
-  "usage": {
-    "prompt_tokens": 405,
-    "completion_tokens": 71,
-    "total_tokens": 476,
-    "cost": 4.76e-05,
-    "is_byok": false,
-    "prompt_tokens_details": {
-      "cached_tokens": 0,
-      "audio_tokens": 0
-    },
-    "completion_tokens_details": {
-      "reasoning_tokens": 0,
-      "image_tokens": 0
-    },
-    "cost_details": {
-      "upstream_inference_cost": null,
-      "upstream_inference_prompt_cost": 4.05e-05,
-      "upstream_inference_completions_cost": 7.1e-06
-    }
-  }
+	"id": "gen-1760766873-KKPmtHWZrlD1upo5lR8F",
+	"provider": "Hyperbolic",
+	"model": "mistralai/pixtral-12b",
+	"object": "chat.completion",
+	"created": 1760766873,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Archaeological excavation in the choir of St. Peter's Church, 1962. Shows foundations of the original rectangular choir (9th/10th century), Romanesque foundations with semi-circular apse (10th/11th century), and foundations of the current Gothic choir (13th century).",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 405,
+		"completion_tokens": 71,
+		"total_tokens": 476,
+		"cost": 4.76e-5,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 4.05e-5,
+			"upstream_inference_completions_cost": 7.1e-6
+		}
+	}
 }

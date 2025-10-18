@@ -1,40 +1,40 @@
 {
-  "id": "gen-1760766313-4hT02C1VgjkfHcI4zRr4",
-  "provider": "Google",
-  "model": "google/gemini-2.5-flash-lite",
-  "object": "chat.completion",
-  "created": 1760766313,
-  "choices": [
-    {
-      "index": 0,
-      "finish_reason": "stop",
-      "native_finish_reason": "STOP",
-      "message": {
-        "role": "assistant",
-        "content": "Flussdiagramm: Handelsnetzwerk von Ulrich Meltinger (1468/1493) mit Quellen und Abnehmern in Oberrhein und darüber hinaus.",
-        "refusal": null,
-        "reasoning": null
-      }
-    }
-  ],
-  "usage": {
-    "prompt_tokens": 1709,
-    "completion_tokens": 36,
-    "total_tokens": 1745,
-    "cost": 0.0001853,
-    "is_byok": false,
-    "prompt_tokens_details": {
-      "cached_tokens": 0,
-      "audio_tokens": 0
-    },
-    "completion_tokens_details": {
-      "reasoning_tokens": 0,
-      "image_tokens": 0
-    },
-    "cost_details": {
-      "upstream_inference_cost": null,
-      "upstream_inference_prompt_cost": 0.0001709,
-      "upstream_inference_completions_cost": 1.44e-05
-    }
-  }
+	"id": "gen-1760766313-4hT02C1VgjkfHcI4zRr4",
+	"provider": "Google",
+	"model": "google/gemini-2.5-flash-lite",
+	"object": "chat.completion",
+	"created": 1760766313,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "STOP",
+			"message": {
+				"role": "assistant",
+				"content": "Flussdiagramm: Handelsnetzwerk von Ulrich Meltinger (1468/1493) mit Quellen und Abnehmern in Oberrhein und darüber hinaus.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1709,
+		"completion_tokens": 36,
+		"total_tokens": 1745,
+		"cost": 0.0001853,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001709,
+			"upstream_inference_completions_cost": 1.44e-5
+		}
+	}
 }

@@ -1,40 +1,40 @@
 {
-  "id": "gen-1760767044-B0YGj6w2TWwA5imDytgS",
-  "provider": "Hyperbolic",
-  "model": "mistralai/pixtral-12b",
-  "object": "chat.completion",
-  "created": 1760767044,
-  "choices": [
-    {
-      "index": 0,
-      "finish_reason": "stop",
-      "native_finish_reason": "stop",
-      "message": {
-        "role": "assistant",
-        "content": "Historische Ansicht von Basel, aufgenommen von der Terrasse hinter der Kathedrale.",
-        "refusal": null,
-        "reasoning": null
-      }
-    }
-  ],
-  "usage": {
-    "prompt_tokens": 466,
-    "completion_tokens": 19,
-    "total_tokens": 485,
-    "cost": 4.85e-05,
-    "is_byok": false,
-    "prompt_tokens_details": {
-      "cached_tokens": 0,
-      "audio_tokens": 0
-    },
-    "completion_tokens_details": {
-      "reasoning_tokens": 0,
-      "image_tokens": 0
-    },
-    "cost_details": {
-      "upstream_inference_cost": null,
-      "upstream_inference_prompt_cost": 4.66e-05,
-      "upstream_inference_completions_cost": 1.9e-06
-    }
-  }
+	"id": "gen-1760767044-B0YGj6w2TWwA5imDytgS",
+	"provider": "Hyperbolic",
+	"model": "mistralai/pixtral-12b",
+	"object": "chat.completion",
+	"created": 1760767044,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Historische Ansicht von Basel, aufgenommen von der Terrasse hinter der Kathedrale.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 466,
+		"completion_tokens": 19,
+		"total_tokens": 485,
+		"cost": 4.85e-5,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 4.66e-5,
+			"upstream_inference_completions_cost": 1.9e-6
+		}
+	}
 }

@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804966-6jlfAivVuh5Z38zOjvWY",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760804966,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " *Usage Context: Platform for historical sources and research data for historians and students in historical and archaeological fields.*\n\n*Metadata:*\n  * Title: Vue prise sur la terrasse derrière la Cathédrale de Basle (dite Pfalz)\n  * Description: This panorama allows viewers to step into the image and become part of the scene. It transforms the perspective that has dominated since the Renaissance, creating a three-dimensional effect that, while impressive, keeps the viewer at a distance from the depicted scene.\n  * Date (Extended Date Time Format): 1800\n  * Era: 19th Century\n  * Creator: Heinrich Bienz Sohn\n  * Publisher: [Swiss National Museum](https://www.musée-nationale.ch/)\n  * Source: [Swiss National Museum, BILD Coll. A 29](https://www.musée-nationale.ch/collection/558514/172971/preview?context=%2Frecords%2F558514&viewer_page=1)*",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1129,
+		"completion_tokens": 227,
+		"total_tokens": 1356,
+		"cost": 0.0001583,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001129,
+			"upstream_inference_completions_cost": 4.54e-5
+		}
+	}
+}

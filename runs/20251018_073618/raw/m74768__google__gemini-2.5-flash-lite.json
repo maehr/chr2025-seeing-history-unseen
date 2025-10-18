@@ -1,40 +1,40 @@
 {
-  "id": "gen-1760766368-gsrqnML5FC26cP4zNRJs",
-  "provider": "Google",
-  "model": "google/gemini-2.5-flash-lite",
-  "object": "chat.completion",
-  "created": 1760766368,
-  "choices": [
-    {
-      "index": 0,
-      "finish_reason": "stop",
-      "native_finish_reason": "STOP",
-      "message": {
-        "role": "assistant",
-        "content": "Mann wirft sich in Bewegung auf dem Weg durch die Stadt, 1963.",
-        "refusal": null,
-        "reasoning": null
-      }
-    }
-  ],
-  "usage": {
-    "prompt_tokens": 1677,
-    "completion_tokens": 19,
-    "total_tokens": 1696,
-    "cost": 0.0001753,
-    "is_byok": false,
-    "prompt_tokens_details": {
-      "cached_tokens": 0,
-      "audio_tokens": 0
-    },
-    "completion_tokens_details": {
-      "reasoning_tokens": 0,
-      "image_tokens": 0
-    },
-    "cost_details": {
-      "upstream_inference_cost": null,
-      "upstream_inference_prompt_cost": 0.0001677,
-      "upstream_inference_completions_cost": 7.6e-06
-    }
-  }
+	"id": "gen-1760766368-gsrqnML5FC26cP4zNRJs",
+	"provider": "Google",
+	"model": "google/gemini-2.5-flash-lite",
+	"object": "chat.completion",
+	"created": 1760766368,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "STOP",
+			"message": {
+				"role": "assistant",
+				"content": "Mann wirft sich in Bewegung auf dem Weg durch die Stadt, 1963.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1677,
+		"completion_tokens": 19,
+		"total_tokens": 1696,
+		"cost": 0.0001753,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001677,
+			"upstream_inference_completions_cost": 7.6e-6
+		}
+	}
 }

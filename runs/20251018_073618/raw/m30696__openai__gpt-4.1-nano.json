@@ -1,40 +1,40 @@
 {
-  "id": "gen-1760766355-BiVqiqmHmE6NWyaQ8Mo1",
-  "provider": "OpenAI",
-  "model": "openai/gpt-4.1-nano",
-  "object": "chat.completion",
-  "created": 1760766355,
-  "choices": [
-    {
-      "index": 0,
-      "finish_reason": "stop",
-      "native_finish_reason": "completed",
-      "message": {
-        "role": "assistant",
-        "content": "Bronzemesser mit Menschenkopf-Griffknauf, typisch für spätbronzezeitliche Handelsware, einzigartig in der Schweiz.",
-        "refusal": null,
-        "reasoning": null
-      }
-    }
-  ],
-  "usage": {
-    "prompt_tokens": 937,
-    "completion_tokens": 28,
-    "total_tokens": 965,
-    "cost": 0.0001049,
-    "is_byok": false,
-    "prompt_tokens_details": {
-      "cached_tokens": 0,
-      "audio_tokens": 0
-    },
-    "completion_tokens_details": {
-      "reasoning_tokens": 0,
-      "image_tokens": 0
-    },
-    "cost_details": {
-      "upstream_inference_cost": null,
-      "upstream_inference_prompt_cost": 9.37e-05,
-      "upstream_inference_completions_cost": 1.12e-05
-    }
-  }
+	"id": "gen-1760766355-BiVqiqmHmE6NWyaQ8Mo1",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4.1-nano",
+	"object": "chat.completion",
+	"created": 1760766355,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "completed",
+			"message": {
+				"role": "assistant",
+				"content": "Bronzemesser mit Menschenkopf-Griffknauf, typisch für spätbronzezeitliche Handelsware, einzigartig in der Schweiz.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 937,
+		"completion_tokens": 28,
+		"total_tokens": 965,
+		"cost": 0.0001049,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 9.37e-5,
+			"upstream_inference_completions_cost": 1.12e-5
+		}
+	}
 }

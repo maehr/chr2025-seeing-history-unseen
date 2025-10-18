@@ -1,40 +1,40 @@
 {
-  "id": "gen-1760766621-K3RAo9Su7PU2pFwmUJtE",
-  "provider": "OpenAI",
-  "model": "openai/gpt-4.1-nano",
-  "object": "chat.completion",
-  "created": 1760766622,
-  "choices": [
-    {
-      "index": 0,
-      "finish_reason": "stop",
-      "native_finish_reason": "completed",
-      "message": {
-        "role": "assistant",
-        "content": "Historische Karte von Klein Hüningen mit Festung und Umgebung, erstellt im Jahr 1749, gezeichnet von Emanuel Büchel.",
-        "refusal": null,
-        "reasoning": null
-      }
-    }
-  ],
-  "usage": {
-    "prompt_tokens": 1840,
-    "completion_tokens": 28,
-    "total_tokens": 1868,
-    "cost": 0.0001952,
-    "is_byok": false,
-    "prompt_tokens_details": {
-      "cached_tokens": 0,
-      "audio_tokens": 0
-    },
-    "completion_tokens_details": {
-      "reasoning_tokens": 0,
-      "image_tokens": 0
-    },
-    "cost_details": {
-      "upstream_inference_cost": null,
-      "upstream_inference_prompt_cost": 0.000184,
-      "upstream_inference_completions_cost": 1.12e-05
-    }
-  }
+	"id": "gen-1760766621-K3RAo9Su7PU2pFwmUJtE",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4.1-nano",
+	"object": "chat.completion",
+	"created": 1760766622,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "completed",
+			"message": {
+				"role": "assistant",
+				"content": "Historische Karte von Klein Hüningen mit Festung und Umgebung, erstellt im Jahr 1749, gezeichnet von Emanuel Büchel.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1840,
+		"completion_tokens": 28,
+		"total_tokens": 1868,
+		"cost": 0.0001952,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.000184,
+			"upstream_inference_completions_cost": 1.12e-5
+		}
+	}
 }

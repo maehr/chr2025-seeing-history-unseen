@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804344-1jaVwFBdHxtNv0jv6FVx",
+	"provider": "Hyperbolic",
+	"model": "mistralai/pixtral-12b",
+	"object": "chat.completion",
+	"created": 1760804344,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Blutgerichtsstab mit Totenschädel auf gekreuzten Knochen",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 395,
+		"completion_tokens": 18,
+		"total_tokens": 413,
+		"cost": 4.13e-5,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 3.95e-5,
+			"upstream_inference_completions_cost": 1.8e-6
+		}
+	}
+}

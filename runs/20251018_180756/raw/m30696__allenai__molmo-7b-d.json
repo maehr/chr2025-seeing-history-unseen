@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804244-pLQzaWebKLg2xntXqoUa",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760804244,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " *Nordic bronze dagger with human head handle, Basel Gasfabrik find. Typical of late Bronze Age craftsmanship, this dagger features a distinctive human head pommel unique to the Swiss region. Comparable examples are common in southern Scandinavia and northern Germany. Likely traded from the Rhine valley to Basel as a valuable commodity. Part of the Basel Gasfabrik's late Bronze Age settlement deposits. Displayed at the Museum of Cultures Basel, Switzerland.*",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1153,
+		"completion_tokens": 93,
+		"total_tokens": 1246,
+		"cost": 0.0001339,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001153,
+			"upstream_inference_completions_cost": 1.86e-5
+		}
+	}
+}

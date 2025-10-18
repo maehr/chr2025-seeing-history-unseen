@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760803813-xOT96hmIFP65ixSSbl7U",
+	"provider": "Google",
+	"model": "google/gemini-2.5-flash-lite",
+	"object": "chat.completion",
+	"created": 1760803813,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "STOP",
+			"message": {
+				"role": "assistant",
+				"content": "Marktplatzparkplatz mit Straßenbahn und Autos, Basel, 1950",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 2195,
+		"completion_tokens": 17,
+		"total_tokens": 2212,
+		"cost": 0.0002263,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0002195,
+			"upstream_inference_completions_cost": 6.8e-6
+		}
+	}
+}

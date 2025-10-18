@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804722-vwmq97yNhgsq5WoSWcOA",
+	"provider": "Hyperbolic",
+	"model": "mistralai/pixtral-12b",
+	"object": "chat.completion",
+	"created": 1760804722,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Anteil der Erwerbstätigen in wichtigen Branchen, 1870 und 1910. Landwirtschaft sinkt, Baugewerbe steigt. Handelsanteil wächst, Dienstbotenanteil sinkt.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 511,
+		"completion_tokens": 51,
+		"total_tokens": 562,
+		"cost": 5.62e-5,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 5.11e-5,
+			"upstream_inference_completions_cost": 5.1e-6
+		}
+	}
+}

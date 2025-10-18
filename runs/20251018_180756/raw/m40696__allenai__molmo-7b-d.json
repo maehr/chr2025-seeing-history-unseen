@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760803975-aNLR1RquPDculYSOr0Ey",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760803975,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " Zeichnung in einem Exemplar des \"Lobs der Torheit\" von Erasmus von Rotterdam\n\nIn der abgebildeten Szene hält ein Bettelordensbruder mit der rechten Hand einen Stecken, um sich vom direkten Kontakt mit der Münze zu schützen. Der zur Schau gestellte Moralismus wird ad absurdum geführt, als der Geistliche die Hand des Bettelers an die Brust des Bruders legt. Dieses Zeichnung kommentiert die Basler Bettelordenskonvente, obwohl Erasmus sein Werk 1509 in England verfasst hatte. Der Basler Drucker Johannes Froben veröffentlichte das Werk 1515, nachdem Erasmus in Basel eingemigert war.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1897,
+		"completion_tokens": 173,
+		"total_tokens": 2070,
+		"cost": 0.0002243,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001897,
+			"upstream_inference_completions_cost": 3.46e-5
+		}
+	}
+}
