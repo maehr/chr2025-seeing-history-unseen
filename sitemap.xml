@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://maehr.github.io/chr2025-seeing-history-unseen/src/playground.html</loc>
-    <lastmod>2025-10-18T16:05:42.237Z</lastmod>
+    <lastmod>2025-10-19T08:37:03.183Z</lastmod>
   </url>
   <url>
     <loc>https://maehr.github.io/chr2025-seeing-history-unseen/LICENSE-AGPL.html</loc>
@@ -13,23 +13,7 @@
     <lastmod>2025-10-17T21:04:21.080Z</lastmod>
   </url>
   <url>
-    <loc>https://maehr.github.io/chr2025-seeing-history-unseen/index.html</loc>
-    <lastmod>2025-10-17T21:04:21.088Z</lastmod>
-  </url>
-  <url>
-    <loc>https://maehr.github.io/chr2025-seeing-history-unseen/report.html</loc>
-    <lastmod>2025-10-17T21:04:21.089Z</lastmod>
-  </url>
-  <url>
-    <loc>https://maehr.github.io/chr2025-seeing-history-unseen/documentation/notes.html</loc>
-    <lastmod>2025-10-17T21:04:21.087Z</lastmod>
-  </url>
-  <url>
-    <loc>https://maehr.github.io/chr2025-seeing-history-unseen/CODE_OF_CONDUCT.html</loc>
-    <lastmod>2025-10-17T21:04:21.079Z</lastmod>
-  </url>
-  <url>
-    <loc>https://maehr.github.io/chr2025-seeing-history-unseen/CHANGELOG.html</loc>
+    <loc>https://maehr.github.io/chr2025-seeing-history-unseen/CONTRIBUTING.html</loc>
     <lastmod>2025-10-17T21:04:21.079Z</lastmod>
   </url>
   <url>
@@ -37,12 +21,44 @@
     <lastmod>2025-10-17T21:04:21.081Z</lastmod>
   </url>
   <url>
-    <loc>https://maehr.github.io/chr2025-seeing-history-unseen/CONTRIBUTING.html</loc>
+    <loc>https://maehr.github.io/chr2025-seeing-history-unseen/CHANGELOG.html</loc>
     <lastmod>2025-10-17T21:04:21.079Z</lastmod>
   </url>
   <url>
+    <loc>https://maehr.github.io/chr2025-seeing-history-unseen/CODE_OF_CONDUCT.html</loc>
+    <lastmod>2025-10-17T21:04:21.079Z</lastmod>
+  </url>
+  <url>
+    <loc>https://maehr.github.io/chr2025-seeing-history-unseen/paper/index.html</loc>
+    <lastmod>2025-10-19T06:21:35.110Z</lastmod>
+  </url>
+  <url>
+    <loc>https://maehr.github.io/chr2025-seeing-history-unseen/paper/todo.html</loc>
+    <lastmod>2025-10-19T09:05:03.362Z</lastmod>
+  </url>
+  <url>
+    <loc>https://maehr.github.io/chr2025-seeing-history-unseen/paper/paper.html</loc>
+    <lastmod>2025-10-19T06:50:23.008Z</lastmod>
+  </url>
+  <url>
+    <loc>https://maehr.github.io/chr2025-seeing-history-unseen/documentation/notes.html</loc>
+    <lastmod>2025-10-17T21:04:21.087Z</lastmod>
+  </url>
+  <url>
+    <loc>https://maehr.github.io/chr2025-seeing-history-unseen/report.html</loc>
+    <lastmod>2025-10-17T21:04:21.089Z</lastmod>
+  </url>
+  <url>
+    <loc>https://maehr.github.io/chr2025-seeing-history-unseen/index.html</loc>
+    <lastmod>2025-10-17T21:04:21.088Z</lastmod>
+  </url>
+  <url>
+    <loc>https://maehr.github.io/chr2025-seeing-history-unseen/AGENTS.html</loc>
+    <lastmod>2025-10-18T21:42:11.405Z</lastmod>
+  </url>
+  <url>
     <loc>https://maehr.github.io/chr2025-seeing-history-unseen/survey/index.html</loc>
-    <lastmod>2025-10-18T16:31:36.797Z</lastmod>
+    <lastmod>2025-10-19T09:00:55.355Z</lastmod>
   </url>
   <url>
     <loc>https://maehr.github.io/chr2025-seeing-history-unseen/SECURITY.html</loc>

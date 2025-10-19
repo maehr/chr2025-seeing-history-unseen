@@ -284,12 +284,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Notes: - The notebook expects <code>main.py</code> in the same directory. - Network calls occur in <code>fetch_and_save_metadata</code> and the OpenRouter API. - You can override <code>MODELS</code> and <code>MEDIA_IDS</code> without editing <code>main.py</code>.</p>
 <section id="environment-and-dependencies" class="level2">
 <h2 class="anchored" data-anchor-id="environment-and-dependencies">0) Environment and dependencies</h2>
-<div id="46f2c0f0" class="cell">
+<div id="46f2c0f0" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Optional: install or update dependencies in the current kernel</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Uncomment if needed.</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># %pip install -q -U python-dotenv pydantic requests pandas pyarrow</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="33e988f4" class="cell">
+<div id="33e988f4" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Provide the OpenRouter API key as an environment variable for this session</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> getpass <span class="im">import</span> getpass</span>
@@ -297,158 +297,245 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> os.getenv(<span class="st">"OPENROUTER_API_KEY"</span>):</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    os.environ[<span class="st">"OPENROUTER_API_KEY"</span>] <span class="op">=</span> getpass(<span class="st">"Enter OPENROUTER_API_KEY: "</span>)</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"OPENROUTER_API_KEY set:"</span>, <span class="bu">bool</span>(os.getenv(<span class="st">"OPENROUTER_API_KEY"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>OPENROUTER_API_KEY set: True</code></pre>
+</div>
 </div>
 </section>
 <section id="import-main.py" class="level2">
 <h2 class="anchored" data-anchor-id="import-main.py">1) Import <code>main.py</code></h2>
 <p>The notebook assumes the script file is named <strong><code>main.py</code></strong>.</p>
-<div id="0486f98f" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If importing fails, use %run as a fallback to load the module definitions into the namespace</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> importlib, sys, pathlib</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>base <span class="op">=</span> pathlib.Path().resolve()</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> (base <span class="op">/</span> <span class="st">"main.py"</span>).exists(), <span class="st">"main.py not found next to this notebook."</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> main  <span class="co"># noqa: F401</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    importlib.<span class="bu">reload</span>(main)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Import failed, executing </span><span class="sc">%r</span><span class="st">un main.py to populate symbols:"</span>, e)</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">%</span>run <span class="op">-</span>i main.py</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> main</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    importlib.<span class="bu">reload</span>(main)</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Imported main from:"</span>, main.<span class="va">__file__</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="0486f98f" class="cell" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add the project's 'src' directory to the path to allow importing 'main'.</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> importlib</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Hardcoding the absolute path to the 'src' directory.</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a robust way to ensure the module is found, regardless of the</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># notebook kernel's current working directory.</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>src_path <span class="op">=</span> <span class="st">"/Users/maehr0000/src/chr2025-seeing-history-unseen/src"</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> src_path <span class="kw">not</span> <span class="kw">in</span> sys.path:</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    sys.path.insert(<span class="dv">0</span>, src_path)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> main</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>importlib.<span class="bu">reload</span>(main)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Successfully imported main from: </span><span class="sc">{</span>main<span class="sc">.</span><span class="va">__file__</span><span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Successfully imported main from: /Users/maehr0000/src/chr2025-seeing-history-unseen/src/main.py</code></pre>
+</div>
 </div>
 </section>
 <section id="inspect-current-configuration" class="level2">
 <h2 class="anchored" data-anchor-id="inspect-current-configuration">2) Inspect current configuration</h2>
-<div id="0f19f66c" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"OPENROUTER_URL:"</span>, <span class="bu">getattr</span>(main, <span class="st">"OPENROUTER_URL"</span>, <span class="va">None</span>))</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"METADATA_URL:"</span>, <span class="bu">getattr</span>(main, <span class="st">"METADATA_URL"</span>, <span class="va">None</span>))</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"TIMEOUT_SECONDS:"</span>, <span class="bu">getattr</span>(main, <span class="st">"TIMEOUT_SECONDS"</span>, <span class="va">None</span>))</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"RUNS_DIR:"</span>, <span class="bu">getattr</span>(main, <span class="st">"RUNS_DIR"</span>, <span class="va">None</span>))</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"MODELS:"</span>, <span class="bu">getattr</span>(main, <span class="st">"MODELS"</span>, <span class="va">None</span>))</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"MEDIA_IDS:"</span>, <span class="bu">getattr</span>(main, <span class="st">"MEDIA_IDS"</span>, <span class="va">None</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="0f19f66c" class="cell" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"OPENROUTER_URL:"</span>, <span class="bu">getattr</span>(main, <span class="st">"OPENROUTER_URL"</span>, <span class="va">None</span>))</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"METADATA_URL:"</span>, <span class="bu">getattr</span>(main, <span class="st">"METADATA_URL"</span>, <span class="va">None</span>))</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"TIMEOUT_SECONDS:"</span>, <span class="bu">getattr</span>(main, <span class="st">"TIMEOUT_SECONDS"</span>, <span class="va">None</span>))</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"RUNS_DIR:"</span>, <span class="bu">getattr</span>(main, <span class="st">"RUNS_DIR"</span>, <span class="va">None</span>))</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"MODELS:"</span>, <span class="bu">getattr</span>(main, <span class="st">"MODELS"</span>, <span class="va">None</span>))</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"MEDIA_IDS:"</span>, <span class="bu">getattr</span>(main, <span class="st">"MEDIA_IDS"</span>, <span class="va">None</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>OPENROUTER_URL: https://openrouter.ai/api/v1/chat/completions
+METADATA_URL: https://forschung.stadtgeschichtebasel.ch/assets/data/metadata.json
+TIMEOUT_SECONDS: 60
+RUNS_DIR: runs
+MODELS: ['google/gemini-2.5-flash-lite', 'mistralai/pixtral-12b', 'openai/gpt-4.1-nano', 'allenai/molmo-7b-d']
+MEDIA_IDS: ['m94775', 'm27909_1', 'm30203_1_1', 'm29729_1', 'm29613_1', 'm29165', 'm36484', 'm30572', 'm35321', 'm74721', 'm24753', 'm36169', 'm22924', 'm73508', 'm20435', 'm92357', 'm36710', 'm29494', 'm92410', 'm37716', 'm92966', 'm94115', 'm30112', 'm40696', 'm30541', 'm36182', 'm93438', 'm13025', 'm40043', 'm37030_1', 'm90411', 'm94271', 'm93409', 'm37088', 'm30171', 'm28481', 'm39492_1', 'm90496_1', 'm39198_1', 'm40946_1', 'm92205', 'm30696', 'm37490', 'm74768', 'm28635', 'm37274', 'm93036', 'm92849', 'm14227', 'm28739', 'm34278_1', 'm91636_1', 'm77000', 'm82972', 'm24255_1', 'm16026', 'm10333', 'm19156', 'm11092', 'm94047', 'm25143', 'm21867', 'm19033', 'm13176', 'm15630', 'm23902', 'm16683', 'm12965', 'm35209', 'm95804', 'm33188', 'm91000_1', 'm95513', 'm91960', 'm94712', 'm95085', 'm92237_1', 'm90886_1', 'm94575', 'm27970', 'm22355_1', 'm85061_1', 'm15298_1', 'm11589_1', 'm34620', 'm26375_1', 'm82338_1', 'm88415_1', 'm30849', 'm92771', 'm93459', 'm33441', 'm37696', 'm37644', 'm33472', 'm89606', 'm91713', 'm29025', 'm40938', 'm29084']</code></pre>
+</div>
 </div>
 </section>
 <section id="override-configuration-at-runtime" class="level2">
 <h2 class="anchored" data-anchor-id="override-configuration-at-runtime">3) Override configuration at runtime</h2>
 <p>Adjust <code>MODELS</code> and <code>MEDIA_IDS</code> without editing the script.</p>
-<div id="6a7c969c" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: narrow to one model and one media id during experimentation.</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Comment or edit as you wish.</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>main.MODELS <span class="op">=</span> [</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"google/gemini-2.5-flash-lite"</span>,</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># "mistralai/pixtral-12b",</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># "openai/gpt-4.1-nano",</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># "allenai/molmo-7b-d",</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>main.MEDIA_IDS <span class="op">=</span> [<span class="st">"m93036"</span>]</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"MODELS -&gt;"</span>, main.MODELS)</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"MEDIA_IDS -&gt;"</span>, main.MEDIA_IDS)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="6a7c969c" class="cell" data-execution_count="20">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: narrow to one model and one media id during experimentation.</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Comment or edit as you wish.</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>main.MODELS <span class="op">=</span> [</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"google/gemini-2.5-flash-lite"</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># "mistralai/pixtral-12b",</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># "openai/gpt-4.1-nano",</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># "allenai/molmo-7b-d",</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>main.MEDIA_IDS <span class="op">=</span> [<span class="st">"m93036"</span>]</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"MODELS -&gt;"</span>, main.MODELS)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"MEDIA_IDS -&gt;"</span>, main.MEDIA_IDS)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>MODELS -&gt; ['google/gemini-2.5-flash-lite']
+MEDIA_IDS -&gt; ['m93036']</code></pre>
+</div>
 </div>
 </section>
 <section id="quick-prompt-preview-for-a-media-id" class="level2">
 <h2 class="anchored" data-anchor-id="quick-prompt-preview-for-a-media-id">4) Quick prompt preview for a media id</h2>
 <p>This lets you see the constructed prompt and image URL before executing a full run.</p>
-<div id="42a6af21" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fetch metadata JSON and build a prompt for the first media id</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>payload <span class="op">=</span> main.fetch_and_save_metadata(main.METADATA_URL, main.mk_run_dir())</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>db <span class="op">=</span> main.load_db_from_payload(payload)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>mid <span class="op">=</span> main.MEDIA_IDS[<span class="dv">0</span>]</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>media <span class="op">=</span> db[mid]</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>prompt <span class="op">=</span> main.build_prompt(media)</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>message <span class="op">=</span> main.build_messages(prompt, <span class="bu">str</span>(media.object_thumb))</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Media:"</span>, mid)</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">=== Prompt ===</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(prompt)</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">=== Image URL ===</span><span class="ch">\n</span><span class="st">"</span>, media.object_thumb)</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"</span><span class="ch">\n</span><span class="st">=== Message payload snippet ===</span><span class="ch">\n</span><span class="st">"</span>, message[<span class="dv">0</span>][<span class="st">"content"</span>][<span class="dv">0</span>] <span class="cf">if</span> message <span class="cf">else</span> {}</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="42a6af21" class="cell" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fetch metadata JSON and build a prompt for the first media id</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>payload <span class="op">=</span> main.fetch_and_save_metadata(main.METADATA_URL, main.mk_run_dir())</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>db <span class="op">=</span> main.load_db_from_payload(payload)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>mid <span class="op">=</span> main.MEDIA_IDS[<span class="dv">0</span>]</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>media <span class="op">=</span> db[mid]</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>prompt <span class="op">=</span> main.build_prompt(media)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>message <span class="op">=</span> main.build_messages(prompt, <span class="bu">str</span>(media.object_thumb))</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Media:"</span>, mid)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">=== Prompt ===</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(prompt)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">=== Image URL ===</span><span class="ch">\n</span><span class="st">"</span>, media.object_thumb)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"</span><span class="ch">\n</span><span class="st">=== Message payload snippet ===</span><span class="ch">\n</span><span class="st">"</span>, message[<span class="dv">0</span>][<span class="st">"content"</span>][<span class="dv">0</span>] <span class="cf">if</span> message <span class="cf">else</span> {}</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">FileNotFoundError</span>                         Traceback (most recent call last)
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/.local/share/uv/python/cpython-3.11.11-macos-aarch64-none/lib/python3.11/pathlib.py:1116</span>, in <span class="ansi-cyan-fg">Path.mkdir</span><span class="ansi-blue-fg">(self, mode, parents, exist_ok)</span>
+<span class="ansi-green-fg">   1115</span> <span style="font-weight:bold;color:rgb(0,135,0)">try</span>:
+<span class="ansi-green-fg">-&gt; </span><span class="ansi-green-fg">1116</span>     <span class="ansi-yellow-bg">os</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">mkdir</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">mode</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">   1117</span> <span style="font-weight:bold;color:rgb(0,135,0)">except</span> <span style="font-weight:bold;color:rgb(215,95,95)">FileNotFoundError</span>:
+
+<span class="ansi-red-fg">FileNotFoundError</span>: [Errno 2] No such file or directory: 'runs/20251018_232634'
+
+During handling of the above exception, another exception occurred:
+
+<span class="ansi-red-fg">FileNotFoundError</span>                         Traceback (most recent call last)
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/.local/share/uv/python/cpython-3.11.11-macos-aarch64-none/lib/python3.11/pathlib.py:1116</span>, in <span class="ansi-cyan-fg">Path.mkdir</span><span class="ansi-blue-fg">(self, mode, parents, exist_ok)</span>
+<span class="ansi-green-fg">   1115</span> <span style="font-weight:bold;color:rgb(0,135,0)">try</span>:
+<span class="ansi-green-fg">-&gt; </span><span class="ansi-green-fg">1116</span>     <span class="ansi-yellow-bg">os</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">mkdir</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">mode</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">   1117</span> <span style="font-weight:bold;color:rgb(0,135,0)">except</span> <span style="font-weight:bold;color:rgb(215,95,95)">FileNotFoundError</span>:
+
+<span class="ansi-red-fg">FileNotFoundError</span>: [Errno 2] No such file or directory: 'runs'
+
+During handling of the above exception, another exception occurred:
+
+<span class="ansi-red-fg">FileNotFoundError</span>                         Traceback (most recent call last)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[21]</span><span class="ansi-green-fg">, line 2</span>
+<span class="ansi-green-fg">      1</span> <span style="font-style:italic;color:rgb(95,135,135)"># Fetch metadata JSON and build a prompt for the first media id</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> payload = main.fetch_and_save_metadata(main.METADATA_URL, <span class="ansi-yellow-bg">main</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">mk_run_dir</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>)
+<span class="ansi-green-fg">      3</span> db = main.load_db_from_payload(payload)
+<span class="ansi-green-fg">      5</span> mid = main.MEDIA_IDS[<span class="ansi-green-fg">0</span>]
+
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/src/chr2025-seeing-history-unseen/src/main.py:266</span>, in <span class="ansi-cyan-fg">mk_run_dir</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">    264</span> ts = datetime.now().strftime(<span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">%</span><span class="ansi-yellow-fg">Y</span><span class="ansi-yellow-fg">%</span><span class="ansi-yellow-fg">m</span><span style="font-weight:bold;color:rgb(175,95,135)">%d</span><span class="ansi-yellow-fg">_</span><span class="ansi-yellow-fg">%</span><span class="ansi-yellow-fg">H</span><span class="ansi-yellow-fg">%</span><span class="ansi-yellow-fg">M</span><span class="ansi-yellow-fg">%</span><span class="ansi-yellow-fg">S</span><span class="ansi-yellow-fg">"</span>)
+<span class="ansi-green-fg">    265</span> run_dir = RUNS_DIR / ts
+<span class="ansi-green-fg">--&gt; </span><span class="ansi-green-fg">266</span> <span class="ansi-yellow-bg">run_dir</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">mkdir</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">parents</span><span class="ansi-yellow-bg">=</span><span style="font-weight:bold;color:rgb(0,135,0)" class="ansi-yellow-bg">True</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">exist_ok</span><span class="ansi-yellow-bg">=</span><span style="font-weight:bold;color:rgb(0,135,0)" class="ansi-yellow-bg">True</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">    267</span> (run_dir / <span class="ansi-yellow-fg">"</span><span class="ansi-yellow-fg">raw</span><span class="ansi-yellow-fg">"</span>).mkdir(exist_ok=<span style="font-weight:bold;color:rgb(0,135,0)">True</span>)
+<span class="ansi-green-fg">    268</span> <span style="font-weight:bold;color:rgb(0,135,0)">return</span> run_dir
+
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/.local/share/uv/python/cpython-3.11.11-macos-aarch64-none/lib/python3.11/pathlib.py:1120</span>, in <span class="ansi-cyan-fg">Path.mkdir</span><span class="ansi-blue-fg">(self, mode, parents, exist_ok)</span>
+<span class="ansi-green-fg">   1118</span>     <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> parents <span style="font-weight:bold;color:rgb(175,0,255)">or</span> <span style="color:rgb(0,135,0)">self</span>.parent == <span style="color:rgb(0,135,0)">self</span>:
+<span class="ansi-green-fg">   1119</span>         <span style="font-weight:bold;color:rgb(0,135,0)">raise</span>
+<span class="ansi-green-fg">-&gt; </span><span class="ansi-green-fg">1120</span>     <span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">parent</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">mkdir</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">parents</span><span class="ansi-yellow-bg">=</span><span style="font-weight:bold;color:rgb(0,135,0)" class="ansi-yellow-bg">True</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">exist_ok</span><span class="ansi-yellow-bg">=</span><span style="font-weight:bold;color:rgb(0,135,0)" class="ansi-yellow-bg">True</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">   1121</span>     <span style="color:rgb(0,135,0)">self</span>.mkdir(mode, parents=<span style="font-weight:bold;color:rgb(0,135,0)">False</span>, exist_ok=exist_ok)
+<span class="ansi-green-fg">   1122</span> <span style="font-weight:bold;color:rgb(0,135,0)">except</span> <span style="font-weight:bold;color:rgb(215,95,95)">OSError</span>:
+<span class="ansi-green-fg">   1123</span>     <span style="font-style:italic;color:rgb(95,135,135)"># Cannot rely on checking for EEXIST, since the operating system</span>
+<span class="ansi-green-fg">   1124</span>     <span style="font-style:italic;color:rgb(95,135,135)"># could give priority to other errors like EACCES or EROFS</span>
+
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/.local/share/uv/python/cpython-3.11.11-macos-aarch64-none/lib/python3.11/pathlib.py:1121</span>, in <span class="ansi-cyan-fg">Path.mkdir</span><span class="ansi-blue-fg">(self, mode, parents, exist_ok)</span>
+<span class="ansi-green-fg">   1119</span>         <span style="font-weight:bold;color:rgb(0,135,0)">raise</span>
+<span class="ansi-green-fg">   1120</span>     <span style="color:rgb(0,135,0)">self</span>.parent.mkdir(parents=<span style="font-weight:bold;color:rgb(0,135,0)">True</span>, exist_ok=<span style="font-weight:bold;color:rgb(0,135,0)">True</span>)
+<span class="ansi-green-fg">-&gt; </span><span class="ansi-green-fg">1121</span>     <span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">mkdir</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">mode</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">parents</span><span class="ansi-yellow-bg">=</span><span style="font-weight:bold;color:rgb(0,135,0)" class="ansi-yellow-bg">False</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">exist_ok</span><span class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">exist_ok</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">   1122</span> <span style="font-weight:bold;color:rgb(0,135,0)">except</span> <span style="font-weight:bold;color:rgb(215,95,95)">OSError</span>:
+<span class="ansi-green-fg">   1123</span>     <span style="font-style:italic;color:rgb(95,135,135)"># Cannot rely on checking for EEXIST, since the operating system</span>
+<span class="ansi-green-fg">   1124</span>     <span style="font-style:italic;color:rgb(95,135,135)"># could give priority to other errors like EACCES or EROFS</span>
+<span class="ansi-green-fg">   1125</span>     <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> exist_ok <span style="font-weight:bold;color:rgb(175,0,255)">or</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> <span style="color:rgb(0,135,0)">self</span>.is_dir():
+
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">~/.local/share/uv/python/cpython-3.11.11-macos-aarch64-none/lib/python3.11/pathlib.py:1116</span>, in <span class="ansi-cyan-fg">Path.mkdir</span><span class="ansi-blue-fg">(self, mode, parents, exist_ok)</span>
+<span class="ansi-green-fg">   1112</span> <span style="font-style:italic" class="ansi-yellow-fg">"""</span>
+<span class="ansi-green-fg">   1113</span> <span style="font-style:italic" class="ansi-yellow-fg">Create a new directory at this given path.</span>
+<span class="ansi-green-fg">   1114</span> <span style="font-style:italic" class="ansi-yellow-fg">"""</span>
+<span class="ansi-green-fg">   1115</span> <span style="font-weight:bold;color:rgb(0,135,0)">try</span>:
+<span class="ansi-green-fg">-&gt; </span><span class="ansi-green-fg">1116</span>     <span class="ansi-yellow-bg">os</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">mkdir</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">mode</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg">   1117</span> <span style="font-weight:bold;color:rgb(0,135,0)">except</span> <span style="font-weight:bold;color:rgb(215,95,95)">FileNotFoundError</span>:
+<span class="ansi-green-fg">   1118</span>     <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> parents <span style="font-weight:bold;color:rgb(175,0,255)">or</span> <span style="color:rgb(0,135,0)">self</span>.parent == <span style="color:rgb(0,135,0)">self</span>:
+
+<span class="ansi-red-fg">FileNotFoundError</span>: [Errno 2] No such file or directory: 'runs'</pre>
+</div>
+</div>
 </div>
 </section>
 <section id="execute-the-full-pipeline" class="level2">
 <h2 class="anchored" data-anchor-id="execute-the-full-pipeline">5) Execute the full pipeline</h2>
 <p>Runs <code>main.main()</code> which will fetch metadata, save a copy for the run, call models, and persist outputs.</p>
 <div id="d4b19ae3" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>main.main()</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Run complete. See the generated runs/ timestamped directory."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>EXECUTE <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> EXECUTE:</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    main.main()</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Run complete. See the generated runs/ timestamped directory."</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Set EXECUTE = True to run the main() function and generate outputs.</span><span class="ch">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="load-and-inspect-the-latest-results-table" class="level2">
 <h2 class="anchored" data-anchor-id="load-and-inspect-the-latest-results-table">6) Load and inspect the latest results table</h2>
 <div id="519a5129" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd, pathlib, re</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>runs_dir <span class="op">=</span> pathlib.Path(<span class="bu">getattr</span>(main, <span class="st">"RUNS_DIR"</span>, <span class="st">"runs"</span>))</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> runs_dir.exists(), <span class="st">"runs/ directory not found. Did you run the pipeline?"</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Find newest run directory</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>run_dirs <span class="op">=</span> <span class="bu">sorted</span>(</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    [p <span class="cf">for</span> p <span class="kw">in</span> runs_dir.iterdir() <span class="cf">if</span> p.is_dir()],</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    key<span class="op">=</span><span class="kw">lambda</span> p: p.stat().st_mtime,</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    reverse<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>latest <span class="op">=</span> run_dirs[<span class="dv">0</span>]</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Latest run:"</span>, latest)</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the CSV for that run</span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>tables <span class="op">=</span> <span class="bu">sorted</span>(latest.glob(<span class="st">"alt_text_runs_*.csv"</span>))</span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> tables, <span class="st">"No results CSV found in the latest run."</span></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>csv_path <span class="op">=</span> tables[<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Results table:"</span>, csv_path)</span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(csv_path)</span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Rows:"</span>, <span class="bu">len</span>(df), <span class="st">"Columns:"</span>, <span class="bu">len</span>(df.columns))</span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd, pathlib, re</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>runs_dir <span class="op">=</span> pathlib.Path(<span class="bu">getattr</span>(main, <span class="st">"RUNS_DIR"</span>, <span class="st">"runs"</span>))</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> runs_dir.exists(), <span class="st">"runs/ directory not found. Did you run the pipeline?"</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Find newest run directory</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>run_dirs <span class="op">=</span> <span class="bu">sorted</span>(</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    [p <span class="cf">for</span> p <span class="kw">in</span> runs_dir.iterdir() <span class="cf">if</span> p.is_dir()],</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    key<span class="op">=</span><span class="kw">lambda</span> p: p.stat().st_mtime,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    reverse<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>latest <span class="op">=</span> run_dirs[<span class="dv">0</span>]</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Latest run:"</span>, latest)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the CSV for that run</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>tables <span class="op">=</span> <span class="bu">sorted</span>(latest.glob(<span class="st">"alt_text_runs_*.csv"</span>))</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> tables, <span class="st">"No results CSV found in the latest run."</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>csv_path <span class="op">=</span> tables[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Results table:"</span>, csv_path)</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(csv_path)</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Rows:"</span>, <span class="bu">len</span>(df), <span class="st">"Columns:"</span>, <span class="bu">len</span>(df.columns))</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="compare-model-outputs-for-one-media-id" class="level2">
 <h2 class="anchored" data-anchor-id="compare-model-outputs-for-one-media-id">7) Compare model outputs for one media id</h2>
 <div id="b14312a8" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pprint <span class="im">import</span> pprint</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>row <span class="op">=</span> df.iloc[<span class="dv">0</span>].to_dict()</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>objectid <span class="op">=</span> row.get(<span class="st">"objectid"</span>, <span class="st">"&lt;unknown&gt;"</span>)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Object ID:"</span>, objectid)</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Collect model-specific content columns</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>model_cols <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> df.columns <span class="cf">if</span> c.endswith(<span class="st">"__content"</span>)]</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>pairs <span class="op">=</span> []</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> c <span class="kw">in</span> model_cols:</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    model_name <span class="op">=</span> c.replace(<span class="st">"__content"</span>, <span class="st">""</span>).replace(<span class="st">"__"</span>, <span class="st">"/"</span>)</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    pairs.append((model_name, row.get(c)))</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name, content <span class="kw">in</span> pairs:</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">###"</span>, name, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>, content)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pprint <span class="im">import</span> pprint</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>row <span class="op">=</span> df.iloc[<span class="dv">0</span>].to_dict()</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>objectid <span class="op">=</span> row.get(<span class="st">"objectid"</span>, <span class="st">"&lt;unknown&gt;"</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Object ID:"</span>, objectid)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Collect model-specific content columns</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>model_cols <span class="op">=</span> [c <span class="cf">for</span> c <span class="kw">in</span> df.columns <span class="cf">if</span> c.endswith(<span class="st">"__content"</span>)]</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>pairs <span class="op">=</span> []</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> c <span class="kw">in</span> model_cols:</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    model_name <span class="op">=</span> c.replace(<span class="st">"__content"</span>, <span class="st">""</span>).replace(<span class="st">"__"</span>, <span class="st">"/"</span>)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    pairs.append((model_name, row.get(c)))</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name, content <span class="kw">in</span> pairs:</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">###"</span>, name, <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>, content)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="optional-run-a-single-model-on-one-media-id" class="level2">
 <h2 class="anchored" data-anchor-id="optional-run-a-single-model-on-one-media-id">8) Optional: run a single model on one media id</h2>
 <p>Calls the underlying request function directly for quick checks.</p>
 <div id="26b13dba" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>mid <span class="op">=</span> main.MEDIA_IDS[<span class="dv">0</span>]</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>payload <span class="op">=</span> main.fetch_and_save_metadata(main.METADATA_URL, main.mk_run_dir())</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>db <span class="op">=</span> main.load_db_from_payload(payload)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>media <span class="op">=</span> db[mid]</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>messages <span class="op">=</span> main.build_messages(main.build_prompt(media), <span class="bu">str</span>(media.object_thumb))</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> main.MODELS[<span class="dv">0</span>]</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>resp <span class="op">=</span> main.call_openrouter(</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    api_key<span class="op">=</span>os.environ[<span class="st">"OPENROUTER_API_KEY"</span>], model<span class="op">=</span>model, messages<span class="op">=</span>messages</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Provider:"</span>, resp.provider, <span class="st">"| Model:"</span>, resp.model, <span class="st">"| Completion id:"</span>, resp.<span class="bu">id</span>)</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>choice <span class="op">=</span> resp.choices[<span class="dv">0</span>] <span class="cf">if</span> resp.choices <span class="cf">else</span> <span class="va">None</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Alt text:"</span>)</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(choice.message.content <span class="cf">if</span> choice <span class="cf">else</span> <span class="st">"&lt;no content&gt;"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>mid <span class="op">=</span> main.MEDIA_IDS[<span class="dv">0</span>]</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>payload <span class="op">=</span> main.fetch_and_save_metadata(main.METADATA_URL, main.mk_run_dir())</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>db <span class="op">=</span> main.load_db_from_payload(payload)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>media <span class="op">=</span> db[mid]</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>messages <span class="op">=</span> main.build_messages(main.build_prompt(media), <span class="bu">str</span>(media.object_thumb))</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> main.MODELS[<span class="dv">0</span>]</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>resp <span class="op">=</span> main.call_openrouter(</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    api_key<span class="op">=</span>os.environ[<span class="st">"OPENROUTER_API_KEY"</span>], model<span class="op">=</span>model, messages<span class="op">=</span>messages</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Provider:"</span>, resp.provider, <span class="st">"| Model:"</span>, resp.model, <span class="st">"| Completion id:"</span>, resp.<span class="bu">id</span>)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>choice <span class="op">=</span> resp.choices[<span class="dv">0</span>] <span class="cf">if</span> resp.choices <span class="cf">else</span> <span class="va">None</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Alt text:"</span>)</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(choice.message.content <span class="cf">if</span> choice <span class="cf">else</span> <span class="st">"&lt;no content&gt;"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 
