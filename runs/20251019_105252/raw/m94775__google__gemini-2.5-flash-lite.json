@@ -1,9 +1,9 @@
 {
-	"id": "gen-1760863104-jJYmglf9h5ct9YeuNOkk",
+	"id": "gen-1760863972-L8eo3zdg56d5SEbCfXac",
 	"provider": "Google",
 	"model": "google/gemini-2.5-flash-lite",
 	"object": "chat.completion",
-	"created": 1760863104,
+	"created": 1760863972,
 	"choices": [
 		{
 			"index": 0,
@@ -11,7 +11,7 @@
 			"native_finish_reason": "STOP",
 			"message": {
 				"role": "assistant",
-				"content": "«MerkWÜrdige Seltenheit»: Afrikaner der Ashantee-Nation wird ausgestellt.",
+				"content": "Merkwürdige Seltenheit: Ein Ashantee-Mann wird vorgestellt.",
 				"refusal": null,
 				"reasoning": null
 			}
@@ -19,9 +19,9 @@
 	],
 	"usage": {
 		"prompt_tokens": 1720,
-		"completion_tokens": 21,
-		"total_tokens": 1741,
-		"cost": 0.0001804,
+		"completion_tokens": 15,
+		"total_tokens": 1735,
+		"cost": 0.000178,
 		"is_byok": false,
 		"prompt_tokens_details": {
 			"cached_tokens": 0,
@@ -34,7 +34,7 @@
 		"cost_details": {
 			"upstream_inference_cost": null,
 			"upstream_inference_prompt_cost": 0.000172,
-			"upstream_inference_completions_cost": 8.4e-6
+			"upstream_inference_completions_cost": 6e-6
 		}
 	}
 }

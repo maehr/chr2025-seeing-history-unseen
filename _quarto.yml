@@ -3,6 +3,7 @@ project:
   resources:
     - survey/questions.csv
     - survey/index.html
+    - survey/images/*
 
 website:
   title: CHR 2025 - Seeing History Unseen

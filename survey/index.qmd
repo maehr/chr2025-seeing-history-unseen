@@ -4,7 +4,10 @@ format:
   html:
     embed-resources: true
     toc: false
+    sidebar: false
+    page-layout: full
 ---
+
 ```{=html}
 {{< include form.html >}}
 ```

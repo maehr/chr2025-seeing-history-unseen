@@ -1,9 +1,9 @@
 {
-	"id": "gen-1760863108-9bK2os0mOAE17vTLtzqD",
-	"provider": "OpenAI",
-	"model": "openai/gpt-4o-mini",
+	"id": "gen-1760863975-TnKoo33XrnSDQ0ID8LgW",
+	"provider": "Hyperbolic",
+	"model": "mistralai/pixtral-12b",
 	"object": "chat.completion",
-	"created": 1760863108,
+	"created": 1760863975,
 	"choices": [
 		{
 			"index": 0,
@@ -11,17 +11,17 @@
 			"native_finish_reason": "stop",
 			"message": {
 				"role": "assistant",
-				"content": "Illustration einer Anzeige für eine Vorstellung eines Ashantée während der Herbstmesse 1834.",
+				"content": "Ein Afrikaner von der kriegerischen Nation der Ashantées wird auf der Herbstmesse präsentiert.",
 				"refusal": null,
 				"reasoning": null
 			}
 		}
 	],
 	"usage": {
-		"prompt_tokens": 25938,
-		"completion_tokens": 19,
-		"total_tokens": 25957,
-		"cost": 0.0039021,
+		"prompt_tokens": 455,
+		"completion_tokens": 25,
+		"total_tokens": 480,
+		"cost": 4.8e-5,
 		"is_byok": false,
 		"prompt_tokens_details": {
 			"cached_tokens": 0,
@@ -33,8 +33,8 @@
 		},
 		"cost_details": {
 			"upstream_inference_cost": null,
-			"upstream_inference_prompt_cost": 0.0038907,
-			"upstream_inference_completions_cost": 1.14e-5
+			"upstream_inference_prompt_cost": 4.55e-5,
+			"upstream_inference_completions_cost": 2.5e-6
 		}
 	}
 }

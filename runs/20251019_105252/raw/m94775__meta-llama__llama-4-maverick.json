@@ -1,9 +1,9 @@
 {
-	"id": "gen-1760863112-5OjkkjwfgVhyCai3kO74",
-	"provider": "Novita",
+	"id": "gen-1760863981-sIvQ2OTbr7k3gu19OycF",
+	"provider": "Parasail",
 	"model": "meta-llama/llama-4-maverick",
 	"object": "chat.completion",
-	"created": 1760863112,
+	"created": 1760863988,
 	"choices": [
 		{
 			"index": 0,
@@ -11,17 +11,17 @@
 			"native_finish_reason": "stop",
 			"message": {
 				"role": "assistant",
-				"content": "Anzeige für einen Ashanti zur Schau während der Herbstmesse 1834 auf der Zunft zu Safran, Holzschnitt eines stehenden Mannes mit Speer, Bogen und Köcher.",
+				"content": "\"Illustration eines Ashanti-Mannes in traditioneller Kleidung und Bewaffnung in einer Anzeige der Zunft zu Safran in Basel für eine Völkerschau während der Herbstmesse 1834\"",
 				"refusal": null,
 				"reasoning": null
 			}
 		}
 	],
 	"usage": {
-		"prompt_tokens": 1453,
+		"prompt_tokens": 1456,
 		"completion_tokens": 44,
-		"total_tokens": 1497,
-		"cost": 0.00028441,
+		"total_tokens": 1500,
+		"cost": 0.0002558,
 		"is_byok": false,
 		"prompt_tokens_details": {
 			"cached_tokens": 0,
@@ -33,7 +33,7 @@
 		},
 		"cost_details": {
 			"upstream_inference_cost": null,
-			"upstream_inference_prompt_cost": 0.00024701,
+			"upstream_inference_prompt_cost": 0.0002184,
 			"upstream_inference_completions_cost": 3.74e-5
 		}
 	}

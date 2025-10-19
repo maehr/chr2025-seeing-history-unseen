@@ -1,9 +1,9 @@
 <script type="module">
 	/* ---------- Configuration ---------- */
-	const CSV_URL = 'questions.csv'; // sits next to the .qmd
+	const CSV_URL = 'questions.csv';
 	const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xrbyjror';
 
-	/* ---------- Util: Seed, RNG, Shuffle ---------- */
+	/* ---------- Util ---------- */
 	function rng(seed) {
 		let t = seed >>> 0;
 		return () => {
@@ -27,14 +27,6 @@
 		crypto.getRandomValues(b);
 		return b[0];
 	}
-	function hashSeed(seed, str) {
-		let h = seed ^ 2166136261;
-		for (let i = 0; i < str.length; i++) {
-			h ^= str.charCodeAt(i);
-			h = Math.imul(h, 16777619);
-		}
-		return h >>> 0;
-	}
 
 	/* ---------- Load Papa Parse ---------- */
 	await new Promise((ok, err) => {
@@ -45,38 +37,29 @@
 		document.head.appendChild(s);
 	});
 
-	/* ---------- Data loading (updated for wide CSV) ---------- */
-	// Expected headers:
-	// question_id,question_text,
-	// option_1_id,option_1_label,option_2_id,option_2_label,option_3_id,option_3_label,option_4_id,option_4_label
+	/* ---------- Load two-option questions ---------- */
 	async function loadQuestions() {
 		const res = await fetch(CSV_URL, { cache: 'no-store' });
 		const text = await res.text();
 		const { data } = Papa.parse(text, { header: true, skipEmptyLines: true });
-
 		const questions = [];
 		for (const row of data) {
-			if (!row || row.question_id == null) continue;
+			if (!row || !row.question_id) continue;
 			const qid = String(row.question_id).trim();
 			const qtext = row.question_text ?? '';
-
-			// Collect option pairs option_i_id / option_i_label
-			const options = [];
-			// Support up to 50 pairs defensively; adjust as needed.
-			for (let i = 1; i <= 50; i++) {
-				const oidRaw = row[`option_${i}_id`];
-				const olab = row[`option_${i}_label`];
-				if (oidRaw == null && olab == null) continue; // skip completely empty pairs
-				if (oidRaw == null || olab == null) continue; // skip incomplete pairs
-				const oid = String(oidRaw).trim();
-				if (!oid || !String(olab).trim()) continue;
-				options.push({ id: oid, label: olab });
-			}
-
-			// Only keep questions that have at least two options
-			if (options.length >= 2) {
-				questions.push({ id: qid, text: qtext, options });
-			}
+			const o1id = row.option_1_id?.trim();
+			const o1lab = row.option_1_label?.trim();
+			const o2id = row.option_2_id?.trim();
+			const o2lab = row.option_2_label?.trim();
+			if (o1id && o2id && o1lab && o2lab)
+				questions.push({
+					id: qid,
+					text: qtext,
+					options: [
+						{ id: o1id, label: o1lab },
+						{ id: o2id, label: o2lab }
+					]
+				});
 		}
 		return questions;
 	}
@@ -97,7 +80,6 @@
 	const pageQ = document.getElementById('page-q');
 	const pageFinish = document.getElementById('page-finish');
 	const qTitle = document.getElementById('q-title');
-	const ranklist = document.getElementById('ranklist');
 	const progress = document.getElementById('progress');
 	const startBtn = document.getElementById('start');
 	const consent = document.getElementById('consent');
@@ -108,39 +90,16 @@
 	const emailMsg = document.getElementById('email-msg');
 	const sendMsg = document.getElementById('send-msg');
 	const summary = document.getElementById('summary');
+	const pair = document.getElementById('pair');
+	const leftBtn = document.getElementById('left');
+	const rightBtn = document.getElementById('right');
 
 	function show(el) {
 		[pageEmail, pageQ, pageFinish].forEach((p) => p.classList.add('d-none'));
 		el.classList.remove('d-none');
 	}
 
-	/* ---------- Drag & Drop ---------- */
-	let dragEl = null;
-	ranklist.addEventListener('dragstart', (e) => {
-		if (e.target.tagName !== 'LI') return;
-		dragEl = e.target;
-		e.dataTransfer.effectAllowed = 'move';
-		dragEl.classList.add('opacity-50');
-	});
-	ranklist.addEventListener('dragend', () => {
-		if (dragEl) {
-			dragEl.classList.remove('opacity-50');
-			dragEl = null;
-		}
-	});
-	ranklist.addEventListener('dragover', (e) => {
-		if (!dragEl) return;
-		e.preventDefault();
-		const items = [...ranklist.querySelectorAll('li')];
-		const after = items.find((li) => {
-			const r = li.getBoundingClientRect();
-			return e.clientY < r.top + r.height / 2;
-		});
-		if (after) ranklist.insertBefore(dragEl, after);
-		else ranklist.appendChild(dragEl);
-	});
-
-	/* ---------- Rendering ---------- */
+	/* ---------- Helpers ---------- */
 	function currentQuestion() {
 		const qid = state.qOrder[state.idx];
 		return state.questions.find((q) => q.id === qid);
@@ -150,32 +109,17 @@
 		const q = currentQuestion();
 		qTitle.innerHTML = q.text;
 		progress.textContent = `Question ${state.idx + 1} of ${state.qOrder.length}`;
-		ranklist.innerHTML = '';
-
-		// Stable shuffled start order per question
-		const R = rng(hashSeed(state.seed, q.id));
-		const opts = shuffle(q.options, R);
-		const startList = state.answers[q.id]?.map((id) => q.options.find((x) => x.id === id)) ?? opts;
-
-		for (const o of startList) {
-			const li = document.createElement('li');
-			li.className = 'list-group-item';
-			li.textContent = o.label;
-			li.dataset.choice = o.id;
-			li.setAttribute('draggable', 'true');
-			ranklist.appendChild(li);
-		}
+		const [a, b] = shuffle(q.options, rng(state.seed + state.idx));
+		leftBtn.textContent = a.label;
+		rightBtn.textContent = b.label;
+		leftBtn.dataset.choice = a.id;
+		rightBtn.dataset.choice = b.id;
 		prevBtn.classList.toggle('disabled', state.idx === 0);
 		nextBtn.textContent = state.idx === state.qOrder.length - 1 ? 'Proceed to submit' : 'Next';
 	}
 
-	/* ---------- Serialization ---------- */
-	function captureCurrent() {
-		const q = currentQuestion();
-		const order = [...ranklist.querySelectorAll('li')].map((li) => li.dataset.choice);
-		if (order.length !== q.options.length) return false;
-		state.answers[q.id] = order;
-		return true;
+	function captureCurrent(choiceId) {
+		state.answers[state.qOrder[state.idx]] = choiceId;
 	}
 
 	/* ---------- Flow ---------- */
@@ -187,46 +131,57 @@
 			return;
 		}
 		if (state.email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(state.email)) {
-			emailMsg.textContent = 'Please enter a valid email or leave empty.';
+			emailMsg.textContent = 'Invalid email.';
 			return;
 		}
 
 		state.questions = await loadQuestions();
-		const R = rng(state.seed);
 		state.qOrder = shuffle(
 			state.questions.map((q) => q.id),
-			R
+			rng(state.seed)
 		);
-
+		state.idx = 0;
 		show(pageQ);
 		renderQuestion();
 		emailMsg.textContent = '';
 	});
 
+	[leftBtn, rightBtn].forEach((btn) => {
+		btn.addEventListener('click', () => {
+			captureCurrent(btn.dataset.choice);
+			if (state.idx < state.qOrder.length - 1) {
+				state.idx++;
+				renderQuestion();
+			} else {
+				summary.textContent = `Ready to submit. ${Object.keys(state.answers).length} answers.`;
+				show(pageFinish);
+			}
+		});
+	});
+
 	nextBtn.addEventListener('click', () => {
-		if (!captureCurrent()) {
-			alert('Please rank all options.');
+		if (!state.answers[state.qOrder[state.idx]]) {
+			alert('Select one.');
 			return;
 		}
 		if (state.idx < state.qOrder.length - 1) {
-			state.idx += 1;
+			state.idx++;
 			renderQuestion();
 		} else {
-			summary.textContent = `Ready to submit. ${state.qOrder.length} questions answered.`;
+			summary.textContent = `Ready to submit. ${Object.keys(state.answers).length} answers.`;
 			show(pageFinish);
 		}
 	});
-
 	prevBtn.addEventListener('click', () => {
 		if (state.idx > 0) {
-			state.idx -= 1;
+			state.idx--;
 			renderQuestion();
 		}
 	});
 
 	submitBtn.addEventListener('click', async () => {
-		if (!captureCurrent()) {
-			alert('Please rank all options.');
+		if (!state.answers[state.qOrder[state.idx]]) {
+			alert('Select one.');
 			return;
 		}
 		const payload = {
@@ -242,13 +197,8 @@
 				headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
 				body: JSON.stringify(payload)
 			});
-			if (r.ok) {
-				sendMsg.textContent = 'Thanks. Answers saved.';
-				submitBtn.disabled = true;
-			} else {
-				const t = await r.text();
-				sendMsg.textContent = 'Submit error: ' + t.slice(0, 200);
-			}
+			sendMsg.textContent = r.ok ? 'Thanks. Answers saved.' : 'Submit error.';
+			if (r.ok) submitBtn.disabled = true;
 		} catch (err) {
 			sendMsg.textContent = 'Network error: ' + err;
 		}
@@ -284,9 +234,12 @@
 		<div class="card-body">
 			<div id="progress" class="text-muted mb-2"></div>
 			<h3 id="q-title" class="card-title mb-2">Question</h3>
-			<p class="text-muted">Drag to rank (top = rank 1).</p>
+			<p class="text-muted">Select the better description.</p>
 
-			<ul class="list-group mb-3" id="ranklist"></ul>
+			<div id="pair" class="d-flex flex-column flex-md-row gap-3 mb-3">
+				<button id="left" class="btn btn-outline-secondary flex-fill"></button>
+				<button id="right" class="btn btn-outline-secondary flex-fill"></button>
+			</div>
 
 			<div class="d-flex gap-2">
 				<button id="prev" class="btn btn-outline-secondary">Back</button>

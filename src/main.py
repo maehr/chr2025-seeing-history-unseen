@@ -13,7 +13,6 @@ Python: 3.13
 """
 
 from __future__ import annotations
-import base64
 import mimetypes
 import csv
 import json
@@ -274,6 +273,7 @@ def mk_run_dir() -> Path:
     run_dir = RUNS_DIR / ts
     run_dir.mkdir(parents=True, exist_ok=True)
     (run_dir / "raw").mkdir(exist_ok=True)
+    (run_dir / "images").mkdir(exist_ok=True)
     return run_dir
 
 
@@ -412,8 +412,8 @@ def persist_json(path: Path, data: dict | list | str | int | float | None) -> No
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
-def image_data_uri(url: str) -> str:
-    """Fetch image bytes and return a data-URI string."""
+def save_image_to_folder(url: str, images_dir: Path, basename: str) -> str:
+    """Download image and save under images_dir as <basename>.<ext>. Return relative path 'images/<file>'."""
     r = requests.get(url, timeout=TIMEOUT_SECONDS)
     if r.status_code != 200:
         raise FileNotFoundError(f"Failed to fetch image [{r.status_code}]: {url}")
@@ -422,26 +422,33 @@ def image_data_uri(url: str) -> str:
         mime, _ = mimetypes.guess_type(url)
     if not mime:
         mime = "image/jpeg"
-    b64 = base64.b64encode(r.content).decode("ascii")
-    return f"data:{mime};base64,{b64}"
+    ext = mimetypes.guess_extension(mime) or ".jpg"
+    # normalize multiple possible jpeg extensions to .jpg
+    if ext in (".jpeg", ".jpe"):
+        ext = ".jpg"
+    fname = f"{basename}{ext}"
+    out_path = images_dir / fname
+    out_path.write_bytes(r.content)
+    # return path relative to questions.csv location (run_dir)
+    return f"images/{fname}"
 
 
 def strip_context_line(text: str) -> str:
     """Remove the specified Nutzungskontext line from the user prompt."""
     if not text:
         return text
-    # Remove exact line, with or without trailing newline
     text = text.replace(STRIP_LINE + "\n", "")
     text = text.replace(STRIP_LINE, "")
     return text.strip()
 
 
-def html_question(image_html: str, prompt_text: str) -> str:
+def html_question(image_rel_path: str, prompt_text: str) -> str:
     """Compose a single-row, two-column HTML table with image and prompt."""
     safe_prompt = html.escape(prompt_text)
+    img_html = f'<img src="{image_rel_path}">'
     return (
         "<table><tr>"
-        f'<td style="vertical-align:top;padding:4px;">{image_html}</td>'
+        f'<td style="vertical-align:top;padding:4px;">{img_html}</td>'
         f'<td style="vertical-align:top;padding:4px;"><pre style="white-space:pre-wrap;margin:0;">{safe_prompt}</pre></td>'
         "</tr></table>"
     )
@@ -459,6 +466,7 @@ def main() -> None:
     # Run directory first, so we can store fetched metadata
     run_dir = mk_run_dir()
     raw_dir = run_dir / "raw"
+    images_dir = run_dir / "images"
 
     # Fetch metadata from URL and save exact copy for provenance
     payload = fetch_and_save_metadata(METADATA_URL, run_dir)
@@ -537,14 +545,14 @@ def main() -> None:
 
         # --- build 2AFC questions.csv rows for this media id ---
         try:
-            data_uri = image_data_uri(str(media.object_thumb))
-            img_tag = f'<img src="{data_uri}">'
+            img_rel = save_image_to_folder(
+                str(media.object_thumb), images_dir, basename=mid
+            )
         except Exception as e:
-            img_tag = f"[ERROR fetching image: {type(e).__name__}: {e}]"
+            img_rel = f"[ERROR fetching image: {type(e).__name__}: {e}]"
 
-        # Prepare prompt text without the Nutzungskontext line
         stripped_prompt = strip_context_line(user_prompt)
-        q_text = html_question(img_tag, stripped_prompt)
+        q_text = html_question(img_rel, stripped_prompt)
 
         # map model -> generated alt text string
         model_to_text = {
@@ -572,7 +580,7 @@ def main() -> None:
             questions_rows.append(
                 [
                     qid,  # question_id
-                    q_text,  # question_text (HTML table with image + prompt)
+                    q_text,  # question_text (HTML table with relative image path + prompt)
                     m_left,  # option_1_id
                     model_to_text[m_left],  # option_1_label
                     m_right,  # option_2_id
@@ -640,6 +648,7 @@ def main() -> None:
         "python_version": sys.version,
         "two_afc_pairs_per_media": len(list(itertools.combinations(MODELS, 2))),
         "random_seed": RANDOM_SEED,
+        "images_dir": str((run_dir / "images").resolve()),
     }
     persist_json(run_dir / "manifest.json", manifest)
 
