@@ -1,0 +1,63 @@
+objectid,prompt,google__gemini-2.5-flash-lite__content,google__gemini-2.5-flash-lite__finish_reason,google__gemini-2.5-flash-lite__usage_prompt_tokens,google__gemini-2.5-flash-lite__usage_completion_tokens,google__gemini-2.5-flash-lite__usage_total_tokens,google__gemini-2.5-flash-lite__usage_cost,google__gemini-2.5-flash-lite__provider,google__gemini-2.5-flash-lite__created,google__gemini-2.5-flash-lite__id,mistralai__pixtral-12b__content,mistralai__pixtral-12b__finish_reason,mistralai__pixtral-12b__usage_prompt_tokens,mistralai__pixtral-12b__usage_completion_tokens,mistralai__pixtral-12b__usage_total_tokens,mistralai__pixtral-12b__usage_cost,mistralai__pixtral-12b__provider,mistralai__pixtral-12b__created,mistralai__pixtral-12b__id,openai__gpt-4.1-nano__content,openai__gpt-4.1-nano__finish_reason,openai__gpt-4.1-nano__usage_prompt_tokens,openai__gpt-4.1-nano__usage_completion_tokens,openai__gpt-4.1-nano__usage_total_tokens,openai__gpt-4.1-nano__usage_cost,openai__gpt-4.1-nano__provider,openai__gpt-4.1-nano__created,openai__gpt-4.1-nano__id,meta-llama__llama-4-maverick__content,meta-llama__llama-4-maverick__finish_reason,meta-llama__llama-4-maverick__usage_prompt_tokens,meta-llama__llama-4-maverick__usage_completion_tokens,meta-llama__llama-4-maverick__usage_total_tokens,meta-llama__llama-4-maverick__usage_cost,meta-llama__llama-4-maverick__provider,meta-llama__llama-4-maverick__created,meta-llama__llama-4-maverick__id,created_utc,system_prompt,user_prompt
+m94775,"* Nutzungskontext: Plattform mit historischen Quellen und Forschungsdaten für Forschende und Studierende aus historischen und archäologischen Disziplinen.
+* Metadaten:
+  * Titel: ‹Merkwürdige Seltenheit›, Illustration zu einer Anzeige in den ‹Wöchentlichen Nach­richten › vom 30. Oktober 1834
+  * Beschreibung: Als Vorläufer der späteren ‹Völkerschauen› wird für die Dauer der Herbstmesse ein «Afrikaner von der bekannten kriegerischen Nation der Ashantées, welche in Westafrika am Rio-Volta nächst der Goldküste wohnen ... auf E. E. Zunft zu Safran» angekündigt. Die Goldküste, heute Ghana, war seit den späten 1820er Jahren ein Schwerpunkt der Basler Missionstätigkeit.
+  * Datum (Extended Date Time Format): 1834
+  * Epoche: 19. Jahrhundert
+  * Ersteller: Kein Ersteller
+  * Herausgeber: [Universitätsbibliothek Basel](https://ub.unibas.ch/de/)
+  * Quelle: Universitätsbibliothek Basel, Ztg 1d",Figur eines Mannes mit afrikanischer Kleidung und Speer,stop,1720,11,1731,0.0001764,Google,1760856992,gen-1760856992-LSKoBbE409qQAB49qarU,Ein Afrikaner von der kriegerischen Nation der Ashantées wird auf der Herbstmesse präsentiert.,stop,2605,24,2629,0.00039435,Mistral,1760856995,gen-1760856995-N26i60i72z8zph8bWONz,"Afrikaner aus Ashantés-Volk bei Basel, im 19. Jh., angekündigt für Herbstmesse 1834, im Zusammenhang mit frühen Afrika-Darstellungen.",stop,1730,38,1768,0.0001882,OpenAI,1760856997,gen-1760856997-nUOhLk409a7DGzRxbgs3,"Anzeige für einen Ashanti zur Schau gestellten Mann aus Westafrika in den Wöchentlichen Nachrichten vom 30. Oktober 1834, mit Illustration.",stop,1453,35,1488,0.00023895,DeepInfra,1760856999,gen-1760856999-cmfkDT9g43bv5KS137zY,2025-10-19T06:56:32+00:00,"Du bist ein Experte für digitale Barrierefreiheit und Web Accessibility.
+Schreibe barrierefreie Alternativtexte für Bilder nach WCAG 2.2 (SC 1.1.1) und W3C WAI-Standards.
+
+**Ziel:** Funktionale, kontextabhängige, prägnante Alt-Texte in Schweizer Hochdeutsch (de-CH).
+
+**Regeln:**
+
+* Beschreibe Bedeutung, nicht Aussehen.
+* Max. 125 Zeichen, nur was für Inhalt/Zweck relevant ist.
+* Für dekorative Bilder: `alt=""""`.
+* Für funktionale Bilder: Funktion oder Ziel nennen („Zum Warenkorb“).
+* Keine Formulierungen wie „Bild von“ oder „Foto von“.
+* Für komplexe Grafiken: Ausführliche Erklärung.
+
+**Ausgabe:** Nur der Alternativtext (kein HTML, keine Erklärungen).","* Nutzungskontext: Plattform mit historischen Quellen und Forschungsdaten für Forschende und Studierende aus historischen und archäologischen Disziplinen.
+* Metadaten:
+  * Titel: ‹Merkwürdige Seltenheit›, Illustration zu einer Anzeige in den ‹Wöchentlichen Nach­richten › vom 30. Oktober 1834
+  * Beschreibung: Als Vorläufer der späteren ‹Völkerschauen› wird für die Dauer der Herbstmesse ein «Afrikaner von der bekannten kriegerischen Nation der Ashantées, welche in Westafrika am Rio-Volta nächst der Goldküste wohnen ... auf E. E. Zunft zu Safran» angekündigt. Die Goldküste, heute Ghana, war seit den späten 1820er Jahren ein Schwerpunkt der Basler Missionstätigkeit.
+  * Datum (Extended Date Time Format): 1834
+  * Epoche: 19. Jahrhundert
+  * Ersteller: Kein Ersteller
+  * Herausgeber: [Universitätsbibliothek Basel](https://ub.unibas.ch/de/)
+  * Quelle: Universitätsbibliothek Basel, Ztg 1d"
+m27909_1,"* Nutzungskontext: Plattform mit historischen Quellen und Forschungsdaten für Forschende und Studierende aus historischen und archäologischen Disziplinen.
+* Metadaten:
+  * Titel: Verbreitung der Latènekultur
+  * Beschreibung: Ähnlichkeiten in der materiellen Kultur liessen Grösste Ausdehnung der Latènekultur Archäolog:innen einen gemeinsamen latènezeitlichen Kulturraum rekonstruieren, der West- bis Osteuropa vom 4. bis zum 1. Jahrhundert v. Chr. prägte. Dennoch weist jedes Gebiet regionalspezifische Besonderheiten auf.
+  * Datum (Extended Date Time Format): Kein Datum
+  * Epoche: Frühgeschichte
+  * Ersteller: [Stadt.Geschichte.Basel](https://www.wikidata.org/wiki/Q122442230)
+  * Herausgeber: [Stadt.Geschichte.Basel](https://stadtgeschichtebasel.ch/)
+  * Quelle: Quelle: https://srtm.csi.cgiar.org/&#59 Hauschild, Maya: Quer durch Europa. Die keltischen Wanderungen, in: Archäologisches Landesmuseum Baden-Württemberg (Hg.): Die Welt der Kelten. Zentren der Macht – Kostbarkeiten der Kunst, Ostfildern 2012, S. 257. Bearbeitung: Nico Görlich / Moritz Twente.",Karte der Verbreitung der Latènekultur in Europa mit Fundorten von 4. bis 1. Jh. v. Chr.,stop,1764,27,1791,0.0001872,Google,1760857001,gen-1760857001-pmbvuAlVBiI32g3UPPyD,Verbreitung der Latènekultur in Europa.,stop,491,13,504,5.04e-05,Hyperbolic,1760857005,gen-1760857004-5i4srPJ0SCwfyBuRsgih,Verbreitung der Latènekultur mit regionalen Unterschiede im europäischen Kulturraum vom 4. bis zum 1. Jahrhundert v. Chr.,stop,2049,31,2080,0.0002173,OpenAI,1760857008,gen-1760857007-h70mmH7VfStXt69i3OxJ,"Verbreitung der Latènekultur in Europa vom 4. bis 1. Jahrhundert v. Chr., gekennzeichnet durch orange eingefärbte Gebiete und rote Punkte.",stop,1929,36,1965,0.00055143,Together,1760857010,gen-1760857010-XQ079x5couP9nGxmM7PB,2025-10-19T06:56:41+00:00,"Du bist ein Experte für digitale Barrierefreiheit und Web Accessibility.
+Schreibe barrierefreie Alternativtexte für Bilder nach WCAG 2.2 (SC 1.1.1) und W3C WAI-Standards.
+
+**Ziel:** Funktionale, kontextabhängige, prägnante Alt-Texte in Schweizer Hochdeutsch (de-CH).
+
+**Regeln:**
+
+* Beschreibe Bedeutung, nicht Aussehen.
+* Max. 125 Zeichen, nur was für Inhalt/Zweck relevant ist.
+* Für dekorative Bilder: `alt=""""`.
+* Für funktionale Bilder: Funktion oder Ziel nennen („Zum Warenkorb“).
+* Keine Formulierungen wie „Bild von“ oder „Foto von“.
+* Für komplexe Grafiken: Ausführliche Erklärung.
+
+**Ausgabe:** Nur der Alternativtext (kein HTML, keine Erklärungen).","* Nutzungskontext: Plattform mit historischen Quellen und Forschungsdaten für Forschende und Studierende aus historischen und archäologischen Disziplinen.
+* Metadaten:
+  * Titel: Verbreitung der Latènekultur
+  * Beschreibung: Ähnlichkeiten in der materiellen Kultur liessen Grösste Ausdehnung der Latènekultur Archäolog:innen einen gemeinsamen latènezeitlichen Kulturraum rekonstruieren, der West- bis Osteuropa vom 4. bis zum 1. Jahrhundert v. Chr. prägte. Dennoch weist jedes Gebiet regionalspezifische Besonderheiten auf.
+  * Datum (Extended Date Time Format): Kein Datum
+  * Epoche: Frühgeschichte
+  * Ersteller: [Stadt.Geschichte.Basel](https://www.wikidata.org/wiki/Q122442230)
+  * Herausgeber: [Stadt.Geschichte.Basel](https://stadtgeschichtebasel.ch/)
+  * Quelle: Quelle: https://srtm.csi.cgiar.org/&#59 Hauschild, Maya: Quer durch Europa. Die keltischen Wanderungen, in: Archäologisches Landesmuseum Baden-Württemberg (Hg.): Die Welt der Kelten. Zentren der Macht – Kostbarkeiten der Kunst, Ostfildern 2012, S. 257. Bearbeitung: Nico Görlich / Moritz Twente."

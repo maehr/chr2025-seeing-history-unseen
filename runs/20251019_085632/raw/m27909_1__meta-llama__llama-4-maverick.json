@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760857010-XQ079x5couP9nGxmM7PB",
+	"provider": "Together",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1760857010,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Verbreitung der Latènekultur in Europa vom 4. bis 1. Jahrhundert v. Chr., gekennzeichnet durch orange eingefärbte Gebiete und rote Punkte.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1929,
+		"completion_tokens": 36,
+		"total_tokens": 1965,
+		"cost": 0.00055143,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00052083,
+			"upstream_inference_completions_cost": 3.06e-5
+		}
+	}
+}

@@ -1,0 +1,19 @@
+{
+	"created_utc": "2025-10-19T06:56:54+00:00",
+	"runs_dir": "/Users/maehr0000/src/chr2025-seeing-history-unseen/runs/20251019_085632",
+	"metadata_url": "https://forschung.stadtgeschichtebasel.ch/assets/data/metadata.json",
+	"saved_metadata": "/Users/maehr0000/src/chr2025-seeing-history-unseen/runs/20251019_085632/metadata.json",
+	"models": [
+		"google/gemini-2.5-flash-lite",
+		"mistralai/pixtral-12b",
+		"openai/gpt-4.1-nano",
+		"meta-llama/llama-4-maverick"
+	],
+	"media_ids": ["m94775", "m27909_1"],
+	"table_csv": "/Users/maehr0000/src/chr2025-seeing-history-unseen/runs/20251019_085632/alt_text_runs_20251019_085654.csv",
+	"table_parquet": "/Users/maehr0000/src/chr2025-seeing-history-unseen/runs/20251019_085632/alt_text_runs_20251019_085654.parquet",
+	"table_jsonl": "/Users/maehr0000/src/chr2025-seeing-history-unseen/runs/20251019_085632/alt_text_runs_20251019_085654.jsonl",
+	"questions_csv": "/Users/maehr0000/src/chr2025-seeing-history-unseen/runs/20251019_085632/questions.csv",
+	"prompts_json": "/Users/maehr0000/src/chr2025-seeing-history-unseen/runs/20251019_085632/prompts.json",
+	"python_version": "3.11.11 (main, Mar 11 2025, 17:41:13) [Clang 20.1.0 ]"
+}

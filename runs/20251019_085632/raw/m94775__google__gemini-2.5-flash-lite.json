@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760856992-LSKoBbE409qQAB49qarU",
+	"provider": "Google",
+	"model": "google/gemini-2.5-flash-lite",
+	"object": "chat.completion",
+	"created": 1760856992,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "STOP",
+			"message": {
+				"role": "assistant",
+				"content": "Figur eines Mannes mit afrikanischer Kleidung und Speer",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1720,
+		"completion_tokens": 11,
+		"total_tokens": 1731,
+		"cost": 0.0001764,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.000172,
+			"upstream_inference_completions_cost": 4.4e-6
+		}
+	}
+}

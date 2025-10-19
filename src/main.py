@@ -7,6 +7,7 @@ Generate WCAG-compliant alternative texts using OpenRouter models.
 - Calls multiple models via OpenRouter Chat Completions API with image input
 - Persists raw responses and a timestamped, wide-format Pandas table
 - Uses Pydantic for strict, typed parsing of responses and metadata
+- Records exact system and user prompts per run and per media
 
 Python: 3.13
 """
@@ -21,7 +22,7 @@ import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Sequence
+from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 import pandas as pd
 import requests
@@ -45,7 +46,7 @@ MODELS: list[str] = [
     "google/gemini-2.5-flash-lite",
     "mistralai/pixtral-12b",
     "openai/gpt-4.1-nano",
-    "meta-llama/llama-4-maverick"# "allenai/molmo-7b-d",
+    "meta-llama/llama-4-maverick"
 ]
 
 # Media ids to process
@@ -316,8 +317,8 @@ def build_prompt(media: MediaObject) -> str:
   * Quelle: {source}""".strip()
 
 
-def build_messages(prompt: str, image_url: str) -> list[dict[str, Any]]:
-    system = f"""
+def build_messages(prompt: str, image_url: str) -> Tuple[list[dict[str, Any]], str, str]:
+    system = """
 Du bist ein Experte für digitale Barrierefreiheit und Web Accessibility.
 Schreibe barrierefreie Alternativtexte für Bilder nach WCAG 2.2 (SC 1.1.1) und W3C WAI-Standards.
 
@@ -333,8 +334,8 @@ Schreibe barrierefreie Alternativtexte für Bilder nach WCAG 2.2 (SC 1.1.1) und 
 * Für komplexe Grafiken: Ausführliche Erklärung.
 
 **Ausgabe:** Nur der Alternativtext (kein HTML, keine Erklärungen).""".strip()
-    
-    return [
+
+    messages = [
         {"role": "system", "content": system},
         {
             "role": "user",
@@ -342,8 +343,9 @@ Schreibe barrierefreie Alternativtexte für Bilder nach WCAG 2.2 (SC 1.1.1) und 
                 {"type": "text", "text": prompt},
                 {"type": "image_url", "image_url": {"url": image_url}},
             ],
-        }
+        },
     ]
+    return messages, system, prompt
 
 
 def call_openrouter(
@@ -400,7 +402,7 @@ def persist_json(path: Path, data: dict | list | str | int | float | None) -> No
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
-def image_data_uri(url: str) -> str:  # NEW
+def image_data_uri(url: str) -> str:
     """Fetch image bytes and return a data-URI string."""
     r = requests.get(url, timeout=TIMEOUT_SECONDS)
     if r.status_code != 200:
@@ -438,6 +440,7 @@ def main() -> None:
 
     # Prepare table with one row per media id
     rows: list[dict[str, Any]] = []
+    prompt_records: list[dict[str, str]] = []
     questions_rows: list[list[str]] = []
 
     for mid in MEDIA_IDS:
@@ -448,7 +451,21 @@ def main() -> None:
         prompt = build_prompt(media)
         row = init_wide_row(objectid=mid, prompt=prompt)
 
-        messages = build_messages(prompt=prompt, image_url=str(media.object_thumb))
+        messages, system_prompt, user_prompt = build_messages(
+            prompt=prompt, image_url=str(media.object_thumb)
+        )
+
+        # record prompts in row and prompts.json
+        row["system_prompt"] = system_prompt
+        row["user_prompt"] = user_prompt
+        prompt_records.append(
+            {
+                "objectid": mid,
+                "system_prompt": system_prompt,
+                "user_prompt": user_prompt,
+                "image_url": str(media.object_thumb),
+            }
+        )
 
         for model in MODELS:
             try:
@@ -548,6 +565,17 @@ def main() -> None:
         writer.writerow(header)
         writer.writerows(questions_rows)
 
+    # write prompts.json for full provenance
+    prompts_json = run_dir / "prompts.json"
+    persist_json(
+        prompts_json,
+        {
+            "created_utc": utc_now_iso(),
+            "system_prompt": prompt_records[0]["system_prompt"] if prompt_records else "",
+            "per_media": prompt_records,
+        },
+    )
+
     manifest = {
         "created_utc": utc_now_iso(),
         "runs_dir": str(run_dir.resolve()),
@@ -559,6 +587,7 @@ def main() -> None:
         "table_parquet": str(Path(f"{table_base}.parquet").resolve()),
         "table_jsonl": str(Path(f"{table_base}.jsonl").resolve()),
         "questions_csv": str(questions_csv.resolve()),
+        "prompts_json": str(prompts_json.resolve()),
         "python_version": sys.version,
     }
     persist_json(run_dir / "manifest.json", manifest)
