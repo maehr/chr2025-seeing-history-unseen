@@ -1,69 +1,99 @@
-# CHR 2025 Project TODO List
+# CHR 2025 Project TODO
 
-This file tracks the setup and development tasks for the CHR 2025 conference materials repository.
+This file tracks setup, research, and publication tasks for the **CHR 2025: Seeing History Unseen** repository.
 
-## Repository Setup Tasks
+Completed items moved to `ARCHIVE.md`.
 
-### Completed ✅
+## Repository Setup /repo/
 
-- [x] **Update Project Details**: Replaced placeholders in `package.json`, `_quarto.yml`, and `index.qmd` with correct repository information
-- [x] **Add Citation File**: Created `CITATION.cff` with complete metadata including author ORCID IDs and paper keywords
-- [x] **Format Files**: Ran `npm run format` to ensure all files are properly formatted
-- [x] **Commit Changes**: Using standardized commit messages
-- [x] **Finalize README**: Updated `README.md` to reflect actual repository purpose (CHR 2025 conference materials)
-- [x] **LaTeX Setup**: Verified LaTeX compilation works correctly for the abstract
-- [x] **Enable GitHub Security Alerts**: Go to repository "Security" tab on GitHub and enable security alerts
-- [x] **Protect the Main Branch**: In repository settings on GitHub (under "Branches"), protect the `main` branch
-- [x] **Update Remaining Placeholders**: Replace `[INSERT CONTACT METHOD]` in remaining files
+### Pending 🔄
 
-### In Progress 🔄
+- [ ] Connect repository to **Zenodo**
+- [ ] Add Zenodo DOI badge and DOI to `README.md`
+- [ ] (Optional) Add `.zenodo.json` metadata file
+- [ ] (Optional) Generate and commit `CHANGELOG.md`
+- [ ] (Optional) Enable and publish **GitHub Pages** with Quarto
+- [ ] Test all build commands (`npm`, `make`)
+- [ ] Update from latest base template
 
-- [ ] **Set Up Zenodo Integration**: Follow the [Zenodo guide](https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content) to connect repository to Zenodo
-- [ ] **Set Up Zenodo DOI Badge**: Replace `GITHUB_REPO_ID` with `id` from `https://api.github.com/repos/maehr/chr2025-seeing-history-unseen`
-- [ ] **Add Zenodo DOI to README**: Once Zenodo DOI is obtained, add it to `README.md` by replacing `ZENODO_RECORD`
+## Paper /paper/
 
-### Optional Tasks
+### Literature and Context
 
-- [ ] **Add Zenodo Metadata File**: Create `.zenodo.json` file for Zenodo metadata ([Zenodo developer docs](https://developers.zenodo.org/?python#add-metadata-to-your-github-repository-release))
-- [ ] **Generate Changelog**: Run `npm run changelog` and copy output into `CHANGELOG.md` file
-- [ ] **Customize Documentation**: Customize documentation using [Quarto's features](https://quarto.org/docs/websites/#workflow)
-- [ ] **Enable GitHub Pages**: In repository settings on GitHub (under "Pages"), configure GitHub Pages to publish from the `gh-pages` branch
-- [ ] **Publish Documentation**: Run `quarto publish gh-pages` to publish documentation website
+- [ ] Incorporate model overview: [https://github.com/zli12321/Vision-Language-Models-Overview](https://github.com/zli12321/Vision-Language-Models-Overview)
+- [ ] Add links to open-weights models on Hugging Face
+- [ ] Cite and integrate:
+  - [https://arxiv.org/abs/2403.09193](https://arxiv.org/abs/2403.09193)
+  - [https://arxiv.org/html/2507.11543v1](https://arxiv.org/html/2507.11543v1)
+  - [https://arxiv.org/html/2501.00113v1](https://arxiv.org/html/2501.00113v1)
+  - [https://arxiv.org/html/2409.03054v1](https://arxiv.org/html/2409.03054v1)
+  - [https://tealab.sites.northeastern.edu/generative-ai-and-accessibility](https://tealab.sites.northeastern.edu/generative-ai-and-accessibility)
+  - [https://www.cni.org/topics/digital-libraries/beyond-this-image-may-contain-using-vision-language-models-to-improve-accessibility-for-digital-image-collections](https://www.cni.org/topics/digital-libraries/beyond-this-image-may-contain-using-vision-language-models-to-improve-accessibility-for-digital-image-collections)
+- [ ] Ensure consistent vocabulary for disability justice framing
+      Reference:
+  - [NYC Disability-Inclusive Terminology Guide (2021)](https://www.nyc.gov/assets/mopd/downloads/pdf/Disability-Inclusive-Terminology-Guide-Dec-2021.pdf)
+  - [UN Geneva Disability-Inclusive Language Guidelines](https://www.ungeneva.org/sites/default/files/2021-01/Disability-Inclusive-Language-Guidelines.pdf)
+  - [Stanford Disability Language Guide](https://disability.stanford.edu/sites/g/files/sbiybj26391/files/media/file/disability-language-guide-stanford_1.pdf)
 
-## Conference Paper Tasks
+### Methodology Updates
 
-### Abstract
+- [ ] Document model selection and changes:
+  - Initial use of `allenai/molmo-7b-d` abandoned due to inconsistency
+  - Switched from `openai/gpt-4.1-nano` to `openai/gpt-4o-mini` for better performance
+  - Evaluated models with comparable costs:
 
-- [x] **LaTeX Source**: Complete abstract written in LaTeX using `anthology-ch.cls` class
-- [x] **Bibliography**: Bibliography entries in `bibliography.bib`
-- [x] **Build System**: Makefile for building the paper
-- [x] **PDF Generation**: Successfully generates 10-page PDF document
+| Model Name & ID                                                                                                   | Input ($/1M) | Output ($/1M) | Context (tokens) |
+| ----------------------------------------------------------------------------------------------------------------- | ------------ | ------------- | ---------------- |
+| [Mistral: Pixtral 12B](https://openrouter.ai/mistralai/pixtral-12b)`mistralai/pixtral-12b`                        | 0.10         | 0.10          | 32 768           |
+| [Google: Gemini 2.5 Flash Lite](https://openrouter.ai/google/gemini-2.5-flash-lite)`google/gemini-2.5-flash-lite` | 0.10         | 0.40          | 1 048 576        |
+| [Meta: Llama 4 Maverick](https://openrouter.ai/meta-llama/llama-4-maverick)`meta-llama/llama-4-maverick`          | 0.15         | 0.60          | 1 048 576        |
+| [OpenAI: GPT-4o-mini](https://openrouter.ai/openai/gpt-4o-mini)`openai/gpt-4o-mini`                               | 0.15         | 0.60          | 128 000          |
 
-### Presentation
+## Analysis /analysis/
 
-- [ ] **Create Initial Slide Outline**: Develop structure for conference presentation
-- [ ] **Develop Main Content**: Create presentation slides with key findings
-- [ ] **Add Examples and Demonstrations**: Include examples of AI-generated alt-text
-- [ ] **Add Figures**: Create additional visualizations for presentation
-- [ ] **Practice and Refine**: Rehearse presentation and refine content
-- [ ] **Final Review**: Complete final review and formatting
+- [ ] To be completed during paper writing
 
-### Research Tasks
+## Runs /runs/
 
-- [ ] **Complete User Study**: Conduct user study with blind/low-vision individuals
-- [ ] **Finalize Evaluation**: Complete systematic evaluation of AI models
-- [ ] **Dataset Release**: Prepare and release dataset as benchmark for future research
-- [ ] **Develop Guidelines**: Create practical guidelines for heritage institutions
+- [ ] Final run with full dataset
 
-## Development Tasks
+## Survey /survey/
 
-- [x] **Clean LaTeX Build Files**: Remove intermediate `.aux`, `.bbl`, `.bcf`, etc. files from repository
-- [ ] **Update Template Changes**: Incorporate latest updates from the base template
-- [x] **Configure Gitignore**: Add LaTeX intermediate files to `.gitignore`
-- [ ] **Test All Build Commands**: Verify all npm scripts and make targets work correctly
+- [ ] `survey/questions.csv` — update after final run
+- [ ] `survey/results.csv` — update after expert survey
+
+## Source Code /src/
+
+- [ ] `analysis.py` — write after final run and survey
+- [ ] `playground.ipynb` — update after paper finalization
+
+## Presentation /presentations/
+
+- [ ] Align slides with final paper
+- [ ] Add examples, visualizations, and demonstrations
+- [ ] Final review and rehearsal
+
+## Documentation /documentation/
+
+- [ ] Update after final paper version and publication
+
+## Testing /test/
+
+- [ ] TBD after final version
+
+## Research Tasks /research/
+
+- [ ] Complete user study with blind/low-vision participants
+- [ ] Finalize evaluation of AI models
+- [ ] Release benchmark dataset
+- [ ] Draft practical guidelines for heritage institutions
+
+## Agents.md
+
+- [ ] Update to support paper writing and model comparison
 
 ## Notes
 
-- Keep this file updated as tasks are completed or new ones are identified
-- Mark completed items with `[x]` and update status emojis (✅, 🔄, etc.)
-- Add new sections as needed for different aspects of the project
+- Keep this document current
+- Use `[x]`, `[ ]`, and status emojis consistently
+- Archive historical TODOs after publication in `ARCHIVE.md`
