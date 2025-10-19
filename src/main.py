@@ -45,7 +45,7 @@ MODELS: list[str] = [
     "google/gemini-2.5-flash-lite",
     "mistralai/pixtral-12b",
     "openai/gpt-4.1-nano",
-    "allenai/molmo-7b-d",
+    "meta-llama/llama-4-maverick"# "allenai/molmo-7b-d",
 ]
 
 # Media ids to process
@@ -305,11 +305,23 @@ def build_prompt(media: MediaObject) -> str:
     source = media.source or "Keine Quelle"
 
     return f"""
-**Prompt (für vLLM oder ähnliche Modelle):**
+* Nutzungskontext: Plattform mit historischen Quellen und Forschungsdaten für Forschende und Studierende aus historischen und archäologischen Disziplinen.
+* Metadaten:
+  * Titel: {title}
+  * Beschreibung: {description}
+  * Datum (Extended Date Time Format): {date}
+  * Epoche: {era}
+  * Ersteller: {creator}
+  * Herausgeber: {publisher}
+  * Quelle: {source}""".strip()
 
+
+def build_messages(prompt: str, image_url: str) -> list[dict[str, Any]]:
+    system = f"""
+Du bist ein Experte für digitale Barrierefreiheit und Web Accessibility.
 Schreibe barrierefreie Alternativtexte für Bilder nach WCAG 2.2 (SC 1.1.1) und W3C WAI-Standards.
 
-**Ziel:** Funktionale, kontextabhängige, prägnante Alt-Texte.
+**Ziel:** Funktionale, kontextabhängige, prägnante Alt-Texte in Schweizer Hochdeutsch (de-CH).
 
 **Regeln:**
 
@@ -320,24 +332,10 @@ Schreibe barrierefreie Alternativtexte für Bilder nach WCAG 2.2 (SC 1.1.1) und 
 * Keine Formulierungen wie „Bild von“ oder „Foto von“.
 * Für komplexe Grafiken: Ausführliche Erklärung.
 
-**Ausgabe:** Nur der Alternativtext (kein HTML, keine Erklärungen).
-
-**Eingabe:**
-
-* Nutzungskontext: Plattform mit historischen Quellen und Forschungsdaten für Forschende und Studierende aus historischen und archäologischen Disziplinen.
-* Metadaten:
-  * Titel: {title}
-  * Beschreibung: {description}
-  * Datum (Extended Date Time Format): {date}
-  * Epoche: {era}
-  * Ersteller: {creator}
-  * Herausgeber: {publisher}
-  * Quelle: {source}
-""".strip()
-
-
-def build_messages(prompt: str, image_url: str) -> list[dict[str, Any]]:
+**Ausgabe:** Nur der Alternativtext (kein HTML, keine Erklärungen).""".strip()
+    
     return [
+        {"role": "system", "content": system},
         {
             "role": "user",
             "content": [
