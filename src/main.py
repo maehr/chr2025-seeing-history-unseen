@@ -20,6 +20,10 @@ import json
 import os
 import sys
 import time
+import itertools
+import random
+import hashlib
+import html
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Sequence, Tuple
@@ -45,8 +49,8 @@ METADATA_URL: str = (
 MODELS: list[str] = [
     "google/gemini-2.5-flash-lite",
     "mistralai/pixtral-12b",
-    "openai/gpt-4.1-nano",
-    "meta-llama/llama-4-maverick"
+    "openai/gpt-4o-mini",
+    "meta-llama/llama-4-maverick",
 ]
 
 # Media ids to process
@@ -152,6 +156,10 @@ MEDIA_IDS: list[str] = [
     "m40938",
     "m29084",
 ]
+
+# 2AFC settings
+RANDOM_SEED = 42
+STRIP_LINE = "* Nutzungskontext: Plattform mit historischen Quellen und Forschungsdaten für Forschende und Studierende aus historischen und archäologischen Disziplinen."
 
 
 # ---------------------------
@@ -317,7 +325,9 @@ def build_prompt(media: MediaObject) -> str:
   * Quelle: {source}""".strip()
 
 
-def build_messages(prompt: str, image_url: str) -> Tuple[list[dict[str, Any]], str, str]:
+def build_messages(
+    prompt: str, image_url: str
+) -> Tuple[list[dict[str, Any]], str, str]:
     system = """
 Du bist ein Experte für digitale Barrierefreiheit und Web Accessibility.
 Schreibe barrierefreie Alternativtexte für Bilder nach WCAG 2.2 (SC 1.1.1) und W3C WAI-Standards.
@@ -416,6 +426,27 @@ def image_data_uri(url: str) -> str:
     return f"data:{mime};base64,{b64}"
 
 
+def strip_context_line(text: str) -> str:
+    """Remove the specified Nutzungskontext line from the user prompt."""
+    if not text:
+        return text
+    # Remove exact line, with or without trailing newline
+    text = text.replace(STRIP_LINE + "\n", "")
+    text = text.replace(STRIP_LINE, "")
+    return text.strip()
+
+
+def html_question(image_html: str, prompt_text: str) -> str:
+    """Compose a single-row, two-column HTML table with image and prompt."""
+    safe_prompt = html.escape(prompt_text)
+    return (
+        "<table><tr>"
+        f'<td style="vertical-align:top;padding:4px;">{image_html}</td>'
+        f'<td style="vertical-align:top;padding:4px;"><pre style="white-space:pre-wrap;margin:0;">{safe_prompt}</pre></td>'
+        "</tr></table>"
+    )
+
+
 # ---------------------------
 # Main
 # ---------------------------
@@ -467,6 +498,7 @@ def main() -> None:
             }
         )
 
+        # call models
         for model in MODELS:
             try:
                 orc = call_openrouter(api_key=api_key, model=model, messages=messages)
@@ -503,32 +535,51 @@ def main() -> None:
 
         rows.append(row)
 
-        # --- build questions.csv row for this media id ---
+        # --- build 2AFC questions.csv rows for this media id ---
         try:
             data_uri = image_data_uri(str(media.object_thumb))
             img_tag = f'<img src="{data_uri}">'
         except Exception as e:
             img_tag = f"[ERROR fetching image: {type(e).__name__}: {e}]"
 
-        def content_for(idx: int) -> str:
-            m = MODELS[idx]
-            return row.get(f"{m.replace('/', '__')}__content") or ""
+        # Prepare prompt text without the Nutzungskontext line
+        stripped_prompt = strip_context_line(user_prompt)
+        q_text = html_question(img_tag, stripped_prompt)
 
-        questions_rows.append(
-            [
-                mid,
-                img_tag,
-                MODELS[0],
-                content_for(0),
-                MODELS[1],
-                content_for(1),
-                MODELS[2],
-                content_for(2),
-                MODELS[3],
-                content_for(3),
-            ]
+        # map model -> generated alt text string
+        model_to_text = {
+            m: row.get(f"{m.replace('/', '__')}__content") or "" for m in MODELS
+        }
+
+        # generate all unique pairs of models for 2AFC
+        pairs = list(itertools.combinations(MODELS, 2))
+
+        # deterministic randomisation of left/right per media item
+        seed_base = int.from_bytes(
+            hashlib.sha256(mid.encode("utf-8")).digest()[:8], "big"
         )
-    # --- end for mid ---
+        rnd = random.Random(RANDOM_SEED + seed_base)
+
+        for idx, (m1, m2) in enumerate(pairs, start=1):
+            # swap with 50% probability
+            if rnd.random() < 0.5:
+                m_left, m_right = m2, m1
+            else:
+                m_left, m_right = m1, m2
+
+            qid = f"{mid}__{idx}"
+
+            questions_rows.append(
+                [
+                    qid,  # question_id
+                    q_text,  # question_text (HTML table with image + prompt)
+                    m_left,  # option_1_id
+                    model_to_text[m_left],  # option_1_label
+                    m_right,  # option_2_id
+                    model_to_text[m_right],  # option_2_label
+                ]
+            )
+        # --- end per-media 2AFC rows ---
 
     # Build DataFrame (wide format)
     df = pd.DataFrame(rows)
@@ -546,7 +597,7 @@ def main() -> None:
         for record in df.to_dict(orient="records"):
             f.write(json.dumps(record, ensure_ascii=False) + "\n")
 
-    # --- write questions.csv with the exact header and order ---
+    # --- write questions.csv in 2AFC format ---
     questions_csv = run_dir / "questions.csv"
     header = [
         "question_id",
@@ -555,10 +606,6 @@ def main() -> None:
         "option_1_label",
         "option_2_id",
         "option_2_label",
-        "option_3_id",
-        "option_3_label",
-        "option_4_id",
-        "option_4_label",
     ]
     with questions_csv.open("w", encoding="utf-8", newline="") as f:
         writer = csv.writer(f)
@@ -571,7 +618,9 @@ def main() -> None:
         prompts_json,
         {
             "created_utc": utc_now_iso(),
-            "system_prompt": prompt_records[0]["system_prompt"] if prompt_records else "",
+            "system_prompt": prompt_records[0]["system_prompt"]
+            if prompt_records
+            else "",
             "per_media": prompt_records,
         },
     )
@@ -589,6 +638,8 @@ def main() -> None:
         "questions_csv": str(questions_csv.resolve()),
         "prompts_json": str(prompts_json.resolve()),
         "python_version": sys.version,
+        "two_afc_pairs_per_media": len(list(itertools.combinations(MODELS, 2))),
+        "random_seed": RANDOM_SEED,
     }
     persist_json(run_dir / "manifest.json", manifest)
 
