@@ -25,8 +25,13 @@ keywords:
     metadata,
     disability justice
   ]
+# OLD ABSTRACT BEFORE REWORK:
+# abstract: |
+#   Digital archives promised to democratize access to cultural heritage, yet a significant portion of visual historical content remains inaccessible to blind and low-vision readers. This short paper explores the feasibility, accuracy, and ethics of using state-of-the-art vision-language models to generate WCAG- and WAI-compliant alt-text for a heterogeneous digital heritage collection. We combine computational experiments with qualitative evaluation to develop a framework for responsible AI-assisted accessibility in the humanities.
 abstract: |
-  Digital archives promised to democratize access to cultural heritage, yet a significant portion of visual historical content remains inaccessible to blind and low-vision readers. This short paper explores the feasibility, accuracy, and ethics of using state-of-the-art vision-language models to generate WCAG- and WAI-compliant alt-text for a heterogeneous digital heritage collection. We combine computational experiments with qualitative evaluation to develop a framework for responsible AI-assisted accessibility in the humanities.
+  Digital heritage platforms still exclude blind and low-vision users because most images lack WCAG-compliant alternative text. We study whether current vision–language models (VLMs) can act as accessibility assistants for heterogeneous historical collections and how to integrate them responsibly into curatorial workflows. We define feasibility as three observables: coverage (share of images yielding non-empty, non-refusal alt text on first pass), throughput (images/hour under realistic batching), and unit cost (CHF per alt text via API). We demonstrate feasibility on a curated subset with before/after exemplars and a compliance heuristic that checks image-type handling for complex images, length bounds, banned lead-ins, and treatment of visible text.
+  To assess relative quality, we avoid absolute “accuracy” scores and instead run expert pairwise comparisons across four VLMs (2AFC per image). We estimate model strengths using a Bradley–Terry model with confidence intervals, report slices by era and type, and quantify inter-rater reliability via Kendall’s W. Targeted objective checks—metadata consistency, text-image handling, and a hallucination audit—are outlined as extensible future modules.
+  For ethics and governance, we propose case-based audits on sensitive content (people, slurs, colonial scenes, funerary objects) to derive editorial rules on elision, quotation, identity labels, and deferral to long descriptions. We release an open benchmark with images or links, metadata, prompts, seeds, raw model outputs, pairwise judgements, and a cost–quality frontier to guide GLAM adoption. Registered uncertainties include external validity beyond Basel, direct utility for blind users, safety refusals, and cross-language transfer; each maps to a concrete next step. Results provide an empirical baseline and a reproducible workflow for AI-assisted accessibility in the humanities.
 bibliography: bibliography.bib
 ---
 
@@ -149,6 +154,16 @@ Write a short intro to the collection (public history Basel, heterogeneous types
 - **Languages**: mostly **de**, with **fr** and **la** pockets.
 - **Cross-tabs** show coverage across Type×Era and Type×Language; German dominates, maps/diagrams type-specific.
 
+# Model selection
+
+- [ ] TODO Justify model choices:
+  - Proprietary SOTA: `openai/gpt-4o-mini` (GPT-4o), `google/gemini-2.5-flash-lite` (Gemini Vision).
+  - Open weights: `meta-llama/llama-4-maverick` (Llama 4), `mistralai/pixtral-12b` (Pixtral).
+  - Comparable cost per 1M tokens (see table in TODO.md).
+  - Diverse architectures and training data.
+
+- [ ] Incorporate model card summaries from TODO.md.
+
 # Methodology
 
 Our approach combines a technical pipeline for generating candidate alt-text with a multi-layered evaluation strategy. A human-in-the-loop process is incorporated throughout to ensure quality control and address ethical considerations.
@@ -162,11 +177,15 @@ In this short paper, we describe the methodology in future tense, as several ste
 
 ## Alt-Text Generation Pipeline
 
-**Model Selection:** We have selected four state-of-the-art vision-language models (as of mid-2025) to generate image descriptions. These represent a mix of proprietary and open-source systems: (1) **GPT-4o** (OpenAI's multimodal GPT-4o), (2) **Google Gemini (Vision)**, (3) **LLaVA-Next** (an open-source vision-LLM based on LLaMA-2, fine-tuned for vision-chat tasks), and (4) **Mistral Pixtral** (a vision-language model from Mistral's NeMo framework). We include multiple models to gauge the range of performance and to see how open models compare to the cutting-edge commercial systems. All models are capable of accepting image input and returning a text description. Where possible, we use the latest available model checkpoints or API versions.
+<!-- OLD TEXT BEFORE REWORK:
 
-**Prompt Design:** A key feature of our pipeline is providing each model with contextual metadata alongside the image, in order to ground the generation in relevant historical facts. We designed a prompt template (in the same language as the collection, i.e., German) that injects structured metadata fields and instructs the model to follow best practices for alt-text. In essence, the prompt tells the model that it is an **accessibility assistant** tasked with producing an alt-text for a cultural heritage image. It includes guidelines drawn from the WCAG 2.2 and accessibility literature on how to write good alt-text. For example, the prompt directs the model not to start with redundant phrases like "Bild von..." ("image of..."), to be concise (typically under $\sim$`<!-- -->`{=html}120 characters for a simple informative image), and to include any essential visual text (like signs or captions visible in the image). It also asks the model to identify the type of image and adjust the response accordingly: e.g., if the image is a complex diagram or map, the model should produce a short alt-text plus note that a longer description will be provided; if the image is merely a photograph with informative content, a 1--2 sentence description suffices; if the image is mainly text (say a scanned document or poster), the model should either transcribe it (for short text like a sign) or indicate that a full transcription is available elsewhere for longer texts. These rules were distilled from accessibility resources [@a11ychecklist; @wcag2023] to ensure the output serves blind users properly. An example snippet of our prompt template is: _"You are an expert in writing WCAG-compliant alt-text. The image comes from a history archive with metadata. Read the metadata and analyze the image. Determine the image type (informative photo, complex diagram/map, or text image) and produce the appropriate alt-text as per the guidelines..."_---followed by the specific instructions for each case. We have found in preliminary trials that including the complete metadata (`title`, `date`, etc.) in the prompt can prevent certain errors (for instance, knowing the year of the photo helps the model avoid describing attire as "modern"). All models are prompted with the same template structure for consistency, and all outputs are requested in German (to match the collection's context and end-user language).
+**Prompt Design:** A key feature of our pipeline is providing each model with contextual metadata alongside the image, in order to ground the generation in relevant historical facts. We designed a prompt template (in the same language as the collection, i.e., German) that injects structured metadata fields and instructs the model to follow best practices for alt-text. In essence, the prompt tells the model that it is an **accessibility assistant** tasked with producing an alt-text for a cultural heritage image. It includes guidelines drawn from the WCAG 2.2 and accessibility literature on how to write good alt-text. For example, the prompt directs the model not to start with redundant phrases like "Bild von..." ("image of..."), to be concise (typically under $\sim$``{=html}120 characters for a simple informative image), and to include any essential visual text (like signs or captions visible in the image). It also asks the model to identify the type of image and adjust the response accordingly: e.g., if the image is a complex diagram or map, the model should produce a short alt-text plus note that a longer description will be provided; if the image is merely a photograph with informative content, a 1--2 sentence description suffices; if the image is mainly text (say a scanned document or poster), the model should either transcribe it (for short text like a sign) or indicate that a full transcription is available elsewhere for longer texts. These rules were distilled from accessibility resources [@a11ychecklist; @wcag2023] to ensure the output serves blind users properly. An example snippet of our prompt template is: _"You are an expert in writing WCAG-compliant alt-text. The image comes from a history archive with metadata. Read the metadata and analyze the image. Determine the image type (informative photo, complex diagram/map, or text image) and produce the appropriate alt-text as per the guidelines..."_---followed by the specific instructions for each case. We have found in preliminary trials that including the complete metadata (`title`, `date`, etc.) in the prompt can prevent certain errors (for instance, knowing the year of the photo helps the model avoid describing attire as "modern"). All models are prompted with the same template structure for consistency, and all outputs are requested in German (to match the collection's context and end-user language). -->
 
-**Generation and Post-processing:** Using this prompt, we will run each image through each of the five models, yielding up to five candidate descriptions per image. The generation process will be automated via a Python script (using an API wrapper or library for each model). We anticipate producing around 6,000 candidate alt-texts (4 per image for $\sim$`<!-- -->`{=html}1,500 images). After generation, minimal post-processing will be applied. In particular, we will strip any extraneous phrases if a model fails to follow instructions exactly (e.g., some might prepend "Alt-Text:" or polite greetings, which we will remove). We will not otherwise modify the content of the AI outputs at this stage. All results will be stored along with metadata and model identifiers for evaluation.
+- [ ] Rework the section above so that it complies with these ideas:
+
+We systematically varied prompt roles and placement, comparing instruction blocks in the system message versus the user turn, and front-loading versus trailing constraints. Following evidence that models privilege information at the beginning or end of long contexts, we fixed normative requirements (WCAG 2.2 target, de-CH style, length limits, handling of decorative/functional/complex images) in the system prompt and kept the user message minimal and image-bound to reduce “lost-in-the-middle” effects. The user turn injected collection-specific metadata—title, description, EDTF date, era, creator/publisher/source—and a concise Nutzungskontext, then the image URL. Adding this structured context markedly improved specificity, reduced refusals, and lowered hallucinations, consistent with retrieval-style findings that supplying external, task-relevant evidence boosts generation quality and faithfulness. Concretely, the prompt is a two-part template: (1) a stable system scaffold that encodes accessibility rules and output format (“only the alt text”, max 125 chars, no “Bild von”), and (2) a per-item user payload that lists metadata as bullet points plus the image, so the model can align linguistic content with visual features. (TODO see https://aclanthology.org/2024.tacl-1.9/?utm_source=chatgpt.com)
+
+**Generation and Post-processing:** Using this prompt, we will run each image through each of the four models, yielding up to four candidate descriptions per image. The generation process will be automated via a Python script (using an API wrapper or library for each model). We anticipate producing around 400 candidate alt-texts (4 per image for n=100 images). After generation, minimal post-processing will be applied. In particular, we will strip any extraneous phrases if a model fails to follow instructions exactly (e.g., some might prepend "Alt-Text:" or polite greetings, which we will remove). We will not otherwise modify the content of the AI outputs at this stage. All results will be stored along with metadata and model identifiers for evaluation.
 
 If a model refuses to describe an image due to some built-in safety filter (misidentifying a historical photograph as sensitive content), we will handle those on a case-by-case basis by leaving that image for human description. Overall, this pipeline is designed to maximize coverage (getting at least one description for every image) while maintaining quality through careful prompting.
 
@@ -214,7 +233,9 @@ flowchart LR
 
 Our evaluation of the AI-generated alt-text will address both **accessibility compliance** and **historical accuracy** in line with the research questions. We describe the planned evaluation steps below. All evaluation will be done on a representative subset of the data (approximately 100 images) due to time constraints, with the aim of scaling up later.
 
-\(a\) Accessibility and WCAG Compliance:
+<!-- OLD TEXT BEFORE REWORK:
+
+ \(a\) Accessibility and WCAG Compliance:
 
 : We will assess whether the AI outputs meet established accessibility guidelines for alt-text. This involves checking each description against a checklist of best practices (e.g., does the alt-text sufficiently describe the image's important content and function? Does it avoid unnecessary phrases like "an image of"? If the image contains readable text or numbers, are those included or summarized in the alt-text?). We are adapting the Alt Text Checklist from the A11y Project and WCAG techniques as our evaluation rubric. Each candidate description for an image will be reviewed by at least two team members with knowledge of accessibility standards. In cases where the image is a diagram or chart, we will check that the model followed instructions (providing a short summary alt-text and indicating a longer description would be needed). For images of documents, we check that any text was appropriately handled (transcribed or deferred to full text). The outcome of this step will be a rating or rank of the candidates for each image in terms of compliance. We expect that the model prompted with metadata and guidelines will produce mostly compliant alt-text, whereas some simpler models might yield overly generic or incomplete captions. An initial pilot test supports this: for example, without metadata, an open-source model captioned a photo as "Old photo of a street" which misses key specifics, but with our metadata-enhanced prompt GPT-4o produced "Schwarzweiß-Fotografie einer belebten Straße in Basel, 1917, mit Demonstranten, die Banner in Frakturschrift halten." (Black-and-white photograph of a busy Basel street in 1917, with protesters holding banners in Gothic script), which is far richer and ticks more of the accessibility boxes (it mentions the context, the presence of text on banners, etc.). This step addresses the first research question by testing whether models can be guided to meet alt-text requirements. We will quantify common compliance issues and note which model outputs most often require correction.
 
@@ -224,13 +245,17 @@ Our evaluation of the AI-generated alt-text will address both **accessibility co
 
 \(c\) Ethical Review:
 
-: In parallel with the above, we will perform a qualitative analysis of the AI outputs to identify any ethical or bias concerns. This involves scanning the descriptions for inappropriate language or perspective. For instance, we will check if any descriptions contain terms or tones that are outdated or offensive (e.g., describing people in a demeaning way). We are particularly attentive to _ableist language_: while unlikely, we want to ensure the alt-text does not include phrases like "suffers from blindness" or similar, which are not acceptable in modern accessibility writing [@holmes2020]. If the model describes people, we examine whether it is making unwarranted assumptions about their identity (race, gender, etc.) or appearance. One concrete example: one model output described an older photograph of a man as "ein afrikanischer Mann" ("an African man"). The image indeed depicted a Black man, but in context his nationality or ethnicity was not documented and not necessarily relevant to the image's purpose. Including such a descriptor could be seen as othering or speculative, so our policy is to avoid it unless it is directly pertinent [@hanley2021]. In our review process, any such cases will be flagged and either removed or revised. We will also consider the implications of the model's choices of detail: what the AI focuses on can reflect implicit bias (e.g., always mentioning a woman's appearance but not a man's). By compiling these observations, we will derive guidelines for curators on how to handle AI-generated descriptions. The ethical review is not a separate step per se, but integrated into the human-in-the-loop oversight---no AI-generated alt-text will be added to the public collection without passing this human review stage.
+: In parallel with the above, we will perform a qualitative analysis of the AI outputs to identify any ethical or bias concerns. This involves scanning the descriptions for inappropriate language or perspective. For instance, we will check if any descriptions contain terms or tones that are outdated or offensive (e.g., describing people in a demeaning way). We are particularly attentive to _ableist language_: while unlikely, we want to ensure the alt-text does not include phrases like "suffers from blindness" or similar, which are not acceptable in modern accessibility writing [@holmes2020]. If the model describes people, we examine whether it is making unwarranted assumptions about their identity (race, gender, etc.) or appearance. One concrete example: one model output described an older photograph of a man as "ein afrikanischer Mann" ("an African man"). The image indeed depicted a Black man, but in context his nationality or ethnicity was not documented and not necessarily relevant to the image's purpose. Including such a descriptor could be seen as othering or speculative, so our policy is to avoid it unless it is directly pertinent [@hanley2021]. In our review process, any such cases will be flagged and either removed or revised. We will also consider the implications of the model's choices of detail: what the AI focuses on can reflect implicit bias (e.g., always mentioning a woman's appearance but not a man's). By compiling these observations, we will derive guidelines for curators on how to handle AI-generated descriptions. The ethical review is not a separate step per se, but integrated into the human-in-the-loop oversight---no AI-generated alt-text will be added to the public collection without passing this human review stage. -->
+
+- [ ] Rework the section above so that it complies with the ideas outlined previously.
 
 # Preliminary Results and Observations
 
-_Note: As this is a work in progress, we report here on initial observations from our ongoing experiments. A full evaluation with quantitative results will be included in the final version._
+<!-- OLD TEXT BEFORE REWORK:
 
-**Feasibility and Throughput:** Early results confirm that using VLMs can dramatically accelerate the production of alt-text for large collections. Our automated pipeline has been able to generate descriptions for the entire set of $\sim$`<!-- -->`{=html}1,500 images in a matter of hours (wall-clock time), only limited by API call rates. In contrast, writing high-quality alt-text manually for that many images would likely take a dedicated team several weeks. Even accounting for time spent in human review and correction, the AI-assisted workflow promises to be far more efficient. Importantly, the models attempted to describe every image; none of the images were outright un-captionable by the AI. Only a small fraction of outputs came back empty or with an error (for instance, a few instances where a model refused output thinking a historical war photo was violent content). This suggests that an automated approach can achieve close to near 100% _coverage_, ensuring that no image remains without at least an initial draft description. From an accessibility standpoint, this is already a win: having even a basic description is better than nothing for a user navigating these archives.
+Note: As this is a work in progress, we report here on initial observations from our ongoing experiments. A full evaluation with quantitative results will be included in the final version._
+
+**Feasibility and Throughput:** Early results confirm that using VLMs can dramatically accelerate the production of alt-text for large collections. Our automated pipeline has been able to generate descriptions for the entire set of $\sim$1,500 images in a matter of hours (wall-clock time), only limited by API call rates. In contrast, writing high-quality alt-text manually for that many images would likely take a dedicated team several weeks. Even accounting for time spent in human review and correction, the AI-assisted workflow promises to be far more efficient. Importantly, the models attempted to describe every image; none of the images were outright un-captionable by the AI. Only a small fraction of outputs came back empty or with an error (for instance, a few instances where a model refused output thinking a historical war photo was violent content). This suggests that an automated approach can achieve close to near 100% _coverage_, ensuring that no image remains without at least an initial draft description. From an accessibility standpoint, this is already a win: having even a basic description is better than nothing for a user navigating these archives.
 
 **Alt-Text Quality --- Accuracy vs. Errors:** The quality of the AI-generated descriptions varies across models and images, but our expert review so far indicates a majority are quite descriptive and useful, with some requiring only minor tweaking. For straightforward photographs (e.g., a city street, a portrait, an artifact on a plain background), the models often produced accurate and succinct descriptions. In many cases, the AI caption actually included more concrete detail than the existing human metadata. For example, one image of a tram scene had a human description "Street scene with tram and people, Basel early 1900s." A model-generated alt-text added detail: "Drei Männer stehen vor einem Straßenbahnwagen. Der mittlere Mann hält ein Schild mit der Nummer 5." (Three men stand in front of a tram car. The middle man is holding a sign with the number 5.) Such details can enrich the record and provide a fuller picture to someone who cannot see the image. This demonstrates the potential for AI to surface elements that a human might overlook or assume as understood.
 
@@ -238,7 +263,9 @@ At the same time, we have observed a number of _failure modes_ that reinforce th
 
 **Model Comparisons:** A full benchmarking is ongoing.
 
-**Ethical and Sensitive Cases:** Our review of outputs is ongoing, but so far we have not encountered any egregiously biased or harmful descriptions from the models when they are properly prompted. This is a relief given past incidents in vision AI (for example, earlier algorithms infamously mis-labelled images of Black people with animal names, as noted by Hanley et al. [@hanley2021]). None of our models produced derogatory labels or inappropriate descriptions of people; they generally stuck to neutral terms like "an older woman," "a young boy," etc., only mentioning apparent race or disability if it was obvious and relevant (which we typically consider outside the scope of alt-text unless the historical context makes it pertinent). We also noted that models occasionally avoided describing graphic historical images in detail when the content was discriminatory. In those cases, a human will likely need to step in to provide an appropriate description that the AI hesitated to give.
+**Ethical and Sensitive Cases:** Our review of outputs is ongoing, but so far we have not encountered any egregiously biased or harmful descriptions from the models when they are properly prompted. This is a relief given past incidents in vision AI (for example, earlier algorithms infamously mis-labelled images of Black people with animal names, as noted by Hanley et al. [@hanley2021]). None of our models produced derogatory labels or inappropriate descriptions of people; they generally stuck to neutral terms like "an older woman," "a young boy," etc., only mentioning apparent race or disability if it was obvious and relevant (which we typically consider outside the scope of alt-text unless the historical context makes it pertinent). We also noted that models occasionally avoided describing graphic historical images in detail when the content was discriminatory. In those cases, a human will likely need to step in to provide an appropriate description that the AI hesitated to give. -->
+
+- [ ] Rework the section above so that it complies with the ideas outlined previously.
 
 Overall, our preliminary findings suggest that with careful prompting and human curation, AI-generated alt-text can achieve a quality that makes them valuable for accessibility in digital heritage collections. The process is **feasible** and scalable (addressing the first research question), and the outputs are often accurate and informative, though not without errors (addressing the second research question). Importantly, this exercise has started to reveal where AI captions might _add_ value (by noticing visual details) and where they might _mislead_ (by hallucinating or omitting context). These insights will feed into the development of guidelines and best practices for using AI in this capacity.
 
@@ -261,6 +288,8 @@ Implications: We select `openai/gpt-4o-mini` as the best trade‑off of quality 
 
 # Discussion and Future Work
 
+<!-- OLD TEXT BEFORE REWORK:
+
 Our ongoing project highlights both the promise and the complexities of integrating AI into cultural heritage accessibility. Here we reflect on key implications and outline the next steps, including a planned user study and considerations for ethical deployment (addressing the third research question and beyond).
 
 **Integrating AI into Digital Humanities Practice:** Embracing AI for alt-text generation can substantially improve the inclusivity of digital archives. For public history initiatives, this means that no part of the historical record should remain off-limits to blind or visually impaired researchers. By leveraging AI, even small teams can now consider providing descriptions for thousands of images, bridging an accessibility gap that has persisted in the field. This is a concrete way in which computational methods can democratize access to cultural heritage. However, our work also underscores that AI is not a plug-and-play solution: it requires thoughtful integration. Historians and archivists must develop a new form of source criticism for AI-generated content. Just as we critically evaluate a human-written caption or a transcribed document, we need to critically interrogate AI outputs---asking how the description was generated, what might be missing or biased, and how it should be interpreted. This aligns with the notion of _digital hermeneutics_ in public history [@fickers2022], where scholars maintain a reflexive awareness of the tools mediating their understanding of sources. In practice, this could mean training archival staff in basic AI literacy or establishing review protocols that treat AI suggestions as starting points subject to scholarly validation.
@@ -279,7 +308,9 @@ In this work-in-progress, we explored the use of multimodal AI models to generat
 
 Moving forward, we will complete our systematic evaluation and user study, and we will refine our methods accordingly. We plan to release the dataset of images, metadata, and model-generated alt-text (with any necessary permissions and safeguards) to serve as a benchmark for others. We also acknowledge that there are open questions regarding intellectual property and privacy when using AI in this manner: for instance, how do we handle detailed descriptions of artworks or personal photographs that are under copyright? Our stance is that providing textual descriptions for accessibility is generally justified (and often legally exempt for assistive purposes), but each institution should develop policies in consultation with legal experts. We will include a brief guideline in our final paper on managing these concerns.
 
-Finally, our work contributes to a larger conversation in computational humanities about the role of AI in research workflows. By treating AI outputs as objects of interpretation and by centering accessibility, we hope to model a thoughtful integration of technology in humanities scholarship. As one participant in our discussions noted, this is about _"making the past accessible in the present, to everyone."_ We believe that is a goal worth pursuing with the combined efforts of historians, technologists, and user communities. We look forward to sharing more complete results soon, and to engaging in dialogue at CHR 2025 on how we can collectively harness AI for inclusive and critical digital heritage practices.
+Finally, our work contributes to a larger conversation in computational humanities about the role of AI in research workflows. By treating AI outputs as objects of interpretation and by centering accessibility, we hope to model a thoughtful integration of technology in humanities scholarship. As one participant in our discussions noted, this is about _"making the past accessible in the present, to everyone."_ We believe that is a goal worth pursuing with the combined efforts of historians, technologists, and user communities. We look forward to sharing more complete results soon, and to engaging in dialogue at CHR 2025 on how we can collectively harness AI for inclusive and critical digital heritage practices. -->
+
+- [ ] Rework the section above so that it complies with the ideas outlined previously.
 
 # Acknowledgements {#acknowledgements .unnumbered}
 
@@ -288,74 +319,3 @@ Finally, our work contributes to a larger conversation in computational humaniti
 # References
 
 <!-- Bibliography will be automatically generated here from the bibliography file -->
-
-# First Appendix Section {#sec:first-appendix}
-
-Optional appendix sections can be included after the references section.
-
-<!-- # Introduction
-
-Here is an example of the first section of the paper. All standard markdown
-formatting commands work as expected, such as _italic_, **bold**, and `code`.
-
-You may modify this markdown file by renaming, deleting, or adding sections of
-your own and substituting our instructional text with the text of your paper. Add
-references to `bibliography.bib` as BibTeX entries. These can then be cited
-by using the format at the end of this sentence, namely the use of square
-brackets with an at sign followed by the resource key name
-[@tettoni2024discoverability]. You can also cite multiple papers together using
-the format at the end of this sentence [@barré2024latent; @levenson2024textual; @bambaci2024steps].
-
-## Details {#sec:intro_details}
-
-You may also include subsections if they help organize your text, but they are not required. Use as many sections and subsections with whatever names work for your submission.
-
-# Elements
-
-## Tables
-
-Tables can also be added to the document using the standard Markdown table
-format. Each table needs a unique label and caption. Below is an example of
-a table labeled as tbl:example along with a brief caption.
-
-| Column Name 1 | Column Name 2 |
-| ------------- | ------------- |
-| d1            | d2            |
-| d1            | d2            |
-| d1            | d2            |
-
-Table: Example table and table caption. {#tbl:example}
-
-The table can be referenced as [Table @tbl:example].
-
-## Figures
-
-Figures can also be added to the document. As with tables, each figure needs
-a unique label and caption. The format is shown in the lines below. Figure
-files themselves should be included along with the submission.
-
-![Example figure and figure caption.](640x480.png){#fig:example width=40%}
-
-A figure can be cited as [Figure @fig:example].
-
-## Equations
-
-We can include mathematical notations using LaTeX mathematical formatting,
-such as:
-
-$$f(y) = x^2$$ {#eq:squared}
-
-The line number of the equation can be cited as [Equation @eq:squared].
-
-## Other References
-
-Finally, you can also cite other sections or subsections of your paper using
-the tags that you have used at the end of each of the section titles: [Section @sec:intro_details].
-
-# References -->
-
-<!-- Bibliography will be automatically generated here from the bibliography file -->
-
-<!-- # First Appendix Section {#sec:first-appendix}
-
-Optional appendix sections can be included after the references section. -->
