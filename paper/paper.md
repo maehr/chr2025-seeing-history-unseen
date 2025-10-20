@@ -191,7 +191,7 @@ If a model refuses to describe an image due to some built-in safety filter (misi
 
 ### Pipeline Overview (Mermaid)
 
-```{mermaid}
+<!-- ```{mermaid} -->
 %%| label: fig-pipeline
 %%| fig-cap: Alt-text generation, survey, and analysis pipeline (best model by consensus and cost).
 flowchart LR
@@ -227,7 +227,7 @@ flowchart LR
   end
 
   M6 --> S0
-```
+<!-- ``` -->
 
 ## Evaluation Strategy
 
