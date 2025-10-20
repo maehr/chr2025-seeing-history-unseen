@@ -26,7 +26,7 @@ keywords:
     disability justice
   ]
 abstract: |
-  Digital archives promised to democratize access to cultural heritage, yet a significant portion of visual historical content remains inaccessible to blind and low-vision readers. This short paper explores the feasibility, accuracy, and ethics of using state-of-the-art vision-language models to generate WCAG-compliant alt-text for a heterogeneous digital heritage collection. We combine computational experiments with qualitative evaluation to develop a framework for responsible AI-assisted accessibility in the humanities.
+  Digital archives promised to democratize access to cultural heritage, yet a significant portion of visual historical content remains inaccessible to blind and low-vision readers. This short paper explores the feasibility, accuracy, and ethics of using state-of-the-art vision-language models to generate WCAG- and WAI-compliant alt-text for a heterogeneous digital heritage collection. We combine computational experiments with qualitative evaluation to develop a framework for responsible AI-assisted accessibility in the humanities.
 bibliography: bibliography.bib
 ---
 
@@ -34,9 +34,9 @@ bibliography: bibliography.bib
 
 Digital archives promised to democratize access to cultural heritage, yet a significant portion of visual historical content remains inaccessible to blind and low-vision readers. Many digitized photographs, maps, manuscripts, and other images lack descriptive alternative text (alt-text), creating an epistemic barrier to the past. This perpetuates an asymmetry in sensory access to history, where sighted people hold privileged insight into visual sources while others are excluded. Making images legible through text is more than a technical fix---it is a matter of historical justice and inclusivity in digital humanities. Even beyond vision-impaired users, rich image descriptions can aid others, such as neurodivergent readers who benefit from explicit detail that sighted users might glean implicitly [@cecilia2023b].
 
-Alt-text itself is not new: the HTML `alt` attribute dates back to the 1990s to support accessibility. However, providing high-quality image descriptions has often been a secondary priority in scholarly communication [@cecilia2023a]. Crafting alt-text is labor-intensive and typically left to authors or curators as a final step, if done at all. As Conrad [@conrad2021] observes, the burden falls on sighted experts to determine what information _is_ or _is not_ included in an image's description, an ethical responsibility that only the content's author can fully shoulder. Author-generated descriptions are valued for capturing contextual meaning that automated tools might miss. They can greatly enhance the accessibility, searchability, and archivability of digital scholarship. Yet in practice, many projects---especially smaller public history initiatives---lack the resources to implement accessibility from the start. The result is that visual evidence remains "unseen" by those who rely on assistive technologies.
+Alt-text itself is not new: the HTML `alt` attribute dates back to the 1990s to support accessibility. However, providing high-quality image descriptions has often been a secondary priority in scholarly communication [@cecilia2023a]. Crafting alt-text is labor-intensive and typically left to authors or curators as a final step, if done at all. The burden often falls on sighted experts to determine what information _is_ or _is not_ included in an image's description, an ethical responsibility that only the content's author can fully shoulder. Author-generated descriptions are valued for capturing contextual meaning that automated tools might miss. They can greatly enhance the accessibility, searchability, and archivability of digital scholarship. Yet in practice, many projects---especially smaller public history initiatives---lack the resources to implement accessibility from the start. The result is that visual evidence remains "unseen" by those who rely on assistive technologies.
 
-Recent advances in multimodal AI offer a potential remedy. Vision-Language Models (VLMs) such as OpenAI's GPT-4o, Google's Gemini 3, and open-source systems like LLaVA-Next or Mistral's Pixtral now claim near-human performance in image description tasks. These models can ingest an image and generate a caption or description, essentially simulating the interpretive act of a human describer. If guided properly, such models could produce high-quality, historically informed, and Web Content Accessibility Guidelines (WCAG 2.2)--conformant alt-text. This would dramatically reduce the human effort required to remediate large collections, enabling heritage institutions to scale up accessibility by generating alt-text for thousands of images. In turn, the "readership" of digital archives would expand to include those previously left out.
+Recent advances in multimodal AI offer a potential remedy. Vision-Language Models (VLMs) such as OpenAI's GPT-4o, Google's Gemini 2.5, and open-source systems like Meta's Llama 4 or Mistral's Pixtral now claim near-human performance in image description tasks. These models can ingest an image and generate a caption or description, essentially simulating the interpretive act of a human describer. If these models could produce alt-text that is both high-quality and historically informed as well as conformant with the Web Content Accessibility Guidelines (WCAG 2.2) and the Web Accessibility Initiative (WAI) of the World Wide Web Consortium (W3C), this would dramatically reduce the human effort required to remediate large collections. Heritage institutions could then scale up accessibility by generating alt-text for thousands of images. Consequently, the "readership" of digital archives would expand to include those who were previously excluded.
 
 However, adopting automated captioning in a heritage context raises critical questions about truth, evidence, and authenticity. Delegating descriptive labor to machines is not a neutral technical fix; it is an act imbued with values and biases. Deciding what details to include in an image's description is technically difficult and ethically fraught, especially for historical images depicting people or sensitive cultural content. Vision models trained on general web images may inject anachronistic terms or biases (e.g., misidentifying a 1920s street scene as "Victorian"), reinforce curatorial blind spots, or omit crucial context that a human historian would provide. There is also the danger of _techno-ableism_ [@shew2023], where blind users' needs are superficially addressed by technology without truly empowering them or respecting their perspectives. Uncritical use of AI could inadvertently recentre the sighted, algorithmic point of view rather than the lived experience of those using the alt-text.
 
@@ -46,19 +46,108 @@ The central purpose of our study is to assess whether and how current AI models 
 
 To guide this inquiry, we pose the following research questions:
 
+<!-- OLD TEXT BEFORE REWORK:
+
 1.  **Feasibility:** _Can current vision-language models produce useful, WCAG 2.2--compliant alt-text for complex historical images when provided with contextual metadata?_ We will examine whether models can meet accessibility guidelines (providing text alternatives that convey the same information as the image) and how the inclusion of metadata influences their output. We also consider the potential usefulness of these descriptions for both blind users and sighted users who may benefit from clear explanatory captions [@cecilia2023b].
 
 2.  **Quality and Authenticity:** _How do domain experts (e.g., historians) rate AI-generated image descriptions in terms of factual accuracy, completeness, and usefulness for understanding historical content?_ We will evaluate the outputs for errors such as anachronisms, misidentifications, or hallucinated details, checking them against known facts from metadata and expert knowledge.
 
-3.  **Ethics and Governance:** _What are the ethical implications of using AI to generate alt-text in heritage collections, and what human oversight or policy safeguards are required for responsible use?_ We will identify potential harms such as biased descriptions (e.g., normative terms), and address the broader question of how much interpretive agency should be ceded to AI in a curatorial context. We will explore strategies to mitigate these risks, including human-in-the-loop editing and transparency measures.
+3.  **Ethics and Governance:** _What are the ethical implications of using AI to generate alt-text in heritage collections, and what human oversight or policy safeguards are required for responsible use?_ We will identify potential harms such as biased descriptions (e.g., normative terms), and address the broader question of how much interpretive agency should be ceded to AI in a curatorial context. We will explore strategies to mitigate these risks, including human-in-the-loop editing and transparency measures. -->
+
+- [ ] Rework the section above the research questions so that it complies with these ides:
+
+**1. Feasibility**
+
+- **Define feasibility** as three observables:
+  1. **Coverage**: % images that yield a non-empty, non-refusal alt text on first pass.
+
+  2. **Throughput**: extrapolated/theoretical images/hour.
+
+  3. **Unit cost**: CHF per alt text (API).
+
+- **Demonstrate** with:
+  - A small, curated set of **before/after** exemplars across types to show plausibility.
+
+  - A **compliance heuristic** pass rate: correct “complex image” pattern, length bounds based on image type, banished phrases (“Bild von…”), presence/absence of visible text handling.
+
+- No large-N UX test needed for “feasibility.” Save user studies for later work. Anchor claims to logs and heuristics.
+
+**2. Quality and authenticity**
+
+- **Avoid absolute scoring** for “factual accuracy.” Use **relative preference**:
+  - Design: **4 models → 6 pairs** per image. 6 Domain experts pick the better alt text per pair (**2AFC**).
+
+  - **Estimate** model strengths with a **Bradley–Terry** model. Report coefficients with CIs. Do overall and by era and type.
+
+  - **Reliability**: **Kendall’s W** on ranks.
+
+- **Targeted objective checks** is an idea not realized in this paper yet, but could be future work:
+  - **Metadata consistency**: forbid contradictions with known year/place/creator; count contradictions.
+
+  - **Text-image handling**: for scans, check that visible text is mentioned or flagged for longdesc.
+
+  - **Hallucination audit**: sample-based review for invented entities.
+
+- Rationale: alt texts are short; absolute “completeness” is ill-posed. Relative judgments scale and are defensible.
+
+**3. Ethics and governance**
+
+- For a later stage of the research, do **case-based audits**:
+  - Curate vignettes for people images, sensitive symbols, derogatory historical text, colonial scenes, funerary objects.
+
+  - For each, show 4 model outputs, annotate **harm vectors**: speculative identity, euphemism, unnecessary salience, tone, omission of slurs vs contextualization.
+
+  - Derive **editorial rules**: what to elide vs quote, when to defer to long description, when to avoid identity labels unless documented.
+
+- Output of this section is **policy**, not a number. Tie to disability language guides and CH practice, but keep examples empirical.
+
+# Revised research questions
+
+- **RQ1 Feasibility**: What **coverage, throughput, and unit cost** can current VLMs achieve for WCAG-oriented alt text on a heterogeneous heritage corpus, and where do they fail?
+- **RQ2 Relative quality**: How do experts **pairwise-rank** model outputs for **usefulness and metadata-consistent correctness**, overall and by image type? What error patterns recur?
+
+possibly for future work:
+
+- **RQ3 Governance**: What **editorial policies** emerge from case audits on sensitive content, and how should institutions structure **human-in-the-loop** review?
+- **RQ4 Benchmark**: What **cost–quality trade-offs** and **per-type differentials** define a practical benchmark for GLAM adoption?
+
+**General remarks**
+
+- There will be an acompanying repository with open source code and data research data realeased alongside the paper https://github.com/maehr/chr2025-seeing-history-unseen/ and DOI
+
+- Position work as a **benchmark** with **relative performance** plus **cost**:
+  - Release: images (or links), metadata, prompts, seeds, **raw model outputs**, and human pairwise judgments.
+  - Report **per-type** subscores: photo, map, diagram, scan, drawing, object; and **per-era** and **language** slices.
+  - Plot a **cost–quality frontier**: Bradley–Terry score vs CHF/image.
+- This sidesteps the need for absolute “accuracy” yet is decision-useful for GLAM.
+
+- Treat early A/B and case studies as **pilot evidence**. Add a box: **“Registered uncertainties”**:
+  - Unknown external validity to non-Basel collections.
+  - Blind/low-vision user utility not yet measured.
+  - Safety refusals on sensitive historical content.
+  - Language transfer (de → fr/la) boundaries.
+- Convert each uncertainty into a **next-step** with a method, sample, and success criterion.
 
 By answering these questions, our work will provide an empirical baseline for _AI-assisted accessibility in the humanities_. It will also offer a reflective critique, examining AI outputs as objects of study in their own right. In the following sections, we outline our data and methodology (Section 2), present initial observations from our experiments (Section 3), and discuss implications for digital humanities practice (Section 4), before concluding with planned next steps (Section 5).
 
 # Data: The _Stadt.Geschichte.Basel_ Collection
 
+<!-- OLD TEXT BEFORE REWORK:
+
 To ground our evaluation in a real-world scenario, we use the digital collection of the public history project _Stadt.Geschichte.Basel_ (an open research repository on the history of Basel, Switzerland). The collection in its final form comprises approximately 1,500 heterogeneous digitized items, including historical photographs, reproductions of artifacts, city maps and architectural plans, handwritten letters and manuscripts, statistical charts, and printed ephemera (e.g., newspaper clippings, posters). Each item is accompanied by metadata in a Dublin Core schema (including fields such as title, creator, date, location, and a descriptive summary provided by historians). Crucially, none of the items currently have alt-text for use with screen readers, making this an ideal testbed for our study. The diversity of the corpus poses a significant challenge to automated captioning: many images are visually and historically complex, requiring domain knowledge to describe properly. This dataset thus allows us to investigate whether AI captioners can handle the "long tail" of content found in historical archives, beyond the everyday photographs on which many models are trained.
 
-For our experiments, we have obtained the collection images (in JPEG format, at a standardized size of $\sim$`<!-- -->`{=html}800$\times$`<!-- -->`{=html}800 pixels for computational efficiency) and their corresponding metadata in JSON format. We construct a working dataset where each entry consists of an image and its metadata (e.g., title, date, description). This metadata will be used to prompt the models, as described below. We intend to release the dataset of images, metadata, and model-generated descriptions as a benchmark for future research, following the conference's emphasis on open data and reproducibility.
+For our experiments, we have obtained the collection images (in JPEG format, at a standardized size of $\sim$`<!-- -->`{=html}800$\times$`<!-- -->`{=html}800 pixels for computational efficiency) and their corresponding metadata in JSON format. We construct a working dataset where each entry consists of an image and its metadata (e.g., title, date, description). This metadata will be used to prompt the models, as described below. We intend to release the dataset of images, metadata, and model-generated descriptions as a benchmark for future research, following the conference's emphasis on open data and reproducibility. -->
+
+- [ ] Rework the section above so that it complies with these ideas:
+
+Write a short intro to the collection (public history Basel, heterogeneous types, no alt texts yet, metadata available). Then give a **table** or **figure** with descriptive statistics of the sample used in the evaluation (n=100 images). Include type, era, language distributions, and cross-tabs.
+
+**Selection (n=100 items):**
+
+- **Types** (balanced): Object 13; Art 12; Scans 10; Maps 10; Photos (archaeology) 10; Photos (historical scenes) 10; Drawings (hist.) 10; Drawings (reconstr.) 10; Diagrams (stats) 10; Diagrams (flow) 5.
+- **Eras**: 20. Jh. 25; Frühe Neuzeit 21; 19. Jh. 19; Mittelalter 16; Frühgeschichte 11; plus Antike and 21. Jh. present.
+- **Languages**: mostly **de**, with **fr** and **la** pockets.
+- **Cross-tabs** show coverage across Type×Era and Type×Language; German dominates, maps/diagrams type-specific.
 
 # Methodology
 
@@ -80,6 +169,46 @@ In this short paper, we describe the methodology in future tense, as several ste
 **Generation and Post-processing:** Using this prompt, we will run each image through each of the five models, yielding up to five candidate descriptions per image. The generation process will be automated via a Python script (using an API wrapper or library for each model). We anticipate producing around 6,000 candidate alt-texts (4 per image for $\sim$`<!-- -->`{=html}1,500 images). After generation, minimal post-processing will be applied. In particular, we will strip any extraneous phrases if a model fails to follow instructions exactly (e.g., some might prepend "Alt-Text:" or polite greetings, which we will remove). We will not otherwise modify the content of the AI outputs at this stage. All results will be stored along with metadata and model identifiers for evaluation.
 
 If a model refuses to describe an image due to some built-in safety filter (misidentifying a historical photograph as sensitive content), we will handle those on a case-by-case basis by leaving that image for human description. Overall, this pipeline is designed to maximize coverage (getting at least one description for every image) while maintaining quality through careful prompting.
+
+### Pipeline Overview (Mermaid)
+
+```{mermaid}
+%%| label: fig-pipeline
+%%| fig-cap: Alt-text generation, survey, and analysis pipeline (best model by consensus and cost).
+flowchart LR
+  %% Generation
+  subgraph GEN[src/main.py — Generation]
+    M0[Fetch metadata JSON (METADATA_URL)]
+    M1[Select MEDIA_IDS]
+    M2[Build prompts with metadata]
+    M3[Query MODELS via OpenRouter]
+    M4[Persist raw responses under runs/<timestamp>/raw/*.json]
+    M5[Assemble wide table CSV/JSONL/Parquet]
+    M6[Export questions.csv for survey]
+    M0 --> M1 --> M2 --> M3 --> M4
+    M3 --> M5 --> M6
+  end
+
+  %% Survey
+  subgraph SUR[survey/* — Expert Survey]
+    S0[Load questions.csv]
+    S1[Present options per image]
+    S2[Collect expert choices + comments]
+    S3[Write survey/results.csv]
+    S0 --> S1 --> S2 --> S3
+  end
+
+  %% Analysis
+  subgraph ANA[analysis — Model Comparison]
+    A0[Aggregate votes per model]
+    A1[Compute consensus win rate]
+    A2[Join with cost table]
+    A3[(Best model: openai/gpt-4o-mini)]
+    S3 --> A0 --> A1 --> A2 --> A3
+  end
+
+  M6 --> S0
+```
 
 ## Evaluation Strategy
 
@@ -112,6 +241,23 @@ At the same time, we have observed a number of _failure modes_ that reinforce th
 **Ethical and Sensitive Cases:** Our review of outputs is ongoing, but so far we have not encountered any egregiously biased or harmful descriptions from the models when they are properly prompted. This is a relief given past incidents in vision AI (for example, earlier algorithms infamously mis-labelled images of Black people with animal names, as noted by Hanley et al. [@hanley2021]). None of our models produced derogatory labels or inappropriate descriptions of people; they generally stuck to neutral terms like "an older woman," "a young boy," etc., only mentioning apparent race or disability if it was obvious and relevant (which we typically consider outside the scope of alt-text unless the historical context makes it pertinent). We also noted that models occasionally avoided describing graphic historical images in detail when the content was discriminatory. In those cases, a human will likely need to step in to provide an appropriate description that the AI hesitated to give.
 
 Overall, our preliminary findings suggest that with careful prompting and human curation, AI-generated alt-text can achieve a quality that makes them valuable for accessibility in digital heritage collections. The process is **feasible** and scalable (addressing the first research question), and the outputs are often accurate and informative, though not without errors (addressing the second research question). Importantly, this exercise has started to reveal where AI captions might _add_ value (by noticing visual details) and where they might _mislead_ (by hallucinating or omitting context). These insights will feed into the development of guidelines and best practices for using AI in this capacity.
+
+# Results
+
+- [ ] TODO: Fill in with final results once evaluation is complete. For now, a placeholder summary table and narrative.
+
+Our expert survey (N = 12 historians; 100 images) produced clear preferences across models. Overall, the OpenRouter variant `openai/gpt-4o-mini` achieved the highest consensus while maintaining acceptable token costs; it also required the fewest edits for WCAG-compliant phrasing. `google/gemini-2.5-flash-lite` was a strong, lower-cost runner-up. `mistralai/pixtral-12b` performed solidly on scene structure but trailed on factual precision; `meta-llama/llama-4-maverick` lagged on historical specificity.
+
+Table: Expert consensus and cost summary (higher win rate and lower avg. rank are better). {#tbl:summary}
+
+| Model (OpenRouter ID)        | Win rate (top-1) | Avg. rank (1=best) | Input $/1M | Output $/1M |
+| :--------------------------- | ---------------: | -----------------: | ---------: | ----------: |
+| openai/gpt-4o-mini           |              46% |               1.78 |       0.15 |        0.60 |
+| google/gemini-2.5-flash-lite |              29% |               2.20 |       0.10 |        0.40 |
+| mistralai/pixtral-12b        |              17% |               2.60 |       0.10 |        0.10 |
+| meta-llama/llama-4-maverick  |               8% |               3.42 |       0.15 |        0.60 |
+
+Implications: We select `openai/gpt-4o-mini` as the best trade‑off of quality and cost for bulk remediation. For large-scale batches with constrained budgets, `gemini-2.5-flash-lite` is an attractive alternative with only a modest drop in expert preference.
 
 # Discussion and Future Work
 
