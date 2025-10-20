@@ -37,29 +37,25 @@
 		document.head.appendChild(s);
 	});
 
-	/* ---------- Load two-option questions ---------- */
+	/* ---------- Load two-option questions (new schema) ---------- */
 	async function loadQuestions() {
 		const res = await fetch(CSV_URL, { cache: 'no-store' });
 		const text = await res.text();
 		const { data } = Papa.parse(text, { header: true, skipEmptyLines: true });
 		const questions = [];
 		for (const row of data) {
-			if (!row || !row.question_id) continue;
-			const qid = String(row.question_id).trim();
-			const qtext = row.question_text ?? '';
-			const o1id = row.option_1_id?.trim();
-			const o1lab = row.option_1_label?.trim();
-			const o2id = row.option_2_id?.trim();
-			const o2lab = row.option_2_label?.trim();
-			if (o1id && o2id && o1lab && o2lab)
-				questions.push({
-					id: qid,
-					text: qtext,
-					options: [
-						{ id: o1id, label: o1lab },
-						{ id: o2id, label: o2lab }
-					]
-				});
+			if (!row || !row.uniqueid) continue;
+			const q = {
+				id: String(row.uniqueid).trim(),
+				mediaId: String(row['media.id'] || '').trim(),
+				title: String(row['media.title'] || '').trim(),
+				img: String(row['rel_path'] || '').trim(),
+				options: [
+					{ id: String(row.model_1 || '').trim(), label: String(row.model_1_content || '').trim() },
+					{ id: String(row.model_2 || '').trim(), label: String(row.model_2_content || '').trim() }
+				]
+			};
+			if (q.options[0].label && q.options[1].label) questions.push(q);
 		}
 		return questions;
 	}
@@ -72,30 +68,36 @@
 		questions: [],
 		qOrder: [],
 		idx: 0,
-		answers: {}
+		// answers: array of { objectid, winner, loser }
+		answers: []
 	};
 
 	/* ---------- UI refs ---------- */
-	const pageEmail = document.getElementById('page-email');
+	const pageIntro = document.getElementById('page-intro');
 	const pageQ = document.getElementById('page-q');
 	const pageFinish = document.getElementById('page-finish');
-	const qTitle = document.getElementById('q-title');
-	const progress = document.getElementById('progress');
+
 	const startBtn = document.getElementById('start');
 	const consent = document.getElementById('consent');
 	const email = document.getElementById('email');
-	const nextBtn = document.getElementById('next');
-	const prevBtn = document.getElementById('prev');
-	const submitBtn = document.getElementById('submit');
 	const emailMsg = document.getElementById('email-msg');
-	const sendMsg = document.getElementById('send-msg');
-	const summary = document.getElementById('summary');
-	const pair = document.getElementById('pair');
+
+	const progress = document.getElementById('progress');
+	const imgEl = document.getElementById('q-image');
+	const captionEl = document.getElementById('q-caption');
+	const instrEl = document.getElementById('q-instr');
+
+	const prevBtn = document.getElementById('prev');
+	const nextBtn = document.getElementById('next');
 	const leftBtn = document.getElementById('left');
 	const rightBtn = document.getElementById('right');
 
+	const submitBtn = document.getElementById('submit');
+	const sendMsg = document.getElementById('send-msg');
+	const summary = document.getElementById('summary');
+
 	function show(el) {
-		[pageEmail, pageQ, pageFinish].forEach((p) => p.classList.add('d-none'));
+		[pageIntro, pageQ, pageFinish].forEach((p) => p.classList.add('d-none'));
 		el.classList.remove('d-none');
 	}
 
@@ -107,31 +109,63 @@
 
 	function renderQuestion() {
 		const q = currentQuestion();
-		qTitle.innerHTML = q.text;
-		progress.textContent = `Question ${state.idx + 1} of ${state.qOrder.length}`;
-		const [a, b] = shuffle(q.options, rng(state.seed + state.idx));
+		progress.textContent = `Frage ${state.idx + 1} von ${state.qOrder.length}`;
+		imgEl.src = q.img;
+		imgEl.alt = q.title || 'Abbildung';
+		captionEl.innerHTML = `<strong>${q.title || 'Ohne Titel'}</strong> <span class="text-muted">(Titel: Stadt.Geschichte.Basel)</span>`;
+		instrEl.textContent =
+			'Wähle die passendere Beschreibung. Beide Beschreibungen wurden automatisch generiert und können Fehler enthalten.';
+		const [a, b] = q.options; // Reihenfolge aus CSV
 		leftBtn.textContent = a.label;
 		rightBtn.textContent = b.label;
-		leftBtn.dataset.choice = a.id;
-		rightBtn.dataset.choice = b.id;
+		leftBtn.dataset.choice = a.id; // Modell-ID
+		rightBtn.dataset.choice = b.id; // Modell-ID
+		leftBtn.dataset.text = a.label; // Text
+		rightBtn.dataset.text = b.label; // Text
 		prevBtn.classList.toggle('disabled', state.idx === 0);
-		nextBtn.textContent = state.idx === state.qOrder.length - 1 ? 'Proceed to submit' : 'Next';
+		nextBtn.textContent = state.idx === state.qOrder.length - 1 ? 'Zur Auswertung' : 'Weiter';
 	}
 
-	function captureCurrent(choiceId) {
-		state.answers[state.qOrder[state.idx]] = choiceId;
+	function recordAnswer(choiceSide) {
+		const q = currentQuestion();
+		const pick = choiceSide === 'left' ? leftBtn : rightBtn;
+		const loser = choiceSide === 'left' ? rightBtn : leftBtn;
+		state.answers.push({
+			uniqueid: q.id,
+			'media.id': q.mediaId,
+			leftBtn: leftBtn.dataset.choice,
+			rightBtn: rightBtn.dataset.choice,
+			winner: pick.dataset.choice,
+			loser: loser.dataset.choice
+		});
 	}
+
+	/* ---------- Keyboard shortcuts ---------- */
+	function onKey(e) {
+		if (pageQ.classList.contains('d-none')) return;
+		if (e.key === 'ArrowLeft' || e.key.toLowerCase() === 'a' || e.key === '1') {
+			leftBtn.click();
+		} else if (e.key === 'ArrowRight' || e.key.toLowerCase() === 'l' || e.key === '2') {
+			rightBtn.click();
+		}
+	}
+	addEventListener('keydown', onKey);
 
 	/* ---------- Flow ---------- */
 	startBtn.addEventListener('click', async () => {
 		state.email = email.value.trim();
 		state.consent = consent.checked;
+
 		if (!state.consent) {
-			emailMsg.textContent = 'Please give consent.';
+			emailMsg.textContent = 'Bitte Einwilligung erteilen.';
 			return;
 		}
-		if (state.email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(state.email)) {
-			emailMsg.textContent = 'Invalid email.';
+		if (!state.email) {
+			emailMsg.textContent = 'E-Mail ist erforderlich.';
+			return;
+		}
+		if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(state.email)) {
+			emailMsg.textContent = 'Ungültige E-Mail.';
 			return;
 		}
 
@@ -139,8 +173,9 @@
 		state.qOrder = shuffle(
 			state.questions.map((q) => q.id),
 			rng(state.seed)
-		);
+		); // nur Fragen shufflen
 		state.idx = 0;
+		state.answers = [];
 		show(pageQ);
 		renderQuestion();
 		emailMsg.textContent = '';
@@ -148,79 +183,87 @@
 
 	[leftBtn, rightBtn].forEach((btn) => {
 		btn.addEventListener('click', () => {
-			captureCurrent(btn.dataset.choice);
+			recordAnswer(btn === leftBtn ? 'left' : 'right');
 			if (state.idx < state.qOrder.length - 1) {
 				state.idx++;
 				renderQuestion();
 			} else {
-				summary.textContent = `Ready to submit. ${Object.keys(state.answers).length} answers.`;
+				summary.textContent = `Bereit zum Senden. ${state.answers.length} Antworten erfasst.`;
 				show(pageFinish);
 			}
 		});
 	});
 
 	nextBtn.addEventListener('click', () => {
-		if (!state.answers[state.qOrder[state.idx]]) {
-			alert('Select one.');
-			return;
-		}
-		if (state.idx < state.qOrder.length - 1) {
-			state.idx++;
-			renderQuestion();
-		} else {
-			summary.textContent = `Ready to submit. ${Object.keys(state.answers).length} answers.`;
-			show(pageFinish);
-		}
+		// Navigiert ohne Auswahl nicht weiter
+		alert('Bitte eine Option wählen (Tasten: ←/A/1 oder →/L/2).');
 	});
+
 	prevBtn.addEventListener('click', () => {
 		if (state.idx > 0) {
+			// vorherige Antwort entfernen, um Konsistenz zu wahren
+			state.answers.pop();
 			state.idx--;
 			renderQuestion();
 		}
 	});
 
 	submitBtn.addEventListener('click', async () => {
-		if (!state.answers[state.qOrder[state.idx]]) {
-			alert('Select one.');
+		if (state.answers.length !== state.qOrder.length) {
+			alert('Es fehlen Antworten.');
 			return;
 		}
 		const payload = {
 			seed: String(state.seed),
-			email: state.email || null,
-			q_order: state.qOrder,
+			email: state.email,
+			// kompakte Struktur für Analyse:
+			// [{objectid, winner, loser}, ...]
 			answers: state.answers
 		};
-		sendMsg.textContent = 'Sending…';
+		sendMsg.textContent = 'Senden…';
 		try {
 			const r = await fetch(FORMSPREE_ENDPOINT, {
 				method: 'POST',
 				headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
 				body: JSON.stringify(payload)
 			});
-			sendMsg.textContent = r.ok ? 'Thanks. Answers saved.' : 'Submit error.';
+			sendMsg.textContent = r.ok ? 'Danke. Antworten gespeichert.' : 'Fehler beim Senden.';
 			if (r.ok) submitBtn.disabled = true;
 		} catch (err) {
-			sendMsg.textContent = 'Network error: ' + err;
+			sendMsg.textContent = 'Netzwerkfehler: ' + err;
 		}
 	});
 </script>
 
 <div class="container my-4" id="app">
-	<!-- Page 1: Email -->
-	<div class="card" id="page-email">
+	<!-- Seite 1: Einleitung & Kontakt -->
+	<div class="card" id="page-intro">
 		<div class="card-body">
-			<h3 class="card-title mb-3">Contact</h3>
-			<p class="text-muted">Email for follow-up. Optional.</p>
+			<h3 class="card-title mb-3">Studie: Vergleich von Alternativtexten</h3>
+			<p class="text-muted">
+				Auf jeder Seite sehen Sie ein Sammlungsbild und zwei kurze Beschreibungen. Wählen Sie die
+				passendere Beschreibung so schnell wie möglich. Beide Beschreibungen wurden automatisch
+				generiert und können Fehler enthalten.
+			</p>
+			<div class="mb-2">
+				<strong>Bewertungsregeln nach WCAG-Intention:</strong>
+				<ul class="small mb-2">
+					<li>Kerninhalt des Bildes knapp und sachlich wiedergeben (ca. 90–180 Zeichen).</li>
+					<li>Kein „Bild von…“, keine redundanten Metadaten, keine Wertungen.</li>
+					<li>Wesentliche visuelle Merkmale priorisieren; Kontext nur bei Verständnishilfe.</li>
+				</ul>
+				<p class="small text-muted mb-3">Tastatur: ←/A/1 = links, →/L/2 = rechts.</p>
+			</div>
 
 			<div class="mb-3">
-				<label for="email" class="form-label">Email</label>
-				<input id="email" type="email" class="form-control" placeholder="name@example.org" />
+				<label for="email" class="form-label">E-Mail <span class="text-danger">*</span></label>
+				<input id="email" type="email" class="form-control" placeholder="name@example.org" required />
 			</div>
 
 			<div class="form-check mb-3">
 				<input class="form-check-input" type="checkbox" id="consent" />
 				<label class="form-check-label" for="consent">
-					I consent to the processing of my data for this study.
+					Ich willige in die Verarbeitung meiner Daten für diese Studie ein.
 				</label>
 			</div>
 
@@ -229,12 +272,17 @@
 		</div>
 	</div>
 
-	<!-- Page 2: Question -->
+	<!-- Seite 2: Frage -->
 	<div class="card d-none" id="page-q">
 		<div class="card-body">
 			<div id="progress" class="text-muted mb-2"></div>
-			<h3 id="q-title" class="card-title mb-2">Question</h3>
-			<p class="text-muted">Select the better description.</p>
+
+			<figure class="figure mb-3 text-center">
+				<img id="q-image" class="q-image img-fluid" alt="" />
+				<figcaption id="q-caption" class="small text-muted mt-1"></figcaption>
+			</figure>
+
+			<p id="q-instr" class="text-muted mb-3"></p>
 
 			<div id="pair" class="d-flex flex-column flex-md-row gap-3 mb-3">
 				<button id="left" class="btn btn-outline-secondary flex-fill"></button>
@@ -242,26 +290,27 @@
 			</div>
 
 			<div class="d-flex gap-2">
-				<button id="prev" class="btn btn-outline-secondary">Back</button>
-				<button id="next" class="btn btn-primary">Next</button>
+				<button id="prev" class="btn btn-outline-secondary">Zurück</button>
+				<button id="next" class="btn btn-primary">Weiter</button>
 			</div>
 		</div>
 	</div>
 
-	<!-- Page 3: Finish -->
+	<!-- Seite 3: Abschluss -->
 	<div class="card d-none" id="page-finish">
 		<div class="card-body">
-			<h3 class="card-title mb-3">Finish</h3>
-			<p class="text-muted" id="summary">Submitting…</p>
-			<button id="submit" class="btn btn-primary">Submit answers</button>
+			<h3 class="card-title mb-3">Abschluss</h3>
+			<p class="text-muted" id="summary">Übermittlung…</p>
+			<button id="submit" class="btn btn-primary">Antworten senden</button>
 			<div id="send-msg" class="text-muted mt-2"></div>
 		</div>
 	</div>
 </div>
 
 <style>
-	/* small UX helper */
-	#ranklist .list-group-item {
-		cursor: grab;
+	.q-image {
+		max-height: 50vh;
+		width: auto;
+		object-fit: contain;
 	}
 </style>

@@ -32,7 +32,7 @@ website:
         href: index.qmd
       - text: Report
         href: report.md
-      - text: Survey
+      - text: Ranking Survey
         href: survey/index.qmd
 
   sidebar:
@@ -54,7 +54,7 @@ website:
             href: SECURITY.md
       - href: report.md
         contents: project-management/*
-      - section: Survey
+      - section: Ranking Survey
         href: survey/index.qmd
 
 format:

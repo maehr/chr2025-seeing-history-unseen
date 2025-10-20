@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760998801-781v6EFz4RbIxmVuxxjH",
+	"provider": "Hyperbolic",
+	"model": "mistralai/pixtral-12b",
+	"object": "chat.completion",
+	"created": 1760998801,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Illustration zu einer Anzeige in den \"Wöchentlichen Nachrichten\" vom 30. Oktober 1834. Ankündigung eines \"Afrikaners von der kriegerischen Nation der Ashantées\" an der Herbstmesse.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 659,
+		"completion_tokens": 54,
+		"total_tokens": 713,
+		"cost": 7.13e-5,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 6.59e-5,
+			"upstream_inference_completions_cost": 5.4e-6
+		}
+	}
+}

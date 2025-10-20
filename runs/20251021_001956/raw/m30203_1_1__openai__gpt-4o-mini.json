@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760998831-YBsj9eW16LN4vbhB4OUq",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1760998832,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Karte der Fundstellen der Spätantike im Umland von Basel. Markiert sind bekannte archäologische Standorte aus dem späten 3. und 4. Jahrhundert n. Chr. im Umfeld des Kastells Kaiseraugst. Geografische Merkmale und die Verteilung der Fundorte sind verzeichnet, mit Distanzangaben in Kilometern.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26128,
+		"completion_tokens": 76,
+		"total_tokens": 26204,
+		"cost": 0.0039648,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0039192,
+			"upstream_inference_completions_cost": 4.56e-5
+		}
+	}
+}

@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760998835-ao2M7iR8LwG4dAFFA7w3",
+	"provider": "Groq",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1760998835,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Fundstellen der Spätantike um Basel, 3./4. Jh. n. Chr. Kartiert: Siedlungen, Kastelle, Straßen. Gebiet: Basel bis Breisach und Solothurn.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1351,
+		"completion_tokens": 45,
+		"total_tokens": 1396,
+		"cost": 0.0002972,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0002702,
+			"upstream_inference_completions_cost": 2.7e-5
+		}
+	}
+}
