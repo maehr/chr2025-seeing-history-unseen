@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760997912-ZxVECv11gy1kC9zcyIjB",
+	"provider": "Google",
+	"model": "google/gemini-2.5-flash-lite",
+	"object": "chat.completion",
+	"created": 1760997912,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "STOP",
+			"message": {
+				"role": "assistant",
+				"content": "Karte zur Verbreitung der Latènekultur in Europa, 4. bis 1. Jh. v. Chr. Angezeigt sind das Kerngebiet und Fundorte (rote Punkte).",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1947,
+		"completion_tokens": 39,
+		"total_tokens": 1986,
+		"cost": 0.0002103,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001947,
+			"upstream_inference_completions_cost": 1.56e-5
+		}
+	}
+}

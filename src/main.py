@@ -55,9 +55,9 @@ MODELS: list[str] = [
 TESTING: bool = True
 if TESTING:
     MEDIA_IDS: list[str] = [
-        "m37716",
-        "m92966",
-        "m94115",
+        "m94775",
+        "m27909_1",
+        "m30203_1_1",
     ]
 else:
     # Media ids to process
@@ -327,51 +327,46 @@ def build_prompt(media: MediaObject) -> str:
 def build_messages(
     prompt: str, image_url: str
 ) -> Tuple[list[dict[str, Any]], str, str]:
-    system = """
-Zielgruppe: Forschende und Studierende in Geschichtswissenschaften und Archäologie. Du erzeugst ausschliesslich präzise, kontextbezogene Alt-Texte für Bilder aus historischen Sammlungen.
+    system = """ZIEL
 
-Begriffe:
-- Alt-Text: knappe verbale Repräsentation der Bild-ESSENZ für Nutzerinnen und Nutzer mit Screenreader.
-- Dekorativ: Bild ohne eigenständige Informationsfunktion; dann Alt-Attribut leer: alt="".
+Alt-Texte für historische und archäologische Sammlungsbilder.
+Kurz, sachlich, zugänglich. Erfassung der visuellen Essenz für Screenreader.
 
-Grundsätze (erzwinge):
-1) Entscheide zuerst: sinntragend vs. dekorativ.
-2) Wenn sinntragend: transportiere die Essenz, nicht jedes Detail. Kein „Bild von …“. Keine Redundanz mit benachbartem Seitentext (soweit aus Metadaten ersichtlich).
-3) Wenn im Bild signifikanter Text erscheint (z. B. Inschrift, Legende, Titel im Cover): gib den Text wieder, wenn er für das Verständnis zentral ist; sonst erwähne „beschriftet“ mit kurzer Paraphrase.
-4) Wenn das Bild klickbar/verlinkt ist: nenne die Ziel-Funktion („Zur Objektseite …“, „Zum Dossier …“) im Alt-Text.
-5) Nutze fachlichen Kontext: Epoche, Ort, Objektgattung, abgebildete Handlung/Personen, Material/Technik, Datierung – aber nur soweit nötig, um die Bildaussage zu verstehen.
-6) Benenne markante visuelle Merkmale, die die Aussage tragen (z. B. Farbe, Zustand, Haltung, ikonische Attribute).
-7) Karten/Diagramme/Organigramme: gib die zentrale Aussage/Variablen an; bei komplexen Fällen nutze optional ein „longdesc“-Feld (siehe Ausgabeschema).
-8) Verwende neutrale, präzise Sprache; max. 1–2 Sätze. Keine Wertungen, keine Spekulation als Fakt.
+REGELN
 
-Ausgabesprache: Schweizer Hochdeutsch.
+1. Essenz statt Detail. Keine Redundanz zum Seitentext, kein „Bild von“.
+2. Zentralen Text im Bild wiedergeben oder kurz paraphrasieren.
+3. Kontext (Epoche, Ort, Gattung, Material, Datierung) nur bei Relevanz für Verständnis.
+4. Prägnante visuelle Merkmale nennen: Farbe, Haltung, Zustand, Attribute.
+5. Karten/Diagramme: zentrale Aussage oder Variablen.
+6. Sprache: neutral, präzise, faktenbasiert; keine Wertung, keine Spekulation.
+7. Umfang:
+   * Standard: 90–180 Zeichen
+   * Komplexe Karten/Tabellen: max. 400 Zeichen
 
-Längenrichtwerte:
-- 90–180 Zeichen für informative Bilder.
-- Max. 400 Zeichen bei komplexen Karten/Diagrammen/Tabellen/Collagen.
+VERBOTE
 
-Verbote:
-- Keine Preambeln, keine Erklärungen, keine Emojis, keine Anführungsfloskeln wie „Abbildung zeigt“.
-- Keine Wiederholung offensichtlicher Metadaten, die direkt daneben als Text erscheinen (soweit übergeben).
-- Keine personenbezogenen Bewertungen.
+* Kein alt=, Anführungszeichen, Preambeln oder Füllwörter („zeigt“, „darstellt“).
+* Keine offensichtlichen Metadaten (z. B. Jahreszahlen aus Beschriftung).
+* Keine Bewertungen, Hypothesen oder Stilkommentare.
+* Keine Emojis oder emotionalen Begriffe.
 
-Heuristiken pro Bildtyp:
-- Porträt/Historische Figur: Wer (falls benannt), ungefähre Datierung/Epoche aus Metadaten, Pose/Attribut, Ort/Innen/Aussen, ggf. Funktion („offizielles Porträt“).
-- Artefakt/Objekt: Objektgattung, Material/Technik, Datierung/Provenienz falls relevant zur Erkennung, markanter Zustand/Besonderheit.
-- Manuskript/Dokument: Gattung (Urkunde, Brief, Tagebuch), Sprache/Schrift, Datierung, Kerninhalt (z. B. „Kaufvertrag über …“), ggf. Anfangsworte.
-- Karte/Plan: Gebiet/Zeitraum, Art der Darstellung, Kernvariable/Zweck; Detail in "longdesc" bei Bedarf.
-- Ereignis/Foto Szene: Wer macht was wo; zentrale Handlung und Kontextbezug.
-- Cover/Plakat/Flyer: Titel und Zweck. Wichtige Schlagzeile vollständig wiedergeben.
-- Icon/CTA: Bedeutung oder Zielaktion nennen.
-- Dekorativ: alt="".
+HEURISTIKEN
 
-Eingabefehler/Fall-Back:
-- Falls Bildinhalt unklar und Metadaten dünn: formuliere generisch, aber nicht leer. Nutze vorhandene Metadaten zur sinnvollen Essenz.
-- Bei fehlendem Informationswert: klassifiziere als dekorativ.
+Porträt: Person (Name, falls bekannt), Epoche, Pose oder Attribut, ggf. Funktion.
+Objekt: Gattung, Material, Datierung, auffällige Besonderheit.
+Dokument: Typ, Sprache/Schrift, Datierung, Kernaussage.
+Karte: Gebiet, Zeitraum, Zweck, Hauptvariablen.
+Ereignisfoto: Wer, was, wo, situativer Kontext.
+Plakat/Cover: Titel, Zweck, zentrale Schlagzeile.
 
-NUTZE AUSSCHLIESSLICH DIESE QUELLEN:
-- Visuelle Analyse der JPEG-Datei
-- Übergebene Metadaten""".strip()
+FALLBACK
+
+Unklarer Inhalt: generische, aber sinnvolle Essenz aus Metadaten.
+
+QUELLEN
+
+Nur visuelle Analyse (Bildinhalt) und übergebene Metadaten. Keine externen Kontexte.""".strip()
 
     messages = [
         {"role": "system", "content": system},
@@ -703,10 +698,8 @@ if __name__ == "__main__":
 
 # TODO:
 
-# - Add time measurements/logging
 # - Add heuristic checks for obviously bad alt-texts (e.g., too short/too long, "image of", etc.)
 # - Add heuristic for complex images (e.g., presence of "chart", "diagram", "map" in metadata)
-# - Add prompt optimizations (what quallifies as complex image, etc.)?
 
 # TODO forms:
 
