@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760974992-zrLPBewWwP7vsyiLDkU8",
+	"provider": "Groq",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1760974993,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Freilegung der Inneren Stadtmauer beim Bau des Kunstmuseum-Parkings am St. Alban-Graben, 2020. Arbeiter untersuchen und sichern die freigelegten Mauerteile in einer Baugrube neben einem modernen Glasbau.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 2019,
+		"completion_tokens": 52,
+		"total_tokens": 2071,
+		"cost": 0.000435,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0004038,
+			"upstream_inference_completions_cost": 3.12e-5
+		}
+	}
+}

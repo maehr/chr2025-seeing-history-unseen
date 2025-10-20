@@ -22,10 +22,10 @@ import time
 import itertools
 import random
 import hashlib
-import html
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Sequence, Tuple
+from time import perf_counter
 
 import pandas as pd
 import requests
@@ -52,113 +52,120 @@ MODELS: list[str] = [
     "meta-llama/llama-4-maverick",
 ]
 
-# Media ids to process
-MEDIA_IDS: list[str] = [
-    "m94775",
-    "m27909_1",
-    "m30203_1_1",
-    "m29729_1",
-    "m29613_1",
-    "m29165",
-    "m36484",
-    "m30572",
-    "m35321",
-    "m74721",
-    "m24753",
-    "m36169",
-    "m22924",
-    "m73508",
-    "m20435",
-    "m92357",
-    "m36710",
-    "m29494",
-    "m92410",
-    "m37716",
-    "m92966",
-    "m94115",
-    "m30112",
-    "m40696",
-    "m30541",
-    "m36182",
-    "m93438",
-    "m13025",
-    "m40043",
-    "m37030_1",
-    "m90411",
-    "m94271",
-    "m93409",
-    "m37088",
-    "m30171",
-    "m28481",
-    "m39492_1",
-    "m90496_1",
-    "m39198_1",
-    "m40946_1",
-    "m92205",
-    "m30696",
-    "m37490",
-    "m74768",
-    "m28635",
-    "m37274",
-    "m93036",
-    "m92849",
-    "m14227",
-    "m28739",
-    "m34278_1",
-    "m91636_1",
-    "m77000",
-    "m82972",
-    "m24255_1",
-    "m16026",
-    "m10333",
-    "m19156",
-    "m11092",
-    "m94047",
-    "m25143",
-    "m21867",
-    "m19033",
-    "m13176",
-    "m15630",
-    "m23902",
-    "m16683",
-    "m12965",
-    "m35209",
-    "m95804",
-    "m33188",
-    "m91000_1",
-    "m95513",
-    "m91960",
-    "m94712",
-    "m95085",
-    "m92237_1",
-    "m90886_1",
-    "m94575",
-    "m27970",
-    "m22355_1",
-    "m85061_1",
-    "m15298_1",
-    "m11589_1",
-    "m34620",
-    "m26375_1",
-    "m82338_1",
-    "m88415_1",
-    "m30849",
-    "m92771",
-    "m93459",
-    "m33441",
-    "m37696",
-    "m37644",
-    "m33472",
-    "m89606",
-    "m91713",
-    "m29025",
-    "m40938",
-    "m29084",
-]
+TESTING: bool = True
+if TESTING:
+    MEDIA_IDS: list[str] = [
+        "m37716",
+        "m92966",
+        "m94115",
+    ]
+else:
+    # Media ids to process
+    MEDIA_IDS: list[str] = [
+        "m94775",
+        "m27909_1",
+        "m30203_1_1",
+        "m29729_1",
+        "m29613_1",
+        "m29165",
+        "m36484",
+        "m30572",
+        "m35321",
+        "m74721",
+        "m24753",
+        "m36169",
+        "m22924",
+        "m73508",
+        "m20435",
+        "m92357",
+        "m36710",
+        "m29494",
+        "m92410",
+        "m37716",
+        "m92966",
+        "m94115",
+        "m30112",
+        "m40696",
+        "m30541",
+        "m36182",
+        "m93438",
+        "m13025",
+        "m40043",
+        "m37030_1",
+        "m90411",
+        "m94271",
+        "m93409",
+        "m37088",
+        "m30171",
+        "m28481",
+        "m39492_1",
+        "m90496_1",
+        "m39198_1",
+        "m40946_1",
+        "m92205",
+        "m30696",
+        "m37490",
+        "m74768",
+        "m28635",
+        "m37274",
+        "m93036",
+        "m92849",
+        "m14227",
+        "m28739",
+        "m34278_1",
+        "m91636_1",
+        "m77000",
+        "m82972",
+        "m24255_1",
+        "m16026",
+        "m10333",
+        "m19156",
+        "m11092",
+        "m94047",
+        "m25143",
+        "m21867",
+        "m19033",
+        "m13176",
+        "m15630",
+        "m23902",
+        "m16683",
+        "m12965",
+        "m35209",
+        "m95804",
+        "m33188",
+        "m91000_1",
+        "m95513",
+        "m91960",
+        "m94712",
+        "m95085",
+        "m92237_1",
+        "m90886_1",
+        "m94575",
+        "m27970",
+        "m22355_1",
+        "m85061_1",
+        "m15298_1",
+        "m11589_1",
+        "m34620",
+        "m26375_1",
+        "m82338_1",
+        "m88415_1",
+        "m30849",
+        "m92771",
+        "m93459",
+        "m33441",
+        "m37696",
+        "m37644",
+        "m33472",
+        "m89606",
+        "m91713",
+        "m29025",
+        "m40938",
+        "m29084",
+    ]
 
 # 2AFC settings
 RANDOM_SEED = 42
-STRIP_LINE = "* Nutzungskontext: Plattform mit historischen Quellen und Forschungsdaten für Forschende und Studierende aus historischen und archäologischen Disziplinen."
 
 
 # ---------------------------
@@ -305,45 +312,66 @@ def load_db_from_payload(payload: dict[str, Any]) -> dict[str, MediaObject]:
 
 
 def build_prompt(media: MediaObject) -> str:
-    title = media.title or "Kein Titel"
-    description = media.description or "Keine Beschreibung"
-    date = media.date or "Kein Datum"
-    era = media.era or media.coverage or "Keine Epoche"
-    creator = media.creator or "Kein Ersteller"
-    publisher = media.publisher or "Kein Herausgeber"
-    source = media.source or "Keine Quelle"
-
-    return f"""
-* Nutzungskontext: Plattform mit historischen Quellen und Forschungsdaten für Forschende und Studierende aus historischen und archäologischen Disziplinen.
-* Metadaten:
-  * Titel: {title}
-  * Beschreibung: {description}
-  * Datum (Extended Date Time Format): {date}
-  * Epoche: {era}
-  * Ersteller: {creator}
-  * Herausgeber: {publisher}
-  * Quelle: {source}""".strip()
+    json_parts = {
+        "Titel": media.title or "",
+        "Beschreibung": media.description or "",
+        "Ersteller": media.creator or "",
+        "Herausgeber": media.publisher or "",
+        "Quelle": media.source or "",
+        "Datum": media.date or "",
+        "Epoche": media.era or "",
+    }
+    return json.dumps(json_parts, ensure_ascii=False)
 
 
 def build_messages(
     prompt: str, image_url: str
 ) -> Tuple[list[dict[str, Any]], str, str]:
     system = """
-Du bist ein Experte für digitale Barrierefreiheit und Web Accessibility.
-Schreibe barrierefreie Alternativtexte für Bilder nach WCAG 2.2 (SC 1.1.1) und W3C WAI-Standards.
+Zielgruppe: Forschende und Studierende in Geschichtswissenschaften und Archäologie. Du erzeugst ausschliesslich präzise, kontextbezogene Alt-Texte für Bilder aus historischen Sammlungen.
 
-**Ziel:** Funktionale, kontextabhängige, prägnante Alt-Texte in Schweizer Hochdeutsch (de-CH).
+Begriffe:
+- Alt-Text: knappe verbale Repräsentation der Bild-ESSENZ für Nutzerinnen und Nutzer mit Screenreader.
+- Dekorativ: Bild ohne eigenständige Informationsfunktion; dann Alt-Attribut leer: alt="".
 
-**Regeln:**
+Grundsätze (erzwinge):
+1) Entscheide zuerst: sinntragend vs. dekorativ.
+2) Wenn sinntragend: transportiere die Essenz, nicht jedes Detail. Kein „Bild von …“. Keine Redundanz mit benachbartem Seitentext (soweit aus Metadaten ersichtlich).
+3) Wenn im Bild signifikanter Text erscheint (z. B. Inschrift, Legende, Titel im Cover): gib den Text wieder, wenn er für das Verständnis zentral ist; sonst erwähne „beschriftet“ mit kurzer Paraphrase.
+4) Wenn das Bild klickbar/verlinkt ist: nenne die Ziel-Funktion („Zur Objektseite …“, „Zum Dossier …“) im Alt-Text.
+5) Nutze fachlichen Kontext: Epoche, Ort, Objektgattung, abgebildete Handlung/Personen, Material/Technik, Datierung – aber nur soweit nötig, um die Bildaussage zu verstehen.
+6) Benenne markante visuelle Merkmale, die die Aussage tragen (z. B. Farbe, Zustand, Haltung, ikonische Attribute).
+7) Karten/Diagramme/Organigramme: gib die zentrale Aussage/Variablen an; bei komplexen Fällen nutze optional ein „longdesc“-Feld (siehe Ausgabeschema).
+8) Verwende neutrale, präzise Sprache; max. 1–2 Sätze. Keine Wertungen, keine Spekulation als Fakt.
 
-* Beschreibe Bedeutung, nicht Aussehen.
-* Max. 125 Zeichen, nur was für Inhalt/Zweck relevant ist.
-* Für dekorative Bilder: `alt=""`.
-* Für funktionale Bilder: Funktion oder Ziel nennen („Zum Warenkorb“).
-* Keine Formulierungen wie „Bild von“ oder „Foto von“.
-* Für komplexe Grafiken: Ausführliche Erklärung.
+Ausgabesprache: Schweizer Hochdeutsch.
 
-**Ausgabe:** Nur der Alternativtext (kein HTML, keine Erklärungen).""".strip()
+Längenrichtwerte:
+- 90–180 Zeichen für informative Bilder.
+- Max. 400 Zeichen bei komplexen Karten/Diagrammen/Tabellen/Collagen.
+
+Verbote:
+- Keine Preambeln, keine Erklärungen, keine Emojis, keine Anführungsfloskeln wie „Abbildung zeigt“.
+- Keine Wiederholung offensichtlicher Metadaten, die direkt daneben als Text erscheinen (soweit übergeben).
+- Keine personenbezogenen Bewertungen.
+
+Heuristiken pro Bildtyp:
+- Porträt/Historische Figur: Wer (falls benannt), ungefähre Datierung/Epoche aus Metadaten, Pose/Attribut, Ort/Innen/Aussen, ggf. Funktion („offizielles Porträt“).
+- Artefakt/Objekt: Objektgattung, Material/Technik, Datierung/Provenienz falls relevant zur Erkennung, markanter Zustand/Besonderheit.
+- Manuskript/Dokument: Gattung (Urkunde, Brief, Tagebuch), Sprache/Schrift, Datierung, Kerninhalt (z. B. „Kaufvertrag über …“), ggf. Anfangsworte.
+- Karte/Plan: Gebiet/Zeitraum, Art der Darstellung, Kernvariable/Zweck; Detail in "longdesc" bei Bedarf.
+- Ereignis/Foto Szene: Wer macht was wo; zentrale Handlung und Kontextbezug.
+- Cover/Plakat/Flyer: Titel und Zweck. Wichtige Schlagzeile vollständig wiedergeben.
+- Icon/CTA: Bedeutung oder Zielaktion nennen.
+- Dekorativ: alt="".
+
+Eingabefehler/Fall-Back:
+- Falls Bildinhalt unklar und Metadaten dünn: formuliere generisch, aber nicht leer. Nutze vorhandene Metadaten zur sinnvollen Essenz.
+- Bei fehlendem Informationswert: klassifiziere als dekorativ.
+
+NUTZE AUSSCHLIESSLICH DIESE QUELLEN:
+- Visuelle Analyse der JPEG-Datei
+- Übergebene Metadaten""".strip()
 
     messages = [
         {"role": "system", "content": system},
@@ -359,14 +387,18 @@ Schreibe barrierefreie Alternativtexte für Bilder nach WCAG 2.2 (SC 1.1.1) und 
 
 
 def call_openrouter(
-    api_key: str, model: str, messages: list[dict[str, Any]]
+    api_key: str,
+    model: str,
+    messages: list[dict[str, Any]],
+    session: Optional[requests.Session] = None,
 ) -> ORCompletion:
     headers = {
         "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",
     }
     payload = {"model": model, "messages": messages, "usage": {"include": True}}
-    resp = requests.post(
+    client = session or requests
+    resp = client.post(
         OPENROUTER_URL, headers=headers, json=payload, timeout=TIMEOUT_SECONDS
     )
     if resp.status_code != 200:
@@ -404,6 +436,9 @@ def init_wide_row(objectid: str, prompt: str) -> dict[str, Any]:
         base[f"{prefix}__provider"] = None
         base[f"{prefix}__created"] = None
         base[f"{prefix}__id"] = None
+        base[f"{prefix}__request_started_utc"] = None
+        base[f"{prefix}__request_ended_utc"] = None
+        base[f"{prefix}__latency_seconds"] = None
     base["created_utc"] = utc_now_iso()
     return base
 
@@ -433,27 +468,6 @@ def save_image_to_folder(url: str, images_dir: Path, basename: str) -> str:
     return f"images/{fname}"
 
 
-def strip_context_line(text: str) -> str:
-    """Remove the specified Nutzungskontext line from the user prompt."""
-    if not text:
-        return text
-    text = text.replace(STRIP_LINE + "\n", "")
-    text = text.replace(STRIP_LINE, "")
-    return text.strip()
-
-
-def html_question(image_rel_path: str, prompt_text: str) -> str:
-    """Compose a single-row, two-column HTML table with image and prompt."""
-    safe_prompt = html.escape(prompt_text)
-    img_html = f'<img src="{image_rel_path}">'
-    return (
-        "<table><tr>"
-        f'<td style="vertical-align:top;padding:4px;">{img_html}</td>'
-        f'<td style="vertical-align:top;padding:4px;"><pre style="white-space:pre-wrap;margin:0;">{safe_prompt}</pre></td>'
-        "</tr></table>"
-    )
-
-
 # ---------------------------
 # Main
 # ---------------------------
@@ -463,10 +477,16 @@ def main() -> None:
     # Env
     api_key = ensure_env()
 
+    # Overall timing
+    run_t0 = perf_counter()
+
     # Run directory first, so we can store fetched metadata
     run_dir = mk_run_dir()
     raw_dir = run_dir / "raw"
     images_dir = run_dir / "images"
+
+    # Reuse one HTTP connection for OpenRouter
+    session = requests.Session()
 
     # Fetch metadata from URL and save exact copy for provenance
     payload = fetch_and_save_metadata(METADATA_URL, run_dir)
@@ -506,38 +526,60 @@ def main() -> None:
             }
         )
 
-        # call models
+        # call models with per-request timing
         for model in MODELS:
-            try:
-                orc = call_openrouter(api_key=api_key, model=model, messages=messages)
-            except Exception as e:
-                prefix = model.replace("/", "__")
-                row[f"{prefix}__content"] = f"[ERROR] {type(e).__name__}: {e}"
-                continue
-
-            # Save raw response
-            raw_path = raw_dir / f"{mid}__{model.replace('/', '__')}.json"
-            persist_json(raw_path, orc.model_dump(mode="json"))
-
-            # Extract first choice content
-            content = ""
-            finish_reason = None
-            if orc.choices:
-                content = orc.choices[0].message.content
-                finish_reason = orc.choices[0].finish_reason
-
             prefix = model.replace("/", "__")
-            row[f"{prefix}__content"] = content
-            row[f"{prefix}__finish_reason"] = finish_reason
-            row[f"{prefix}__provider"] = orc.provider
-            row[f"{prefix}__created"] = orc.created
-            row[f"{prefix}__id"] = orc.id
+            t0 = perf_counter()
+            started_iso = utc_now_iso()
+            try:
+                orc = call_openrouter(
+                    api_key=api_key,
+                    model=model,
+                    messages=messages,
+                    session=session,
+                )
+                ended_iso = utc_now_iso()
+                t1 = perf_counter()
 
-            if orc.usage:
-                row[f"{prefix}__usage_prompt_tokens"] = orc.usage.prompt_tokens
-                row[f"{prefix}__usage_completion_tokens"] = orc.usage.completion_tokens
-                row[f"{prefix}__usage_total_tokens"] = orc.usage.total_tokens
-                row[f"{prefix}__usage_cost"] = orc.usage.cost
+                # Save raw response
+                raw_path = raw_dir / f"{mid}__{prefix}.json"
+                persist_json(raw_path, orc.model_dump(mode="json"))
+
+                # Extract first choice content
+                content = ""
+                finish_reason = None
+                if orc.choices:
+                    content = orc.choices[0].message.content
+                    finish_reason = orc.choices[0].finish_reason
+
+                row[f"{prefix}__content"] = content
+                row[f"{prefix}__finish_reason"] = finish_reason
+                row[f"{prefix}__provider"] = orc.provider
+                row[f"{prefix}__created"] = orc.created
+                row[f"{prefix}__id"] = orc.id
+
+                if orc.usage:
+                    row[f"{prefix}__usage_prompt_tokens"] = orc.usage.prompt_tokens
+                    row[f"{prefix}__usage_completion_tokens"] = (
+                        orc.usage.completion_tokens
+                    )
+                    row[f"{prefix}__usage_total_tokens"] = orc.usage.total_tokens
+                    row[f"{prefix}__usage_cost"] = orc.usage.cost
+
+                # Timing fields
+                row[f"{prefix}__request_started_utc"] = started_iso
+                row[f"{prefix}__request_ended_utc"] = ended_iso
+                row[f"{prefix}__latency_seconds"] = round(t1 - t0, 6)
+
+            except Exception as e:
+                ended_iso = utc_now_iso()
+                t1 = perf_counter()
+                row[f"{prefix}__content"] = f"[ERROR] {type(e).__name__}: {e}"
+                # Record timing even on failure
+                row[f"{prefix}__request_started_utc"] = started_iso
+                row[f"{prefix}__request_ended_utc"] = ended_iso
+                row[f"{prefix}__latency_seconds"] = round(t1 - t0, 6)
+                continue
 
             time.sleep(0.2)
 
@@ -551,8 +593,7 @@ def main() -> None:
         except Exception as e:
             img_rel = f"[ERROR fetching image: {type(e).__name__}: {e}]"
 
-        stripped_prompt = strip_context_line(user_prompt)
-        q_text = html_question(img_rel, stripped_prompt)
+        q_text = img_rel
 
         # map model -> generated alt text string
         model_to_text = {
@@ -633,6 +674,8 @@ def main() -> None:
         },
     )
 
+    run_t1 = perf_counter()
+
     manifest = {
         "created_utc": utc_now_iso(),
         "runs_dir": str(run_dir.resolve()),
@@ -649,6 +692,7 @@ def main() -> None:
         "two_afc_pairs_per_media": len(list(itertools.combinations(MODELS, 2))),
         "random_seed": RANDOM_SEED,
         "images_dir": str((run_dir / "images").resolve()),
+        "run_wall_time_seconds": round(run_t1 - run_t0, 6),
     }
     persist_json(run_dir / "manifest.json", manifest)
 
@@ -657,13 +701,12 @@ if __name__ == "__main__":
     main()
 
 
-
 # TODO:
 
 # - Add time measurements/logging
 # - Add heuristic checks for obviously bad alt-texts (e.g., too short/too long, "image of", etc.)
 # - Add heuristic for complex images (e.g., presence of "chart", "diagram", "map" in metadata)
-# - Add prompt optimizations (what quallifies as complex image, etc.)?
+# - Add prompt optimizations (what quallifies as complex image, etc.)?
 
 # TODO forms:
 
@@ -672,6 +715,6 @@ if __name__ == "__main__":
 # - No need to shuffle answers
 # - Return not only choice but also not selected option text for analysis (best structure would be: objectid,winner,loser)
 # - Question_id should be unique per media + pair combination (e.g. m94775_model1_model2)
-# - Email should be mantatory
+# - Email should be mantatory
 # - "Select the better description" Wähle die passendere Beschreibung (beide Beschreibungen wurden automatisch generiert und können Fehler enthalten)
 # - Only use title and image (title as given for Stadt.Geschichte Basel, no extra metadata)

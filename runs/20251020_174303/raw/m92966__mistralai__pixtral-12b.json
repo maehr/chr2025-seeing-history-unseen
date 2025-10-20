@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760974996-Nyb4CnAlLk8qdFWNJFWW",
+	"provider": "Mistral",
+	"model": "mistralai/pixtral-12b",
+	"object": "chat.completion",
+	"created": 1760974996,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "```html\n<img src=\"plan-friedhofsanlage.jpg\" alt=\"Plan für die Friedhofsanlage auf dem Wolf. Nekropole für das Patriziat. Grundriss einer Kirche, inspiriert von Parkfriedhöfen in Süddeutschland.\">\n```",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 3616,
+		"completion_tokens": 53,
+		"total_tokens": 3669,
+		"cost": 0.00055035,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0005424,
+			"upstream_inference_completions_cost": 7.95e-6
+		}
+	}
+}
