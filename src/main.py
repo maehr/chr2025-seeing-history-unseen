@@ -655,3 +655,23 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+
+# TODO:
+
+# - Add time measurements/logging
+# - Add heuristic checks for obviously bad alt-texts (e.g., too short/too long, "image of", etc.)
+# - Add heuristic for complex images (e.g., presence of "chart", "diagram", "map" in metadata)
+# - Add prompt optimizations (what quallifies as complex image, etc.)?
+
+# TODO forms:
+
+# - Add better explanation (inklusive Regeln für WCAG)
+# - Key board shortcuts for option a vs b
+# - No need to shuffle answers
+# - Return not only choice but also not selected option text for analysis (best structure would be: objectid,winner,loser)
+# - Question_id should be unique per media + pair combination (e.g. m94775_model1_model2)
+# - Email should be mantatory
+# - "Select the better description" Wähle die passendere Beschreibung (beide Beschreibungen wurden automatisch generiert und können Fehler enthalten)
+# - Only use title and image (title as given for Stadt.Geschichte Basel, no extra metadata)
