@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761080972-zU4KPpbLxj1tGHIHpDNH",
+	"provider": "DeepInfra",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1761080972,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Zeitungsannonce mit Illustration: Ashanti-Krieger mit Speer und Schild, Text beschreibt Ausstellung eines Afrikaners auf der Herbstmesse 1834 in Basel.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1631,
+		"completion_tokens": 37,
+		"total_tokens": 1668,
+		"cost": 0.00026685,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00024465,
+			"upstream_inference_completions_cost": 2.22e-5
+		}
+	}
+}

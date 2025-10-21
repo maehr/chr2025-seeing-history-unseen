@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761081662-I7DQIAqi36nj8dM2YuUC",
+	"provider": "Novita",
+	"model": "qwen/qwen3-vl-8b-instruct",
+	"object": "chat.completion",
+	"created": 1761081662,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Fasnachtszettel der Vereinigten Spalemer, 1901. Karikatur mit zwei Figuren flankiert einem „Volkszählungs-Actie“-Schild. Darin: Zuwanderergruppen aus Basel, Zürich, Bern, Aargau, sowie „Türken“ und „Orang-Utang“ mit Zahlen.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1265,
+		"completion_tokens": 83,
+		"total_tokens": 1348,
+		"cost": 0.0001427,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001012,
+			"upstream_inference_completions_cost": 4.15e-5
+		}
+	}
+}

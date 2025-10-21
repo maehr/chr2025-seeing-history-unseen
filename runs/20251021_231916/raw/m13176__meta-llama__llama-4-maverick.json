@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761081717-ywYhXRT6a2JiFXO98Fs0",
+	"provider": "Groq",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1761081717,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Narr mit roter Kappe isst vor einem Schwein, das aus einem Napf frisst. Gefäße und Brote stehen auf einem Tisch daneben. Handkolorierte Federzeichnung mit beidseitigem Text in Fraktur.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1595,
+		"completion_tokens": 53,
+		"total_tokens": 1648,
+		"cost": 0.0003508,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.000319,
+			"upstream_inference_completions_cost": 3.18e-5
+		}
+	}
+}

@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761081647-zJIiBN5OsmazSEsjyhra",
+	"provider": "Google",
+	"model": "google/gemini-2.5-flash-lite",
+	"object": "chat.completion",
+	"created": 1761081647,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "STOP",
+			"message": {
+				"role": "assistant",
+				"content": "Faltblatt der Gruppe ‹Freiräume für Frauen› (FFF) von 1992. Eine Frau und ein Mann auf einer Treppe am Wasser. Die Frau wirkt angespannt, der Mann entspannt.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 2316,
+		"completion_tokens": 46,
+		"total_tokens": 2362,
+		"cost": 7.117e-5,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 1987,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 5.277e-5,
+			"upstream_inference_completions_cost": 1.84e-5
+		}
+	}
+}

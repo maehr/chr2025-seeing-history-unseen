@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761081566-eSLzEV2AR4GdRGv5YYcZ",
+	"provider": "Parasail",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1761081566,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Weltkarte mit Linien, die Korrespondenzorte der Firma Forcart-Weis & Burckhardt-Wildt, 1865–1894, verbinden. Europa, Nordamerika, Indien und Südostasien sind vernetzt.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1660,
+		"completion_tokens": 51,
+		"total_tokens": 1711,
+		"cost": 0.00029235,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.000249,
+			"upstream_inference_completions_cost": 4.335e-5
+		}
+	}
+}

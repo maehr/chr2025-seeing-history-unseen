@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761081125-4G0ih5QpnBlGA0jVJvJk",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761081125,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Diagramm des indirekten Wahlverfahrens gemäß der ‹Handfeste› um 1260. Es zeigt die Struktur der Wahlbehörde (Kieserkollegium) zwischen dem alten und neuen Rat, illustriert mit farbigen Punkten zur Darstellung der Wählergruppen und der Wahlprozesse. Veranschaulicht wird die zeitlich beschränkte Unabhängigkeit der Wahlbehörde zur Einigung auf Kandidaten.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 14830,
+		"completion_tokens": 90,
+		"total_tokens": 14920,
+		"cost": 0.0022785,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0022245,
+			"upstream_inference_completions_cost": 5.4e-5
+		}
+	}
+}

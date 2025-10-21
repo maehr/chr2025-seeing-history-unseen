@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761081682-LgTRKhRhjS1YRVk5UnAa",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761081682,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Grafik mit dot chart, die die durchschnittlichen jährlichen Wachstumsraten der Life-Science-Industrie in verschiedenen Städten von 2000 bis 2010 veranschaulicht. Auf der horizontalen Achse ist der Anteil der Life Sciences am regionalen Bruttoinlandsprodukt aufgeführt, während die vertikale Achse die Wachstumsrate zeigt. Die Region Basel ist hervorgehoben und zeigt den größten Anteil, während andere Städte wie Shanghai und Cambridge ähnliche oder leicht höhere Wachstumsraten aufweisen.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26177,
+		"completion_tokens": 110,
+		"total_tokens": 26287,
+		"cost": 0.00399255,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00392655,
+			"upstream_inference_completions_cost": 6.6e-5
+		}
+	}
+}

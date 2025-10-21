@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761081731-LqerIvUEoAbDtXfu38jo",
+	"provider": "Alibaba",
+	"model": "qwen/qwen3-vl-8b-instruct",
+	"object": "chat.completion",
+	"created": 1761081731,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Neandertaler mit Kind auf dem Rücken jagen Wildtiere in einer grasbewachsenen Landschaft am Rhein; im Hintergrund fliegen Habichtartige über eine Schlucht mit Mammute und Riesenhirschen.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 2047,
+		"completion_tokens": 48,
+		"total_tokens": 2095,
+		"cost": 0.00040206,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00036846,
+			"upstream_inference_completions_cost": 3.36e-5
+		}
+	}
+}

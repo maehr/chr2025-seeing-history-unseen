@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761081106-o083OjywqayT7SOMCB3w",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761081106,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Landschaft im Mittelpaläolithikum mit einem Neandertaler und einem Kind auf seinem Rücken. Im Hintergrund sind Wildtiere und eine Wasserstelle zu sehen, umgeben von einer bewaldeten Landschaft. Der Himmel ist teils bewölkt, mit fliegenden Vögeln. ",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26120,
+		"completion_tokens": 62,
+		"total_tokens": 26182,
+		"cost": 0.0039552,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.003918,
+			"upstream_inference_completions_cost": 3.72e-5
+		}
+	}
+}

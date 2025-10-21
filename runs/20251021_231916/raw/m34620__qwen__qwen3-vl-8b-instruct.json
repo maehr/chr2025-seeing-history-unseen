@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761081639-lCy7W0TGfseUtyv5bYt7",
+	"provider": "Novita",
+	"model": "qwen/qwen3-vl-8b-instruct",
+	"object": "chat.completion",
+	"created": 1761081639,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Ausgrabung des Chors der Peterskirche 1962: Überlagerung von Gründungsbaustufen – rechteckig (9./10. Jh.), romanisch mit halbrunder Apsis (10./11. Jh.), gotischer Rechteckchor (13. Jh.). Steinmauern, Fundamente, Reste von Bodenbelägen.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1225,
+		"completion_tokens": 91,
+		"total_tokens": 1316,
+		"cost": 0.0001435,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 9.8e-5,
+			"upstream_inference_completions_cost": 4.55e-5
+		}
+	}
+}

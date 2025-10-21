@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761080984-FJR3f1uMSsGz48FLcjWt",
+	"provider": "Groq",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1761080984,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Balkendiagramm der Besucherzahlen von FC Basel-Spielen (blau) und Konzerten (gelb) im St. Jakob-Stadion, 1960–2022. Besucherzahlen der Fußballspiele steigen nach Tief in den 1980ern ab 2001 deutlich an, Konzerte gehen zurück. Zahlen für 2020 stark rückläufig.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1749,
+		"completion_tokens": 76,
+		"total_tokens": 1825,
+		"cost": 0.0003954,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0003498,
+			"upstream_inference_completions_cost": 4.56e-5
+		}
+	}
+}

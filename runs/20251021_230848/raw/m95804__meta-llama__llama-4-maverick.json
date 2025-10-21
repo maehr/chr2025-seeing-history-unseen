@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761080961-Vldwd4hNgZ93qnY5pF4q",
+	"provider": "DeepInfra",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1761080961,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Abbruch des St. Johanns-Schwibbogens, Arbeiter beim Entfernen von Mauerwerk, Schutt und Karren auf der Strasse.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 2113,
+		"completion_tokens": 32,
+		"total_tokens": 2145,
+		"cost": 0.00033615,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00031695,
+			"upstream_inference_completions_cost": 1.92e-5
+		}
+	}
+}

@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761081685-3qdnSjFzPRjiOSHERfH9",
+	"provider": "Together",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1761081685,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Karte: Regionenvergleich Life Sciences 2000–2010. X-Achse: Anteil an regionaler Wertschöpfung (0–20%). Y-Achse: Jährliche Wachstumsrate (0–16%). Regionen: Zürich, San Francisco, Genf, Singapur, Schanghai, Cambridge, Basel. Kreisgröße zeigt Beitrag zum Wachstum. Basel: 18% Wertschöpfung, 10% Wachstum, größter Beitrag.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1689,
+		"completion_tokens": 95,
+		"total_tokens": 1784,
+		"cost": 0.00053678,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00045603,
+			"upstream_inference_completions_cost": 8.075e-5
+		}
+	}
+}

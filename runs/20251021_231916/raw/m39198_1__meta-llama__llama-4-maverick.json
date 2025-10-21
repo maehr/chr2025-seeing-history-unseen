@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761081766-ZS0Q0qcjNQvy7oWaAoUS",
+	"provider": "Novita",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1761081766,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Handelsbeziehungen von Ulrich Meltinger; Import und Export von Textilien zwischen Oberrhein und angrenzenden Regionen, Pfeildiagramm mit Hauptrichtungen England - Flandern - Frankfurt und Solothurn - Zürich - Glarus.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 2037,
+		"completion_tokens": 52,
+		"total_tokens": 2089,
+		"cost": 0.00039049,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00034629,
+			"upstream_inference_completions_cost": 4.42e-5
+		}
+	}
+}

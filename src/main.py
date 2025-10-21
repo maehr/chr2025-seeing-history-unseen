@@ -29,7 +29,7 @@ METADATA_URL: str = (
 
 MODELS: list[str] = [
     "google/gemini-2.5-flash-lite",
-    "mistralai/pixtral-12b",
+    "qwen/qwen3-vl-8b-instruct",
     "openai/gpt-4o-mini",
     "meta-llama/llama-4-maverick",
 ]

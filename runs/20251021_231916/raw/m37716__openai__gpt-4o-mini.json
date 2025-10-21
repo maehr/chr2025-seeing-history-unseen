@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761081693-jzu69sVxS9ZyR1VlUw0q",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761081693,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Längere Strecke der Innenstadtmauer, freigelegt beim Bau des Kunstmuseum-Parkings am St. Alban-Graben. Sichtbar sind die Grundmauern und die Mächtigkeit des städtischen Befestigungsrings. Im Vordergrund arbeiten Bauarbeiter, im Hintergrund moderne Gebäude.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26071,
+		"completion_tokens": 62,
+		"total_tokens": 26133,
+		"cost": 0.00394785,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00391065,
+			"upstream_inference_completions_cost": 3.72e-5
+		}
+	}
+}

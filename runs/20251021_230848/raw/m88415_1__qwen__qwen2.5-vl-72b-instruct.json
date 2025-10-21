@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761080977-DL6q7I4GL2Cys7MTBdIt",
+	"provider": "Novita",
+	"model": "qwen/qwen2.5-vl-72b-instruct",
+	"object": "chat.completion",
+	"created": 1761080977,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Publikumszahlen von Konzerten (gelb) und FCB-Spielen (blau) im St. Jakob-Stadion 1960–2022. Konzerte waren in den 1980er-Jahren beliebter, FCB-Spiele ab 2001 dominierend, mit Einbruch 2020 durch Corona.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1236,
+		"completion_tokens": 88,
+		"total_tokens": 1324,
+		"cost": 0.0010592,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0009888,
+			"upstream_inference_completions_cost": 7.04e-5
+		}
+	}
+}

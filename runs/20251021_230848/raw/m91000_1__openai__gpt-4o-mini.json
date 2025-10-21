@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761080936-S0DC7o5WR6MJ7fOfoFf3",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761080936,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Karte mit Verbindungen und Standorten weltweiter Korrespondenzen zur Firma Forcart-Weis & Burckhardt-Wildt zwischen 1865 und 1894. Die Linien zeigen Hauptverkehrsrouten, Ausgangspunkte sind in Schwarz verzeichnet, während die Verbindungslinien in Lila erscheinen. Im Fokus stehen Städte wie Basel, Zürich, Hamburg, New York und London.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26149,
+		"completion_tokens": 81,
+		"total_tokens": 26230,
+		"cost": 0.00397095,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00392235,
+			"upstream_inference_completions_cost": 4.86e-5
+		}
+	}
+}
