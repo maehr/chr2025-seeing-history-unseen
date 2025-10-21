@@ -24,11 +24,34 @@ MODELS: list[str] = [
     "openai/gpt-4o-mini",
     "meta-llama/llama-4-maverick",
 ]
-TESTING: bool = True
-if TESTING:
-    MEDIA_IDS: list[str] = ["m94775", "m27909_1", "m30203_1_1"]
-else:
-    MEDIA_IDS: list[str] = [
+MODE = "subsample"  # "testing" | "subsample" | "full"
+
+MEDIA_IDS: list[str] = []
+if MODE == "testing":
+    MEDIA_IDS = ["m94775", "m27909_1", "m30203_1_1"]
+if MODE == "subsample":
+    MEDIA_IDS = [
+        "m91000_1",
+        "m94271",
+        "m95804",
+        "m94775",
+        "m88415_1",
+        "m15298_1",
+        "m34620",
+        "m92410",
+        "m92357",
+        "m82972",
+        "m37716",
+        "m22924",
+        "m13176",
+        "m12965",
+        "m28635",
+        "m29084",
+        "m37030_1",
+        "m39198_1",
+    ]
+if MODE == "full":
+    MEDIA_IDS = [
         "m94775",
         "m27909_1",
         "m30203_1_1",
@@ -414,7 +437,6 @@ def main() -> None:
 
     rows: list[dict[str, Any]] = []
     prompt_records: list[dict[str, str]] = []
-    questions_rows: list[list[str]] = []
 
     for mid in MEDIA_IDS:
         media = db[mid]
@@ -483,39 +505,9 @@ def main() -> None:
         rows.append(row)
 
         try:
-            img_rel = save_image_to_folder(
-                str(media.object_thumb), images_dir, basename=mid
-            )
+            save_image_to_folder(str(media.object_thumb), images_dir, basename=mid)
         except Exception as e:
-            img_rel = f"[ERROR fetching image: {type(e).__name__}: {e}]"
-
-        model_to_text = {
-            m: row.get(f"{m.replace('/', '__')}__content") or "" for m in MODELS
-        }
-        pairs = list(itertools.combinations(MODELS, 2))
-        seed_base = int.from_bytes(
-            hashlib.sha256(mid.encode("utf-8")).digest()[:8], "big"
-        )
-        rnd = random.Random(RANDOM_SEED + seed_base)
-
-        for m1, m2 in pairs:
-            if rnd.random() < 0.5:
-                m_left, m_right = m2, m1
-            else:
-                m_left, m_right = m1, m2
-            uniqueid = f"{mid}_{m_left}_{m_right}"
-            questions_rows.append(
-                [
-                    uniqueid,  # uniqueid
-                    mid,  # media.id
-                    img_rel,  # rel_path
-                    media.title or "",  # media.title
-                    m_left,  # model_1
-                    model_to_text[m_left],  # model_1_content
-                    m_right,  # model_2
-                    model_to_text[m_right],  # model_2_content
-                ]
-            )
+            _ = f"[ERROR fetching image: {type(e).__name__}: {e}]"
 
     df = pd.DataFrame(rows)
     stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -528,22 +520,6 @@ def main() -> None:
     with (Path(f"{table_base}.jsonl")).open("w", encoding="utf-8") as f:
         for record in df.to_dict(orient="records"):
             f.write(json.dumps(record, ensure_ascii=False) + "\n")
-
-    questions_csv = run_dir / "questions.csv"
-    header = [
-        "uniqueid",
-        "media.id",
-        "rel_path",
-        "media.title",
-        "model_1",
-        "model_1_content",
-        "model_2",
-        "model_2_content",
-    ]
-    with questions_csv.open("w", encoding="utf-8", newline="") as f:
-        writer = csv.writer(f)
-        writer.writerow(header)
-        writer.writerows(questions_rows)
 
     prompts_json = run_dir / "prompts.json"
     persist_json(
@@ -568,7 +544,6 @@ def main() -> None:
         "table_csv": str(Path(f"{table_base}.csv").resolve()),
         "table_parquet": str(Path(f"{table_base}.parquet").resolve()),
         "table_jsonl": str(Path(f"{table_base}.jsonl").resolve()),
-        "questions_csv": str(questions_csv.resolve()),
         "prompts_json": str(prompts_json.resolve()),
         "python_version": sys.version,
         "two_afc_pairs_per_media": len(list(itertools.combinations(MODELS, 2))),
