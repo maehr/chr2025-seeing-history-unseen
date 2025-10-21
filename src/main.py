@@ -339,18 +339,13 @@ def load_db_from_payload(payload: dict[str, Any]) -> dict[str, MediaObject]:
 
 
 def build_prompt(media: MediaObject) -> str:
-    return json.dumps(
-        {
-            "Titel": media.title or "",
-            "Beschreibung": media.description or "",
-            "Ersteller": media.creator or "",
-            "Herausgeber": media.publisher or "",
-            "Quelle": media.source or "",
-            "Datum": media.date or "",
-            "Epoche": media.era or "",
-        },
-        ensure_ascii=False,
-    )
+    return f"""Titel: {media.title or "Kein Titel"}
+Beschreibung: {media.description or "Keine Beschreibung"}
+Ersteller: {media.creator or "Kein Ersteller"}
+Herausgeber: {media.publisher or "Kein Herausgeber"}
+Quelle: {media.source or "Keine Quelle"}
+Datum: {media.date or "Kein Datum"}
+Epoche: {media.era or "Keine Epoche"}""".strip()
 
 
 def build_messages(
@@ -527,7 +522,7 @@ def create_wide_df_from_long(df_long: pd.DataFrame) -> pd.DataFrame:
         return pd.DataFrame()
 
     df_wide = df_long.pivot(
-        index=["objectid", "prompt_sha256"],
+        index=["objectid", "title", "prompt_sha256"],
         columns="model",
         values=PIVOT_COLS,
     )
@@ -566,6 +561,9 @@ def main() -> None:
 
     for mid in MEDIA_IDS:
         media = db[mid]
+        # --- ADDED: Get the title here ---
+        title = media.title or "Kein Titel"  # Use default from model if None
+
         if not media.object_thumb:
             raise ValueError(f"No thumbnail URL for media ID {mid}")
         prompt = build_prompt(media)
@@ -576,6 +574,7 @@ def main() -> None:
         prompt_rows.append(
             {
                 "objectid": mid,
+                "title": title,
                 "prompt_sha256": prompt_sha,
                 "prompt": prompt,
                 "system_prompt": system_prompt,
@@ -602,6 +601,7 @@ def main() -> None:
                 long_rows.append(
                     {
                         "objectid": mid,
+                        "title": title,
                         "prompt_sha256": prompt_sha,
                         "model": model,
                         "provider": orc.provider,
@@ -635,6 +635,7 @@ def main() -> None:
                 long_rows.append(
                     {
                         "objectid": mid,
+                        "title": title,
                         "prompt_sha256": prompt_sha,
                         "model": model,
                         "provider": None,
@@ -669,6 +670,14 @@ def main() -> None:
     stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     base = run_dir / f"alt_text_runs_{stamp}"
 
+    if prompt_rows:
+        df_prompts = pd.DataFrame(prompt_rows)
+        prompts_csv_path = Path(f"{base}_prompts.csv")
+        atomic_write_df_csv(df_prompts, prompts_csv_path)
+    else:
+        logging.warning("No prompts were generated, skipping prompts.csv file.")
+        prompts_csv_path = Path()
+
     # Create both DataFrames from the single 'long_rows' list
     df_long = pd.DataFrame(long_rows)
     df_wide = create_wide_df_from_long(df_long)
@@ -699,6 +708,9 @@ def main() -> None:
             "long_csv": str(Path(f"{base}_long.csv").resolve()),
             "long_parquet": str(Path(f"{base}_long.parquet").resolve()),
             "long_jsonl": str(Path(f"{base}_long.jsonl").resolve()),
+            "prompts_csv": str(prompts_csv_path.resolve())
+            if prompts_csv_path.exists()
+            else None,
         },
         "python_version": sys.version,
         "images_dir": str((run_dir / "images").resolve()),

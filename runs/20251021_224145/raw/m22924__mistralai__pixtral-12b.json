@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761079415-3nVH5XPOUazTij3oPsxj",
+	"provider": "Mistral",
+	"model": "mistralai/pixtral-12b",
+	"object": "chat.completion",
+	"created": 1761079416,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Zirkumpolares Horizontalpanorama der Stadt Basel, 1787. Zeichnung zeigt eine 360-Grad-Umsicht von einem Kamin des „Blauen Hauses“ aus. Zentrales Gebäude mit markanter Dachform, umgeben von Stadtlandschaft und Gebäuden.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 3601,
+		"completion_tokens": 62,
+		"total_tokens": 3663,
+		"cost": 0.00054945,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00054015,
+			"upstream_inference_completions_cost": 9.3e-6
+		}
+	}
+}

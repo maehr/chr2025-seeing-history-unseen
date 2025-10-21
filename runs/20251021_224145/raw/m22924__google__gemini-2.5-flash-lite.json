@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761079413-mg89d3PEXcn9kKRtKAJ6",
+	"provider": "Google",
+	"model": "google/gemini-2.5-flash-lite",
+	"object": "chat.completion",
+	"created": 1761079413,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "STOP",
+			"message": {
+				"role": "assistant",
+				"content": "Federzeichnung eines zirkumpolaren Horizontalpanoramas der Stadt Basel, 1787. Blick aus der Vogelperspektive über Dächer und eine Flusslandschaft.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1879,
+		"completion_tokens": 36,
+		"total_tokens": 1915,
+		"cost": 0.0002023,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001879,
+			"upstream_inference_completions_cost": 1.44e-5
+		}
+	}
+}

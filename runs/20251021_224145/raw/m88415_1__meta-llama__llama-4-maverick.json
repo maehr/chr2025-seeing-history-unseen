@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761079350-Kk61Toku4j1aXSQPiSxC",
+	"provider": "Novita",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1761079350,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Balkendiagramm: Besucherzahlen der FCB-Spiele (blau) und Konzerte (gelb) im St. Jakob-Stadion, 1960–2022. Nach dem Umzug in den St. Jakob-Park 2001 stiegen die Besucherzahlen der FCB-Spiele deutlich. Einige Konzerte fanden nach 2001 noch statt. Rückgang der Zahlen 2020 durch Corona-Pandemie.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1739,
+		"completion_tokens": 92,
+		"total_tokens": 1831,
+		"cost": 0.00037383,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00029563,
+			"upstream_inference_completions_cost": 7.82e-5
+		}
+	}
+}

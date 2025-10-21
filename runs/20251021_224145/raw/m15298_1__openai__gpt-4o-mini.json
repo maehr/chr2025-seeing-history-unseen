@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761079357-MYq1U8G2tOpzijfkVfEr",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761079357,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Karte zeigt die zwischen 1912 und 1966 neu errichteten Kirchen in Basel, einschließlich römisch-katholischer, evangelisch-reformierter und jüdischer Gotteshäuser. Jeder Standort ist nummeriert und farblich kodiert: römisch-katholisch in blau, evangelisch-reformiert in gelb und jüdisch in grün. Markiert sind 18 Gotteshäuser mit Baujahren, darunter die Heiliggeistkirche (1912) und die Antoniuskirche (1927).",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26243,
+		"completion_tokens": 116,
+		"total_tokens": 26359,
+		"cost": 0.00400605,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00393645,
+			"upstream_inference_completions_cost": 6.96e-5
+		}
+	}
+}

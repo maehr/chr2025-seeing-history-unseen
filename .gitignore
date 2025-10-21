@@ -7,6 +7,9 @@ _site/
 # Exclude example.env
 !example.env
 
+# Jampack
+.jampack/
+
 # Created by https://www.toptal.com/developers/gitignore/api/r,git,node,linux,macos,dotenv,python,windows,visualstudiocode,latex
 # Edit at https://www.toptal.com/developers/gitignore?templates=r,git,node,linux,macos,dotenv,python,windows,visualstudiocode,latex
 

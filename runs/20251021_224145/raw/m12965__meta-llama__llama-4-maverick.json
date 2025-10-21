@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761079442-twE9LLy7oSuF6rWC4xpo",
+	"provider": "Parasail",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1761079442,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Getrocknete Kartoffelpflanze mit braunen Blättern und Stielen auf beige-gemustertem Untergrund.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1685,
+		"completion_tokens": 28,
+		"total_tokens": 1713,
+		"cost": 0.00027655,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00025275,
+			"upstream_inference_completions_cost": 2.38e-5
+		}
+	}
+}

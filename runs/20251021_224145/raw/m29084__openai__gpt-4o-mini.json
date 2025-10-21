@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761079462-Q2AYAtwp78QG03QD47ZA",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761079463,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Schematische Zeichnungen verschiedener frühmittelalterlicher Grabtypen, darunter Steinplatten-, Mauer- und Kammergräber. Oben dargestellt sind Hügel- und Brandgräber, unten einfache Erdbestattungen. Die Skizzen zeigen Aufsicht und Querschnitt.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26113,
+		"completion_tokens": 60,
+		"total_tokens": 26173,
+		"cost": 0.00395295,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00391695,
+			"upstream_inference_completions_cost": 3.6e-5
+		}
+	}
+}

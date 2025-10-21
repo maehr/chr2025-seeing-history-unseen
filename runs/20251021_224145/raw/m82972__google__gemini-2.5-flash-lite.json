@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761079394-mIQjyC536HWYI9glOvSb",
+	"provider": "Google",
+	"model": "google/gemini-2.5-flash-lite",
+	"object": "chat.completion",
+	"created": 1761079394,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "STOP",
+			"message": {
+				"role": "assistant",
+				"content": "Streudiagramm zeigt den Anteil der Life Sciences an der regionalen Wertschöpfung und deren durchschnittliche jährliche Wachstumsrate 2000–2010. Region Basel hat den grössten Anteil und eine hohe Wachstumsrate.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 2493,
+		"completion_tokens": 52,
+		"total_tokens": 2545,
+		"cost": 0.0002701,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0002493,
+			"upstream_inference_completions_cost": 2.08e-5
+		}
+	}
+}

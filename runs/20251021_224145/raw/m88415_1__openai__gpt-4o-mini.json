@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761079347-UpifilwVTMFBXSe0l1KC",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761079347,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Diagramm mit den Publikumszahlen an Konzerten (gelb) und FCB-Spielen (blau) im St. Jakob-Stadion von 1960 bis 2022. Die Spielergebnisse zeigen einen Anstieg der Besucherzahlen bei FCB-Spielen ab 2002 und einen markanten Rückgang im Jahr 2020 aufgrund der Corona-Pandemie. Die höchsten Werte liegen um 2014.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 14901,
+		"completion_tokens": 85,
+		"total_tokens": 14986,
+		"cost": 0.00228615,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00223515,
+			"upstream_inference_completions_cost": 5.1e-5
+		}
+	}
+}

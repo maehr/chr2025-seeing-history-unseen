@@ -55,31 +55,20 @@
 		for (const row of data) {
 			if (!row || !row.objectid) continue;
 			const id = String(row.objectid).trim();
-			let title = '';
-			let caption = '';
-			if (row.prompt) {
-				try {
-					const meta = JSON.parse(row.prompt);
-					title = String(meta.Titel || meta.title || '').trim();
-					caption = String(
-						meta.Beschreibung || meta.description || meta.Titel || meta.title || ''
-					).trim();
-				} catch {
-					title = '';
-					caption = String(row.prompt || '').trim();
-				}
-			}
+			const title = String(row.title || '').trim();
 			const options = [];
 			for (const col of MODEL_COLS) {
-				const label = String(row[col] || '').trim();
-				if (!label) continue;
+				let label = String(row[col] || '').trim();
+				if (!label) {
+					label =
+						'Für diese Abbildung hat das Model fälschlicherweise kein Alternativtext generiert.';
+				}
 				options.push({ id: col, label });
 			}
 			if (options.length < 2) continue; // skip malformed rows
 			qs.push({
 				id,
-				title: title || id,
-				caption,
+				title: title,
 				img: `images/${id}.jpg`,
 				options
 			});
@@ -142,7 +131,7 @@
 		ui.progress.textContent = `Frage ${state.idx + 1} von ${state.qOrder.length}`;
 		ui.imgEl.src = q.img;
 		ui.imgEl.alt = q.title || 'Abbildung';
-		ui.captionEl.innerHTML = `<strong>${q.title || 'Ohne Titel'}</strong>${q.caption ? ` <span class="text-muted">— ${escapeHtml(q.caption)}</span>` : ''}`;
+		ui.captionEl.innerHTML = `<strong>${q.title || 'Ohne Titel'}</strong>`;
 		ui.instrEl.textContent =
 			'Ordne die vier Beschreibungen per Drag & Drop. Beste nach oben. Schlechteste nach unten. Tastatur: ↑/↓ verschieben, 1–4 springt zur Position.';
 
@@ -396,8 +385,8 @@
 
 			// 1. Get FINAL order and texts
 			const finalOrder = state.answersById[qid] || [];
-			const final_order_ids = {}; // Was 'order_ids'
-			const final_order_texts = {}; // Was 'order_texts'
+			const final_order_ids = {};
+			const final_order_texts = {};
 			finalOrder.forEach((optId, i) => {
 				const rankNum = i + 1;
 				const label = q.options.find((o) => o.id === optId)?.label || '';
@@ -405,14 +394,12 @@
 				final_order_texts[String(rankNum)] = label.length > 1200 ? label.slice(0, 1200) : label;
 			});
 
-			// 2. Get INITIAL order (this is the new part)
+			// 2. Get INITIAL order
 			const initialOrder = state.initialOrderById[qid] || [];
 			const initial_order_ids = {};
 			initialOrder.forEach((optId, i) => {
 				initial_order_ids[String(i + 1)] = optId;
 			});
-
-			// (The redundant 'ranks' block is now removed)
 
 			return {
 				objectid: qid,

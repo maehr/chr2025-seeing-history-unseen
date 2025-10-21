@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761079369-1d4keFQ0vzyPOKwvCKhG",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761079369,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Ausgrabung im Chor der Peterskirche von 1962. Zu sehen sind die rechtwinklige Grundstruktur aus dem 9./10. Jh., romanische Fundamente mit halbrunder Apsis (10./11. Jh.) sowie gotische Elemente des Rechteckchors (13. Jh.). Das Bild zeigt unvollendete Mauern und Steinstrukturen in einem archäologischen Kontext.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26087,
+		"completion_tokens": 84,
+		"total_tokens": 26171,
+		"cost": 0.00396345,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00391305,
+			"upstream_inference_completions_cost": 5.04e-5
+		}
+	}
+}
