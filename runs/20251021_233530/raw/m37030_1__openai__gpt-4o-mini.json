@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761082730-mSZ7lAtV0lpnsjeTztqA",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761082730,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Darstellung eines indirekten Wahlverfahrens im Mittelalter mit einem Kieserkollegium. Links der alte Rat und rechts der neue Rat, beide mit verschiedenen farbigen Kugeln zur Wahl. Die Wahlbehörde in der Mitte koordiniert den Prozess.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 14830,
+		"completion_tokens": 54,
+		"total_tokens": 14884,
+		"cost": 0.0022569,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0022245,
+			"upstream_inference_completions_cost": 3.24e-5
+		}
+	}
+}

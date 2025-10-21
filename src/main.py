@@ -56,6 +56,8 @@ MODE_TO_MEDIA_IDS: dict[str, list[str]] = {
         "m29084",
         "m37030_1",
         "m39198_1",
+        "m91960",
+        "m20435"
     ],
     "full": [
         "m94775",

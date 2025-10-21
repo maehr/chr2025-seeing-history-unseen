@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761082721-VMxrtHmnLoHUUrSd84oy",
+	"provider": "DeepInfra",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1761082721,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Frühmittelalterliche Grabtypen: Steinplattengrab, Mauer- und Kammergrab teils mit Hügeln, Brandgrab und Erdbestattung.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 2052,
+		"completion_tokens": 35,
+		"total_tokens": 2087,
+		"cost": 0.0003288,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0003078,
+			"upstream_inference_completions_cost": 2.1e-5
+		}
+	}
+}

@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761082691-yqkxg1TKPx1aM27L1PZm",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761082693,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Herbarium-Auszug mit der Kartoffelpflanze (Solanum tuberosum esculentum). 17. Jahrhundert, getrocknete Pflanzenblätter und -blüten auf handgeschöpftem Papier. Wichtiger botanischer Nachweis von Caspar Bauhin, der die Pflanze in seinem Garten anbaute.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26171,
+		"completion_tokens": 68,
+		"total_tokens": 26239,
+		"cost": 0.00396645,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00392565,
+			"upstream_inference_completions_cost": 4.08e-5
+		}
+	}
+}

@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761082558-4iHswYBRV5fKEd9V39AF",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761082558,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Abbruch des St. Johanns-Schwibbogens, 1874. Baustelle mit Arbeiter:innen, die an der Zerstörung des mittelalterlichen Bogens und der innerstädtischen Mauer arbeiten. Im Vordergrund ist ein voll beladener Handkarren sichtbar, umgeben von Steintrümmern. Auf beiden Seiten der Straße stehen historische Gebäude.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26175,
+		"completion_tokens": 77,
+		"total_tokens": 26252,
+		"cost": 0.00397245,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00392625,
+			"upstream_inference_completions_cost": 4.62e-5
+		}
+	}
+}

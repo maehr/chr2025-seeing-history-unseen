@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761082538-gcry89NSrkaCXRvUnyMZ",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761082538,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Karte mit Verbindungen der Firma Forcart-Weis & Burckhardt-Wildt (1865–1894). Zentrale Orte wie Basel, Zürich und Hamburg sind hervorgehoben, unterstützt von lila Linien, die internationale Korrespondenzwege darstellen. Die Karte zeigt ein Netzwerk, das verschiedene Länder erreicht. Inklusive Städte wie New York, Londres und Konstantinopel.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26149,
+		"completion_tokens": 81,
+		"total_tokens": 26230,
+		"cost": 0.00397095,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00392235,
+			"upstream_inference_completions_cost": 4.86e-5
+		}
+	}
+}

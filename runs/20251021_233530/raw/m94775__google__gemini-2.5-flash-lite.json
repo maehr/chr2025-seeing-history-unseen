@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761082565-Wr5pxY7C2naSc0B0lE5a",
+	"provider": "Google",
+	"model": "google/gemini-2.5-flash-lite",
+	"object": "chat.completion",
+	"created": 1761082565,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "STOP",
+			"message": {
+				"role": "assistant",
+				"content": "Eine Illustration zeigt einen Afrikaner der Ashantee-Nation.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1895,
+		"completion_tokens": 12,
+		"total_tokens": 1907,
+		"cost": 5.804e-5,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 1514,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 5.324e-5,
+			"upstream_inference_completions_cost": 4.8e-6
+		}
+	}
+}

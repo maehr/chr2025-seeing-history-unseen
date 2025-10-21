@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761082542-OTYf04xPoJ25UpP7NI5H",
+	"provider": "Google",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1761082542,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "STOP",
+			"message": {
+				"role": "assistant",
+				"content": "Karte zeigt Herkunftsorte der Geschäftskorrespondenz an Forcart-Weis & Burckhardt-Wildt, 1865–1894; Basel als Zentrum mit Verbindungen nach Europa, Amerika und Asien.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1725,
+		"completion_tokens": 47,
+		"total_tokens": 1772,
+		"cost": 0.0006578,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00060375,
+			"upstream_inference_completions_cost": 5.405e-5
+		}
+	}
+}

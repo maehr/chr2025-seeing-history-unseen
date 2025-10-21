@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761082562-7gUqSbt6T0tgUYTGjWUi",
+	"provider": "Parasail",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1761082562,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Abbruch des St. Johanns-Schwibbogens 1874, Schutt und Mauersteine liegen auf dem Boden.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 2116,
+		"completion_tokens": 27,
+		"total_tokens": 2143,
+		"cost": 0.00034035,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0003174,
+			"upstream_inference_completions_cost": 2.295e-5
+		}
+	}
+}

@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761082570-UNQnMQV1e4wJlNynDMS2",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761082570,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Illustration zu einer Anzeige für eine Herbstmesse 1834, die einen afrikanischen Krieger der Ashantée zeigt. Die Anzeige stammt aus den \"Wöchentlichen Nachrichten\" und erwähnt, dass dieser Afrikaner während der Messe anwesend sein wird. Die Goldküste, heute Ghana, war in den 1820er Jahren ein Zentrum der Basler Mission.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26122,
+		"completion_tokens": 76,
+		"total_tokens": 26198,
+		"cost": 0.0039639,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0039183,
+			"upstream_inference_completions_cost": 4.56e-5
+		}
+	}
+}
