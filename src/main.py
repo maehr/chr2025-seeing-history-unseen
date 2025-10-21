@@ -6,12 +6,19 @@ import hashlib, json, logging, os, sys, time
 from datetime import datetime, timezone
 from pathlib import Path
 from time import perf_counter
-from typing import Any, List, Optional, Sequence, Tuple
+from typing import Any, Sequence
 
 import pandas as pd
 import requests
-from dotenv import load_dotenv
-from pydantic import BaseModel, Field, HttpUrl, ValidationError, field_validator
+from pydantic import (
+    BaseModel,
+    Field,
+    HttpUrl,
+    ValidationError,
+    field_validator,
+    SecretStr,
+)
+from pydantic_settings import BaseSettings
 
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 TIMEOUT_SECONDS = 60
@@ -26,7 +33,7 @@ MODELS: list[str] = [
     "openai/gpt-4o-mini",
     "meta-llama/llama-4-maverick",
 ]
-MODE: str = "testing"  # "testing" | "subsample" | "full"
+MODE: str = "subsample"  # "testing" | "subsample" | "full"
 
 MODE_TO_MEDIA_IDS: dict[str, list[str]] = {
     "testing": ["m94775", "m27909_1", "m30203_1_1"],
@@ -155,7 +162,8 @@ MODE_TO_MEDIA_IDS: dict[str, list[str]] = {
 }
 MEDIA_IDS = MODE_TO_MEDIA_IDS[MODE]
 
-COLS = [
+# Columns to be pivoted from long to wide format
+PIVOT_COLS = [
     "content",
     "finish_reason",
     "usage_prompt_tokens",
@@ -172,38 +180,40 @@ COLS = [
 ]
 
 
-def col(prefix: str, name: str) -> str:
-    return f"{prefix}__{name}"
-
-
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)sZ\t%(levelname)s\t%(message)s"
 )
 
 
+class Settings(BaseSettings):
+    """Loads environment variables, e.g., from .env file"""
+
+    OPENROUTER_API_KEY: SecretStr
+
+
 class MediaObject(BaseModel):
     objectid: str
-    parentid: Optional[str] = None
-    title: Optional[str] = "Kein Titel"
-    description: Optional[str] = "Keine Beschreibung"
-    relation: Optional[List[Any]] = None
-    coverage: Optional[str] = None
-    isPartOf: Optional[List[Any]] = None
-    creator: Optional[List[str] | str] = "Kein Ersteller"
-    publisher: Optional[List[str] | str] = "Kein Herausgeber"
-    source: Optional[List[str] | str] = "Keine Quelle"
-    date: Optional[str] = "Kein Datum"
-    type: Optional[str] = None
-    format: Optional[str] = None
-    extent: Optional[str] = None
-    language: Optional[str] = None
-    rights: Optional[str] = None
-    license: Optional[str] = None
-    object_location: Optional[HttpUrl] = None
-    image_alt_text: Optional[str] = ""
-    object_thumb: Optional[HttpUrl] = None
-    reference_url: Optional[HttpUrl] = None
-    era: Optional[str] = Field(default=None, alias="Epoche")
+    parentid: str | None = None
+    title: str | None = "Kein Titel"
+    description: str | None = "Keine Beschreibung"
+    relation: list[Any] | None = None
+    coverage: str | None = None
+    isPartOf: list[Any] | None = None
+    creator: list[str] | str | None = "Kein Ersteller"
+    publisher: list[str] | str | None = "Kein Herausgeber"
+    source: list[str] | str | None = "Keine Quelle"
+    date: str | None = "Kein Datum"
+    type: str | None = None
+    format: str | None = None
+    extent: str | None = None
+    language: str | None = None
+    rights: str | None = None
+    license: str | None = None
+    object_location: HttpUrl | None = None
+    image_alt_text: str | None = ""
+    object_thumb: HttpUrl | None = None
+    reference_url: HttpUrl | None = None
+    era: str | None = Field(default=None, alias="Epoche")
 
     @field_validator("creator", "publisher", "source")
     @classmethod
@@ -220,57 +230,52 @@ class MediaObject(BaseModel):
 class ORMessageContent(BaseModel):
     role: str
     content: str
-    refusal: Optional[str] = None
-    reasoning: Optional[str] = None
+    refusal: str | None = None
+    reasoning: str | None = None
 
 
 class ORChoice(BaseModel):
     index: int
-    finish_reason: Optional[str] = None
-    native_finish_reason: Optional[str] = None
+    finish_reason: str | None = None
+    native_finish_reason: str | None = None
     message: ORMessageContent
 
 
 class ORPromptTokensDetails(BaseModel):
-    cached_tokens: Optional[int] = 0
-    audio_tokens: Optional[int] = 0
+    cached_tokens: int | None = 0
+    audio_tokens: int | None = 0
 
 
 class ORCompletionTokensDetails(BaseModel):
-    reasoning_tokens: Optional[int] = 0
-    image_tokens: Optional[int] = 0
+    reasoning_tokens: int | None = 0
+    image_tokens: int | None = 0
 
 
 class ORCostDetails(BaseModel):
-    upstream_inference_cost: Optional[float] = None
-    upstream_inference_prompt_cost: Optional[float] = None
-    upstream_inference_completions_cost: Optional[float] = None
+    upstream_inference_cost: float | None = None
+    upstream_inference_prompt_cost: float | None = None
+    upstream_inference_completions_cost: float | None = None
 
 
 class ORUsage(BaseModel):
     prompt_tokens: int
     completion_tokens: int
     total_tokens: int
-    cost: Optional[float] = None
-    is_byok: Optional[bool] = None
-    prompt_tokens_details: Optional[ORPromptTokensDetails] = None
-    completion_tokens_details: Optional[ORCompletionTokensDetails] = None
-    cost_details: Optional[ORCostDetails] = None
+    cost: float | None = None
+    is_byok: bool | None = None
+    prompt_tokens_details: ORPromptTokensDetails | None = None
+    completion_tokens_details: ORCompletionTokensDetails | None = None
+    cost_details: ORCostDetails | None = None
 
 
 class ORCompletion(BaseModel):
     id: str
-    provider: Optional[str] = None
+    provider: str | None = None
     model: str
-    object: Optional[str] = None
-    created: Optional[int] = None
-    choices: List[ORChoice]
-    usage: Optional[ORUsage] = None
-
-
-class RowWide(BaseModel):
-    objectid: str
-    prompt_sha256: str
+    object: str | None = None
+    created: int | None = None
+    choices: list[ORChoice]
+    usage: ORUsage | None = None
 
 
 def utc_now_iso() -> str:
@@ -291,19 +296,19 @@ def mk_run_dir() -> Path:
 
 
 def atomic_write_bytes(path: Path, data: bytes) -> None:
-    tmp = Path(str(path) + ".tmp")
+    tmp = Path(f"{path}.tmp")
     tmp.write_bytes(data)
     tmp.replace(path)
 
 
 def atomic_write_text(path: Path, text: str, encoding: str = "utf-8") -> None:
-    tmp = Path(str(path) + ".tmp")
+    tmp = Path(f"{path}.tmp")
     tmp.write_text(text, encoding=encoding)
     tmp.replace(path)
 
 
 def atomic_write_df_csv(df: pd.DataFrame, path: Path) -> None:
-    tmp = Path(str(path) + ".tmp")
+    tmp = Path(f"{path}.tmp")
     df.to_csv(tmp, index=False, encoding="utf-8")
     tmp.replace(path)
 
@@ -350,7 +355,7 @@ def build_prompt(media: MediaObject) -> str:
 
 def build_messages(
     prompt: str, image_url: str
-) -> Tuple[list[dict[str, Any]], str, str]:
+) -> tuple[list[dict[str, Any]], str, str]:
     system = """ZIEL
 
 Alt-Texte für historische und archäologische Sammlungsbilder.
@@ -408,23 +413,15 @@ Nur visuelle Analyse (Bildinhalt) und übergebene Metadaten. Keine externen Kont
 
 
 def ensure_env() -> str:
-    load_dotenv()
-    api_key = os.getenv("OPENROUTER_API_KEY")
-    if not api_key:
+    """Loads API key from .env file or environment variables."""
+    try:
+        settings = Settings()
+        return settings.OPENROUTER_API_KEY.get_secret_value()
+    except ValidationError as e:
         raise ValueError(
-            "OPENROUTER_API_KEY not found. Set it in your environment or .env."
-        )
-    return api_key
-
-
-def init_wide_row(objectid: str, prompt_sha: str) -> dict[str, Any]:
-    base = RowWide(objectid=objectid, prompt_sha256=prompt_sha).model_dump()
-    for m in MODELS:
-        p = m.replace("/", "__")
-        for k in COLS:
-            base[col(p, k)] = None
-    base["created_utc"] = utc_now_iso()
-    return base
+            "OPENROUTER_API_KEY not found. Set it in your environment or .env.\n"
+            f"Details: {e}"
+        ) from e
 
 
 def persist_json(path: Path, data: dict | list | str | int | float | None) -> None:
@@ -453,7 +450,7 @@ def call_openrouter(
     api_key: str,
     model: str,
     messages: list[dict[str, Any]],
-    session: Optional[requests.Session] = None,
+    session: requests.Session | None = None,
     max_attempts: int = 5,
 ) -> ORCompletion:
     headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
@@ -522,6 +519,30 @@ def call_openrouter(
             ) from e
 
 
+def create_wide_df_from_long(df_long: pd.DataFrame) -> pd.DataFrame:
+    """
+    Pivots the long DataFrame to the wide format.
+    """
+    if df_long.empty:
+        return pd.DataFrame()
+
+    df_wide = df_long.pivot(
+        index=["objectid", "prompt_sha256"],
+        columns="model",
+        values=PIVOT_COLS,
+    )
+
+    # Flatten the multi-index columns (e.g., ('content', 'openai/gpt-4o-mini'))
+    df_wide.columns = [
+        f"{model.replace('/', '__')}__{col_name}"
+        for col_name, model in df_wide.columns.values
+    ]
+
+    # Add a 'created_utc' column for the run
+    df_wide["created_utc"] = utc_now_iso()
+    return df_wide.reset_index()
+
+
 def main() -> None:
     api_key = ensure_env()
     run_t0 = perf_counter()
@@ -540,7 +561,6 @@ def main() -> None:
     if missing:
         raise KeyError(f"Missing media ids in metadata: {missing}")
 
-    rows_wide: list[dict[str, Any]] = []
     long_rows: list[dict[str, Any]] = []
     prompt_rows: list[dict[str, str]] = []
 
@@ -562,10 +582,8 @@ def main() -> None:
                 "image_url": str(media.object_thumb),
             }
         )
-        row = init_wide_row(objectid=mid, prompt_sha=prompt_sha)
 
         for model in MODELS:
-            prefix = model.replace("/", "__")
             t0 = perf_counter()
             started_iso = utc_now_iso()
             try:
@@ -575,25 +593,12 @@ def main() -> None:
                 ended_iso = utc_now_iso()
                 t1 = perf_counter()
                 persist_json(
-                    raw_dir / f"{mid}__{prefix}.json", orc.model_dump(mode="json")
+                    raw_dir / f"{mid}__{model.replace('/', '__')}.json",
+                    orc.model_dump(mode="json"),
                 )
                 content = orc.choices[0].message.content if orc.choices else ""
                 finish_reason = orc.choices[0].finish_reason if orc.choices else None
-                row[col(prefix, "content")] = content
-                row[col(prefix, "finish_reason")] = finish_reason
-                row[col(prefix, "provider")] = orc.provider
-                row[col(prefix, "created")] = orc.created
-                row[col(prefix, "id")] = orc.id
-                if orc.usage:
-                    row[col(prefix, "usage_prompt_tokens")] = orc.usage.prompt_tokens
-                    row[col(prefix, "usage_completion_tokens")] = (
-                        orc.usage.completion_tokens
-                    )
-                    row[col(prefix, "usage_total_tokens")] = orc.usage.total_tokens
-                    row[col(prefix, "usage_cost")] = orc.usage.cost
-                row[col(prefix, "request_started_utc")] = started_iso
-                row[col(prefix, "request_ended_utc")] = ended_iso
-                row[col(prefix, "latency_seconds")] = round(t1 - t0, 6)
+
                 long_rows.append(
                     {
                         "objectid": mid,
@@ -601,6 +606,7 @@ def main() -> None:
                         "model": model,
                         "provider": orc.provider,
                         "created": orc.created,
+                        "id": orc.id,
                         "request_started_utc": started_iso,
                         "request_ended_utc": ended_iso,
                         "latency_seconds": round(t1 - t0, 6),
@@ -626,10 +632,6 @@ def main() -> None:
                 logging.error(
                     "model call failed objectid=%s model=%s error=%s", mid, model, err
                 )
-                row[col(prefix, "error")] = err
-                row[col(prefix, "request_started_utc")] = started_iso
-                row[col(prefix, "request_ended_utc")] = ended_iso
-                row[col(prefix, "latency_seconds")] = round(t1 - t0, 6)
                 long_rows.append(
                     {
                         "objectid": mid,
@@ -637,6 +639,7 @@ def main() -> None:
                         "model": model,
                         "provider": None,
                         "created": None,
+                        "id": None,
                         "request_started_utc": started_iso,
                         "request_ended_utc": ended_iso,
                         "latency_seconds": round(t1 - t0, 6),
@@ -650,8 +653,6 @@ def main() -> None:
                     }
                 )
                 continue
-
-        rows_wide.append(row)
 
         try:
             _ = save_image_to_folder(
@@ -667,19 +668,21 @@ def main() -> None:
 
     stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     base = run_dir / f"alt_text_runs_{stamp}"
-    df_wide = pd.DataFrame(rows_wide)
+
+    # Create both DataFrames from the single 'long_rows' list
     df_long = pd.DataFrame(long_rows)
+    df_wide = create_wide_df_from_long(df_long)
 
     atomic_write_df_csv(df_wide, Path(f"{base}_wide.csv"))
     atomic_write_df_csv(df_long, Path(f"{base}_long.csv"))
-    df_wide.to_parquet(f"{base}_wide.parquet", index=False)  # fail loud
-    df_long.to_parquet(f"{base}_long.parquet", index=False)  # fail loud
+    df_wide.to_parquet(f"{base}_wide.parquet", index=False)
+    df_long.to_parquet(f"{base}_long.parquet", index=False)
 
     jsonl_long = Path(f"{base}_long.jsonl")
-    with (Path(str(jsonl_long) + ".tmp")).open("w", encoding="utf-8") as f:
+    with (Path(f"{jsonl_long}.tmp")).open("w", encoding="utf-8") as f:
         for r in df_long.to_dict(orient="records"):
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
-    Path(str(jsonl_long) + ".tmp").replace(jsonl_long)
+    Path(f"{jsonl_long}.tmp").replace(jsonl_long)
 
     run_t1 = perf_counter()
     manifest = {
@@ -708,9 +711,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
-
-# TODO:
-
-# - Add heuristic checks for obviously bad alt-texts (e.g., too short/too long, "image of", etc.)
-# - Add heuristic for complex images (e.g., presence of "chart", "diagram", "map" in metadata)

@@ -1,4 +1,3 @@
-<!-- forms.html -->
 <script type="module">
 	/* ---------- Configuration ---------- */
 	const CSV_URL = 'questions.csv';
@@ -105,33 +104,30 @@
 		initialTimestampsById: {} // { [objectid]: ISOString }
 	};
 
-	/* ---------- UI refs ---------- */
-	const pageIntro = document.getElementById('page-intro');
-	const pageQ = document.getElementById('page-q');
-	const pageFinish = document.getElementById('page-finish');
-
-	const startBtn = document.getElementById('start');
-	const consent = document.getElementById('consent');
-	const email = document.getElementById('email');
-	const emailMsg = document.getElementById('email-msg');
-
-	const progress = document.getElementById('progress');
-	const imgEl = document.getElementById('q-image');
-	const captionEl = document.getElementById('q-caption');
-	const instrEl = document.getElementById('q-instr');
-
-	const prevBtn = document.getElementById('prev');
-	const nextBtn = document.getElementById('next');
-
-	const rankList = document.getElementById('rank-list');
-	const liveRegion = document.getElementById('aria-live');
-
-	const submitBtn = document.getElementById('submit');
-	const sendMsg = document.getElementById('send-msg');
-	const summary = document.getElementById('summary');
+	/* ---------- UI refs (Grouped for maintainability) ---------- */
+	const ui = {
+		pageIntro: document.getElementById('page-intro'),
+		pageQ: document.getElementById('page-q'),
+		pageFinish: document.getElementById('page-finish'),
+		startBtn: document.getElementById('start'),
+		consent: document.getElementById('consent'),
+		email: document.getElementById('email'),
+		emailMsg: document.getElementById('email-msg'),
+		progress: document.getElementById('progress'),
+		imgEl: document.getElementById('q-image'),
+		captionEl: document.getElementById('q-caption'),
+		instrEl: document.getElementById('q-instr'),
+		prevBtn: document.getElementById('prev'),
+		nextBtn: document.getElementById('next'),
+		rankList: document.getElementById('rank-list'),
+		liveRegion: document.getElementById('aria-live'),
+		submitBtn: document.getElementById('submit'),
+		sendMsg: document.getElementById('send-msg'),
+		summary: document.getElementById('summary')
+	};
 
 	function show(el) {
-		[pageIntro, pageQ, pageFinish].forEach((p) => p.classList.add('d-none'));
+		[ui.pageIntro, ui.pageQ, ui.pageFinish].forEach((p) => p.classList.add('d-none'));
 		el.classList.remove('d-none');
 	}
 
@@ -143,11 +139,11 @@
 	/* ---------- Render ---------- */
 	function renderQuestion() {
 		const q = currentQuestion();
-		progress.textContent = `Frage ${state.idx + 1} von ${state.qOrder.length}`;
-		imgEl.src = q.img;
-		imgEl.alt = q.title || 'Abbildung';
-		captionEl.innerHTML = `<strong>${q.title || 'Ohne Titel'}</strong>${q.caption ? ` <span class="text-muted">— ${escapeHtml(q.caption)}</span>` : ''}`;
-		instrEl.textContent =
+		ui.progress.textContent = `Frage ${state.idx + 1} von ${state.qOrder.length}`;
+		ui.imgEl.src = q.img;
+		ui.imgEl.alt = q.title || 'Abbildung';
+		ui.captionEl.innerHTML = `<strong>${q.title || 'Ohne Titel'}</strong>${q.caption ? ` <span class="text-muted">— ${escapeHtml(q.caption)}</span>` : ''}`;
+		ui.instrEl.textContent =
 			'Ordne die vier Beschreibungen per Drag & Drop. Beste nach oben. Schlechteste nach unten. Tastatur: ↑/↓ verschieben, 1–4 springt zur Position.';
 
 		// Initial order: previously saved ranking or shuffled
@@ -165,8 +161,8 @@
 		}
 
 		// Build list …
-		rankList.innerHTML = '';
-		rankList.setAttribute('aria-label', `Ranking für ${q.title}`);
+		ui.rankList.innerHTML = '';
+		ui.rankList.setAttribute('aria-label', `Ranking für ${q.title}`);
 		const size = orderIds.length;
 		orderIds.forEach((optId, i) => {
 			const opt = q.options.find((o) => o.id === optId);
@@ -197,13 +193,13 @@
 			li.appendChild(badge);
 			li.appendChild(text);
 			li.appendChild(handle);
-			rankList.appendChild(li);
+			ui.rankList.appendChild(li);
 		});
 		updateNavButtons();
 	}
 
 	function updatePosAria() {
-		const items = [...rankList.querySelectorAll('.rank-item')];
+		const items = [...ui.rankList.querySelectorAll('.rank-item')];
 		items.forEach((el, i) => {
 			el.setAttribute('aria-posinset', String(i + 1));
 			const b = el.querySelector('.rank-badge');
@@ -213,19 +209,19 @@
 
 	function saveCurrentRanking() {
 		const q = currentQuestion();
-		const ids = [...rankList.querySelectorAll('.rank-item')].map((el) => el.dataset.id);
+		const ids = [...ui.rankList.querySelectorAll('.rank-item')].map((el) => el.dataset.id);
 		state.answersById[q.id] = ids;
 		state.timestampsById[q.id] = new Date().toISOString();
 	}
 
 	function restoreFocusAfterReorder(targetId) {
-		const el = rankList.querySelector(`.rank-item[data-id="${CSS.escape(targetId)}"]`);
+		const el = ui.rankList.querySelector(`.rank-item[data-id="${CSS.escape(targetId)}"]`);
 		if (el) el.focus();
 	}
 
 	function updateNavButtons() {
-		prevBtn.classList.toggle('disabled', state.idx === 0);
-		nextBtn.textContent = state.idx === state.qOrder.length - 1 ? 'Zur Auswertung' : 'Weiter';
+		ui.prevBtn.classList.toggle('disabled', state.idx === 0);
+		ui.nextBtn.textContent = state.idx === state.qOrder.length - 1 ? 'Zur Auswertung' : 'Weiter';
 	}
 
 	function escapeHtml(s) {
@@ -238,7 +234,7 @@
 	/* ---------- Drag & Drop ---------- */
 	let dragId = null;
 
-	rankList.addEventListener('dragstart', (e) => {
+	ui.rankList.addEventListener('dragstart', (e) => {
 		const li = e.target.closest('.rank-item');
 		if (!li) return;
 		dragId = li.dataset.id;
@@ -246,10 +242,10 @@
 		li.classList.add('dragging');
 		e.dataTransfer.setData('text/plain', dragId);
 		e.dataTransfer.effectAllowed = 'move';
-		liveRegion.textContent = `Greife Element, Position ${li.getAttribute('aria-posinset')}.`;
+		ui.liveRegion.textContent = `Greife Element, Position ${li.getAttribute('aria-posinset')}.`;
 	});
 
-	rankList.addEventListener('dragend', (e) => {
+	ui.rankList.addEventListener('dragend', (e) => {
 		const li = e.target.closest('.rank-item');
 		if (li) {
 			li.setAttribute('aria-grabbed', 'false');
@@ -260,15 +256,15 @@
 		updatePosAria();
 	});
 
-	rankList.addEventListener('dragover', (e) => {
+	ui.rankList.addEventListener('dragover', (e) => {
 		e.preventDefault();
-		const after = getDragAfterElement(rankList, e.clientY);
-		const dragging = rankList.querySelector('.dragging');
+		const after = getDragAfterElement(ui.rankList, e.clientY);
+		const dragging = ui.rankList.querySelector('.dragging');
 		if (!dragging) return;
 		if (after == null) {
-			rankList.appendChild(dragging);
+			ui.rankList.appendChild(dragging);
 		} else {
-			rankList.insertBefore(dragging, after);
+			ui.rankList.insertBefore(dragging, after);
 		}
 	});
 
@@ -287,71 +283,71 @@
 	}
 
 	/* ---------- Keyboard reordering ---------- */
-	rankList.addEventListener('keydown', (e) => {
+	ui.rankList.addEventListener('keydown', (e) => {
 		const item = e.target.closest('.rank-item');
 		if (!item) return;
 
-		const items = [...rankList.querySelectorAll('.rank-item')];
+		const items = [...ui.rankList.querySelectorAll('.rank-item')];
 		const idx = items.indexOf(item);
 		const last = items.length - 1;
 
 		if (e.key === 'ArrowUp') {
 			e.preventDefault();
 			if (idx > 0) {
-				rankList.insertBefore(item, items[idx - 1]);
+				ui.rankList.insertBefore(item, items[idx - 1]);
 				updatePosAria();
 				saveCurrentRanking();
 				restoreFocusAfterReorder(item.dataset.id);
-				liveRegion.textContent = `Verschoben auf Position ${idx}.`;
+				ui.liveRegion.textContent = `Verschoben auf Position ${idx}.`;
 			}
 		} else if (e.key === 'ArrowDown') {
 			e.preventDefault();
 			if (idx < last) {
-				rankList.insertBefore(items[idx + 1], item);
+				ui.rankList.insertBefore(items[idx + 1], item);
 				updatePosAria();
 				saveCurrentRanking();
 				restoreFocusAfterReorder(item.dataset.id);
-				liveRegion.textContent = `Verschoben auf Position ${idx + 2}.`;
+				ui.liveRegion.textContent = `Verschoben auf Position ${idx + 2}.`;
 			}
 		} else if (/^[1-9]$/.test(e.key)) {
 			const pos = clamp(parseInt(e.key, 10) - 1, 0, last);
 			e.preventDefault();
 			if (pos !== idx) {
 				if (pos === last) {
-					rankList.appendChild(item);
+					ui.rankList.appendChild(item);
 				} else {
-					const ref = [...rankList.querySelectorAll('.rank-item')][pos];
-					rankList.insertBefore(item, ref);
+					const ref = [...ui.rankList.querySelectorAll('.rank-item')][pos];
+					ui.rankList.insertBefore(item, ref);
 				}
 				updatePosAria();
 				saveCurrentRanking();
 				restoreFocusAfterReorder(item.dataset.id);
-				liveRegion.textContent = `Gesetzt auf Position ${pos + 1}.`;
+				ui.liveRegion.textContent = `Gesetzt auf Position ${pos + 1}.`;
 			}
 		}
 	});
 
 	/* ---------- Flow ---------- */
-	startBtn.addEventListener('click', async () => {
-		state.email = email.value.trim();
-		state.consent = consent.checked;
+	ui.startBtn.addEventListener('click', async () => {
+		state.email = ui.email.value.trim();
+		state.consent = ui.consent.checked;
 
 		if (!state.consent) {
-			emailMsg.textContent = 'Bitte Einwilligung erteilen.';
+			ui.emailMsg.textContent = 'Bitte Einwilligung erteilen.';
 			return;
 		}
 		if (!state.email) {
-			emailMsg.textContent = 'E-Mail ist erforderlich.';
+			ui.emailMsg.textContent = 'E-Mail ist erforderlich.';
 			return;
 		}
 		if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(state.email)) {
-			emailMsg.textContent = 'Ungültige E-Mail.';
+			ui.emailMsg.textContent = 'Ungültige E-Mail.';
 			return;
 		}
 
 		state.questions = await loadQuestions();
 		if (!state.questions.length) {
-			emailMsg.textContent = 'Keine Fragen geladen. Prüfe questions.csv.';
+			ui.emailMsg.textContent = 'Keine Fragen geladen. Prüfe questions.csv.';
 			return;
 		}
 		state.qOrder = shuffle(
@@ -360,24 +356,24 @@
 		);
 		state.idx = 0;
 		state.answersById = {};
-		show(pageQ);
+		show(ui.pageQ);
 		renderQuestion();
-		emailMsg.textContent = '';
+		ui.emailMsg.textContent = '';
 	});
 
-	nextBtn.addEventListener('click', () => {
+	ui.nextBtn.addEventListener('click', () => {
 		saveCurrentRanking();
 		if (state.idx < state.qOrder.length - 1) {
 			state.idx++;
 			renderQuestion();
 		} else {
 			const done = Object.keys(state.answersById).length;
-			summary.textContent = `Bereit zum Senden. ${done} vollständige Rankings erfasst.`;
-			show(pageFinish);
+			ui.summary.textContent = `Bereit zum Senden. ${done} vollständige Rankings erfasst.`;
+			show(ui.pageFinish);
 		}
 	});
 
-	prevBtn.addEventListener('click', () => {
+	ui.prevBtn.addEventListener('click', () => {
 		if (state.idx > 0) {
 			saveCurrentRanking();
 			state.idx--;
@@ -385,7 +381,7 @@
 		}
 	});
 
-	submitBtn.addEventListener('click', async () => {
+	ui.submitBtn.addEventListener('click', async () => {
 		// Validate completion
 		const expected = state.qOrder.length;
 		const done = Object.keys(state.answersById).length;
@@ -439,23 +435,22 @@
 			answers
 		};
 
-		sendMsg.textContent = 'Senden…';
+		ui.sendMsg.textContent = 'Senden…';
 		try {
 			const r = await fetch(FORMSPREE_ENDPOINT, {
 				method: 'POST',
 				headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
 				body: JSON.stringify(payload)
 			});
-			sendMsg.textContent = r.ok ? 'Danke. Antworten gespeichert.' : 'Fehler beim Senden.';
-			if (r.ok) submitBtn.disabled = true;
+			ui.sendMsg.textContent = r.ok ? 'Danke. Antworten gespeichert.' : 'Fehler beim Senden.';
+			if (r.ok) ui.submitBtn.disabled = true;
 		} catch (err) {
-			sendMsg.textContent = 'Netzwerkfehler: ' + err;
+			ui.sendMsg.textContent = 'Netzwerkfehler: ' + err;
 		}
 	});
 </script>
 
 <div class="container my-4" id="app">
-	<!-- Seite 1: Einleitung & Kontakt -->
 	<div class="card" id="page-intro">
 		<div class="card-body">
 			<h3 class="card-title mb-3">Studie: Vergleich von Alternativtexten</h3>
@@ -474,8 +469,12 @@
 					<li>Wesentliche visuelle Merkmale priorisieren; Kontext nur bei Verständnishilfe.</li>
 					<li>
 						Weiterführende Links:
-						<a href="https://www.hilfsgemeinschaft.at/aktuelles/blog/detail/7-regeln-fuer-gute-alt-texte/"
-							target="_blank" rel="noopener">7 Regeln für gute Alt-Texte</a>
+						<a
+							href="https://www.hilfsgemeinschaft.at/aktuelles/blog/detail/7-regeln-fuer-gute-alt-texte/"
+							target="_blank"
+							rel="noopener"
+							>7 Regeln für gute Alt-Texte</a
+						>
 						(nur lesen, falls Unklarheiten bestehen)
 					</li>
 				</ul>
@@ -490,7 +489,13 @@
 
 			<div class="mb-3">
 				<label for="email" class="form-label">E-Mail<span class="text-danger">*</span></label>
-				<input id="email" type="email" class="form-control" placeholder="name@example.org" required />
+				<input
+					id="email"
+					type="email"
+					class="form-control"
+					placeholder="name@example.org"
+					required
+				/>
 			</div>
 
 			<div class="form-check mb-3">
@@ -505,23 +510,25 @@
 		</div>
 	</div>
 
-	<!-- Seite 2: Frage -->
 	<div class="card d-none" id="page-q">
 		<div class="card-body">
 			<div id="progress" class="text-muted mb-3"></div>
 
 			<div class="q-grid">
-				<!-- Linke Hälfte: Bild -->
 				<figure class="figure mb-0 text-center q-figure">
 					<img id="q-image" class="q-image img-fluid" alt="" />
 					<figcaption id="q-caption" class="small text-muted mt-2"></figcaption>
 				</figure>
 
-				<!-- Rechte Hälfte: Ranking -->
 				<div class="q-right">
 					<p id="q-instr" class="text-muted mb-2"></p>
-					<ol id="rank-list" class="rank-list" role="listbox" aria-label="Ranking"
-						aria-describedby="rank-help"></ol>
+					<ol
+						id="rank-list"
+						class="rank-list"
+						role="listbox"
+						aria-label="Ranking"
+						aria-describedby="rank-help"
+					></ol>
 					<p id="rank-help" class="visually-hidden">
 						Verschiebe Elemente per Drag und Drop oder nutze Pfeiltasten. Beste Beschreibung nach
 						oben.
@@ -529,7 +536,11 @@
 					<div id="aria-live" class="visually-hidden" aria-live="polite"></div>
 
 					<div class="d-flex gap-2 mt-3">
-						<button id="prev" class="btn btn-outline-secondary" aria-label="Zurück zur vorherigen Frage">
+						<button
+							id="prev"
+							class="btn btn-outline-secondary"
+							aria-label="Zurück zur vorherigen Frage"
+						>
 							Zurück
 						</button>
 						<button id="next" class="btn btn-primary" aria-label="Weiter zur nächsten Frage">
@@ -541,7 +552,6 @@
 		</div>
 	</div>
 
-	<!-- Seite 3: Abschluss -->
 	<div class="card d-none" id="page-finish">
 		<div class="card-body">
 			<h3 class="card-title mb-3">Abschluss</h3>
@@ -553,101 +563,6 @@
 </div>
 
 <style>
-	/* Layout helpers (Bootstrap-like classes used if available) */
-	.container {
-		max-width: 100%;
-		margin: 0 auto;
-		padding: 0 1rem;
-	}
-
-	.card {
-		border: 1px solid #e5e7eb;
-		border-radius: 0.5rem;
-		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-	}
-
-	.card-body {
-		padding: 1rem;
-	}
-
-	.btn {
-		padding: 0.5rem 0.75rem;
-		border-radius: 0.375rem;
-		cursor: pointer;
-		border: 1px solid #d1d5db;
-		background: #f9fafb;
-	}
-
-	.btn-primary {
-		background: #0d6efd;
-		border-color: #0d6efd;
-		color: #fff;
-	}
-
-	.btn-outline-secondary {
-		background: #fff;
-		border-color: #cbd5e1;
-		color: #374151;
-	}
-
-	.btn:disabled {
-		opacity: 0.6;
-		cursor: not-allowed;
-	}
-
-	.d-none {
-		display: none !important;
-	}
-
-	.text-muted {
-		color: #6b7280;
-	}
-
-	.small {
-		font-size: 0.875rem;
-	}
-
-	.mb-0 {
-		margin-bottom: 0;
-	}
-
-	.mb-1 {
-		margin-bottom: 0.25rem;
-	}
-
-	.mb-2 {
-		margin-bottom: 0.5rem;
-	}
-
-	.mb-3 {
-		margin-bottom: 1rem;
-	}
-
-	.mt-2 {
-		margin-top: 0.5rem;
-	}
-
-	.mt-3 {
-		margin-top: 1rem;
-	}
-
-	.my-4 {
-		margin: 1.5rem 0;
-	}
-
-	.gap-2 {
-		gap: 0.5rem;
-	}
-
-	.visually-hidden {
-		position: absolute !important;
-		height: 1px;
-		width: 1px;
-		overflow: hidden;
-		clip: rect(1px, 1px, 1px, 1px);
-		white-space: nowrap;
-	}
-
 	/* Q layout */
 	.q-grid {
 		display: grid;
@@ -697,8 +612,9 @@
 		border-bottom: 0;
 	}
 
+	/* Use Bootstrap's focus ring variable if available, otherwise fallback */
 	.rank-item:focus {
-		box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.45);
+		box-shadow: 0 0 0 3px var(--bs-primary-border-subtle, rgba(59, 130, 246, 0.45));
 		border-radius: 0.375rem;
 	}
 

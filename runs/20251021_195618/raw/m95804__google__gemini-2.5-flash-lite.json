@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761069398-r6Y7j32RmnYYmkxcPrfl",
+	"provider": "Google",
+	"model": "google/gemini-2.5-flash-lite",
+	"object": "chat.completion",
+	"created": 1761069398,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "STOP",
+			"message": {
+				"role": "assistant",
+				"content": "Abbruch des St. Johanns-Schwibbogens um 1874 in Basel. Baugerüste und Trümmerteile auf der Strasse.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1967,
+		"completion_tokens": 32,
+		"total_tokens": 1999,
+		"cost": 0.0002095,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001967,
+			"upstream_inference_completions_cost": 1.28e-5
+		}
+	}
+}

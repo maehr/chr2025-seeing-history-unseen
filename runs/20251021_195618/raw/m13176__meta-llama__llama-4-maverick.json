@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761069503-jjTHmixm861IuLdirs6s",
+	"provider": "Fireworks",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1761069503,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Narr in roter Kappe isst mit Messer und Löffel; Schwein, Krüge und Schüsseln neben ihm, kolorierte Zeichnung mit handschriftlichem Text, 17. Jahrhundert, Stammbuch von Jacob Götz.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1597,
+		"completion_tokens": 52,
+		"total_tokens": 1649,
+		"cost": 0.0003971,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00035134,
+			"upstream_inference_completions_cost": 4.576e-5
+		}
+	}
+}

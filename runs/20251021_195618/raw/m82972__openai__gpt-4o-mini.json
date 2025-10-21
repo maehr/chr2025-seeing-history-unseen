@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761069471-a9WIiKmdznzQdrbmpW33",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761069471,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Karte: Durchschnittliche jährliche Wachstumsraten der Life Sciences in verschiedenen Regionen (2000–2010). Große rote Kreise repräsentieren den Anteil der Life Sciences am regionalen BIP. Region Basel weist den höchsten Wert auf, gefolgt von Schanghai und Cambridge. Weitere prominent dargestellte Regionen sind Singapore, San Francisco Bay Area, Genf und Zürich. In der Mitte sind die prozentualen Beiträge der Life Sciences zum jährlichen Wachstum aufgeführt: 1,70%, 0,95% und 0,20%.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26186,
+		"completion_tokens": 114,
+		"total_tokens": 26300,
+		"cost": 0.0039963,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0039279,
+			"upstream_inference_completions_cost": 6.84e-5
+		}
+	}
+}

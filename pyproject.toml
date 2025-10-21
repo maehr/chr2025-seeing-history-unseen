@@ -8,14 +8,10 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "click>=8.3.0",
-    "fastparquet>=2024.11.0",
-    "jupyter>=1.1.1",
-    "openai>=2.4.0",
     "pandas>=2.2.0",
     "pyarrow>=21.0.0",
     "pydantic>=2.12.2",
-    "python-dotenv>=1.1.1",
+    "pydantic-settings>=2.11.0",
     "requests>=2.32.5",
 ]
 

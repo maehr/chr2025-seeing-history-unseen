@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761069477-Jt1m8CIAbuyqgpt877yl",
+	"provider": "Google",
+	"model": "google/gemini-2.5-flash-lite",
+	"object": "chat.completion",
+	"created": 1761069477,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "STOP",
+			"message": {
+				"role": "assistant",
+				"content": "Freigelegte Reste der Inneren Stadtmauer von Basel aus dem Mittelalter. Die Aufnahme zeigt die mächtige Ausdehnung der Anlage.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 2361,
+		"completion_tokens": 27,
+		"total_tokens": 2388,
+		"cost": 0.0002469,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0002361,
+			"upstream_inference_completions_cost": 1.08e-5
+		}
+	}
+}

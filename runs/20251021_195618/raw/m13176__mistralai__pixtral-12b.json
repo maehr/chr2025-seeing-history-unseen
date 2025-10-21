@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761069499-Yxi8sDPpUQLTrvPy2K8q",
+	"provider": "Hyperbolic",
+	"model": "mistralai/pixtral-12b",
+	"object": "chat.completion",
+	"created": 1761069499,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": null,
+			"native_finish_reason": null,
+			"message": {
+				"role": "assistant",
+				"content": "",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 2014,
+		"completion_tokens": 0,
+		"total_tokens": 2014,
+		"cost": 0.0,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0002014,
+			"upstream_inference_completions_cost": 0.0
+		}
+	}
+}

@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761069475-6KcKwoLqksBB8N5C693C",
+	"provider": "Together",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1761069475,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Anteil der Life Sciences am regionalen Wirtschaftswachstum und Gesamtwertschöpfung 2000–2010 im Vergleich. Regionen: Zürich, San Francisco Bay Area, Singapur, Region Genf, Schanghai, Cambridge, Region Basel. Grösste Kreise: Region Basel (ca. 19 Prozent Wertschöpfung, 10 Prozent Wachstumsrate) und Schanghai (ca. 4 Prozent Wertschöpfung, 13 Prozent Wachstumsrate).",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1698,
+		"completion_tokens": 100,
+		"total_tokens": 1798,
+		"cost": 0.00054346,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00045846,
+			"upstream_inference_completions_cost": 8.5e-5
+		}
+	}
+}

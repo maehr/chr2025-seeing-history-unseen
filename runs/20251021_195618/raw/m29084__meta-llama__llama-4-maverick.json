@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761069527-fwGQavRvkxVVXiGKNnr7",
+	"provider": "Fireworks",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1761069528,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Rekonstruktionszeichnungen frühmittelalterlicher Grabtypen: Steinplattengrab, Mauer- und Kammergrab, Brandgrab und Erdbestattung.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 2047,
+		"completion_tokens": 35,
+		"total_tokens": 2082,
+		"cost": 0.00048114,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00045034,
+			"upstream_inference_completions_cost": 3.08e-5
+		}
+	}
+}
