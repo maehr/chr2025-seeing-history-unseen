@@ -4,6 +4,7 @@ project:
     - survey/questions.csv
     - survey/index.html
     - survey/images/*
+    - abstract/paper.pdf
 
 website:
   title: CHR 2025 - Seeing History Unseen
@@ -30,8 +31,8 @@ website:
     left:
       - text: Readme
         href: index.qmd
-      - text: Report
-        href: report.md
+      - text: Abstract
+        href: abstract/index.qmd
       - text: Ranking Survey
         href: survey/index.qmd
 
@@ -52,8 +53,8 @@ website:
             href: LICENSE-AGPL.md
           - text: Security
             href: SECURITY.md
-      - href: report.md
-        contents: project-management/*
+      - text: Abstract
+        href: abstract/index.qmd
       - section: Ranking Survey
         href: survey/index.qmd
 
