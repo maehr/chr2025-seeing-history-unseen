@@ -299,15 +299,25 @@
 				ui.liveRegion.textContent = `Verschoben auf Position ${idx + 2}.`;
 			}
 		} else if (/^[1-9]$/.test(e.key)) {
-			const pos = clamp(parseInt(e.key, 10) - 1, 0, last);
+			const pos = clamp(parseInt(e.key, 10) - 1, 0, last); // target 0-based index
 			e.preventDefault();
+
 			if (pos !== idx) {
-				if (pos === last) {
-					ui.rankList.appendChild(item);
+				// idx is current 0-based index
+				const currentItems = [...ui.rankList.querySelectorAll('.rank-item')];
+				let ref = null;
+
+				if (idx < pos) {
+					// Moving DOWN: Insert before the item *after* the target position.
+					// e.g., move index 0 to 2: insert before item at index 3.
+					ref = currentItems[pos + 1]; // This will be undefined if moving to the last position, which is correct.
 				} else {
-					const ref = [...ui.rankList.querySelectorAll('.rank-item')][pos];
-					ui.rankList.insertBefore(item, ref);
+					// Moving UP: Insert before the item *at* the target position.
+					// e.g., move index 3 to 1: insert before item at index 1.
+					ref = currentItems[pos];
 				}
+				ui.rankList.insertBefore(item, ref || null);
+
 				updatePosAria();
 				saveCurrentRanking();
 				restoreFocusAfterReorder(item.dataset.id);
