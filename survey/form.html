@@ -133,7 +133,7 @@
 		ui.imgEl.alt = q.title || 'Abbildung';
 		ui.captionEl.innerHTML = `<strong>${q.title || 'Ohne Titel'}</strong>`;
 		ui.instrEl.textContent =
-			'Ordne die vier Beschreibungen per Drag & Drop. Beste nach oben. Schlechteste nach unten. Tastatur: ↑/↓ verschieben, 1–4 springt zur Position.';
+			'Ordnen Sie die vier Beschreibungen per Drag & Drop. Beste nach oben, schlechteste nach unten. Tastatur: ↑/↓ verschieben, 1–4 springt zur Position.';
 
 		// Initial order: previously saved ranking or shuffled
 		let orderIds = state.answersById[q.id];
@@ -469,10 +469,10 @@
 			<h5 class="mt-4">Ziel der Studie</h5>
 			<p>
 				Wir testen, wie gut verschiedene KI-Systeme kurze Beschreibungen von historischen Objekten
-				erzeugen, die als barrierefreie Alternativtexte verwendet werden können. Dazu wurden 20 Bilder
-				ausgewählt und mit ihren Metadaten an vier verschiedene Modelle übergeben. Die Auswahl bildet
-				die unterschiedlichen in der Sammlung von Stadt.Geschichte.Basel abgedeckten Epochen und
-				Medientypen (Fotografien, Karten, Drucke, Objekte etc.) repräsentativ ab.
+				erzeugen, die als barrierefreie Alternativtexte verwendet werden können. Dazu wurden 20
+				Bilder ausgewählt und mit ihren Metadaten an vier verschiedene Modelle übergeben. Die
+				Auswahl bildet die unterschiedlichen in der Sammlung von Stadt.Geschichte.Basel abgedeckten
+				Epochen und Medientypen (Fotografien, Karten, Drucke, Objekte etc.) repräsentativ ab.
 			</p>
 			<p>
 				Ihre Einschätzung hilft uns zu ermitteln, welches Modell sich am besten für den Einsatz in
@@ -490,7 +490,8 @@
 
 			<h5 class="mt-4">Ablauf und Bewertungskriterien</h5>
 			<p>
-				Die Umfrage umfasst 20 Objekte und dauert etwa <strong>10 bis 15 Minuten</strong> (ca. 30 bis 45 Sekunden pro Bild).
+				Die Umfrage umfasst 20 Objekte und dauert etwa <strong>10 bis 15 Minuten</strong> (ca. 30
+				bis 45 Sekunden pro Bild).
 			</p>
 			<p>
 				Auf jeder Seite sehen Sie ein Sammlungsbild und vier kurze Beschreibungen. Ordnen Sie die
@@ -528,7 +529,6 @@
 					Fokus-Indikator sichtbar. Elemente sind per ARIA ausgezeichnet.
 				</p>
 			</div>
-
 			<p>
 				Wir danken Ihnen herzlich für Ihre Zeit und Ihre fachliche Einschätzung. Sie leisten damit
 				einen wichtigen Beitrag zu inklusiver, nachhaltiger und kritischer digitaler
@@ -537,7 +537,11 @@
 			<p class="mb-4">
 				Mit freundlichen Grüssen,<br />
 				Dr. Moritz Mähr und Moritz Twente<br />
-				<span class="small text-muted">Universität Bern / Universität Basel</span>
+				<span class="small text-muted"
+					>Universität Bern / Universität Basel<br />
+					Kontakt: <a href="mailto:moritz.maehr@unibas.ch">moritz.maehr@unibas.ch</a> /
+					<a href="mailto:moritz.twente@unibas.ch">moritz.twente@unibas.ch</a></span
+				>
 			</p>
 
 			<hr class="my-4" />
@@ -568,6 +572,11 @@
 					Ich willige in die Verarbeitung meiner Daten für diese Studie ein.
 				</label>
 			</div>
+
+			<p class="small text-muted">
+				Hinweis: Einige Objekte enthalten veraltete, vorurteilsbeladene oder diskriminierende
+				Darstellungen. Als historische Quellen werden diese Inhalte unverändert präsentiert.
+			</p>
 
 			<button id="start" class="btn btn-primary">Start</button>
 			<p id="email-msg" class="text-muted mt-2"></p>
