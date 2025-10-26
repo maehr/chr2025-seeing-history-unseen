@@ -135,7 +135,7 @@ possibly for future work:
 
 By answering these questions, our work will provide an empirical baseline for _AI-assisted accessibility in the humanities_. It will also offer a reflective critique, examining AI outputs as objects of study in their own right. In the following sections, we outline our data and methodology (Section 2), present initial observations from our experiments (Section 3), and discuss implications for digital humanities practice (Section 4), before concluding with planned next steps (Section 5).
 
-# Data: The _Stadt.Geschichte.Basel_ Collection
+# Data: The Stadt.Geschichte.Basel Collection
 
 <!-- OLD TEXT BEFORE REWORK:
 
@@ -143,16 +143,97 @@ To ground our evaluation in a real-world scenario, we use the digital collection
 
 For our experiments, we have obtained the collection images (in JPEG format, at a standardized size of $\sim$``{=html}800$\times$`{=html}800 pixels for computational efficiency) and their corresponding metadata in JSON format. We construct a working dataset where each entry consists of an image and its metadata (e.g., title, date, description). This metadata will be used to prompt the models, as described below. We intend to release the dataset of images, metadata, and model-generated descriptions as a benchmark for future research, following the conference's emphasis on open data and reproducibility. -->
 
-- [ ] Rework the section above so that it complies with these ideas:
+To ground our evaluation in a real-world scenario, we use research data from Stadt.Geschichte.Basel, a large-scale historical research project tracing the history of Basel from 50’000 BC to the present day. Data types produced for the nine printed volumes primarily comprise images and figures, maps and geodata, tables and statistics, and bibliographic references [@maehr_2022]. Spanning the time frame covered by the project and featuring more than 1700 media objects as of October 2025 -- heterogeneous digitized items, including historical photographs, reproductions of artifacts, city maps and architectural plans, handwritten letters and manuscripts, statistical charts, and printed ephemera (e.g., newspaper clippings, posters) -- this data set is FAIRly available on the project’s Open Research Data Platform. The Stadt.Geschichte.Basel collection is enriched with metadata in a Dublin Core schema created by our Team for Research Data Management Team in a comprehensive annotation workflow following guidelines set out in our handbook for the creation of non-discriminatory metadata [@maehrHandbuchZurErstellung2024].
 
-Write a short intro to the collection (public history Basel, heterogeneous types, no alt texts yet, metadata available). Then give a **table** or **figure** with descriptive statistics of the sample used in the evaluation (n=100 images). Include type, era, language distributions, and cross-tabs.
+Crucially, alt texts have been missing in our data model until now, rendering this collection an ideal testing ground for our study. The diversity of the corpus poses a significant challenge to automated captioning: many figures are visually and historically complex, requiring domain knowledge to describe properly. This dataset thus allows us to investigate whether AI captioners can handle the 'long tail' of content found in historical archives, beyond the everyday photographs on which many models are trained.
 
-**Selection (n=100 items):**
+## Dataset for Alt-Text Generation and Evaluation
 
-- **Types** (balanced): Object 13; Art 12; Scans 10; Maps 10; Photos (archaeology) 10; Photos (historical scenes) 10; Drawings (hist.) 10; Drawings (reconstr.) 10; Diagrams (stats) 10; Diagrams (flow) 5.
-- **Eras**: 20. Jh. 25; Frühe Neuzeit 21; 19. Jh. 19; Mittelalter 16; Frühgeschichte 11; plus Antike and 21. Jh. present.
-- **Languages**: mostly **de**, with **fr** and **la** pockets.
-- **Cross-tabs** show coverage across Type×Era and Type×Language; German dominates, maps/diagrams type-specific.
+From the available project corpus, we compiled a dataset where each entry consists of an image and its metadata (e.g. title, date, description) of 100 images from the Stadt.Geschichte.Basel Research Data Platform to be used for alt-text generation. To prompt the models as described below, we use the files in JPG format, at a standardized size of 800x800 pixels for computational efficiency, and their corresponding metadata in JSON format. We intend to release the dataset of images, metadata, and model-generated descriptions as a benchmark for future research, following the conference's emphasis on open data and reproducibility.
+
+The dataset was manually curated prior to test runs of the AI-generation process and slightly adapted after first trials. We aimed to have a selection reflecting both the heterogeneity of data types and the diverse historical content that make up the Stadt.Geschichte.Basel collection, while keeping ourselves to a size that is feasible both for processing in our pipeline and for the conduction of an evaluation survey. Although the dataset was limited to the media items available on the Research Data Platform at the time of writing, we strove to create a balanced selection across data types, eras, languages, and geographical context.
+
+For the alt-text evaluation survey, we created a smaller subset of 20 items from the original 100-item dataset. This survey subset was selected to maintain representativeness across the same dimensions -- type, era, language, geography -- while being manageable for expert reviewers to assess within a reasonable time frame.
+
+### Distribution by Type
+
+Our dataset comprising 100 items was designed to represent the various types of media present in the overall Stadt.Geschichte.Basel collection. We categorized items into ten distinct types, and selected ten items from each of them, except for flowcharts, which are not as prevalent in our data.
+
+| Type                                    | Dataset | Survey |
+| --------------------------------------- | ------- | ------ |
+| Art                                     | 12      | 0      |
+| Object                                  | 13      | 2      |
+| Photograph (Archaeological Site)        | 10      | 2      |
+| Photograph (Historical Scenes)          | 10      | 2      |
+| Scan of Newspapers, Posters, Lists etc. | 10      | 3      |
+| Drawing (Archaeological Reconstruction) | 10      | 3      |
+| Drawing (Historical Drawing)            | 10      | 2      |
+| Map                                     | 10      | 2      |
+| Diagram (Statistics)                    | 10      | 2      |
+| Diagram (Flowchart, Schema etc.)        | 5       | 2      |
+| **Total**                               | **100** | **20** |
+
+### Distribution by Era
+
+With regards to the historical eras represented in the subset, we aimed to cover the full chronological span of the Stadt.Geschichte.Basel project. Since each item is tagged with an era in the metadata, we could systematically select items across periods in a way that resembles that distribution in the whole research data set (Project Count, at the time of writing). Items from some eras, e.g. _Antike_ and _21. Jahrhundert_, are less frequent in the overall collection which is reflected in a lower representation in our dataset.
+
+| Era             | Project (Oct 25) | Dataset | Survey |
+| --------------- | ---------------- | ------- | ------ |
+| Frühgeschichte  | 95               | 11      | 3      |
+| Antike          | 8                | 3       | 0      |
+| Mittelalter     | 134              | 16      | 2      |
+| Frühe Neuzeit   | 159              | 21      | 3      |
+| 19. Jahrhundert | 162              | 19      | 5      |
+| 20. Jahrhundert | 194              | 25      | 5      |
+| 21. Jahrhundert | 28               | 5       | 2      |
+| **Total**       | **780**          | **100** | **20** |
+
+### Distribution across Eras and Types
+
+Our data set covers all eras and all data types, but due to its historical nature, not all data types appear in all eras. In both our selection and survey subset, we tried to find an overall balance between data types and eras.
+
+![Distribution of item types across historical eras in the selected subset of 100 items from the Stadt.Geschichte.Basel collection.](images/fig_type_era_dist.png)
+
+The survey subset accentuates the characteristics of our data set:
+
+![Distribution of item types across historical eras in the selected subset of 100 items from the Stadt.Geschichte.Basel collection.](images/fig_type_era_dist_survey.png)
+
+- [ ] fix "Frühgeschichte" tag for one photograph
+- [ ] find better label for 'Art': almost all items are paintings, but a few drawings. Overlap with 'Drawing (Historical Drawing)'.
+- [ ] translate 'era' values to English?
+
+We dropped _Art_ items and the _Antike_ era from the survey subset due to their low prevalence in our corpus and instead added other items that we deemed more interesting to evaluate within this study. This includes items with complex visual structures (e.g., maps, diagrams), items with visible text (e.g., scans of newspapers or posters) as well as items with potentially sensitive content (e.g., depictions of humans, historical content with derogatory and/or racist terminology).
+
+### Language Distribution
+
+Our research data collection primarily contains items in German, with a small number of items in Latin, French and Dutch. We aimed to reflect this language distribution in our selection.
+
+| Language | Project (Oct 25) | Dataset | Survey |
+| -------- | ---------------- | ------- | ------ |
+| German   | 1573             | 92      | 19     |
+| Latin    | 14               | 7       | 1      |
+| French   | 5                | 1       | 0      |
+| Dutch    | 2                | 0       | 0      |
+
+In a similar vein, we wanted to take into account different typographic styles. However, since we are working with 800x800 pixel JPG image thumbnails, writing is not fully legible in many cases and thus only a minor factor in the selection process.
+
+### Spatial Context
+
+While geospatial context is not a part of our data model, most items in the Stadt.Geschichte.Basel collection can be associated with specific locations in Basel or elsewhere. The geographical distribution of the collection items did not influence our selection process directly, but a rough categorization was done afterwards to see whether differences in geographical scope are represented in our dataset.
+
+| Spatial Context                                   | Dataset | Survey |
+| ------------------------------------------------- | ------- | ------ |
+| City of Basel                                     | 60      | 14     |
+| Basel Region/Northwestern Switzerland/Upper Rhine | 16      | 2      |
+| Switzerland                                       | 6       | 0      |
+| Switzerland and Neighbouring Countries            | 5       | 1      |
+| Europe                                            | 3       | 1      |
+| Worldwide                                         | 5       | 2      |
+| NA                                                | 5       | 0      |
+
+## Dataset Limitations
+
+A number of limitations apply to our dataset. For instance, the process of uploading media items to the Research Data Platform is ongoing, meaning that not all items from the printed volumes are yet available online. Therefore, our selection was constrained to the items that were already accessible at the time of writing. The number of eligible items was further reduced by excluding items that are only available with placeholder images on our platform due to copyright restrictions. The validation process for the metadata used by the models is still ongoing, meaning that some metadata fields may contain inaccuracies or inconsistencies that could affect model performance. However, the reduced size of our dataset allows us to manually verify the metadata for each selected item to prevent faulty model inputs. Additionally, due to the typesetting workflow during the production of the printed volumes, some collection items had to be split up into different files. Mostly, this pertains to maps and charts where the legend is provided in a second image file, separate from the main figure. The connection between these files is made explicit in our metadata, but the models only receive one image file as input at a time, leading to some loss of information that would be visually available to a human reader. This could result in a lower description quality.
 
 # Model selection
 
