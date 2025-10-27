@@ -1,0 +1,5 @@
+model,count_rank_1,count_rank_2,count_rank_3,count_rank_4
+google/gemini-2.5-flash-lite,86,84,113,137
+meta-llama/llama-4-maverick,88,114,110,108
+openai/gpt-4o-mini,132,101,84,103
+qwen/qwen3-vl-8b-instruct,114,121,113,72
