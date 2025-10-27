@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761082704-5hlXanZ85gMhswOd1GKO",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761082704,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Landschaft im frühen Mittelpaläolithikum, dargestellt mit einem Neandertaler, der ein Kind trägt. Im Hintergrund sind Wildtiere wie Mammute und Vögel sowie eine Wasserstelle zu sehen. Die Umgebung besteht aus grasbewachsenen Flächen und vereinzelten Bäumen.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26120,
+		"completion_tokens": 60,
+		"total_tokens": 26180,
+		"cost": 0.003954,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.003918,
+			"upstream_inference_completions_cost": 3.6e-5
+		}
+	}
+}

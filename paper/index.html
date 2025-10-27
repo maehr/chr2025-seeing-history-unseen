@@ -5,8 +5,6 @@
 
 <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes">
 
-<meta name="author" content="Moritz Mähr">
-<meta name="author" content="Moritz Twente">
 <meta name="keywords" content="alt-text, vision-language models, accessibility, WCAG 2.2, digital heritage collections, historical accuracy, human-in-the-loop, ethical implications, metadata, disability justice">
 
 <title>Seeing History Unseen: Evaluating Vision-Language Models for WCAG-Compliant Alt-Text in Digital Heritage Collections – CHR 2025 - Seeing History Unseen</title>
@@ -199,12 +197,47 @@
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Project</span></a>
+ <span class="menu-text">Run Artefacts</span></a>
           <a class="text-start sidebar-item-toggle" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse depth1 list-unstyled show sidebar-section">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../runs/20251021_233530/manifest.json" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2025-10-21 Manifest</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../runs/20251021_233530/alt_text_runs_20251021_233933_wide.csv" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2025-10-21 Wide CSV</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../runs/20251021_233530/alt_text_runs_20251021_233933_long.csv" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2025-10-21 Long CSV</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../runs/20251021_233530/alt_text_runs_20251021_233933_prompts.csv" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2025-10-21 Prompts</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Project</span></a>
+          <a class="text-start sidebar-item-toggle" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse depth1 list-unstyled show sidebar-section">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
@@ -239,13 +272,13 @@
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
  <span class="menu-text">Licenses</span></a>
-          <a class="text-start sidebar-item-toggle" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="text-start sidebar-item-toggle" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse depth1 list-unstyled show sidebar-section">  
+      <ul id="quarto-sidebar-section-5" class="collapse depth1 list-unstyled show sidebar-section">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../LICENSE-CCBY.html" class="sidebar-item-text sidebar-link">
@@ -270,34 +303,34 @@
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#revised-research-questions" id="toc-revised-research-questions" class="nav-link" data-scroll-target="#revised-research-questions">Revised research questions</a></li>
-  <li><a href="#data-the-stadt.geschichte.basel-collection" id="toc-data-the-stadt.geschichte.basel-collection" class="nav-link" data-scroll-target="#data-the-stadt.geschichte.basel-collection">Data: The Stadt.Geschichte.Basel Collection</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#revised-research-questions" id="toc-revised-research-questions" class="nav-link" data-scroll-target="#revised-research-questions"><span class="header-section-number">2</span> Revised research questions</a></li>
+  <li><a href="#data-the-stadt.geschichte.basel-collection" id="toc-data-the-stadt.geschichte.basel-collection" class="nav-link" data-scroll-target="#data-the-stadt.geschichte.basel-collection"><span class="header-section-number">3</span> Data: The Stadt.Geschichte.Basel Collection</a>
   <ul class="collapse">
-  <li><a href="#dataset-for-alt-text-generation-and-evaluation" id="toc-dataset-for-alt-text-generation-and-evaluation" class="nav-link" data-scroll-target="#dataset-for-alt-text-generation-and-evaluation">Dataset for Alt-Text Generation and Evaluation</a>
+  <li><a href="#dataset-for-alt-text-generation-and-evaluation" id="toc-dataset-for-alt-text-generation-and-evaluation" class="nav-link" data-scroll-target="#dataset-for-alt-text-generation-and-evaluation"><span class="header-section-number">3.1</span> Dataset for Alt-Text Generation and Evaluation</a>
   <ul class="collapse">
-  <li><a href="#distribution-by-type" id="toc-distribution-by-type" class="nav-link" data-scroll-target="#distribution-by-type">Distribution by Type</a></li>
-  <li><a href="#distribution-by-era" id="toc-distribution-by-era" class="nav-link" data-scroll-target="#distribution-by-era">Distribution by Era</a></li>
-  <li><a href="#distribution-across-eras-and-types" id="toc-distribution-across-eras-and-types" class="nav-link" data-scroll-target="#distribution-across-eras-and-types">Distribution across Eras and Types</a></li>
-  <li><a href="#language-distribution" id="toc-language-distribution" class="nav-link" data-scroll-target="#language-distribution">Language Distribution</a></li>
-  <li><a href="#spatial-context" id="toc-spatial-context" class="nav-link" data-scroll-target="#spatial-context">Spatial Context</a></li>
+  <li><a href="#distribution-by-type" id="toc-distribution-by-type" class="nav-link" data-scroll-target="#distribution-by-type"><span class="header-section-number">3.1.1</span> Distribution by Type</a></li>
+  <li><a href="#distribution-by-era" id="toc-distribution-by-era" class="nav-link" data-scroll-target="#distribution-by-era"><span class="header-section-number">3.1.2</span> Distribution by Era</a></li>
+  <li><a href="#distribution-across-eras-and-types" id="toc-distribution-across-eras-and-types" class="nav-link" data-scroll-target="#distribution-across-eras-and-types"><span class="header-section-number">3.1.3</span> Distribution across Eras and Types</a></li>
+  <li><a href="#language-distribution" id="toc-language-distribution" class="nav-link" data-scroll-target="#language-distribution"><span class="header-section-number">3.1.4</span> Language Distribution</a></li>
+  <li><a href="#spatial-context" id="toc-spatial-context" class="nav-link" data-scroll-target="#spatial-context"><span class="header-section-number">3.1.5</span> Spatial Context</a></li>
   </ul></li>
-  <li><a href="#dataset-limitations" id="toc-dataset-limitations" class="nav-link" data-scroll-target="#dataset-limitations">Dataset Limitations</a></li>
+  <li><a href="#dataset-limitations" id="toc-dataset-limitations" class="nav-link" data-scroll-target="#dataset-limitations"><span class="header-section-number">3.2</span> Dataset Limitations</a></li>
   </ul></li>
-  <li><a href="#model-selection" id="toc-model-selection" class="nav-link" data-scroll-target="#model-selection">Model selection</a></li>
-  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology">Methodology</a>
+  <li><a href="#model-selection" id="toc-model-selection" class="nav-link" data-scroll-target="#model-selection"><span class="header-section-number">4</span> Model selection</a></li>
+  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology"><span class="header-section-number">5</span> Methodology</a>
   <ul class="collapse">
-  <li><a href="#alt-text-generation-pipeline" id="toc-alt-text-generation-pipeline" class="nav-link" data-scroll-target="#alt-text-generation-pipeline">Alt-Text Generation Pipeline</a>
+  <li><a href="#alt-text-generation-pipeline" id="toc-alt-text-generation-pipeline" class="nav-link" data-scroll-target="#alt-text-generation-pipeline"><span class="header-section-number">5.1</span> Alt-Text Generation Pipeline</a>
   <ul class="collapse">
-  <li><a href="#pipeline-overview-mermaid" id="toc-pipeline-overview-mermaid" class="nav-link" data-scroll-target="#pipeline-overview-mermaid">Pipeline Overview (Mermaid)</a></li>
+  <li><a href="#pipeline-overview-mermaid" id="toc-pipeline-overview-mermaid" class="nav-link" data-scroll-target="#pipeline-overview-mermaid"><span class="header-section-number">5.1.1</span> Pipeline Overview (Mermaid)</a></li>
   </ul></li>
-  <li><a href="#evaluation-strategy" id="toc-evaluation-strategy" class="nav-link" data-scroll-target="#evaluation-strategy">Evaluation Strategy</a></li>
+  <li><a href="#evaluation-strategy" id="toc-evaluation-strategy" class="nav-link" data-scroll-target="#evaluation-strategy"><span class="header-section-number">5.2</span> Evaluation Strategy</a></li>
   </ul></li>
-  <li><a href="#preliminary-results-and-observations" id="toc-preliminary-results-and-observations" class="nav-link" data-scroll-target="#preliminary-results-and-observations">Preliminary Results and Observations</a></li>
-  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
-  <li><a href="#discussion-and-future-work" id="toc-discussion-and-future-work" class="nav-link" data-scroll-target="#discussion-and-future-work">Discussion and Future Work</a></li>
+  <li><a href="#preliminary-results-and-observations" id="toc-preliminary-results-and-observations" class="nav-link" data-scroll-target="#preliminary-results-and-observations"><span class="header-section-number">6</span> Preliminary Results and Observations</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">7</span> Results</a></li>
+  <li><a href="#discussion-and-future-work" id="toc-discussion-and-future-work" class="nav-link" data-scroll-target="#discussion-and-future-work"><span class="header-section-number">8</span> Discussion and Future Work</a></li>
   <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">9</span> References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/maehr/chr2025-seeing-history-unseen/edit/main/paper/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/maehr/chr2025-seeing-history-unseen/issues/new/choose" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -359,8 +392,8 @@
 </header>
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
+<section id="introduction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
 <p>Digital archives promised to democratize access to cultural heritage, yet a significant portion of visual historical content remains inaccessible to blind and low-vision readers. Many digitized photographs, maps, manuscripts, and other images lack descriptive alternative text (alt-text), creating an epistemic barrier to the past. This perpetuates an asymmetry in sensory access to history, where sighted people hold privileged insight into visual sources while others are excluded. Making images legible through text is more than a technical fix—it is a matter of historical justice and inclusivity in digital humanities. Even beyond vision-impaired users, rich image descriptions can aid others, such as neurodivergent readers who benefit from explicit detail that sighted users might glean implicitly <span class="citation" data-cites="cecilia2023b">(<a href="#ref-cecilia2023b" role="doc-biblioref">Cecilia, Moussouri, and Fraser 2023a</a>)</span>.</p>
 <p>Alt-text itself is not new: the HTML <code>alt</code> attribute dates back to the 1990s to support accessibility. However, providing high-quality image descriptions has often been a secondary priority in scholarly communication <span class="citation" data-cites="cecilia2023a">(<a href="#ref-cecilia2023a" role="doc-biblioref">Cecilia, Moussouri, and Fraser 2023b</a>)</span>. Crafting alt-text is labor-intensive and typically left to authors or curators as a final step, if done at all. The burden often falls on sighted experts to determine what information <em>is</em> or <em>is not</em> included in an image’s description, an ethical responsibility that only the content’s author can fully shoulder. Author-generated descriptions are valued for capturing contextual meaning that automated tools might miss. They can greatly enhance the accessibility, searchability, and archivability of digital scholarship. Yet in practice, many projects—especially smaller public history initiatives—lack the resources to implement accessibility from the start. The result is that visual evidence remains “unseen” by those who rely on assistive technologies.</p>
 <p>Recent advances in multimodal AI offer a potential remedy. Vision-Language Models (VLMs) such as OpenAI’s GPT-4o, Google’s Gemini 2.5, and open-source systems like Meta’s Llama 4 or Mistral’s Pixtral now claim near-human performance in image description tasks. These models can ingest an image and generate a caption or description, essentially simulating the interpretive act of a human describer. If these models could produce alt-text that is both high-quality and historically informed as well as conformant with the Web Content Accessibility Guidelines (WCAG 2.2) and the Web Accessibility Initiative (WAI) of the World Wide Web Consortium (W3C), this would dramatically reduce the human effort required to remediate large collections. Heritage institutions could then scale up accessibility by generating alt-text for thousands of images. Consequently, the “readership” of digital archives would expand to include those who were previously excluded.</p>
@@ -420,8 +453,8 @@
 <li>Output of this section is <strong>policy</strong>, not a number. Tie to disability language guides and CH practice, but keep examples empirical.</li>
 </ul>
 </section>
-<section id="revised-research-questions" class="level1">
-<h1>Revised research questions</h1>
+<section id="revised-research-questions" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Revised research questions</h1>
 <ul>
 <li><strong>RQ1 Feasibility</strong>: What <strong>coverage, throughput, and unit cost</strong> can current VLMs achieve for WCAG-oriented alt text on a heterogeneous heritage corpus, and where do they fail?</li>
 <li><strong>RQ2 Relative quality</strong>: How do experts <strong>pairwise-rank</strong> model outputs for <strong>usefulness and metadata-consistent correctness</strong>, overall and by image type? What error patterns recur?</li>
@@ -452,8 +485,8 @@
 </ul>
 <p>By answering these questions, our work will provide an empirical baseline for <em>AI-assisted accessibility in the humanities</em>. It will also offer a reflective critique, examining AI outputs as objects of study in their own right. In the following sections, we outline our data and methodology (Section 2), present initial observations from our experiments (Section 3), and discuss implications for digital humanities practice (Section 4), before concluding with planned next steps (Section 5).</p>
 </section>
-<section id="data-the-stadt.geschichte.basel-collection" class="level1">
-<h1>Data: The Stadt.Geschichte.Basel Collection</h1>
+<section id="data-the-stadt.geschichte.basel-collection" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Data: The Stadt.Geschichte.Basel Collection</h1>
 <!-- OLD TEXT BEFORE REWORK:
 
 To ground our evaluation in a real-world scenario, we use the digital collection of the public history project _Stadt.Geschichte.Basel_ (an open research repository on the history of Basel, Switzerland). The collection in its final form comprises approximately 1,500 heterogeneous digitized items, including historical photographs, reproductions of artifacts, city maps and architectural plans, handwritten letters and manuscripts, statistical charts, and printed ephemera (e.g., newspaper clippings, posters). Each item is accompanied by metadata in a Dublin Core schema (including fields such as title, creator, date, location, and a descriptive summary provided by historians). Crucially, none of the items currently have alt-text for use with screen readers, making this an ideal testbed for our study. The diversity of the corpus poses a significant challenge to automated captioning: many images are visually and historically complex, requiring domain knowledge to describe properly. This dataset thus allows us to investigate whether AI captioners can handle the "long tail" of content found in historical archives, beyond the everyday photographs on which many models are trained.
@@ -461,13 +494,13 @@ To ground our evaluation in a real-world scenario, we use the digital collection
 For our experiments, we have obtained the collection images (in JPEG format, at a standardized size of $\sim$``{=html}800$\times$`{=html}800 pixels for computational efficiency) and their corresponding metadata in JSON format. We construct a working dataset where each entry consists of an image and its metadata (e.g., title, date, description). This metadata will be used to prompt the models, as described below. We intend to release the dataset of images, metadata, and model-generated descriptions as a benchmark for future research, following the conference's emphasis on open data and reproducibility. -->
 <p>To ground our evaluation in a real-world scenario, we use research data from Stadt.Geschichte.Basel, a large-scale historical research project tracing the history of Basel from 50’000 BC to the present day. Data types produced for the nine printed volumes primarily comprise images and figures, maps and geodata, tables and statistics, and bibliographic references <span class="citation" data-cites="maehr_2022">(<a href="#ref-maehr_2022" role="doc-biblioref">Mähr 2022</a>)</span>. Spanning the time frame covered by the project and featuring more than 1700 media objects as of October 2025 – heterogeneous digitized items, including historical photographs, reproductions of artifacts, city maps and architectural plans, handwritten letters and manuscripts, statistical charts, and printed ephemera (e.g., newspaper clippings, posters) – this data set is FAIRly available on the project’s Open Research Data Platform. The Stadt.Geschichte.Basel collection is enriched with metadata in a Dublin Core schema created by our Team for Research Data Management Team in a comprehensive annotation workflow following guidelines set out in our handbook for the creation of non-discriminatory metadata <span class="citation" data-cites="maehrHandbuchZurErstellung2024">(<a href="#ref-maehrHandbuchZurErstellung2024" role="doc-biblioref">Mähr and Schnegg 2024</a>)</span>.</p>
 <p>Crucially, alt texts have been missing in our data model until now, rendering this collection an ideal testing ground for our study. The diversity of the corpus poses a significant challenge to automated captioning: many figures are visually and historically complex, requiring domain knowledge to describe properly. This dataset thus allows us to investigate whether AI captioners can handle the ‘long tail’ of content found in historical archives, beyond the everyday photographs on which many models are trained.</p>
-<section id="dataset-for-alt-text-generation-and-evaluation" class="level2">
-<h2 class="anchored" data-anchor-id="dataset-for-alt-text-generation-and-evaluation">Dataset for Alt-Text Generation and Evaluation</h2>
+<section id="dataset-for-alt-text-generation-and-evaluation" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="dataset-for-alt-text-generation-and-evaluation"><span class="header-section-number">3.1</span> Dataset for Alt-Text Generation and Evaluation</h2>
 <p>From the available project corpus, we compiled a dataset where each entry consists of an image and its metadata (e.g.&nbsp;title, date, description) of 100 images from the Stadt.Geschichte.Basel Research Data Platform to be used for alt-text generation. To prompt the models as described below, we use the files in JPG format, at a standardized size of 800x800 pixels for computational efficiency, and their corresponding metadata in JSON format. We intend to release the dataset of images, metadata, and model-generated descriptions as a benchmark for future research, following the conference’s emphasis on open data and reproducibility.</p>
 <p>The dataset was manually curated prior to test runs of the AI-generation process and slightly adapted after first trials. We aimed to have a selection reflecting both the heterogeneity of data types and the diverse historical content that make up the Stadt.Geschichte.Basel collection, while keeping ourselves to a size that is feasible both for processing in our pipeline and for the conduction of an evaluation survey. Although the dataset was limited to the media items available on the Research Data Platform at the time of writing, we strove to create a balanced selection across data types, eras, languages, and geographical context.</p>
 <p>For the alt-text evaluation survey, we created a smaller subset of 20 items from the original 100-item dataset. This survey subset was selected to maintain representativeness across the same dimensions – type, era, language, geography – while being manageable for expert reviewers to assess within a reasonable time frame.</p>
-<section id="distribution-by-type" class="level3">
-<h3 class="anchored" data-anchor-id="distribution-by-type">Distribution by Type</h3>
+<section id="distribution-by-type" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="distribution-by-type"><span class="header-section-number">3.1.1</span> Distribution by Type</h3>
 <p>Our dataset comprising 100 items was designed to represent the various types of media present in the overall Stadt.Geschichte.Basel collection. We categorized items into ten distinct types, and selected ten items from each of them, except for flowcharts, which are not as prevalent in our data.</p>
 <table class="caption-top table">
 <thead>
@@ -536,8 +569,8 @@ For our experiments, we have obtained the collection images (in JPEG format, at 
 </tbody>
 </table>
 </section>
-<section id="distribution-by-era" class="level3">
-<h3 class="anchored" data-anchor-id="distribution-by-era">Distribution by Era</h3>
+<section id="distribution-by-era" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="distribution-by-era"><span class="header-section-number">3.1.2</span> Distribution by Era</h3>
 <p>With regards to the historical eras represented in the subset, we aimed to cover the full chronological span of the Stadt.Geschichte.Basel project. Since each item is tagged with an era in the metadata, we could systematically select items across periods in a way that resembles that distribution in the whole research data set (Project Count, at the time of writing). Items from some eras, e.g.&nbsp;<em>Antike</em> and <em>21. Jahrhundert</em>, are less frequent in the overall collection which is reflected in a lower representation in our dataset.</p>
 <table class="caption-top table">
 <thead>
@@ -600,8 +633,8 @@ For our experiments, we have obtained the collection images (in JPEG format, at 
 </tbody>
 </table>
 </section>
-<section id="distribution-across-eras-and-types" class="level3">
-<h3 class="anchored" data-anchor-id="distribution-across-eras-and-types">Distribution across Eras and Types</h3>
+<section id="distribution-across-eras-and-types" class="level3" data-number="3.1.3">
+<h3 data-number="3.1.3" class="anchored" data-anchor-id="distribution-across-eras-and-types"><span class="header-section-number">3.1.3</span> Distribution across Eras and Types</h3>
 <p>Our data set covers all eras and all data types, but due to its historical nature, not all data types appear in all eras. In both our selection and survey subset, we tried to find an overall balance between data types and eras.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -623,8 +656,8 @@ For our experiments, we have obtained the collection images (in JPEG format, at 
 </ul>
 <p>We dropped <em>Art</em> items and the <em>Antike</em> era from the survey subset due to their low prevalence in our corpus and instead added other items that we deemed more interesting to evaluate within this study. This includes items with complex visual structures (e.g., maps, diagrams), items with visible text (e.g., scans of newspapers or posters) as well as items with potentially sensitive content (e.g., depictions of humans, historical content with derogatory and/or racist terminology).</p>
 </section>
-<section id="language-distribution" class="level3">
-<h3 class="anchored" data-anchor-id="language-distribution">Language Distribution</h3>
+<section id="language-distribution" class="level3" data-number="3.1.4">
+<h3 data-number="3.1.4" class="anchored" data-anchor-id="language-distribution"><span class="header-section-number">3.1.4</span> Language Distribution</h3>
 <p>Our research data collection primarily contains items in German, with a small number of items in Latin, French and Dutch. We aimed to reflect this language distribution in our selection.</p>
 <table class="caption-top table">
 <thead>
@@ -664,8 +697,8 @@ For our experiments, we have obtained the collection images (in JPEG format, at 
 </table>
 <p>In a similar vein, we wanted to take into account different typographic styles. However, since we are working with 800x800 pixel JPG image thumbnails, writing is not fully legible in many cases and thus only a minor factor in the selection process.</p>
 </section>
-<section id="spatial-context" class="level3">
-<h3 class="anchored" data-anchor-id="spatial-context">Spatial Context</h3>
+<section id="spatial-context" class="level3" data-number="3.1.5">
+<h3 data-number="3.1.5" class="anchored" data-anchor-id="spatial-context"><span class="header-section-number">3.1.5</span> Spatial Context</h3>
 <p>While geospatial context is not a part of our data model, most items in the Stadt.Geschichte.Basel collection can be associated with specific locations in Basel or elsewhere. The geographical distribution of the collection items did not influence our selection process directly, but a rough categorization was done afterwards to see whether differences in geographical scope are represented in our dataset.</p>
 <table class="caption-top table">
 <thead>
@@ -715,13 +748,13 @@ For our experiments, we have obtained the collection images (in JPEG format, at 
 </table>
 </section>
 </section>
-<section id="dataset-limitations" class="level2">
-<h2 class="anchored" data-anchor-id="dataset-limitations">Dataset Limitations</h2>
+<section id="dataset-limitations" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="dataset-limitations"><span class="header-section-number">3.2</span> Dataset Limitations</h2>
 <p>A number of limitations apply to our dataset. For instance, the process of uploading media items to the Research Data Platform is ongoing, meaning that not all items from the printed volumes are yet available online. Therefore, our selection was constrained to the items that were already accessible at the time of writing. The number of eligible items was further reduced by excluding items that are only available with placeholder images on our platform due to copyright restrictions. The validation process for the metadata used by the models is still ongoing, meaning that some metadata fields may contain inaccuracies or inconsistencies that could affect model performance. However, the reduced size of our dataset allows us to manually verify the metadata for each selected item to prevent faulty model inputs. Additionally, due to the typesetting workflow during the production of the printed volumes, some collection items had to be split up into different files. Mostly, this pertains to maps and charts where the legend is provided in a second image file, separate from the main figure. The connection between these files is made explicit in our metadata, but the models only receive one image file as input at a time, leading to some loss of information that would be visually available to a human reader. This could result in a lower description quality.</p>
 </section>
 </section>
-<section id="model-selection" class="level1">
-<h1>Model selection</h1>
+<section id="model-selection" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Model selection</h1>
 <ul class="task-list">
 <li><label><input type="checkbox">TODO Justify model choices:</label>
 <ul>
@@ -733,12 +766,12 @@ For our experiments, we have obtained the collection images (in JPEG format, at 
 <li><label><input type="checkbox">Incorporate model card summaries from TODO.md.</label></li>
 </ul>
 </section>
-<section id="methodology" class="level1">
-<h1>Methodology</h1>
+<section id="methodology" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Methodology</h1>
 <p>Our approach combines a technical pipeline for generating candidate alt-text with a multi-layered evaluation strategy. A human-in-the-loop process is incorporated throughout to ensure quality control and address ethical considerations.</p>
 <p>In this short paper, we describe the methodology in future tense, as several steps are in progress.</p>
-<section id="alt-text-generation-pipeline" class="level2">
-<h2 class="anchored" data-anchor-id="alt-text-generation-pipeline">Alt-Text Generation Pipeline</h2>
+<section id="alt-text-generation-pipeline" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="alt-text-generation-pipeline"><span class="header-section-number">5.1</span> Alt-Text Generation Pipeline</h2>
 <!-- OLD TEXT BEFORE REWORK:
 
 **Prompt Design:** A key feature of our pipeline is providing each model with contextual metadata alongside the image, in order to ground the generation in relevant historical facts. We designed a prompt template (in the same language as the collection, i.e., German) that injects structured metadata fields and instructs the model to follow best practices for alt-text. In essence, the prompt tells the model that it is an **accessibility assistant** tasked with producing an alt-text for a cultural heritage image. It includes guidelines drawn from the WCAG 2.2 and accessibility literature on how to write good alt-text. For example, the prompt directs the model not to start with redundant phrases like "Bild von..." ("image of..."), to be concise (typically under $\sim$``{=html}120 characters for a simple informative image), and to include any essential visual text (like signs or captions visible in the image). It also asks the model to identify the type of image and adjust the response accordingly: e.g., if the image is a complex diagram or map, the model should produce a short alt-text plus note that a longer description will be provided; if the image is merely a photograph with informative content, a 1--2 sentence description suffices; if the image is mainly text (say a scanned document or poster), the model should either transcribe it (for short text like a sign) or indicate that a full transcription is available elsewhere for longer texts. These rules were distilled from accessibility resources [@a11ychecklist; @wcag2023] to ensure the output serves blind users properly. An example snippet of our prompt template is: _"You are an expert in writing WCAG-compliant alt-text. The image comes from a history archive with metadata. Read the metadata and analyze the image. Determine the image type (informative photo, complex diagram/map, or text image) and produce the appropriate alt-text as per the guidelines..."_---followed by the specific instructions for each case. We have found in preliminary trials that including the complete metadata (`title`, `date`, etc.) in the prompt can prevent certain errors (for instance, knowing the year of the photo helps the model avoid describing attire as "modern"). All models are prompted with the same template structure for consistency, and all outputs are requested in German (to match the collection's context and end-user language). -->
@@ -748,8 +781,8 @@ For our experiments, we have obtained the collection images (in JPEG format, at 
 <p>We systematically varied prompt roles and placement, comparing instruction blocks in the system message versus the user turn, and front-loading versus trailing constraints. Following evidence that models privilege information at the beginning or end of long contexts, we fixed normative requirements (WCAG 2.2 target, de-CH style, length limits, handling of decorative/functional/complex images) in the system prompt and kept the user message minimal and image-bound to reduce “lost-in-the-middle” effects. The user turn injected collection-specific metadata—title, description, EDTF date, era, creator/publisher/source—and a concise Nutzungskontext, then the image URL. Adding this structured context markedly improved specificity, reduced refusals, and lowered hallucinations, consistent with retrieval-style findings that supplying external, task-relevant evidence boosts generation quality and faithfulness. Concretely, the prompt is a two-part template: (1) a stable system scaffold that encodes accessibility rules and output format (“only the alt text”, max 125 chars, no “Bild von”), and (2) a per-item user payload that lists metadata as bullet points plus the image, so the model can align linguistic content with visual features. (TODO see https://aclanthology.org/2024.tacl-1.9/)</p>
 <p><strong>Generation and Post-processing:</strong> Using this prompt, we will run each image through each of the four models, yielding up to four candidate descriptions per image. The generation process will be automated via a Python script (using an API wrapper or library for each model). We anticipate producing around 400 candidate alt-texts (4 per image for n=100 images). After generation, minimal post-processing will be applied. In particular, we will strip any extraneous phrases if a model fails to follow instructions exactly (e.g., some might prepend “Alt-Text:” or polite greetings, which we will remove). We will not otherwise modify the content of the AI outputs at this stage. All results will be stored along with metadata and model identifiers for evaluation.</p>
 <p>If a model refuses to describe an image due to some built-in safety filter (misidentifying a historical photograph as sensitive content), we will handle those on a case-by-case basis by leaving that image for human description. Overall, this pipeline is designed to maximize coverage (getting at least one description for every image) while maintaining quality through careful prompting.</p>
-<section id="pipeline-overview-mermaid" class="level3">
-<h3 class="anchored" data-anchor-id="pipeline-overview-mermaid">Pipeline Overview (Mermaid)</h3>
+<section id="pipeline-overview-mermaid" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="pipeline-overview-mermaid"><span class="header-section-number">5.1.1</span> Pipeline Overview (Mermaid)</h3>
 <!-- ```{mermaid} -->
 <pre><code>
 %%| label: fig-pipeline
@@ -789,8 +822,8 @@ flowchart LR
   M6 --&gt; S0</code></pre>
 </section>
 </section>
-<section id="evaluation-strategy" class="level2">
-<h2 class="anchored" data-anchor-id="evaluation-strategy">Evaluation Strategy</h2>
+<section id="evaluation-strategy" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="evaluation-strategy"><span class="header-section-number">5.2</span> Evaluation Strategy</h2>
 <p>Our evaluation of the AI-generated alt-text will address both <strong>accessibility compliance</strong> and <strong>historical accuracy</strong> in line with the research questions. We describe the planned evaluation steps below. All evaluation will be done on a representative subset of the data (approximately 100 images) due to time constraints, with the aim of scaling up later.</p>
 <!-- OLD TEXT BEFORE REWORK:
 
@@ -810,8 +843,8 @@ flowchart LR
 </ul>
 </section>
 </section>
-<section id="preliminary-results-and-observations" class="level1">
-<h1>Preliminary Results and Observations</h1>
+<section id="preliminary-results-and-observations" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Preliminary Results and Observations</h1>
 <!-- OLD TEXT BEFORE REWORK:
 
 Note: As this is a work in progress, we report here on initial observations from our ongoing experiments. A full evaluation with quantitative results will be included in the final version._
@@ -830,8 +863,8 @@ At the same time, we have observed a number of _failure modes_ that reinforce th
 </ul>
 <p>Overall, our preliminary findings suggest that with careful prompting and human curation, AI-generated alt-text can achieve a quality that makes them valuable for accessibility in digital heritage collections. The process is <strong>feasible</strong> and scalable (addressing the first research question), and the outputs are often accurate and informative, though not without errors (addressing the second research question). Importantly, this exercise has started to reveal where AI captions might <em>add</em> value (by noticing visual details) and where they might <em>mislead</em> (by hallucinating or omitting context). These insights will feed into the development of guidelines and best practices for using AI in this capacity.</p>
 </section>
-<section id="results" class="level1">
-<h1>Results</h1>
+<section id="results" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Results</h1>
 <ul class="task-list">
 <li><label><input type="checkbox">TODO: Fill in with final results once evaluation is complete. For now, a placeholder summary table and narrative.</label></li>
 </ul>
@@ -887,8 +920,8 @@ At the same time, we have observed a number of _failure modes_ that reinforce th
 </table>
 <p>Implications: We select <code>openai/gpt-4o-mini</code> as the best trade‑off of quality and cost for bulk remediation. For large-scale batches with constrained budgets, <code>gemini-2.5-flash-lite</code> is an attractive alternative with only a modest drop in expert preference.</p>
 </section>
-<section id="discussion-and-future-work" class="level1">
-<h1>Discussion and Future Work</h1>
+<section id="discussion-and-future-work" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Discussion and Future Work</h1>
 <!-- OLD TEXT BEFORE REWORK:
 
 Our ongoing project highlights both the promise and the complexities of integrating AI into cultural heritage accessibility. Here we reflect on key implications and outline the next steps, including a planned user study and considerations for ethical deployment (addressing the third research question and beyond).
@@ -920,8 +953,8 @@ Finally, our work contributes to a larger conversation in computational humaniti
 <li><label><input type="checkbox">Thank Cristina Münch and Noëlle Schnegg for the metadata and images from the Stadt.Geschichte.Basel collection.</label></li>
 </ul>
 </section>
-<section id="references" class="level1">
-<h1>References</h1>
+<section id="references" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> References</h1>
 <!-- Bibliography will be automatically generated here from the bibliography file -->
 <pre><code></code></pre>
 

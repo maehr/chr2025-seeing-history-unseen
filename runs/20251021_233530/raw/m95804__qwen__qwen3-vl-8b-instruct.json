@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761082555-bGJrff0E5eotWkRxEYYW",
+	"provider": "Novita",
+	"model": "qwen/qwen3-vl-8b-instruct",
+	"object": "chat.completion",
+	"created": 1761082555,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Abbruch des St. Johanns-Schwibbogens im 19. Jahrhundert. Steinbogen mit Bruchstücken und Arbeitern; Umgebung städtisch, Gebäude an beiden Seiten.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1380,
+		"completion_tokens": 48,
+		"total_tokens": 1428,
+		"cost": 0.0001344,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001104,
+			"upstream_inference_completions_cost": 2.4e-5
+		}
+	}
+}

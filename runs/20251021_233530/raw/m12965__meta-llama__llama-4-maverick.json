@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761082696-lzXex0kV7Tpr7pV1iRdO",
+	"provider": "Together",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1761082696,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Getrocknete Kartoffelpflanze mit Blüten und braunen Blättern auf vergilbtem Papier montiert, handschriftliche Beschriftung.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1683,
+		"completion_tokens": 34,
+		"total_tokens": 1717,
+		"cost": 0.00048331,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00045441,
+			"upstream_inference_completions_cost": 2.89e-5
+		}
+	}
+}

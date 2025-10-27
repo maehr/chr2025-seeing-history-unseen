@@ -1,0 +1,922 @@
+objectid,title,prompt_sha256,prompt,system_prompt,image_url
+m91000_1,"Geschäftskorrespondenz der Firma Forcart-Weis & Burckhardt-Wildt, 1865–1894",622b6fad9782dc9cbad0070c8c027ec106b0acebaacbdf6c66a3adebe579743f,"Titel: Geschäftskorrespondenz der Firma Forcart-Weis & Burckhardt-Wildt, 1865–1894
+Beschreibung: Die Karte zeigt die wichtigsten Orte, von denen aus in den dreissig Jahren von 1865 bis 1894 Korrespondenz an die Firma Forcart-Weis & Burckhardt-Wildt gesandt wurde. Sie bildet ein Netzwerk ab, das in viele Länder der Welt reichte.
+Ersteller: [Stadt.Geschichte.Basel](https://www.wikidata.org/wiki/Q122442230)
+Herausgeber: [Stadt.Geschichte.Basel](https://www.wikidata.org/wiki/Q122442230)
+Quelle: Quelle: https://www.naturalearthdata.com/downloads/110m-physical-vectors/&#59 SWA,  HS  260  W  und  261  L.  Bearbeitung:  Nico  Görlich / Moritz  Twente
+Datum: 1865/1894
+Epoche: Keine Epoche","ZIEL
+
+Alt-Texte für historische und archäologische Sammlungsbilder.
+Kurz, sachlich, zugänglich. Erfassung der visuellen Essenz für Screenreader.
+
+REGELN
+
+1. Essenz statt Detail. Keine Redundanz zum Seitentext, kein „Bild von“.
+2. Zentralen Text im Bild wiedergeben oder kurz paraphrasieren.
+3. Kontext (Epoche, Ort, Gattung, Material, Datierung) nur bei Relevanz für Verständnis.
+4. Prägnante visuelle Merkmale nennen: Farbe, Haltung, Zustand, Attribute.
+5. Karten/Diagramme: zentrale Aussage oder Variablen.
+6. Sprache: neutral, präzise, faktenbasiert; keine Wertung, keine Spekulation.
+7. Umfang:
+   * Standard: 90–180 Zeichen
+   * Komplexe Karten/Tabellen: max. 400 Zeichen
+
+VERBOTE
+
+* Kein alt=, Anführungszeichen, Preambeln oder Füllwörter („zeigt“, „darstellt“).
+* Keine offensichtlichen Metadaten (z. B. Jahreszahlen aus Beschriftung).
+* Keine Bewertungen, Hypothesen oder Stilkommentare.
+* Keine Emojis oder emotionalen Begriffe.
+
+HEURISTIKEN
+
+Porträt: Person (Name, falls bekannt), Epoche, Pose oder Attribut, ggf. Funktion.
+Objekt: Gattung, Material, Datierung, auffällige Besonderheit.
+Dokument: Typ, Sprache/Schrift, Datierung, Kernaussage.
+Karte: Gebiet, Zeitraum, Zweck, Hauptvariablen.
+Ereignisfoto: Wer, was, wo, situativer Kontext.
+Plakat/Cover: Titel, Zweck, zentrale Schlagzeile.
+
+FALLBACK
+
+Unklarer Inhalt: generische, aber sinnvolle Essenz aus Metadaten.
+
+QUELLEN
+
+Nur visuelle Analyse (Bildinhalt) und übergebene Metadaten. Keine externen Kontexte.",https://forschung.stadtgeschichtebasel.ch/objects/c86d63db8a21da4b9050c49ff77848ffeebf641a.jpg
+m94271,"Splitter einer Bombe aus der Festung Hüningen, 1815",9301237bab3ff7f9217ad71446d82af02cad9eef90a8dbde1df6b5d231229b6b,"Titel: Splitter einer Bombe aus der Festung Hüningen, 1815
+Beschreibung: Aufgrund der militärischen Besetzung durch alliierte Truppen wurden Basel und umliegende Dörfer 1814/15 zum Ziel für die Kanonen der französischen Festung Hüningen. Im Jahr 1815 kam es zu Kampfhandlungen, die erst zwei Monate nach Napoleons Niederlage bei Waterloo endeten. Die Festung wurde 1815 und in den Jahren danach abgetragen, doch sind ihre Strukturen noch im Hüninger Strassenbild zu erkennen.
+Ersteller: Kein Ersteller
+Herausgeber: [Historisches Museum Basel](https://www.hmb.ch/)
+Quelle: Historisches Museum Basel, Inv. 1901.132
+Datum: 1815
+Epoche: Keine Epoche","ZIEL
+
+Alt-Texte für historische und archäologische Sammlungsbilder.
+Kurz, sachlich, zugänglich. Erfassung der visuellen Essenz für Screenreader.
+
+REGELN
+
+1. Essenz statt Detail. Keine Redundanz zum Seitentext, kein „Bild von“.
+2. Zentralen Text im Bild wiedergeben oder kurz paraphrasieren.
+3. Kontext (Epoche, Ort, Gattung, Material, Datierung) nur bei Relevanz für Verständnis.
+4. Prägnante visuelle Merkmale nennen: Farbe, Haltung, Zustand, Attribute.
+5. Karten/Diagramme: zentrale Aussage oder Variablen.
+6. Sprache: neutral, präzise, faktenbasiert; keine Wertung, keine Spekulation.
+7. Umfang:
+   * Standard: 90–180 Zeichen
+   * Komplexe Karten/Tabellen: max. 400 Zeichen
+
+VERBOTE
+
+* Kein alt=, Anführungszeichen, Preambeln oder Füllwörter („zeigt“, „darstellt“).
+* Keine offensichtlichen Metadaten (z. B. Jahreszahlen aus Beschriftung).
+* Keine Bewertungen, Hypothesen oder Stilkommentare.
+* Keine Emojis oder emotionalen Begriffe.
+
+HEURISTIKEN
+
+Porträt: Person (Name, falls bekannt), Epoche, Pose oder Attribut, ggf. Funktion.
+Objekt: Gattung, Material, Datierung, auffällige Besonderheit.
+Dokument: Typ, Sprache/Schrift, Datierung, Kernaussage.
+Karte: Gebiet, Zeitraum, Zweck, Hauptvariablen.
+Ereignisfoto: Wer, was, wo, situativer Kontext.
+Plakat/Cover: Titel, Zweck, zentrale Schlagzeile.
+
+FALLBACK
+
+Unklarer Inhalt: generische, aber sinnvolle Essenz aus Metadaten.
+
+QUELLEN
+
+Nur visuelle Analyse (Bildinhalt) und übergebene Metadaten. Keine externen Kontexte.",https://forschung.stadtgeschichtebasel.ch/objects/fc8a4f696c732945247b42b1ba2c81184bb4a360.jpg
+m95804,Abbruch des St. Johanns­-Schwibbogens,d3515370015ba6c27ff59c1acbfbd7474d065d74beb18e700cb961b39344c28a,"Titel: Abbruch des St. Johanns­-Schwibbogens
+Beschreibung: Neben der äusseren Stadtmauer, welche die Stadt umschloss, standen im 19. Jahrhundert immer noch grosse Teile der innerstädtischen Stadt-mauer des Hochmittelalters. Diese wurden nach dem Entfestigungsbeschluss von 1859 ebenfalls abgetragen. Der Abbruch des St. Alban Schwibbogens, der zur inneren Stadt-mauer gehörte, war eine der letzten Entfestigungsmassnahmen. In den 1880er-Jahren folgten Umgestaltungen der Schanze beim St. Johanns-Tor und der Elisabethenschanze zu Grünanlagen.
+Ersteller: [Jakob Höflinger](https://www.wikidata.org/wiki/Q40576283)
+Herausgeber: [Staatsarchiv Basel-Stadt](https://dls.staatsarchiv.bs.ch/)
+Quelle: [Staatsarchiv Basel-Stadt, AL 45, 6-73-4](https://dls.staatsarchiv.bs.ch/records/398712)
+Datum: 1874
+Epoche: Keine Epoche","ZIEL
+
+Alt-Texte für historische und archäologische Sammlungsbilder.
+Kurz, sachlich, zugänglich. Erfassung der visuellen Essenz für Screenreader.
+
+REGELN
+
+1. Essenz statt Detail. Keine Redundanz zum Seitentext, kein „Bild von“.
+2. Zentralen Text im Bild wiedergeben oder kurz paraphrasieren.
+3. Kontext (Epoche, Ort, Gattung, Material, Datierung) nur bei Relevanz für Verständnis.
+4. Prägnante visuelle Merkmale nennen: Farbe, Haltung, Zustand, Attribute.
+5. Karten/Diagramme: zentrale Aussage oder Variablen.
+6. Sprache: neutral, präzise, faktenbasiert; keine Wertung, keine Spekulation.
+7. Umfang:
+   * Standard: 90–180 Zeichen
+   * Komplexe Karten/Tabellen: max. 400 Zeichen
+
+VERBOTE
+
+* Kein alt=, Anführungszeichen, Preambeln oder Füllwörter („zeigt“, „darstellt“).
+* Keine offensichtlichen Metadaten (z. B. Jahreszahlen aus Beschriftung).
+* Keine Bewertungen, Hypothesen oder Stilkommentare.
+* Keine Emojis oder emotionalen Begriffe.
+
+HEURISTIKEN
+
+Porträt: Person (Name, falls bekannt), Epoche, Pose oder Attribut, ggf. Funktion.
+Objekt: Gattung, Material, Datierung, auffällige Besonderheit.
+Dokument: Typ, Sprache/Schrift, Datierung, Kernaussage.
+Karte: Gebiet, Zeitraum, Zweck, Hauptvariablen.
+Ereignisfoto: Wer, was, wo, situativer Kontext.
+Plakat/Cover: Titel, Zweck, zentrale Schlagzeile.
+
+FALLBACK
+
+Unklarer Inhalt: generische, aber sinnvolle Essenz aus Metadaten.
+
+QUELLEN
+
+Nur visuelle Analyse (Bildinhalt) und übergebene Metadaten. Keine externen Kontexte.",https://forschung.stadtgeschichtebasel.ch/objects/5114269b60fc8c550942d02c3aa5c9633fa2a283.jpg
+m94775,"‹Merkwürdige Seltenheit›, Illustration zu einer Anzeige in den ‹Wöchentlichen Nach­richten › vom 30. Oktober 1834",5da1631f2f991f5fb770321671070e0d41e7cc2a534cb219fed1f4b926b34085,"Titel: ‹Merkwürdige Seltenheit›, Illustration zu einer Anzeige in den ‹Wöchentlichen Nach­richten › vom 30. Oktober 1834
+Beschreibung: Als Vorläufer der späteren ‹Völkerschauen› wird für die Dauer der Herbstmesse ein «Afrikaner von der bekannten kriegerischen Nation der Ashantées, welche in Westafrika am Rio-Volta nächst der Goldküste wohnen ... auf E. E. Zunft zu Safran» angekündigt. Die Goldküste, heute Ghana, war seit den späten 1820er Jahren ein Schwerpunkt der Basler Missionstätigkeit.
+Ersteller: Kein Ersteller
+Herausgeber: [Universitätsbibliothek Basel](https://ub.unibas.ch/de/)
+Quelle: Universitätsbibliothek Basel, Ztg 1d
+Datum: 1834
+Epoche: Keine Epoche","ZIEL
+
+Alt-Texte für historische und archäologische Sammlungsbilder.
+Kurz, sachlich, zugänglich. Erfassung der visuellen Essenz für Screenreader.
+
+REGELN
+
+1. Essenz statt Detail. Keine Redundanz zum Seitentext, kein „Bild von“.
+2. Zentralen Text im Bild wiedergeben oder kurz paraphrasieren.
+3. Kontext (Epoche, Ort, Gattung, Material, Datierung) nur bei Relevanz für Verständnis.
+4. Prägnante visuelle Merkmale nennen: Farbe, Haltung, Zustand, Attribute.
+5. Karten/Diagramme: zentrale Aussage oder Variablen.
+6. Sprache: neutral, präzise, faktenbasiert; keine Wertung, keine Spekulation.
+7. Umfang:
+   * Standard: 90–180 Zeichen
+   * Komplexe Karten/Tabellen: max. 400 Zeichen
+
+VERBOTE
+
+* Kein alt=, Anführungszeichen, Preambeln oder Füllwörter („zeigt“, „darstellt“).
+* Keine offensichtlichen Metadaten (z. B. Jahreszahlen aus Beschriftung).
+* Keine Bewertungen, Hypothesen oder Stilkommentare.
+* Keine Emojis oder emotionalen Begriffe.
+
+HEURISTIKEN
+
+Porträt: Person (Name, falls bekannt), Epoche, Pose oder Attribut, ggf. Funktion.
+Objekt: Gattung, Material, Datierung, auffällige Besonderheit.
+Dokument: Typ, Sprache/Schrift, Datierung, Kernaussage.
+Karte: Gebiet, Zeitraum, Zweck, Hauptvariablen.
+Ereignisfoto: Wer, was, wo, situativer Kontext.
+Plakat/Cover: Titel, Zweck, zentrale Schlagzeile.
+
+FALLBACK
+
+Unklarer Inhalt: generische, aber sinnvolle Essenz aus Metadaten.
+
+QUELLEN
+
+Nur visuelle Analyse (Bildinhalt) und übergebene Metadaten. Keine externen Kontexte.",https://forschung.stadtgeschichtebasel.ch/objects/8674e7d79277cfe8215fefaaf96c1e206eb219bd.jpg
+m88415_1,"Publikumszahlen an Konzerten und FCB-Spielen im St. Jakob-Stadion, 1960–2022",ab3654079973894e949bfe3d1feb52d80f86daffb6f4098f146fd09cd0f0de5a,"Titel: Publikumszahlen an Konzerten und FCB-Spielen im St. Jakob-Stadion, 1960–2022
+Beschreibung: In den 1980er-Jahren rutschte der FC Basel in eine veritable Krise, die 1988 im Abstieg in die Nationalliga B mündete. Die Spiele besuchten jeweils nur noch etwa 5000 Menschen, deutlich mehr gingen inzwischen für die Grössen der Pop- und Rockmusik ins Stadion. Im 2001 eröffneten neuen St. Jakob-Park fanden Open-Air-Konzerte nur noch selten statt, während bis zu 30 000 Menschen Woche um Woche den FCB bejubelten, der wieder gross aufspielte. Der Einbruch im Jahr 2020 ist auf die Corona-Pandemie zurückzuführen.
+Ersteller: [Stadt.Geschichte.Basel](https://www.wikidata.org/wiki/Q122442230)
+Herausgeber: [Stadt.Geschichte.Basel](https://www.wikidata.org/wiki/Q122442230)
+Quelle: Genossenschaft Stadion St. Jakob-Park (Hg.): Kraft der Visionen: die Genossenschaft Stadion St. Jakob-Park, Basel, 1953–2003. Basel 2004. S. 275&#59 FC Basel-Archiv (www.fcb-archiv.ch). Bearbeitung: Nico Görlich / Moritz Twente
+Datum: 1960/2022
+Epoche: Keine Epoche","ZIEL
+
+Alt-Texte für historische und archäologische Sammlungsbilder.
+Kurz, sachlich, zugänglich. Erfassung der visuellen Essenz für Screenreader.
+
+REGELN
+
+1. Essenz statt Detail. Keine Redundanz zum Seitentext, kein „Bild von“.
+2. Zentralen Text im Bild wiedergeben oder kurz paraphrasieren.
+3. Kontext (Epoche, Ort, Gattung, Material, Datierung) nur bei Relevanz für Verständnis.
+4. Prägnante visuelle Merkmale nennen: Farbe, Haltung, Zustand, Attribute.
+5. Karten/Diagramme: zentrale Aussage oder Variablen.
+6. Sprache: neutral, präzise, faktenbasiert; keine Wertung, keine Spekulation.
+7. Umfang:
+   * Standard: 90–180 Zeichen
+   * Komplexe Karten/Tabellen: max. 400 Zeichen
+
+VERBOTE
+
+* Kein alt=, Anführungszeichen, Preambeln oder Füllwörter („zeigt“, „darstellt“).
+* Keine offensichtlichen Metadaten (z. B. Jahreszahlen aus Beschriftung).
+* Keine Bewertungen, Hypothesen oder Stilkommentare.
+* Keine Emojis oder emotionalen Begriffe.
+
+HEURISTIKEN
+
+Porträt: Person (Name, falls bekannt), Epoche, Pose oder Attribut, ggf. Funktion.
+Objekt: Gattung, Material, Datierung, auffällige Besonderheit.
+Dokument: Typ, Sprache/Schrift, Datierung, Kernaussage.
+Karte: Gebiet, Zeitraum, Zweck, Hauptvariablen.
+Ereignisfoto: Wer, was, wo, situativer Kontext.
+Plakat/Cover: Titel, Zweck, zentrale Schlagzeile.
+
+FALLBACK
+
+Unklarer Inhalt: generische, aber sinnvolle Essenz aus Metadaten.
+
+QUELLEN
+
+Nur visuelle Analyse (Bildinhalt) und übergebene Metadaten. Keine externen Kontexte.",https://forschung.stadtgeschichtebasel.ch/objects/35b6c69528e341d2af411d6fc5ba2f7d730c3c54.jpg
+m15298_1,Zwischen 1912 und 1966 neu erbaute Gotteshäuser in Basel,12546aad0dd409152ab3c6795835d60d8faa8d37287233b1f72dd11a624858e8,"Titel: Zwischen 1912 und 1966 neu erbaute Gotteshäuser in Basel
+Beschreibung: In den äusseren Quartieren entstanden in einem regelrechten Kirchenbauboom neue Kirchen; eine römisch-katholische und eine evangelisch-reformierte häufig nahe beieinander. Hier erfasst sind neue Gotteshäuser der Evangelisch-reformierten Kirche, der Römisch-katholischen Kirche und der Israelitischen Religionsgesellschaft zwischen 1912 und 1966. Nicht aufgeführt sind ältere Gotteshäuser und die evangelisch-reformierte Lukaskirche von 1971 sowie Kapellen, sogenannte «kleine kirchliche Zentren» (Basler Nachrichten, 17.03.1959), bestehend aus Pfarrhaus und Gemeindesaal, und Bauten von Freikirchen.
+Ersteller: [Stadt.Geschichte.Basel](https://www.wikidata.org/wiki/Q122442230)
+Herausgeber: [Stadt.Geschichte.Basel](https://www.wikidata.org/wiki/Q122442230)
+Quelle: Basler Nachrichten, 17.03.1959&#59 https://opendata.swiss/de/perma/e492e53f-0788-4815-afa2-21e5f0fd6702@kanton-basel-stadt. Bearbeitung: Nico Görlich / Moritz Twente
+Datum: 1912/1966
+Epoche: Keine Epoche","ZIEL
+
+Alt-Texte für historische und archäologische Sammlungsbilder.
+Kurz, sachlich, zugänglich. Erfassung der visuellen Essenz für Screenreader.
+
+REGELN
+
+1. Essenz statt Detail. Keine Redundanz zum Seitentext, kein „Bild von“.
+2. Zentralen Text im Bild wiedergeben oder kurz paraphrasieren.
+3. Kontext (Epoche, Ort, Gattung, Material, Datierung) nur bei Relevanz für Verständnis.
+4. Prägnante visuelle Merkmale nennen: Farbe, Haltung, Zustand, Attribute.
+5. Karten/Diagramme: zentrale Aussage oder Variablen.
+6. Sprache: neutral, präzise, faktenbasiert; keine Wertung, keine Spekulation.
+7. Umfang:
+   * Standard: 90–180 Zeichen
+   * Komplexe Karten/Tabellen: max. 400 Zeichen
+
+VERBOTE
+
+* Kein alt=, Anführungszeichen, Preambeln oder Füllwörter („zeigt“, „darstellt“).
+* Keine offensichtlichen Metadaten (z. B. Jahreszahlen aus Beschriftung).
+* Keine Bewertungen, Hypothesen oder Stilkommentare.
+* Keine Emojis oder emotionalen Begriffe.
+
+HEURISTIKEN
+
+Porträt: Person (Name, falls bekannt), Epoche, Pose oder Attribut, ggf. Funktion.
+Objekt: Gattung, Material, Datierung, auffällige Besonderheit.
+Dokument: Typ, Sprache/Schrift, Datierung, Kernaussage.
+Karte: Gebiet, Zeitraum, Zweck, Hauptvariablen.
+Ereignisfoto: Wer, was, wo, situativer Kontext.
+Plakat/Cover: Titel, Zweck, zentrale Schlagzeile.
+
+FALLBACK
+
+Unklarer Inhalt: generische, aber sinnvolle Essenz aus Metadaten.
+
+QUELLEN
+
+Nur visuelle Analyse (Bildinhalt) und übergebene Metadaten. Keine externen Kontexte.",https://forschung.stadtgeschichtebasel.ch/objects/b496002f8cd4a1b73ac96bd7e565dc7e65c88326.jpg
+m34620,Ausgrabung im Chor der Peterskirche im Jahr 1962,4ac688bbf2b9927ec3c7859f3b75999fb4a905fa7b6e3a2c09a53c51c29b4a8c,"Titel: Ausgrabung im Chor der Peterskirche im Jahr 1962
+Beschreibung: (1) Rechteckchor des Gründungsbaus (9./10. Jh.); (2) romanische Fundamente mit halbrunder Apsis (10./11. Jh.); (3) Fundamente und Mauerwerk des aktuellen gotischen Rechteckchors der Peterskirche (13. Jh.).
+Ersteller: Peter Heman
+Herausgeber: [Archäologische Bodenforschung Basel-Stadt](https://www.bs.ch/pd/kultur/museen-und-andere-dienststellen/archaeologie)
+Quelle: ABBS, T5917
+Datum: 1962
+Epoche: Keine Epoche","ZIEL
+
+Alt-Texte für historische und archäologische Sammlungsbilder.
+Kurz, sachlich, zugänglich. Erfassung der visuellen Essenz für Screenreader.
+
+REGELN
+
+1. Essenz statt Detail. Keine Redundanz zum Seitentext, kein „Bild von“.
+2. Zentralen Text im Bild wiedergeben oder kurz paraphrasieren.
+3. Kontext (Epoche, Ort, Gattung, Material, Datierung) nur bei Relevanz für Verständnis.
+4. Prägnante visuelle Merkmale nennen: Farbe, Haltung, Zustand, Attribute.
+5. Karten/Diagramme: zentrale Aussage oder Variablen.
+6. Sprache: neutral, präzise, faktenbasiert; keine Wertung, keine Spekulation.
+7. Umfang:
+   * Standard: 90–180 Zeichen
+   * Komplexe Karten/Tabellen: max. 400 Zeichen
+
+VERBOTE
+
+* Kein alt=, Anführungszeichen, Preambeln oder Füllwörter („zeigt“, „darstellt“).
+* Keine offensichtlichen Metadaten (z. B. Jahreszahlen aus Beschriftung).
+* Keine Bewertungen, Hypothesen oder Stilkommentare.
+* Keine Emojis oder emotionalen Begriffe.
+
+HEURISTIKEN
+
+Porträt: Person (Name, falls bekannt), Epoche, Pose oder Attribut, ggf. Funktion.
+Objekt: Gattung, Material, Datierung, auffällige Besonderheit.
+Dokument: Typ, Sprache/Schrift, Datierung, Kernaussage.
+Karte: Gebiet, Zeitraum, Zweck, Hauptvariablen.
+Ereignisfoto: Wer, was, wo, situativer Kontext.
+Plakat/Cover: Titel, Zweck, zentrale Schlagzeile.
+
+FALLBACK
+
+Unklarer Inhalt: generische, aber sinnvolle Essenz aus Metadaten.
+
+QUELLEN
+
+Nur visuelle Analyse (Bildinhalt) und übergebene Metadaten. Keine externen Kontexte.",https://forschung.stadtgeschichtebasel.ch/objects/d71391cf86bc4f93e3d00d6497174ca481435c06.jpg
+m92410,Faltblatt der Gruppe ‹Freiräume für Frauen› (FFF),cc4290d1d64ae3d9d97232972911a3ef085aa4d16b33e3384b5d5dff1a0a0461,"Titel: Faltblatt der Gruppe ‹Freiräume für Frauen› (FFF)
+Beschreibung: Die Gruppe FFF forderte – bildlich überzeichnet –, dass Frauen sich im öffentlichen Raum genauso «frei», «aufrecht» und «lustvoll» bewegen können sollten wie Männer.
+Ersteller: Foto Brigitte Krämer
+Herausgeber: Privatarchiv Irene Hupfer
+Quelle: Privatarchiv
+Datum: 1992
+Epoche: Keine Epoche","ZIEL
+
+Alt-Texte für historische und archäologische Sammlungsbilder.
+Kurz, sachlich, zugänglich. Erfassung der visuellen Essenz für Screenreader.
+
+REGELN
+
+1. Essenz statt Detail. Keine Redundanz zum Seitentext, kein „Bild von“.
+2. Zentralen Text im Bild wiedergeben oder kurz paraphrasieren.
+3. Kontext (Epoche, Ort, Gattung, Material, Datierung) nur bei Relevanz für Verständnis.
+4. Prägnante visuelle Merkmale nennen: Farbe, Haltung, Zustand, Attribute.
+5. Karten/Diagramme: zentrale Aussage oder Variablen.
+6. Sprache: neutral, präzise, faktenbasiert; keine Wertung, keine Spekulation.
+7. Umfang:
+   * Standard: 90–180 Zeichen
+   * Komplexe Karten/Tabellen: max. 400 Zeichen
+
+VERBOTE
+
+* Kein alt=, Anführungszeichen, Preambeln oder Füllwörter („zeigt“, „darstellt“).
+* Keine offensichtlichen Metadaten (z. B. Jahreszahlen aus Beschriftung).
+* Keine Bewertungen, Hypothesen oder Stilkommentare.
+* Keine Emojis oder emotionalen Begriffe.
+
+HEURISTIKEN
+
+Porträt: Person (Name, falls bekannt), Epoche, Pose oder Attribut, ggf. Funktion.
+Objekt: Gattung, Material, Datierung, auffällige Besonderheit.
+Dokument: Typ, Sprache/Schrift, Datierung, Kernaussage.
+Karte: Gebiet, Zeitraum, Zweck, Hauptvariablen.
+Ereignisfoto: Wer, was, wo, situativer Kontext.
+Plakat/Cover: Titel, Zweck, zentrale Schlagzeile.
+
+FALLBACK
+
+Unklarer Inhalt: generische, aber sinnvolle Essenz aus Metadaten.
+
+QUELLEN
+
+Nur visuelle Analyse (Bildinhalt) und übergebene Metadaten. Keine externen Kontexte.",https://forschung.stadtgeschichtebasel.ch/objects/5afcfdda866659cb82a7c99c12faa1490b4e9f82.jpg
+m92357,Fasnachtszettel der Vereinigten Spalemer,9771aec96d784bcfaed396ce78a55161774ede7de5d3105efe8b0f1ff60a9268,"Titel: Fasnachtszettel der Vereinigten Spalemer
+Beschreibung: Die Vereinigten Spalemer machen 1901 auf ihrem Fasnachtszettel die Zuwanderung der Deutschen zum Thema. «Vo Drausse rai», schwäbisch für «Von draussen herein», stamme die grosse Mehrheit der Bevölkerung von Basel. Weitere Zuwanderer sind die «Katzenstreker» aus der Innerschweiz, die «Mutze» aus Bern, die «Rübliländer» aus dem Aargau. Unklar bleibt, worauf die Zettelschreiber mit den Begriffen «Türken» und «Orang-Utang» anspielen.
+Ersteller: Kein Ersteller
+Herausgeber: [Staatsarchiv Basel-Stadt](https://dls.staatsarchiv.bs.ch/)
+Quelle: [Staatsarchiv Basel-Stadt, PA 1019a B 1 (1) 45](https://dls.staatsarchiv.bs.ch/records/128031)
+Datum: 1901
+Epoche: Keine Epoche","ZIEL
+
+Alt-Texte für historische und archäologische Sammlungsbilder.
+Kurz, sachlich, zugänglich. Erfassung der visuellen Essenz für Screenreader.
+
+REGELN
+
+1. Essenz statt Detail. Keine Redundanz zum Seitentext, kein „Bild von“.
+2. Zentralen Text im Bild wiedergeben oder kurz paraphrasieren.
+3. Kontext (Epoche, Ort, Gattung, Material, Datierung) nur bei Relevanz für Verständnis.
+4. Prägnante visuelle Merkmale nennen: Farbe, Haltung, Zustand, Attribute.
+5. Karten/Diagramme: zentrale Aussage oder Variablen.
+6. Sprache: neutral, präzise, faktenbasiert; keine Wertung, keine Spekulation.
+7. Umfang:
+   * Standard: 90–180 Zeichen
+   * Komplexe Karten/Tabellen: max. 400 Zeichen
+
+VERBOTE
+
+* Kein alt=, Anführungszeichen, Preambeln oder Füllwörter („zeigt“, „darstellt“).
+* Keine offensichtlichen Metadaten (z. B. Jahreszahlen aus Beschriftung).
+* Keine Bewertungen, Hypothesen oder Stilkommentare.
+* Keine Emojis oder emotionalen Begriffe.
+
+HEURISTIKEN
+
+Porträt: Person (Name, falls bekannt), Epoche, Pose oder Attribut, ggf. Funktion.
+Objekt: Gattung, Material, Datierung, auffällige Besonderheit.
+Dokument: Typ, Sprache/Schrift, Datierung, Kernaussage.
+Karte: Gebiet, Zeitraum, Zweck, Hauptvariablen.
+Ereignisfoto: Wer, was, wo, situativer Kontext.
+Plakat/Cover: Titel, Zweck, zentrale Schlagzeile.
+
+FALLBACK
+
+Unklarer Inhalt: generische, aber sinnvolle Essenz aus Metadaten.
+
+QUELLEN
+
+Nur visuelle Analyse (Bildinhalt) und übergebene Metadaten. Keine externen Kontexte.",https://forschung.stadtgeschichtebasel.ch/objects/141b6b6aee9d7e8d7dbe29ed3bae148e52f808d6.jpg
+m82972,"Anteil der Life-Science-Industrie am Wirtschaftswachstum, 2000–2010",70a877ac8360e5abf9e73bf14349e0b5102b7f82e99803a8120778e989830b84,"Titel: Anteil der Life-Science-Industrie am Wirtschaftswachstum, 2000–2010
+Beschreibung: Die Bedeutung der Life Sciences war in den 2000er-Jahren irgendwo auf der Welt grösser als in der­ Region Basel. Zwar verzeichneten Schanghai, Singapur oder die amerikanische Universitätsstadt Cambridge (Massachusetts) ähnliche oder leicht höhere Wachstumsraten, aber an keinem anderen Ort war der Anteil der Life Sciences am Bruttoinlandprodukt annähernd so gross.
+Ersteller: [Stadt.Geschichte.Basel](https://www.wikidata.org/wiki/Q122442230)
+Herausgeber: [Stadt.Geschichte.Basel](https://www.wikidata.org/wiki/Q122442230)
+Quelle: [Interpharma – Verband der forschenden pharmazeutischen Firmen der Schweiz: Pharmastandort Schweiz 2022 Region Basel, S. 14–15. Bearbeitung: Nico Görlich / Moritz Twente](https://www.interpharma.ch/wp-content/uploads/2022/05/Booklet_BSL_DE.pdf)
+Datum: 2000/2010
+Epoche: Keine Epoche","ZIEL
+
+Alt-Texte für historische und archäologische Sammlungsbilder.
+Kurz, sachlich, zugänglich. Erfassung der visuellen Essenz für Screenreader.
+
+REGELN
+
+1. Essenz statt Detail. Keine Redundanz zum Seitentext, kein „Bild von“.
+2. Zentralen Text im Bild wiedergeben oder kurz paraphrasieren.
+3. Kontext (Epoche, Ort, Gattung, Material, Datierung) nur bei Relevanz für Verständnis.
+4. Prägnante visuelle Merkmale nennen: Farbe, Haltung, Zustand, Attribute.
+5. Karten/Diagramme: zentrale Aussage oder Variablen.
+6. Sprache: neutral, präzise, faktenbasiert; keine Wertung, keine Spekulation.
+7. Umfang:
+   * Standard: 90–180 Zeichen
+   * Komplexe Karten/Tabellen: max. 400 Zeichen
+
+VERBOTE
+
+* Kein alt=, Anführungszeichen, Preambeln oder Füllwörter („zeigt“, „darstellt“).
+* Keine offensichtlichen Metadaten (z. B. Jahreszahlen aus Beschriftung).
+* Keine Bewertungen, Hypothesen oder Stilkommentare.
+* Keine Emojis oder emotionalen Begriffe.
+
+HEURISTIKEN
+
+Porträt: Person (Name, falls bekannt), Epoche, Pose oder Attribut, ggf. Funktion.
+Objekt: Gattung, Material, Datierung, auffällige Besonderheit.
+Dokument: Typ, Sprache/Schrift, Datierung, Kernaussage.
+Karte: Gebiet, Zeitraum, Zweck, Hauptvariablen.
+Ereignisfoto: Wer, was, wo, situativer Kontext.
+Plakat/Cover: Titel, Zweck, zentrale Schlagzeile.
+
+FALLBACK
+
+Unklarer Inhalt: generische, aber sinnvolle Essenz aus Metadaten.
+
+QUELLEN
+
+Nur visuelle Analyse (Bildinhalt) und übergebene Metadaten. Keine externen Kontexte.",https://forschung.stadtgeschichtebasel.ch/objects/a2b395b6e375454d81724ff8c68a7a7b982a635c.jpg
+m37716,Reste der Inneren Stadtmauer,13e296d294bbc2c27aafcffdd57fc32dc6707c9bb7f91e95639c43846121a904,"Titel: Reste der Inneren Stadtmauer
+Beschreibung: Eine längere Strecke der Inneren Stadtmauer wurde 2020 beim Bau des Kunstmuseum-Parkings am St. Alban-Graben freigelegt. Das Bild zeigt die Mächtigkeit des städtischen Befestigungsrings, von dem heute nur noch wenig zu sehen ist.
+Ersteller: Kein Ersteller
+Herausgeber: [Archäologische Bodenforschung Basel-Stadt](https://www.bs.ch/pd/kultur/museen-und-andere-dienststellen/archaeologie)
+Quelle: ABBS, T22557
+Datum: Kein Datum
+Epoche: Keine Epoche","ZIEL
+
+Alt-Texte für historische und archäologische Sammlungsbilder.
+Kurz, sachlich, zugänglich. Erfassung der visuellen Essenz für Screenreader.
+
+REGELN
+
+1. Essenz statt Detail. Keine Redundanz zum Seitentext, kein „Bild von“.
+2. Zentralen Text im Bild wiedergeben oder kurz paraphrasieren.
+3. Kontext (Epoche, Ort, Gattung, Material, Datierung) nur bei Relevanz für Verständnis.
+4. Prägnante visuelle Merkmale nennen: Farbe, Haltung, Zustand, Attribute.
+5. Karten/Diagramme: zentrale Aussage oder Variablen.
+6. Sprache: neutral, präzise, faktenbasiert; keine Wertung, keine Spekulation.
+7. Umfang:
+   * Standard: 90–180 Zeichen
+   * Komplexe Karten/Tabellen: max. 400 Zeichen
+
+VERBOTE
+
+* Kein alt=, Anführungszeichen, Preambeln oder Füllwörter („zeigt“, „darstellt“).
+* Keine offensichtlichen Metadaten (z. B. Jahreszahlen aus Beschriftung).
+* Keine Bewertungen, Hypothesen oder Stilkommentare.
+* Keine Emojis oder emotionalen Begriffe.
+
+HEURISTIKEN
+
+Porträt: Person (Name, falls bekannt), Epoche, Pose oder Attribut, ggf. Funktion.
+Objekt: Gattung, Material, Datierung, auffällige Besonderheit.
+Dokument: Typ, Sprache/Schrift, Datierung, Kernaussage.
+Karte: Gebiet, Zeitraum, Zweck, Hauptvariablen.
+Ereignisfoto: Wer, was, wo, situativer Kontext.
+Plakat/Cover: Titel, Zweck, zentrale Schlagzeile.
+
+FALLBACK
+
+Unklarer Inhalt: generische, aber sinnvolle Essenz aus Metadaten.
+
+QUELLEN
+
+Nur visuelle Analyse (Bildinhalt) und übergebene Metadaten. Keine externen Kontexte.",https://forschung.stadtgeschichtebasel.ch/objects/29f7c0678170e177ff3e64a6a7dd50717d7985d8.jpg
+m22924,Federzeichnung eines zirkumpolaren Horizontalpanoramas der Stadt Basel,90c17b96b4d7ab90eaa72dcc5740bc41fee74f9af084383e864cb9ef54aebcdc,"Titel: Federzeichnung eines zirkumpolaren Horizontalpanoramas der Stadt Basel
+Beschreibung: Von einem Kamin des ‹Blauen Hauses› aus erschliesst sich
+in einer 360-Grad-Umsicht ein neuer Blick auf Basel und seine Umgebung.
+Ersteller: [Franz Feyerabend](https://commons.wikimedia.org/wiki/Category:Franz_Feyerabend)
+Herausgeber: [Staatsarchiv Basel-Stadt](https://dls.staatsarchiv.bs.ch/)
+Quelle: [Staatsarchiv Basel-Stadt 511a 800 J 50, 2](https://dls.staatsarchiv.bs.ch/records/895100)
+Datum: 1787
+Epoche: Keine Epoche","ZIEL
+
+Alt-Texte für historische und archäologische Sammlungsbilder.
+Kurz, sachlich, zugänglich. Erfassung der visuellen Essenz für Screenreader.
+
+REGELN
+
+1. Essenz statt Detail. Keine Redundanz zum Seitentext, kein „Bild von“.
+2. Zentralen Text im Bild wiedergeben oder kurz paraphrasieren.
+3. Kontext (Epoche, Ort, Gattung, Material, Datierung) nur bei Relevanz für Verständnis.
+4. Prägnante visuelle Merkmale nennen: Farbe, Haltung, Zustand, Attribute.
+5. Karten/Diagramme: zentrale Aussage oder Variablen.
+6. Sprache: neutral, präzise, faktenbasiert; keine Wertung, keine Spekulation.
+7. Umfang:
+   * Standard: 90–180 Zeichen
+   * Komplexe Karten/Tabellen: max. 400 Zeichen
+
+VERBOTE
+
+* Kein alt=, Anführungszeichen, Preambeln oder Füllwörter („zeigt“, „darstellt“).
+* Keine offensichtlichen Metadaten (z. B. Jahreszahlen aus Beschriftung).
+* Keine Bewertungen, Hypothesen oder Stilkommentare.
+* Keine Emojis oder emotionalen Begriffe.
+
+HEURISTIKEN
+
+Porträt: Person (Name, falls bekannt), Epoche, Pose oder Attribut, ggf. Funktion.
+Objekt: Gattung, Material, Datierung, auffällige Besonderheit.
+Dokument: Typ, Sprache/Schrift, Datierung, Kernaussage.
+Karte: Gebiet, Zeitraum, Zweck, Hauptvariablen.
+Ereignisfoto: Wer, was, wo, situativer Kontext.
+Plakat/Cover: Titel, Zweck, zentrale Schlagzeile.
+
+FALLBACK
+
+Unklarer Inhalt: generische, aber sinnvolle Essenz aus Metadaten.
+
+QUELLEN
+
+Nur visuelle Analyse (Bildinhalt) und übergebene Metadaten. Keine externen Kontexte.",https://forschung.stadtgeschichtebasel.ch/objects/89dd8ae2f095388f9e68a76614e6ef8f7242a960.jpg
+m13176,‹Fressender Narr› aus dem Stammbuch von Jacob Götz,9893a7ff65f4181096e8628da55012edfa5a369c88514c20816cfcd2ffb93652,"Titel: ‹Fressender Narr› aus dem Stammbuch von Jacob Götz
+Beschreibung: Stammbücher waren wichtige Medien der sozialen Vernetzung. Das Bild eines ‹fressenden Narren› aus dem Stammbuch von Jacob Götz spielt auf Exzesse während der Badeausflüge an. Im dazugehörigen Gedicht wird das «sufen» und «fressen» auf der Badenfahrt ironisch als «vom Tüfel» herkommend verurteilt.
+Ersteller: Anonym
+Herausgeber: [Historisches Museum Basel](https://www.hmb.ch/)
+Quelle: Historisches Museum Basel Inv. 1870.921
+Datum: 16XX
+Epoche: Keine Epoche","ZIEL
+
+Alt-Texte für historische und archäologische Sammlungsbilder.
+Kurz, sachlich, zugänglich. Erfassung der visuellen Essenz für Screenreader.
+
+REGELN
+
+1. Essenz statt Detail. Keine Redundanz zum Seitentext, kein „Bild von“.
+2. Zentralen Text im Bild wiedergeben oder kurz paraphrasieren.
+3. Kontext (Epoche, Ort, Gattung, Material, Datierung) nur bei Relevanz für Verständnis.
+4. Prägnante visuelle Merkmale nennen: Farbe, Haltung, Zustand, Attribute.
+5. Karten/Diagramme: zentrale Aussage oder Variablen.
+6. Sprache: neutral, präzise, faktenbasiert; keine Wertung, keine Spekulation.
+7. Umfang:
+   * Standard: 90–180 Zeichen
+   * Komplexe Karten/Tabellen: max. 400 Zeichen
+
+VERBOTE
+
+* Kein alt=, Anführungszeichen, Preambeln oder Füllwörter („zeigt“, „darstellt“).
+* Keine offensichtlichen Metadaten (z. B. Jahreszahlen aus Beschriftung).
+* Keine Bewertungen, Hypothesen oder Stilkommentare.
+* Keine Emojis oder emotionalen Begriffe.
+
+HEURISTIKEN
+
+Porträt: Person (Name, falls bekannt), Epoche, Pose oder Attribut, ggf. Funktion.
+Objekt: Gattung, Material, Datierung, auffällige Besonderheit.
+Dokument: Typ, Sprache/Schrift, Datierung, Kernaussage.
+Karte: Gebiet, Zeitraum, Zweck, Hauptvariablen.
+Ereignisfoto: Wer, was, wo, situativer Kontext.
+Plakat/Cover: Titel, Zweck, zentrale Schlagzeile.
+
+FALLBACK
+
+Unklarer Inhalt: generische, aber sinnvolle Essenz aus Metadaten.
+
+QUELLEN
+
+Nur visuelle Analyse (Bildinhalt) und übergebene Metadaten. Keine externen Kontexte.",https://forschung.stadtgeschichtebasel.ch/objects/f4a6236ecf044db7f919c43a0c5014a9ca530b63.jpg
+m12965,"Kartoffelpflanze, Auszug aus einem Herbarium",ad2d9213c3d788888e6ee984ad364025faf0d34ac146c8bf439f595ced12c7de,"Titel: Kartoffelpflanze, Auszug aus einem Herbarium
+Beschreibung: Unter naturwissenschaftlich interessierten Gelehrten war das Sammeln und Trocknen von Pflanzen im 17. Jahrhundert eine weit verbreitete Praxis. Die ersten Herbarien in Basel stammten von Felix Platter und Caspar Bauhin. Beide legten selbst Gärten an, unternahmen Exkursionen in die nähere und weitere Umgebung und nutzten ihre gelehrten Netzwerke, um sich Pflanzen aus ganz Europa und Übersee zu besorgen. Die Kartoffelpflanze, bei der es sich um den vermutlich ältesten erhaltenen Beleg handelt, hatte Bauhin in seinem eigenen Garten angepflanzt.
+Ersteller: [Caspar Bauhin](https://www.wikidata.org/wiki/Q1692847)
+Herausgeber: [Herbarien Basel, Botanisches Institut der Universität Basel](https://herbarium.unibas.ch/de/)
+Quelle: Herbaria Basel, Herbarium Caspar Bauhin, Solanum tuberosum esculentum B15-075.1.
+Datum: 1600~
+Epoche: Keine Epoche","ZIEL
+
+Alt-Texte für historische und archäologische Sammlungsbilder.
+Kurz, sachlich, zugänglich. Erfassung der visuellen Essenz für Screenreader.
+
+REGELN
+
+1. Essenz statt Detail. Keine Redundanz zum Seitentext, kein „Bild von“.
+2. Zentralen Text im Bild wiedergeben oder kurz paraphrasieren.
+3. Kontext (Epoche, Ort, Gattung, Material, Datierung) nur bei Relevanz für Verständnis.
+4. Prägnante visuelle Merkmale nennen: Farbe, Haltung, Zustand, Attribute.
+5. Karten/Diagramme: zentrale Aussage oder Variablen.
+6. Sprache: neutral, präzise, faktenbasiert; keine Wertung, keine Spekulation.
+7. Umfang:
+   * Standard: 90–180 Zeichen
+   * Komplexe Karten/Tabellen: max. 400 Zeichen
+
+VERBOTE
+
+* Kein alt=, Anführungszeichen, Preambeln oder Füllwörter („zeigt“, „darstellt“).
+* Keine offensichtlichen Metadaten (z. B. Jahreszahlen aus Beschriftung).
+* Keine Bewertungen, Hypothesen oder Stilkommentare.
+* Keine Emojis oder emotionalen Begriffe.
+
+HEURISTIKEN
+
+Porträt: Person (Name, falls bekannt), Epoche, Pose oder Attribut, ggf. Funktion.
+Objekt: Gattung, Material, Datierung, auffällige Besonderheit.
+Dokument: Typ, Sprache/Schrift, Datierung, Kernaussage.
+Karte: Gebiet, Zeitraum, Zweck, Hauptvariablen.
+Ereignisfoto: Wer, was, wo, situativer Kontext.
+Plakat/Cover: Titel, Zweck, zentrale Schlagzeile.
+
+FALLBACK
+
+Unklarer Inhalt: generische, aber sinnvolle Essenz aus Metadaten.
+
+QUELLEN
+
+Nur visuelle Analyse (Bildinhalt) und übergebene Metadaten. Keine externen Kontexte.",https://forschung.stadtgeschichtebasel.ch/objects/a623dcca404e44bbfd035338043d12024406b204.jpg
+m28635,Landschaft bei Riehen-Ausserberg mit deren Bewohner:innen vor 48 000 Jahren,6e479615c0044bf9c932b2cb3a5d383ccb7d617ddca82670f810e57f400e0da6,"Titel: Landschaft bei Riehen-Ausserberg mit deren Bewohner:innen vor 48 000 Jahren
+Beschreibung: Im späteren Mittelpaläolithikum herrschten in der Region Basel ähnliche Umweltbedingungen wie heute in Alaska: Höhlenhyänen, Mammute, Riesenhirsche und grosse Wildtierherden durchstreiften die Landschaft am mäandrierenden Rhein. Neandertaler machten Jagd auf diese Tiere.
+Ersteller: [bunterhund Illustration](https://bunterhund.ch/), [Archäologische Bodenforschung Basel-Stadt](https://www.bs.ch/pd/kultur/museen-und-andere-dienststellen/archaeologie)
+Herausgeber: [Digitale Archäologie, Freiburg i. Br.](https://www.digitale-archaeologie.de/)
+Quelle: Keine Quelle
+Datum: Y-48000
+Epoche: Keine Epoche","ZIEL
+
+Alt-Texte für historische und archäologische Sammlungsbilder.
+Kurz, sachlich, zugänglich. Erfassung der visuellen Essenz für Screenreader.
+
+REGELN
+
+1. Essenz statt Detail. Keine Redundanz zum Seitentext, kein „Bild von“.
+2. Zentralen Text im Bild wiedergeben oder kurz paraphrasieren.
+3. Kontext (Epoche, Ort, Gattung, Material, Datierung) nur bei Relevanz für Verständnis.
+4. Prägnante visuelle Merkmale nennen: Farbe, Haltung, Zustand, Attribute.
+5. Karten/Diagramme: zentrale Aussage oder Variablen.
+6. Sprache: neutral, präzise, faktenbasiert; keine Wertung, keine Spekulation.
+7. Umfang:
+   * Standard: 90–180 Zeichen
+   * Komplexe Karten/Tabellen: max. 400 Zeichen
+
+VERBOTE
+
+* Kein alt=, Anführungszeichen, Preambeln oder Füllwörter („zeigt“, „darstellt“).
+* Keine offensichtlichen Metadaten (z. B. Jahreszahlen aus Beschriftung).
+* Keine Bewertungen, Hypothesen oder Stilkommentare.
+* Keine Emojis oder emotionalen Begriffe.
+
+HEURISTIKEN
+
+Porträt: Person (Name, falls bekannt), Epoche, Pose oder Attribut, ggf. Funktion.
+Objekt: Gattung, Material, Datierung, auffällige Besonderheit.
+Dokument: Typ, Sprache/Schrift, Datierung, Kernaussage.
+Karte: Gebiet, Zeitraum, Zweck, Hauptvariablen.
+Ereignisfoto: Wer, was, wo, situativer Kontext.
+Plakat/Cover: Titel, Zweck, zentrale Schlagzeile.
+
+FALLBACK
+
+Unklarer Inhalt: generische, aber sinnvolle Essenz aus Metadaten.
+
+QUELLEN
+
+Nur visuelle Analyse (Bildinhalt) und übergebene Metadaten. Keine externen Kontexte.",https://forschung.stadtgeschichtebasel.ch/objects/080b1fbb8582720189762adfa83e920c1e9ae3f4.jpg
+m29084,Schematische Rekonstruktionszeichnungen frühmittelalterlicher Grabtypen,160f0846e1402b05a27977e9aab155eaa9e4c5c32a36b5f5e2ee150924607731,"Titel: Schematische Rekonstruktionszeichnungen frühmittelalterlicher Grabtypen
+Beschreibung: Im frühmittelalterlichen Basel sind verschiedene Grabtypen belegt, so zum Beispiel Steinplatten-, Mauer- (je Aufsicht und Frontalansicht) und Kammergräber (Aufsicht und Querschnitt) – zum Teil mit Hügeln überdeckt – (obere Reihen) oder Brandgräber (Querschnitt) und vor allem einfache Erdbestattungen (Aufsicht, untere Reihe).
+Ersteller: Margaux Depaermentier, Florian Wespisser
+Herausgeber: [Archäologische Bodenforschung Basel-Stadt](https://www.bs.ch/pd/kultur/museen-und-andere-dienststellen/archaeologie)
+Quelle: Keine Quelle
+Datum: Kein Datum
+Epoche: Keine Epoche","ZIEL
+
+Alt-Texte für historische und archäologische Sammlungsbilder.
+Kurz, sachlich, zugänglich. Erfassung der visuellen Essenz für Screenreader.
+
+REGELN
+
+1. Essenz statt Detail. Keine Redundanz zum Seitentext, kein „Bild von“.
+2. Zentralen Text im Bild wiedergeben oder kurz paraphrasieren.
+3. Kontext (Epoche, Ort, Gattung, Material, Datierung) nur bei Relevanz für Verständnis.
+4. Prägnante visuelle Merkmale nennen: Farbe, Haltung, Zustand, Attribute.
+5. Karten/Diagramme: zentrale Aussage oder Variablen.
+6. Sprache: neutral, präzise, faktenbasiert; keine Wertung, keine Spekulation.
+7. Umfang:
+   * Standard: 90–180 Zeichen
+   * Komplexe Karten/Tabellen: max. 400 Zeichen
+
+VERBOTE
+
+* Kein alt=, Anführungszeichen, Preambeln oder Füllwörter („zeigt“, „darstellt“).
+* Keine offensichtlichen Metadaten (z. B. Jahreszahlen aus Beschriftung).
+* Keine Bewertungen, Hypothesen oder Stilkommentare.
+* Keine Emojis oder emotionalen Begriffe.
+
+HEURISTIKEN
+
+Porträt: Person (Name, falls bekannt), Epoche, Pose oder Attribut, ggf. Funktion.
+Objekt: Gattung, Material, Datierung, auffällige Besonderheit.
+Dokument: Typ, Sprache/Schrift, Datierung, Kernaussage.
+Karte: Gebiet, Zeitraum, Zweck, Hauptvariablen.
+Ereignisfoto: Wer, was, wo, situativer Kontext.
+Plakat/Cover: Titel, Zweck, zentrale Schlagzeile.
+
+FALLBACK
+
+Unklarer Inhalt: generische, aber sinnvolle Essenz aus Metadaten.
+
+QUELLEN
+
+Nur visuelle Analyse (Bildinhalt) und übergebene Metadaten. Keine externen Kontexte.",https://forschung.stadtgeschichtebasel.ch/objects/ded88052c8cd333a62df268284bf4a8c93ae2d81.jpg
+m37030_1,"Wahlverfahren gemäss der ‹Handfeste›, um 1260",19d1b9dc21b358e95aa26b4805ca96497a6ff6de0669a1f623c27baeff89999c,"Titel: Wahlverfahren gemäss der ‹Handfeste›, um 1260
+Beschreibung: Das indirekte Wahlverfahren mit dem temporären Kieserkollegium erscheint heute als umständlich. Im Mittelalter ging es allerdings lange Zeit darum, einen Kandidaten einstimmig zu wählen; Mehrheitsentscheidungen setzten sich erst mit der Zeit durch. Eine zeitlich beschränkte Wahlbehörde genoss eine grössere Unabhängigkeit, um sich gemeinsam auf die Kandidaten zu einigen. Die Zusammensetzung von altem und neuem Rat ist erst ab 1357 belegt.
+Ersteller: [Stadt.Geschichte.Basel](https://www.wikidata.org/wiki/Q122442230)
+Herausgeber: [Stadt.Geschichte.Basel](https://www.wikidata.org/wiki/Q122442230)
+Quelle: Alioth, Martin&#59 Bart, Ulrich&#59 Huber, Dorothee&#59 Historisches Museum Basel (Hg.): Basler Stadtgeschichte, Basel 1981. Bearbeitung: Moritz Twente
+Datum: 1260~
+Epoche: Keine Epoche","ZIEL
+
+Alt-Texte für historische und archäologische Sammlungsbilder.
+Kurz, sachlich, zugänglich. Erfassung der visuellen Essenz für Screenreader.
+
+REGELN
+
+1. Essenz statt Detail. Keine Redundanz zum Seitentext, kein „Bild von“.
+2. Zentralen Text im Bild wiedergeben oder kurz paraphrasieren.
+3. Kontext (Epoche, Ort, Gattung, Material, Datierung) nur bei Relevanz für Verständnis.
+4. Prägnante visuelle Merkmale nennen: Farbe, Haltung, Zustand, Attribute.
+5. Karten/Diagramme: zentrale Aussage oder Variablen.
+6. Sprache: neutral, präzise, faktenbasiert; keine Wertung, keine Spekulation.
+7. Umfang:
+   * Standard: 90–180 Zeichen
+   * Komplexe Karten/Tabellen: max. 400 Zeichen
+
+VERBOTE
+
+* Kein alt=, Anführungszeichen, Preambeln oder Füllwörter („zeigt“, „darstellt“).
+* Keine offensichtlichen Metadaten (z. B. Jahreszahlen aus Beschriftung).
+* Keine Bewertungen, Hypothesen oder Stilkommentare.
+* Keine Emojis oder emotionalen Begriffe.
+
+HEURISTIKEN
+
+Porträt: Person (Name, falls bekannt), Epoche, Pose oder Attribut, ggf. Funktion.
+Objekt: Gattung, Material, Datierung, auffällige Besonderheit.
+Dokument: Typ, Sprache/Schrift, Datierung, Kernaussage.
+Karte: Gebiet, Zeitraum, Zweck, Hauptvariablen.
+Ereignisfoto: Wer, was, wo, situativer Kontext.
+Plakat/Cover: Titel, Zweck, zentrale Schlagzeile.
+
+FALLBACK
+
+Unklarer Inhalt: generische, aber sinnvolle Essenz aus Metadaten.
+
+QUELLEN
+
+Nur visuelle Analyse (Bildinhalt) und übergebene Metadaten. Keine externen Kontexte.",https://forschung.stadtgeschichtebasel.ch/objects/b8b174445b3de9af8641c329f2f975e431db8f9b.jpg
+m39198_1,Textilhandel des Kaufmanns Ulrich Meltinger,b4f086b7c0c6bd41afcc74d20b9f0faea334495543c6c36ff5ef54292387be76,"Titel: Textilhandel des Kaufmanns Ulrich Meltinger
+Beschreibung: Der Basler Kaufmann Ulrich Meltinger war in der Oberrheinregion, aber auch darüber hinaus aktiv und setzte sowohl regionale als auch importierte Produkte ab. Er handelte mit Wolle und ­ fertigen Tuchen und war teils im Textilverlag tätig.
+Ersteller: [Stadt.Geschichte.Basel](https://www.wikidata.org/wiki/Q122442230)
+Herausgeber: [Stadt.Geschichte.Basel](https://www.wikidata.org/wiki/Q122442230)
+Quelle: Steinbrink, Matthias: Ulrich Meltinger. Ein Basler Kaufmann am Ende des 15. Jahrhunderts, Stuttgart 2007, S. 136.
+Datum: 1468/1493
+Epoche: Keine Epoche","ZIEL
+
+Alt-Texte für historische und archäologische Sammlungsbilder.
+Kurz, sachlich, zugänglich. Erfassung der visuellen Essenz für Screenreader.
+
+REGELN
+
+1. Essenz statt Detail. Keine Redundanz zum Seitentext, kein „Bild von“.
+2. Zentralen Text im Bild wiedergeben oder kurz paraphrasieren.
+3. Kontext (Epoche, Ort, Gattung, Material, Datierung) nur bei Relevanz für Verständnis.
+4. Prägnante visuelle Merkmale nennen: Farbe, Haltung, Zustand, Attribute.
+5. Karten/Diagramme: zentrale Aussage oder Variablen.
+6. Sprache: neutral, präzise, faktenbasiert; keine Wertung, keine Spekulation.
+7. Umfang:
+   * Standard: 90–180 Zeichen
+   * Komplexe Karten/Tabellen: max. 400 Zeichen
+
+VERBOTE
+
+* Kein alt=, Anführungszeichen, Preambeln oder Füllwörter („zeigt“, „darstellt“).
+* Keine offensichtlichen Metadaten (z. B. Jahreszahlen aus Beschriftung).
+* Keine Bewertungen, Hypothesen oder Stilkommentare.
+* Keine Emojis oder emotionalen Begriffe.
+
+HEURISTIKEN
+
+Porträt: Person (Name, falls bekannt), Epoche, Pose oder Attribut, ggf. Funktion.
+Objekt: Gattung, Material, Datierung, auffällige Besonderheit.
+Dokument: Typ, Sprache/Schrift, Datierung, Kernaussage.
+Karte: Gebiet, Zeitraum, Zweck, Hauptvariablen.
+Ereignisfoto: Wer, was, wo, situativer Kontext.
+Plakat/Cover: Titel, Zweck, zentrale Schlagzeile.
+
+FALLBACK
+
+Unklarer Inhalt: generische, aber sinnvolle Essenz aus Metadaten.
+
+QUELLEN
+
+Nur visuelle Analyse (Bildinhalt) und übergebene Metadaten. Keine externen Kontexte.",https://forschung.stadtgeschichtebasel.ch/objects/7bcacca581657ea41bc29cad179eb7f01b5ab282.jpg
+m91960,"‹Gegen den Eisenbahnhandel›, anonyme antisemitische Karikatur in der Extraausgabe der Basler ‹Allgemeinen Schweizer Zeitung› vom 14. Februar 1898",0d9bda9d71b444b9e86109aa65150f8576cb7397fd7bf6d0e84ee72e08913b4f,"Titel: ‹Gegen den Eisenbahnhandel›, anonyme antisemitische Karikatur in der Extraausgabe der Basler ‹Allgemeinen Schweizer Zeitung› vom 14. Februar 1898
+Beschreibung: Die konservativen Gegner der Eisenbahnverstaatlichung operierten in ihrer Kampagne mit dem antisemitischen Stereotyp des reichen, profitgierigen jüdischen Geldverleihers, der dem Schuldner harte Bedingungen auferlegt. Die Karikatur stellt pointiert die Folgen von Nein oder Ja gegenüber: Bei Ablehnung zwingt eine wehrhafte Helvetia den ausländischen Kapitalisten in die Knie, bei Zustimmung bittet eine mädchen-hafte Helvetia um Finanzkapital.
+Ersteller: Kein Ersteller
+Herausgeber: [Staatsarchiv Basel-Stadt](https://dls.staatsarchiv.bs.ch/)
+Quelle: [Staatsarchiv Basel-Stadt, Eisenbahn A 22](https://dls.staatsarchiv.bs.ch/records/281248)
+Datum: 1898
+Epoche: Keine Epoche","ZIEL
+
+Alt-Texte für historische und archäologische Sammlungsbilder.
+Kurz, sachlich, zugänglich. Erfassung der visuellen Essenz für Screenreader.
+
+REGELN
+
+1. Essenz statt Detail. Keine Redundanz zum Seitentext, kein „Bild von“.
+2. Zentralen Text im Bild wiedergeben oder kurz paraphrasieren.
+3. Kontext (Epoche, Ort, Gattung, Material, Datierung) nur bei Relevanz für Verständnis.
+4. Prägnante visuelle Merkmale nennen: Farbe, Haltung, Zustand, Attribute.
+5. Karten/Diagramme: zentrale Aussage oder Variablen.
+6. Sprache: neutral, präzise, faktenbasiert; keine Wertung, keine Spekulation.
+7. Umfang:
+   * Standard: 90–180 Zeichen
+   * Komplexe Karten/Tabellen: max. 400 Zeichen
+
+VERBOTE
+
+* Kein alt=, Anführungszeichen, Preambeln oder Füllwörter („zeigt“, „darstellt“).
+* Keine offensichtlichen Metadaten (z. B. Jahreszahlen aus Beschriftung).
+* Keine Bewertungen, Hypothesen oder Stilkommentare.
+* Keine Emojis oder emotionalen Begriffe.
+
+HEURISTIKEN
+
+Porträt: Person (Name, falls bekannt), Epoche, Pose oder Attribut, ggf. Funktion.
+Objekt: Gattung, Material, Datierung, auffällige Besonderheit.
+Dokument: Typ, Sprache/Schrift, Datierung, Kernaussage.
+Karte: Gebiet, Zeitraum, Zweck, Hauptvariablen.
+Ereignisfoto: Wer, was, wo, situativer Kontext.
+Plakat/Cover: Titel, Zweck, zentrale Schlagzeile.
+
+FALLBACK
+
+Unklarer Inhalt: generische, aber sinnvolle Essenz aus Metadaten.
+
+QUELLEN
+
+Nur visuelle Analyse (Bildinhalt) und übergebene Metadaten. Keine externen Kontexte.",https://forschung.stadtgeschichtebasel.ch/objects/c725f3f4dbedabdfe9b16faf4420d2bfaa3b4a48.jpg
+m20435,Umschrift der Grabinschrift des römischen Offiziers und Statthalters Lucius Munatius Plancus von seinem Grabmal,30185ff22a9f3665d9eae76c9f4a0d232585163eb5e3bba06789abd9d911faec,"Titel: Umschrift der Grabinschrift des römischen Offiziers und Statthalters Lucius Munatius Plancus von seinem Grabmal
+Beschreibung: Das Grabmal ist noch heute auf Cap Gaëta, südlich von Rom, zu besichtigen (vgl. S.141). Auf der Grabinschrift steht unter anderem, dass er in Gallien die Kolonien Lugudunum (das heutige Lyon) und Raurica (auf dem Gebiet von Basel oder Augst/ Kaiseraugst) gegründet hat.
+Ersteller: Florian Wespisser
+Herausgeber: [Archäologische Bodenforschung Basel-Stadt](https://www.bs.ch/pd/kultur/museen-und-andere-dienststellen/archaeologie)
+Quelle: Keine Quelle
+Datum: -0015
+Epoche: Keine Epoche","ZIEL
+
+Alt-Texte für historische und archäologische Sammlungsbilder.
+Kurz, sachlich, zugänglich. Erfassung der visuellen Essenz für Screenreader.
+
+REGELN
+
+1. Essenz statt Detail. Keine Redundanz zum Seitentext, kein „Bild von“.
+2. Zentralen Text im Bild wiedergeben oder kurz paraphrasieren.
+3. Kontext (Epoche, Ort, Gattung, Material, Datierung) nur bei Relevanz für Verständnis.
+4. Prägnante visuelle Merkmale nennen: Farbe, Haltung, Zustand, Attribute.
+5. Karten/Diagramme: zentrale Aussage oder Variablen.
+6. Sprache: neutral, präzise, faktenbasiert; keine Wertung, keine Spekulation.
+7. Umfang:
+   * Standard: 90–180 Zeichen
+   * Komplexe Karten/Tabellen: max. 400 Zeichen
+
+VERBOTE
+
+* Kein alt=, Anführungszeichen, Preambeln oder Füllwörter („zeigt“, „darstellt“).
+* Keine offensichtlichen Metadaten (z. B. Jahreszahlen aus Beschriftung).
+* Keine Bewertungen, Hypothesen oder Stilkommentare.
+* Keine Emojis oder emotionalen Begriffe.
+
+HEURISTIKEN
+
+Porträt: Person (Name, falls bekannt), Epoche, Pose oder Attribut, ggf. Funktion.
+Objekt: Gattung, Material, Datierung, auffällige Besonderheit.
+Dokument: Typ, Sprache/Schrift, Datierung, Kernaussage.
+Karte: Gebiet, Zeitraum, Zweck, Hauptvariablen.
+Ereignisfoto: Wer, was, wo, situativer Kontext.
+Plakat/Cover: Titel, Zweck, zentrale Schlagzeile.
+
+FALLBACK
+
+Unklarer Inhalt: generische, aber sinnvolle Essenz aus Metadaten.
+
+QUELLEN
+
+Nur visuelle Analyse (Bildinhalt) und übergebene Metadaten. Keine externen Kontexte.",https://forschung.stadtgeschichtebasel.ch/objects/9a97263c62c2ac3f8386845b548016a8d008ba00.jpg

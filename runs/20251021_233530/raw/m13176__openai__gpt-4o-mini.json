@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761082678-piSiuyI5HbHR1rWry9h2",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761082678,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Fressender Narr, aus dem Stammbuch von Jacob Götz, zeigt einen großen, redenden Narr im roten Gewand, der genüsslich an einem Bein eines Bratens isst. Vor ihm liegt ein Schwein, das ebenfalls frisst. Der Hintergrund umfasst verschiedene Gefäße und eine Lampe. Das Bild kritisiert ironisch die Exzesse beim Baden. Anonym, 16XX, Historisches Museum Basel.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26086,
+		"completion_tokens": 91,
+		"total_tokens": 26177,
+		"cost": 0.0039675,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0039129,
+			"upstream_inference_completions_cost": 5.46e-5
+		}
+	}
+}

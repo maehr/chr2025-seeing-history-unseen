@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761082689-kBhGHcNuzMeb8nKKceCd",
+	"provider": "Alibaba",
+	"model": "qwen/qwen3-vl-8b-instruct",
+	"object": "chat.completion",
+	"created": 1761082690,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Trockenpräparat der Kartoffelpflanze (Solanum tuberosum), um 1600. Blätter und Blüten auf Papier montiert, handschriftliche Beschriftung mit lateinischer und lateinisch-amerikanischer Bezeichnung. Vermutlich ältester erhaltener Beleg.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 2099,
+		"completion_tokens": 62,
+		"total_tokens": 2161,
+		"cost": 0.00042122,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00037782,
+			"upstream_inference_completions_cost": 4.34e-5
+		}
+	}
+}

@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761082567-r33vcbemmF4gdUchwABp",
+	"provider": "Novita",
+	"model": "qwen/qwen3-vl-8b-instruct",
+	"object": "chat.completion",
+	"created": 1761082567,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Afrikanischer Mann in traditioneller Kleidung, aufgerufen als „Ashanté“ für eine Herbstmesse-Anzeige 1834. Textausschnitt aus einer Zeitung mit Ankündigung seiner Präsentation in Basel.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1278,
+		"completion_tokens": 55,
+		"total_tokens": 1333,
+		"cost": 0.00012974,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00010224,
+			"upstream_inference_completions_cost": 2.75e-5
+		}
+	}
+}
