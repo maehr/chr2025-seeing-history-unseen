@@ -16,6 +16,9 @@ _site/
 ### dotenv ###
 .env
 
+### Sensitive survey data ###
+data/raw/formspree_xrbyjror_2025-10-27T12_40_38_export.json
+
 ### Git ###
 # Created by git for backups. To disable backups in Git:
 # $ git config --global mergetool.keepBackup false

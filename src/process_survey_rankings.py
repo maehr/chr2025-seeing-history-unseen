@@ -18,7 +18,7 @@ def extract_rankings(json_path: str | Path) -> pd.DataFrame:
         json_path: Path to the JSON file
 
     Returns:
-        DataFrame with columns: objectid, submission_email, and rank_* for each model
+        DataFrame with columns: objectid, submission_seed, time_elapsed_s, and rank_* for each model
     """
     with open(json_path, "r", encoding="utf-8") as f:
         data = json.load(f)
@@ -27,15 +27,28 @@ def extract_rankings(json_path: str | Path) -> pd.DataFrame:
 
     # Process each submission
     for submission in data["submissions"]:
-        submission_email = submission.get("email", "")
+        submission_seed = submission.get("seed", "")
 
         # Process each answer (object) in the submission
         for answer in submission.get("answers", []):
             objectid = answer.get("objectid", "")
             final_order_ids = answer.get("final_order_ids", {})
 
-            # Create a record with the objectid and email
-            record = {"objectid": objectid, "submission_email": submission_email}
+            # Calculate time elapsed
+            time_initial_str = answer.get("timestamp_initial_utc")
+            time_final_str = answer.get("timestamp_final_utc")
+            time_elapsed_s = None
+            if time_initial_str and time_final_str:
+                time_initial = pd.to_datetime(time_initial_str)
+                time_final = pd.to_datetime(time_final_str)
+                time_elapsed_s = (time_final - time_initial).total_seconds()
+
+            # Create a record with the objectid and seed
+            record = {
+                "objectid": objectid,
+                "submission_seed": submission_seed,
+                "time_elapsed_s": time_elapsed_s,
+            }
 
             # Extract model names and their ranks from final_order_ids
             # final_order_ids maps rank (as string) to model_id
@@ -55,8 +68,8 @@ def extract_rankings(json_path: str | Path) -> pd.DataFrame:
     # Convert to DataFrame
     df = pd.DataFrame(records)
 
-    # Sort columns: objectid, submission_email, then rank columns alphabetically
-    base_columns = ["objectid", "submission_email"]
+    # Sort columns: objectid, submission_seed, then rank columns alphabetically
+    base_columns = ["objectid", "submission_seed", "time_elapsed_s"]
     rank_columns = sorted([col for col in df.columns if col.startswith("rank_")])
     df = df[base_columns + rank_columns]
 
@@ -69,8 +82,8 @@ def main():
     json_path = (
         Path(__file__).parent.parent
         / "data"
-        / "raw"
-        / "formspree_xrbyjror_2025-10-27T08_46_50_export.json"
+        / "processed"
+        / "processed_survey_submissions.json"
     )
 
     # Output CSV file
@@ -82,7 +95,7 @@ def main():
     df = extract_rankings(json_path)
 
     print(
-        f"\nExtracted {len(df)} rankings from {len(df['submission_email'].unique())} unique submissions"
+        f"\nExtracted {len(df)} rankings from {len(df['submission_seed'].unique())} unique submissions"
     )
     print(f"\nColumns: {', '.join(df.columns)}")
     print("\nFirst few rows:")

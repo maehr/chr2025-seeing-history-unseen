@@ -119,8 +119,8 @@ def main():
     json_path = (
         Path(__file__).parent.parent
         / "data"
-        / "raw"
-        / "formspree_xrbyjror_2025-10-27T08_46_50_export.json"
+        / "processed"
+        / "processed_survey_submissions.json"
     )
 
     # Output CSV file
