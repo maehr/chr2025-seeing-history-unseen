@@ -11,12 +11,13 @@ Authoring sources live in:
 ## Pipeline Workflow (src/)
 
 1. `generate_alt_text.py` — fetch metadata, call configured models, and write timestamped runs under `runs/<timestamp>/` (raw JSON, prompt tables, manifests, cached images).
-2. `clean_survey_data.py` — strip excluded submissions/emails from `data/raw/formspree_*_export.json`, saving `data/processed/processed_survey_submissions.json`.
-3. `process_survey_rankings.py` — expand per-object rankings into `data/processed/survey_rankings.csv` with elapsed time per rater.
-4. `process_best_answers.py` — derive consensus winners and export `data/processed/best_answers.csv` with exemplar texts.
-5. `analyze_survey_time.py` — summarise completion durations and write `analysis/time_stats_by_{object,submission}.csv`.
-6. `ranking_tests.py` — run Friedman/Wilcoxon tests, generate CSV summaries, and save plots (boxplots, heatmaps) in `analysis/`.
-7. `viz_dataset.py` — build manuscript figures at `paper/images/fig_type_era_{full,subset}.png`.
+2. Human experts complete the ranking survey (Formspree) using the generated prompts/questions.
+3. `clean_survey_data.py` — strip excluded submissions/emails from `data/raw/formspree_*_export.json`, saving `data/processed/processed_survey_submissions.json`.
+4. `process_survey_rankings.py` — expand per-object rankings into `data/processed/survey_rankings.csv` with elapsed time per rater.
+5. `process_best_answers.py` — derive consensus winners and export `data/processed/best_answers.csv` with exemplar texts.
+6. `analyze_survey_time.py` — summarise completion durations and write `analysis/time_stats_by_{object,submission}.csv`.
+7. `ranking_tests.py` — required step that runs Friedman/Wilcoxon tests, generates CSV summaries, and saves plots (boxplots, heatmaps) in `analysis/`.
+8. `viz_dataset.py` — build manuscript figures at `paper/images/fig_type_era_{full,subset}.png`.
 
 See `README.md` for the mermaid workflow diagram and an artefact directory table.
 

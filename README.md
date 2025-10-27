@@ -202,6 +202,31 @@ This will:
 uv run jupyter notebook src/playground.ipynb
 ```
 
+#### Survey workflow
+
+1. Generate or refresh `survey/questions.csv` from the latest run outputs and publish it in the Formspree survey.
+2. Invite human experts to complete the ranking survey—model comparison only works with real judgments.
+3. After submissions close, run the survey analysis scripts in sequence:
+
+```bash
+# Clean and anonymise raw Formspree export
+uv run python src/clean_survey_data.py
+
+# Expand per-object rankings for each rater
+uv run python src/process_survey_rankings.py
+
+# Aggregate consensus winners and example texts
+uv run python src/process_best_answers.py
+
+# Summarise completion times for quality checks
+uv run python src/analyze_survey_time.py
+
+# Required: statistical tests, tables, and plots
+uv run python src/ranking_tests.py
+```
+
+All scripts write to `data/processed/` and `analysis/`.
+
 #### Configuration
 
 Edit `src/generate_alt_text.py` to customize:

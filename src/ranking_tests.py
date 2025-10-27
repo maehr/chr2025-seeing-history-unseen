@@ -124,7 +124,7 @@ def run_tests_and_save():
 
     # Long form for counts
     df_long = df.melt(
-        id_vars=["objectid", "submission_email"],
+        id_vars=["objectid", "submission_seed"],
         value_vars=rank_cols,
         var_name="model",
         value_name="rank",
@@ -168,7 +168,7 @@ def run_tests_and_save():
         "kendall_W": [kendall_W],
         "kendall_W_from_friedman": [kendall_W_from_friedman],
         "n_tasks": [df_task.shape[0]],
-        "n_unique_raters": [df["submission_email"].nunique()],
+        "n_unique_raters": [df["submission_seed"].nunique()],
         "n_submissions": [df.shape[0]],
     }
     pd.DataFrame(summary).to_csv(
