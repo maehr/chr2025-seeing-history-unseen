@@ -1,0 +1,7 @@
+model_a,model_b,statistic,pvalue,p_adjusted_holm
+google/gemini-2.5-flash-lite,meta-llama/llama-4-maverick,94.5,0.7063802162667611,1.0
+google/gemini-2.5-flash-lite,openai/gpt-4o-mini,53.0,0.05211451158517472,0.2769284864715915
+google/gemini-2.5-flash-lite,qwen/qwen3-vl-8b-instruct,51.5,0.04615474774526525,0.2769284864715915
+meta-llama/llama-4-maverick,openai/gpt-4o-mini,57.0,0.07150388165132178,0.2860155266052871
+meta-llama/llama-4-maverick,qwen/qwen3-vl-8b-instruct,59.0,0.08626182766041175,0.2860155266052871
+openai/gpt-4o-mini,qwen/qwen3-vl-8b-instruct,103.5,0.9697172622802702,1.0
