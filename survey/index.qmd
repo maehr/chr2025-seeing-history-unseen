@@ -7,6 +7,12 @@ format:
     page-layout: full
 ---
 
+::: {.callout-warning}
+## Survey Closed
+
+Thank you for your interest! The survey period has ended, and we are no longer accepting responses. We appreciate everyone who took the time to participate.
+:::
+
 ```{=html}
 {{< include form.html >}}
 ```

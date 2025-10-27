@@ -31,9 +31,14 @@ Our research explores the feasibility, accuracy, and ethics of using state-of-th
 
 - `abstract/`: Contains the LaTeX source, class files, and bibliography for the conference abstract
 - `presentation/`: Will contain presentation slides and supporting materials
-- `documentation/`: Additional documentation and resources (including WCAG guidelines in `notes.md`)
-- `src/`: Alt-text generation pipeline
-  - `generate_alt_text.py`: Standalone script for generating WCAG-compliant alt-text using OpenRouter models
+- `src/`: Alt-text generation and survey analysis pipeline
+  - `generate_alt_text.py`: Batch alt-text generator that writes timestamped outputs to `runs/`
+  - `clean_survey_data.py`: Removes excluded submissions and email addresses from raw Formspree exports
+  - `process_survey_rankings.py`: Expands cleaned submissions into per-object model rankings (`survey_rankings.csv`)
+  - `process_best_answers.py`: Aggregates consensus winners and texts per object (`best_answers.csv`)
+  - `analyze_survey_time.py`: Summarises completion times across objects and raters
+  - `ranking_tests.py`: Runs Friedman/Wilcoxon tests and produces comparison plots under `analysis/`
+  - `viz_dataset.py`: Creates figure assets for the manuscript (`paper/images/fig_type_era_*.png`)
   - `playground.ipynb`: Interactive Jupyter notebook for experimenting with the pipeline
 - `runs/`: Output directory for generated alt-text results, including raw API responses and CSV/JSONL/Parquet tables
 - `data/`: Data directories for raw and cleaned datasets
@@ -205,14 +210,56 @@ Edit `src/generate_alt_text.py` to customize:
 - `MEDIA_IDS`: List of media object IDs to process
 - `METADATA_URL`: URL to fetch media metadata JSON
 
-Current models configured:
+**Current models configured in `generate_alt_text.py`:**
 
 - `google/gemini-2.5-flash-lite`
-- `mistralai/pixtral-12b`
-- `openai/gpt-4.1-nano`
-- `allenai/molmo-7b-d`
+- `qwen/qwen3-vl-8b-instruct`
+- `openai/gpt-4o-mini`
+- `meta-llama/llama-4-maverick`
 
-For WCAG compliance guidelines and prompt engineering notes, see [documentation/notes.md](documentation/notes.md).
+### Script workflow and artefacts
+
+```{mermaid}
+flowchart TD
+  A[generate_alt_text.py<br/>Fetch metadata + call models] -->|runs/<timestamp>/*| B{Survey prep}
+  B --> C[clean_survey_data.py<br/>Sanitise Formspree export]
+  C --> D[process_survey_rankings.py<br/>Expand per object + rater ranks]
+  D --> E[process_best_answers.py<br/>Consensus winner per object]
+  D --> F[analyze_survey_time.py<br/>Timing summaries]
+  D --> G[ranking_tests.py<br/>Statistical tests + plots]
+  A --> H[viz_dataset.py<br/>Paper figures]
+
+  E --> I[analysis/<br/>CSVs + plots]
+  F --> I
+  G --> I
+  H --> J[paper/images/fig_type_era_*.png]
+```
+
+### Outputs by directory
+
+- **`runs/<timestamp>/`** — `generate_alt_text.py` writes `manifest.json`, `raw/*.json` (per model × object), cached `images/*.jpg`, and timestamped tables (`alt_text_runs_*_{wide,long}.csv|parquet|jsonl`, optional prompts CSV).
+- **`data/raw/`** — manual Formspree exports (e.g., `formspree_*_export.json`).
+- **`data/processed/`** — `clean_survey_data.py`, `process_survey_rankings.py`, and `process_best_answers.py` materialise `processed_survey_submissions.json`, `survey_rankings.csv`, and `best_answers.csv`.
+- **`analysis/`** — `analyze_survey_time.py` and `ranking_tests.py` produce `time_stats_by_{object,submission}.csv`, `rank_counts_*.csv`, statistical summaries, and comparison plots (`rank_distributions_boxplot.png`, `pairwise_pvalues_heatmap.png`, etc.).
+- **`paper/images/`** — `viz_dataset.py` renders figure assets such as `fig_type_era_full.png` and `fig_type_era_subset.png`.
+
+Each script prints the paths it writes; check those logs for exact filenames when running new experiments.
+
+### Reference run (2025-10-21 subsample)
+
+Use `runs/20251021_233530/` as the canonical example of a recent full pipeline execution.
+
+- **Configuration:** `mode="subsample"` across 20 media IDs and four models (`google/gemini-2.5-flash-lite`, `qwen/qwen3-vl-8b-instruct`, `openai/gpt-4o-mini`, `meta-llama/llama-4-maverick`).
+- **Runtime:** 244 seconds wall time; no errors recorded in `run.log`.
+- **Artefacts:**
+  - `alt_text_runs_20251021_233933_wide.{csv,parquet}` — pivoted responses (one row per media object with model-specific columns).
+  - `alt_text_runs_20251021_233933_long.{csv,parquet,jsonl}` — long format table with 80 model/object rows.
+  - `alt_text_runs_20251021_233933_prompts.csv` — per-item prompt, system, and image URL trace.
+  - `raw/*.json` — individual API responses (`model` × `object`).
+  - `images/*.jpg` — thumbnails cached during the run.
+  - `manifest.json` — reproducibility metadata (models, media IDs, durations, output pointers).
+
+Mirror this structure when staging new runs for survey generation or reporting.
 
 ## Support
 

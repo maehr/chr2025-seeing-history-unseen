@@ -1,1 +1,5 @@
+---
+number-sections: true
+---
+
 {{< include paper.md >}}

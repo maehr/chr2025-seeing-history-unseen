@@ -89,8 +89,7 @@ The paper designs and tests a pipeline that injects webpage context into GPT-4V 
 
 ## Source Code /src/
 
-- [ ] `analysis.py` — write after final run and survey
-- [ ] `playground.ipynb` — update after paper finalization
+- [x] `analysis` scripts — completed via `ranking_tests.py`, `analyze_survey_time.py`
 
 ## Presentation /presentations/
 
@@ -101,6 +100,8 @@ The paper designs and tests a pipeline that injects webpage context into GPT-4V 
 ## Documentation /documentation/
 
 - [ ] Update after final paper version and publication
+- [ ] Review README workflow diagram whenever src scripts change
+- [x] Document pipeline script order and artefacts in README (2025-10-27)
 
 ## Testing /test/
 
@@ -115,7 +116,7 @@ The paper designs and tests a pipeline that injects webpage context into GPT-4V 
 
 ## Agents.md
 
-- [ ] Update to support paper writing and model comparison
+- [x] Update to support paper writing and model comparison (2025-10-27)
 
 ## Notes
 
