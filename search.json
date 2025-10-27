@@ -40,7 +40,7 @@
     "href": "AGENTS.html",
     "title": "Repository Guidelines",
     "section": "",
-    "text": "Authoring sources live in:\n\npaper/ — manuscript (paper.md), wrapper (index.qmd), bibliography.bib, and images/\nsrc/ — Python alt-text pipeline (generate_alt_text.py) writing timestamped outputs to runs/\nabstract/, presentation/ — ancillary materials; published HTML in _site/\n\n\n\n\n\ngenerate_alt_text.py — fetch metadata, call configured models, and write timestamped runs under runs/&lt;timestamp&gt;/ (raw JSON, prompt tables, manifests, cached images).\nclean_survey_data.py — strip excluded submissions/emails from data/raw/formspree_*_export.json, saving data/processed/processed_survey_submissions.json.\nprocess_survey_rankings.py — expand per-object rankings into data/processed/survey_rankings.csv with elapsed time per rater.\nprocess_best_answers.py — derive consensus winners and export data/processed/best_answers.csv with exemplar texts.\nanalyze_survey_time.py — summarise completion durations and write analysis/time_stats_by_{object,submission}.csv.\nranking_tests.py — run Friedman/Wilcoxon tests, generate CSV summaries, and save plots (boxplots, heatmaps) in analysis/.\nviz_dataset.py — build manuscript figures at paper/images/fig_type_era_{full,subset}.png.\n\nSee README.md for the mermaid workflow diagram and an artefact directory table.\n\n\n\n\nEdit paper/paper.md; paper/index.qmd includes it for rendering.\nPreview: quarto preview (live reload).\nCitations: add BibTeX to paper/bibliography.bib and cite with [@key]. Example: “…explicit detail [@cecilia2023b]”.\nFigures: place under paper/images/ and reference with labels. Example: ![Model comparison.](images/fig_models.png){#fig:models width=60%}.\nTables: use Markdown tables with captions. Example: Table: Model costs {#tbl:models} then reference as [Table @tbl:models].\nFrom TODO to paper: items under TODO.md → “Paper/Literature and Context” and “Methodology Updates” should become citations and a maintained @tbl:models in paper.md. Keep model IDs and costs aligned with src/generate_alt_text.py and recent runs.\n\n\n\n\n\nnpm install && uv sync — install Node and Python toolchains.\nquarto preview — preview the website; add paper/ to focus on the manuscript.\nuv run python src/generate_alt_text.py — execute the batch job (requires .env). [DO NOT EXECUTE UNLESS EXPLICITLY AUTHORIZED]\nnpm run check / npm run format — Prettier verify/fix.\nuv run ruff check / uv run ruff fix — Ruff verify/fix.\n\n\n\n\n\nPrettier for Markdown/Quarto/JSON; Ruff for Python (PEP 8, typed).\nUse snake_case filenames; figures fig_&lt;short-key&gt;.png; labels #fig:key, #tbl:key.\nCommit notebooks with cleared outputs (jupyter nbconvert --clear-output).\n\n\n\n\n\nUse npm run commit (Conventional Commits); reference issues with #NNN.\nPRs: describe scope, note affected sections of paper.md, and attach before/after renders when changing figures/tables. Ensure npm run check passes.\n\n\n\n\n\nReference run artifacts via relative paths (e.g., runs/2025.../manifest.json); avoid committing large intermediates.\nConfigure secrets in .env (e.g., OPENROUTER_API_KEY); never commit credentials."
+    "text": "Authoring sources live in:\n\npaper/ — manuscript (paper.md), wrapper (index.qmd), bibliography.bib, and images/\nsrc/ — Python alt-text pipeline (generate_alt_text.py) writing timestamped outputs to runs/\nabstract/, presentation/ — ancillary materials; published HTML in _site/\n\n\n\n\n\ngenerate_alt_text.py — fetch metadata, call configured models, and write timestamped runs under runs/&lt;timestamp&gt;/ (raw JSON, prompt tables, manifests, cached images).\nHuman experts complete the ranking survey (Formspree) using the generated prompts/questions.\nclean_survey_data.py — strip excluded submissions/emails from data/raw/formspree_*_export.json, saving data/processed/processed_survey_submissions.json.\nprocess_survey_rankings.py — expand per-object rankings into data/processed/survey_rankings.csv with elapsed time per rater.\nprocess_best_answers.py — derive consensus winners and export data/processed/best_answers.csv with exemplar texts.\nanalyze_survey_time.py — summarise completion durations and write analysis/time_stats_by_{object,submission}.csv.\nranking_tests.py — required step that runs Friedman/Wilcoxon tests, generates CSV summaries, and saves plots (boxplots, heatmaps) in analysis/.\nviz_dataset.py — build manuscript figures at paper/images/fig_type_era_{full,subset}.png.\n\nSee README.md for the mermaid workflow diagram and an artefact directory table.\n\n\n\n\nEdit paper/paper.md; paper/index.qmd includes it for rendering.\nPreview: quarto preview (live reload).\nCitations: add BibTeX to paper/bibliography.bib and cite with [@key]. Example: “…explicit detail [@cecilia2023b]”.\nFigures: place under paper/images/ and reference with labels. Example: ![Model comparison.](images/fig_models.png){#fig:models width=60%}.\nTables: use Markdown tables with captions. Example: Table: Model costs {#tbl:models} then reference as [Table @tbl:models].\nFrom TODO to paper: items under TODO.md → “Paper/Literature and Context” and “Methodology Updates” should become citations and a maintained @tbl:models in paper.md. Keep model IDs and costs aligned with src/generate_alt_text.py and recent runs.\n\n\n\n\n\nnpm install && uv sync — install Node and Python toolchains.\nquarto preview — preview the website; add paper/ to focus on the manuscript.\nuv run python src/generate_alt_text.py — execute the batch job (requires .env). [DO NOT EXECUTE UNLESS EXPLICITLY AUTHORIZED]\nnpm run check / npm run format — Prettier verify/fix.\nuv run ruff check / uv run ruff fix — Ruff verify/fix.\n\n\n\n\n\nPrettier for Markdown/Quarto/JSON; Ruff for Python (PEP 8, typed).\nUse snake_case filenames; figures fig_&lt;short-key&gt;.png; labels #fig:key, #tbl:key.\nCommit notebooks with cleared outputs (jupyter nbconvert --clear-output).\n\n\n\n\n\nUse npm run commit (Conventional Commits); reference issues with #NNN.\nPRs: describe scope, note affected sections of paper.md, and attach before/after renders when changing figures/tables. Ensure npm run check passes.\n\n\n\n\n\nReference run artifacts via relative paths (e.g., runs/2025.../manifest.json); avoid committing large intermediates.\nConfigure secrets in .env (e.g., OPENROUTER_API_KEY); never commit credentials."
   },
   {
     "objectID": "AGENTS.html#project-structure-module-organization",
@@ -54,7 +54,7 @@
     "href": "AGENTS.html#pipeline-workflow-src",
     "title": "Repository Guidelines",
     "section": "",
-    "text": "generate_alt_text.py — fetch metadata, call configured models, and write timestamped runs under runs/&lt;timestamp&gt;/ (raw JSON, prompt tables, manifests, cached images).\nclean_survey_data.py — strip excluded submissions/emails from data/raw/formspree_*_export.json, saving data/processed/processed_survey_submissions.json.\nprocess_survey_rankings.py — expand per-object rankings into data/processed/survey_rankings.csv with elapsed time per rater.\nprocess_best_answers.py — derive consensus winners and export data/processed/best_answers.csv with exemplar texts.\nanalyze_survey_time.py — summarise completion durations and write analysis/time_stats_by_{object,submission}.csv.\nranking_tests.py — run Friedman/Wilcoxon tests, generate CSV summaries, and save plots (boxplots, heatmaps) in analysis/.\nviz_dataset.py — build manuscript figures at paper/images/fig_type_era_{full,subset}.png.\n\nSee README.md for the mermaid workflow diagram and an artefact directory table."
+    "text": "generate_alt_text.py — fetch metadata, call configured models, and write timestamped runs under runs/&lt;timestamp&gt;/ (raw JSON, prompt tables, manifests, cached images).\nHuman experts complete the ranking survey (Formspree) using the generated prompts/questions.\nclean_survey_data.py — strip excluded submissions/emails from data/raw/formspree_*_export.json, saving data/processed/processed_survey_submissions.json.\nprocess_survey_rankings.py — expand per-object rankings into data/processed/survey_rankings.csv with elapsed time per rater.\nprocess_best_answers.py — derive consensus winners and export data/processed/best_answers.csv with exemplar texts.\nanalyze_survey_time.py — summarise completion durations and write analysis/time_stats_by_{object,submission}.csv.\nranking_tests.py — required step that runs Friedman/Wilcoxon tests, generates CSV summaries, and saves plots (boxplots, heatmaps) in analysis/.\nviz_dataset.py — build manuscript figures at paper/images/fig_type_era_{full,subset}.png.\n\nSee README.md for the mermaid workflow diagram and an artefact directory table."
   },
   {
     "objectID": "AGENTS.html#paper-authoring-workflow",
@@ -168,7 +168,7 @@
     "href": "index.html#use",
     "title": "CHR 2025 Conference Materials",
     "section": "Use",
-    "text": "Use\n\nBuilding the Abstract\nTo build the LaTeX abstract:\ncd abstract\nmake paper\n\n\nDevelopment Commands\nCheck that all files are properly formatted:\nnpm run check\nFormat all files:\nnpm run format\nRun the wizard to write meaningful commit messages:\nnpm run commit\nGenerate a changelog:\nnpm run changelog\n\n\nAlt-Text Generation Pipeline\nThe repository includes a focused Python pipeline for generating WCAG-compliant alternative texts using OpenRouter-compatible vision-language models. The pipeline supports systematic evaluation of VLM performance on alt-text generation tasks for digital heritage collections.\n\nFeatures\n\nAutomated alt-text generation using multiple VLM models in parallel\nWCAG 2.2 compliance with structured prompts based on accessibility guidelines\nMetadata integration from remote sources with provenance tracking\nWide-format output with model responses in CSV, JSONL, and Parquet formats\nRaw API response storage for reproducibility and analysis\nInteractive playground via Jupyter notebook for experimentation\n\n\n\nQuick Start\n\nInstall Python dependencies with uv:\n\nuv sync\n\nSet up your OpenRouter API key in a .env file:\n\ncp example.env .env\n# Edit .env to add your OPENROUTER_API_KEY\n\nRun the alt-text generation pipeline:\n\nuv run python src/generate_alt_text.py\nThis will:\n\nFetch metadata from the configured URL\nGenerate alt-text for specified media IDs using all configured models\nSave results in runs/YYYYmmdd_HHMMSS/ including:\n\nmetadata.json: Copy of fetched metadata for provenance\nalt_text_runs_*.csv: Wide-format table with all model responses\nalt_text_runs_*.jsonl: Same data in JSONL format\nalt_text_runs_*.parquet: Same data in Parquet format (if available)\nraw/*.json: Individual raw API responses from each model\nmanifest.json: Run metadata including configuration and file paths\n\n\n\nExperiment interactively with the Jupyter notebook:\n\nuv run jupyter notebook src/playground.ipynb\n\n\nConfiguration\nEdit src/generate_alt_text.py to customize:\n\nMODELS: List of OpenRouter model identifiers to use\nMEDIA_IDS: List of media object IDs to process\nMETADATA_URL: URL to fetch media metadata JSON\n\nCurrent models configured in generate_alt_text.py:\n\ngoogle/gemini-2.5-flash-lite\nqwen/qwen3-vl-8b-instruct\nopenai/gpt-4o-mini\nmeta-llama/llama-4-maverick\n\n\n\n\nScript workflow and artefacts\n\n\n\n\n\nflowchart TD\n  A[generate_alt_text.py&lt;br/&gt;Fetch metadata + call models] --&gt;|runs/&lt;timestamp&gt;/*| B{Survey prep}\n  B --&gt; C[clean_survey_data.py&lt;br/&gt;Sanitise Formspree export]\n  C --&gt; D[process_survey_rankings.py&lt;br/&gt;Expand per object + rater ranks]\n  D --&gt; E[process_best_answers.py&lt;br/&gt;Consensus winner per object]\n  D --&gt; F[analyze_survey_time.py&lt;br/&gt;Timing summaries]\n  D --&gt; G[ranking_tests.py&lt;br/&gt;Statistical tests + plots]\n  A --&gt; H[viz_dataset.py&lt;br/&gt;Paper figures]\n\n  E --&gt; I[analysis/&lt;br/&gt;CSVs + plots]\n  F --&gt; I\n  G --&gt; I\n  H --&gt; J[paper/images/fig_type_era_*.png]\n\n\n\n\n\n\n\n\nOutputs by directory\n\nruns/&lt;timestamp&gt;/ — generate_alt_text.py writes manifest.json, raw/*.json (per model × object), cached images/*.jpg, and timestamped tables (alt_text_runs_*_{wide,long}.csv|parquet|jsonl, optional prompts CSV).\ndata/raw/ — manual Formspree exports (e.g., formspree_*_export.json).\ndata/processed/ — clean_survey_data.py, process_survey_rankings.py, and process_best_answers.py materialise processed_survey_submissions.json, survey_rankings.csv, and best_answers.csv.\nanalysis/ — analyze_survey_time.py and ranking_tests.py produce time_stats_by_{object,submission}.csv, rank_counts_*.csv, statistical summaries, and comparison plots (rank_distributions_boxplot.png, pairwise_pvalues_heatmap.png, etc.).\npaper/images/ — viz_dataset.py renders figure assets such as fig_type_era_full.png and fig_type_era_subset.png.\n\nEach script prints the paths it writes; check those logs for exact filenames when running new experiments.\n\n\nReference run (2025-10-21 subsample)\nUse runs/20251021_233530/ as the canonical example of a recent full pipeline execution.\n\nConfiguration: mode=\"subsample\" across 20 media IDs and four models (google/gemini-2.5-flash-lite, qwen/qwen3-vl-8b-instruct, openai/gpt-4o-mini, meta-llama/llama-4-maverick).\nRuntime: 244 seconds wall time; no errors recorded in run.log.\nArtefacts:\n\nalt_text_runs_20251021_233933_wide.{csv,parquet} — pivoted responses (one row per media object with model-specific columns).\nalt_text_runs_20251021_233933_long.{csv,parquet,jsonl} — long format table with 80 model/object rows.\nalt_text_runs_20251021_233933_prompts.csv — per-item prompt, system, and image URL trace.\nraw/*.json — individual API responses (model × object).\nimages/*.jpg — thumbnails cached during the run.\nmanifest.json — reproducibility metadata (models, media IDs, durations, output pointers).\n\n\nMirror this structure when staging new runs for survey generation or reporting.",
+    "text": "Use\n\nBuilding the Abstract\nTo build the LaTeX abstract:\ncd abstract\nmake paper\n\n\nDevelopment Commands\nCheck that all files are properly formatted:\nnpm run check\nFormat all files:\nnpm run format\nRun the wizard to write meaningful commit messages:\nnpm run commit\nGenerate a changelog:\nnpm run changelog\n\n\nAlt-Text Generation Pipeline\nThe repository includes a focused Python pipeline for generating WCAG-compliant alternative texts using OpenRouter-compatible vision-language models. The pipeline supports systematic evaluation of VLM performance on alt-text generation tasks for digital heritage collections.\n\nFeatures\n\nAutomated alt-text generation using multiple VLM models in parallel\nWCAG 2.2 compliance with structured prompts based on accessibility guidelines\nMetadata integration from remote sources with provenance tracking\nWide-format output with model responses in CSV, JSONL, and Parquet formats\nRaw API response storage for reproducibility and analysis\nInteractive playground via Jupyter notebook for experimentation\n\n\n\nQuick Start\n\nInstall Python dependencies with uv:\n\nuv sync\n\nSet up your OpenRouter API key in a .env file:\n\ncp example.env .env\n# Edit .env to add your OPENROUTER_API_KEY\n\nRun the alt-text generation pipeline:\n\nuv run python src/generate_alt_text.py\nThis will:\n\nFetch metadata from the configured URL\nGenerate alt-text for specified media IDs using all configured models\nSave results in runs/YYYYmmdd_HHMMSS/ including:\n\nmetadata.json: Copy of fetched metadata for provenance\nalt_text_runs_*.csv: Wide-format table with all model responses\nalt_text_runs_*.jsonl: Same data in JSONL format\nalt_text_runs_*.parquet: Same data in Parquet format (if available)\nraw/*.json: Individual raw API responses from each model\nmanifest.json: Run metadata including configuration and file paths\n\n\n\nExperiment interactively with the Jupyter notebook:\n\nuv run jupyter notebook src/playground.ipynb\n\n\nSurvey workflow\n\nGenerate or refresh survey/questions.csv from the latest run outputs and publish it in the Formspree survey.\nInvite human experts to complete the ranking survey—model comparison only works with real judgments.\nAfter submissions close, run the survey analysis scripts in sequence:\n\n# Clean and anonymise raw Formspree export\nuv run python src/clean_survey_data.py\n\n# Expand per-object rankings for each rater\nuv run python src/process_survey_rankings.py\n\n# Aggregate consensus winners and example texts\nuv run python src/process_best_answers.py\n\n# Summarise completion times for quality checks\nuv run python src/analyze_survey_time.py\n\n# Required: statistical tests, tables, and plots\nuv run python src/ranking_tests.py\nAll scripts write to data/processed/ and analysis/.\n\n\nConfiguration\nEdit src/generate_alt_text.py to customize:\n\nMODELS: List of OpenRouter model identifiers to use\nMEDIA_IDS: List of media object IDs to process\nMETADATA_URL: URL to fetch media metadata JSON\n\nCurrent models configured in generate_alt_text.py:\n\ngoogle/gemini-2.5-flash-lite\nqwen/qwen3-vl-8b-instruct\nopenai/gpt-4o-mini\nmeta-llama/llama-4-maverick\n\n\n\n\nScript workflow and artefacts\n\n\n\n\n\nflowchart TD\n  A[generate_alt_text.py&lt;br/&gt;Fetch metadata + call models] --&gt;|runs/&lt;timestamp&gt;/*| B{Survey prep}\n  B --&gt; C[clean_survey_data.py&lt;br/&gt;Sanitise Formspree export]\n  C --&gt; D[process_survey_rankings.py&lt;br/&gt;Expand per object + rater ranks]\n  D --&gt; E[process_best_answers.py&lt;br/&gt;Consensus winner per object]\n  D --&gt; F[analyze_survey_time.py&lt;br/&gt;Timing summaries]\n  D --&gt; G[ranking_tests.py&lt;br/&gt;Statistical tests + plots]\n  A --&gt; H[viz_dataset.py&lt;br/&gt;Paper figures]\n\n  E --&gt; I[analysis/&lt;br/&gt;CSVs + plots]\n  F --&gt; I\n  G --&gt; I\n  H --&gt; J[paper/images/fig_type_era_*.png]\n\n\n\n\n\n\n\n\nOutputs by directory\n\nruns/&lt;timestamp&gt;/ — generate_alt_text.py writes manifest.json, raw/*.json (per model × object), cached images/*.jpg, and timestamped tables (alt_text_runs_*_{wide,long}.csv|parquet|jsonl, optional prompts CSV).\ndata/raw/ — manual Formspree exports (e.g., formspree_*_export.json).\ndata/processed/ — clean_survey_data.py, process_survey_rankings.py, and process_best_answers.py materialise processed_survey_submissions.json, survey_rankings.csv, and best_answers.csv.\nanalysis/ — analyze_survey_time.py and ranking_tests.py produce time_stats_by_{object,submission}.csv, rank_counts_*.csv, statistical summaries, and comparison plots (rank_distributions_boxplot.png, pairwise_pvalues_heatmap.png, etc.).\npaper/images/ — viz_dataset.py renders figure assets such as fig_type_era_full.png and fig_type_era_subset.png.\n\nEach script prints the paths it writes; check those logs for exact filenames when running new experiments.\n\n\nReference run (2025-10-21 subsample)\nUse runs/20251021_233530/ as the canonical example of a recent full pipeline execution.\n\nConfiguration: mode=\"subsample\" across 20 media IDs and four models (google/gemini-2.5-flash-lite, qwen/qwen3-vl-8b-instruct, openai/gpt-4o-mini, meta-llama/llama-4-maverick).\nRuntime: 244 seconds wall time; no errors recorded in run.log.\nArtefacts:\n\nalt_text_runs_20251021_233933_wide.{csv,parquet} — pivoted responses (one row per media object with model-specific columns).\nalt_text_runs_20251021_233933_long.{csv,parquet,jsonl} — long format table with 80 model/object rows.\nalt_text_runs_20251021_233933_prompts.csv — per-item prompt, system, and image URL trace.\nraw/*.json — individual API responses (model × object).\nimages/*.jpg — thumbnails cached during the run.\nmanifest.json — reproducibility metadata (models, media IDs, durations, output pointers).\n\n\nMirror this structure when staging new runs for survey generation or reporting.",
     "crumbs": [
       "Home",
       "Project",
@@ -233,54 +233,6 @@
       "Home",
       "Project",
       "Overview"
-    ]
-  },
-  {
-    "objectID": "CHANGELOG.html",
-    "href": "CHANGELOG.html",
-    "title": "Changelog",
-    "section": "",
-    "text": "All notable changes to this project will be documented in this file.\nThe format is based on Keep a Changelog, and this project adheres to Semantic Versioning.\n\n\n\n\n\nDocs for Zenodo added\nFixed various typos and replaced favicon\n\n\n\n\n\nInitial version\n\n\n\n\n\n\n\n\n…\n\n\n\n\n\n\n\n\n…",
-    "crumbs": [
-      "Home",
-      "Project",
-      "Changelog"
-    ]
-  },
-  {
-    "objectID": "CHANGELOG.html#unreleased",
-    "href": "CHANGELOG.html#unreleased",
-    "title": "Changelog",
-    "section": "",
-    "text": "Docs for Zenodo added\nFixed various typos and replaced favicon\n\n\n\n\n\nInitial version",
-    "crumbs": [
-      "Home",
-      "Project",
-      "Changelog"
-    ]
-  },
-  {
-    "objectID": "CHANGELOG.html#section",
-    "href": "CHANGELOG.html#section",
-    "title": "Changelog",
-    "section": "",
-    "text": "…",
-    "crumbs": [
-      "Home",
-      "Project",
-      "Changelog"
-    ]
-  },
-  {
-    "objectID": "CHANGELOG.html#section-1",
-    "href": "CHANGELOG.html#section-1",
-    "title": "Changelog",
-    "section": "",
-    "text": "…",
-    "crumbs": [
-      "Home",
-      "Project",
-      "Changelog"
     ]
   },
   {
@@ -511,144 +463,52 @@
     ]
   },
   {
-    "objectID": "ARCHIVE.html",
-    "href": "ARCHIVE.html",
-    "title": "TODO Archive",
+    "objectID": "CHANGELOG.html",
+    "href": "CHANGELOG.html",
+    "title": "Changelog",
     "section": "",
-    "text": "Archived on 2025-10-19. Completed or superseded items moved from TODO.md to keep the active list focused.\n\n\n\nUpdate project details in package.json, _quarto.yml, and index.qmd\nAdd CITATION.cff with full metadata and ORCID IDs\nFormat all files (npm run format)\nFinalize README.md to reflect repository purpose\nVerify LaTeX compilation for abstract\nEnable GitHub security alerts and branch protection\nReplace all placeholders including [INSERT CONTACT METHOD]\nClean LaTeX build files and update .gitignore\n\n\n\n\n\nFinal version submitted to CHR 2025 (abstract/paper.pdf)\n\n\n\n\n\nInitial run\nTest run\n\n\n\n\n\nsurvey/form.html\nsurvey/index.qmd\n\n\n\n\n\ngenerate_alt_text.py — final config, tested, pending final run\n\n\n\n\n\nInitial presentation draft"
+    "text": "All notable changes to this project will be documented in this file.\nThe format is based on Keep a Changelog, and this project adheres to Semantic Versioning.\n\n\n\n\n\nDocs for Zenodo added\nFixed various typos and replaced favicon\n\n\n\n\n\nInitial version\n\n\n\n\n\n\n\n\n…\n\n\n\n\n\n\n\n\n…",
+    "crumbs": [
+      "Home",
+      "Project",
+      "Changelog"
+    ]
   },
   {
-    "objectID": "ARCHIVE.html#repository-setup-repo-completed",
-    "href": "ARCHIVE.html#repository-setup-repo-completed",
-    "title": "TODO Archive",
+    "objectID": "CHANGELOG.html#unreleased",
+    "href": "CHANGELOG.html#unreleased",
+    "title": "Changelog",
     "section": "",
-    "text": "Update project details in package.json, _quarto.yml, and index.qmd\nAdd CITATION.cff with full metadata and ORCID IDs\nFormat all files (npm run format)\nFinalize README.md to reflect repository purpose\nVerify LaTeX compilation for abstract\nEnable GitHub security alerts and branch protection\nReplace all placeholders including [INSERT CONTACT METHOD]\nClean LaTeX build files and update .gitignore"
+    "text": "Docs for Zenodo added\nFixed various typos and replaced favicon\n\n\n\n\n\nInitial version",
+    "crumbs": [
+      "Home",
+      "Project",
+      "Changelog"
+    ]
   },
   {
-    "objectID": "ARCHIVE.html#abstract-abstract",
-    "href": "ARCHIVE.html#abstract-abstract",
-    "title": "TODO Archive",
+    "objectID": "CHANGELOG.html#section",
+    "href": "CHANGELOG.html#section",
+    "title": "Changelog",
     "section": "",
-    "text": "Final version submitted to CHR 2025 (abstract/paper.pdf)"
+    "text": "…",
+    "crumbs": [
+      "Home",
+      "Project",
+      "Changelog"
+    ]
   },
   {
-    "objectID": "ARCHIVE.html#runs-runs",
-    "href": "ARCHIVE.html#runs-runs",
-    "title": "TODO Archive",
+    "objectID": "CHANGELOG.html#section-1",
+    "href": "CHANGELOG.html#section-1",
+    "title": "Changelog",
     "section": "",
-    "text": "Initial run\nTest run"
-  },
-  {
-    "objectID": "ARCHIVE.html#survey-survey",
-    "href": "ARCHIVE.html#survey-survey",
-    "title": "TODO Archive",
-    "section": "",
-    "text": "survey/form.html\nsurvey/index.qmd"
-  },
-  {
-    "objectID": "ARCHIVE.html#source-code-src",
-    "href": "ARCHIVE.html#source-code-src",
-    "title": "TODO Archive",
-    "section": "",
-    "text": "generate_alt_text.py — final config, tested, pending final run"
-  },
-  {
-    "objectID": "ARCHIVE.html#presentation-presentations",
-    "href": "ARCHIVE.html#presentation-presentations",
-    "title": "TODO Archive",
-    "section": "",
-    "text": "Initial presentation draft"
-  },
-  {
-    "objectID": "TODO.html",
-    "href": "TODO.html",
-    "title": "CHR 2025 Project TODO",
-    "section": "",
-    "text": "This file tracks setup, research, and publication tasks for the CHR 2025: Seeing History Unseen repository.\nCompleted items moved to ARCHIVE.md.\n\n\n\n\n\nConnect repository to Zenodo\nAdd Zenodo DOI badge and DOI to README.md\n(Optional) Add .zenodo.json metadata file\n(Optional) Generate and commit CHANGELOG.md\n(Optional) Enable and publish GitHub Pages with Quarto\nTest all build commands (npm, make)\nUpdate from latest base template\n\n\n\n\n\n\n\n\nIncorporate summary of model cards:\n\nMistral: Pixtral 12B\nGoogle: Gemini 2.5 Flash Lite\nMeta: Llama 4 Maverick\nOpenAI: GPT-4o-mini\n\nAdd links to open-weights models on Hugging Face for pixtral and llama-maverick\nCite and integrate:\n\nhttps://arxiv.org/html/2403.09193v2\n\n\nQuestion: Do LLM–vision fusion and prompts change what visual cues VLMs rely on? arXiv\nMethod: Measure texture-vs-shape bias on cue-conflict images for VQA and captioning; run mechanistic checks across vision encoder vs LLM fusion; test prompt “steering” toward shape/texture and low/high spatial frequencies. arXiv\nCore findings:\nVLMs inherit encoder biases only partly and are more shape-biased than standard vision-only models, though still below human levels. arXiv\nMulti-modal fusion suppresses or amplifies cues; the LLM can shift which visual evidence is used. arXiv\nPrompting can steer cue use without retraining. Steering toward texture is often easier than toward shape; achievable shape bias ranged roughly 49–72% with little accuracy loss. arXiv\n\nhttps://arxiv.org/html/2507.11543v1\n\nThe paper is a structured literature review on generative AI in computer science education. It synthesizes 52 studies (2019–2024) around three lenses—accuracy (hallucinations, bias, error propagation, metrics), authenticity (authorship, integrity, sociotechnical context), and assessment (AI-assisted grading, fairness, limits of current metrics). It argues for human-in-the-loop, hybrid assessment models, AI literacy, and bias-mitigation frameworks; it highlights gaps such as longitudinal effects and reliable accuracy measures beyond narrow correctness.\n\nhttps://arxiv.org/html/2409.03054v1\n\nThe paper designs and tests a pipeline that injects webpage context into GPT-4V image descriptions and shows, with a 12-participant BLV user study, that context-aware descriptions are preferred and rated higher on quality, imaginability, relevance, and plausibility than context-free baselines. It also reports a technical audit for hallucinations, subjectivity, and irrelevance, and surfaces risks around trust, privacy, and person identification. This directly supports your claim that VLMs can act as accessibility assistants and offers concrete design, evaluation, and governance patterns you can adapt to GLAM workflows.\n\nEnsure consistent vocabulary for disability justice framing Reference:\n\nNYC Disability-Inclusive Terminology Guide (2021)\nUN Geneva Disability-Inclusive Language Guidelines\nStanford Disability Language Guide\n\n\n\n\n\n\nDocument model selection and changes:\n\nInitial use of allenai/molmo-7b-d abandoned due to inconsistency\nSwitched from openai/gpt-4.1-nano to openai/gpt-4o-mini for better performance\nEvaluated models with comparable costs:\n\n\n\n\n\nModel Name & ID\nInput (\\(/1M) | Output (\\)/1M)\nContext (tokens)\n\n\n\n\n\nMistral: Pixtral 12Bmistralai/pixtral-12b\n0.10\n0.10\n32 768\n\n\nGoogle: Gemini 2.5 Flash Litegoogle/gemini-2.5-flash-lite\n0.10\n0.40\n1 048 576\n\n\nMeta: Llama 4 Maverickmeta-llama/llama-4-maverick\n0.15\n0.60\n1 048 576\n\n\nOpenAI: GPT-4o-miniopenai/gpt-4o-mini\n0.15\n0.60\n128 000\n\n\n\n\n\n\n\n\nTo be completed during paper writing\n\n\n\n\n\nFinal run with full dataset\n\n\n\n\n\nsurvey/questions.csv — update after final run\nsurvey/results.csv — update after expert survey\n\n\n\n\n\nanalysis scripts — completed via ranking_tests.py, analyze_survey_time.py\n\n\n\n\n\nAlign slides with final paper\nAdd examples, visualizations, and demonstrations\nFinal review and rehearsal\n\n\n\n\n\nUpdate after final paper version and publication\nReview README workflow diagram whenever src scripts change\nDocument pipeline script order and artefacts in README (2025-10-27)\n\n\n\n\n\nTBD after final version\n\n\n\n\n\nComplete user study with blind/low-vision participants\nFinalize evaluation of AI models\nRelease benchmark dataset\nDraft practical guidelines for heritage institutions\n\n\n\n\n\nUpdate to support paper writing and model comparison (2025-10-27)\n\n\n\n\n\nKeep this document current\nUse [x], [ ], and status emojis consistently\nArchive historical TODOs after publication in ARCHIVE.md"
-  },
-  {
-    "objectID": "TODO.html#repository-setup-repo",
-    "href": "TODO.html#repository-setup-repo",
-    "title": "CHR 2025 Project TODO",
-    "section": "",
-    "text": "Connect repository to Zenodo\nAdd Zenodo DOI badge and DOI to README.md\n(Optional) Add .zenodo.json metadata file\n(Optional) Generate and commit CHANGELOG.md\n(Optional) Enable and publish GitHub Pages with Quarto\nTest all build commands (npm, make)\nUpdate from latest base template"
-  },
-  {
-    "objectID": "TODO.html#paper-paper",
-    "href": "TODO.html#paper-paper",
-    "title": "CHR 2025 Project TODO",
-    "section": "",
-    "text": "Incorporate summary of model cards:\n\nMistral: Pixtral 12B\nGoogle: Gemini 2.5 Flash Lite\nMeta: Llama 4 Maverick\nOpenAI: GPT-4o-mini\n\nAdd links to open-weights models on Hugging Face for pixtral and llama-maverick\nCite and integrate:\n\nhttps://arxiv.org/html/2403.09193v2\n\n\nQuestion: Do LLM–vision fusion and prompts change what visual cues VLMs rely on? arXiv\nMethod: Measure texture-vs-shape bias on cue-conflict images for VQA and captioning; run mechanistic checks across vision encoder vs LLM fusion; test prompt “steering” toward shape/texture and low/high spatial frequencies. arXiv\nCore findings:\nVLMs inherit encoder biases only partly and are more shape-biased than standard vision-only models, though still below human levels. arXiv\nMulti-modal fusion suppresses or amplifies cues; the LLM can shift which visual evidence is used. arXiv\nPrompting can steer cue use without retraining. Steering toward texture is often easier than toward shape; achievable shape bias ranged roughly 49–72% with little accuracy loss. arXiv\n\nhttps://arxiv.org/html/2507.11543v1\n\nThe paper is a structured literature review on generative AI in computer science education. It synthesizes 52 studies (2019–2024) around three lenses—accuracy (hallucinations, bias, error propagation, metrics), authenticity (authorship, integrity, sociotechnical context), and assessment (AI-assisted grading, fairness, limits of current metrics). It argues for human-in-the-loop, hybrid assessment models, AI literacy, and bias-mitigation frameworks; it highlights gaps such as longitudinal effects and reliable accuracy measures beyond narrow correctness.\n\nhttps://arxiv.org/html/2409.03054v1\n\nThe paper designs and tests a pipeline that injects webpage context into GPT-4V image descriptions and shows, with a 12-participant BLV user study, that context-aware descriptions are preferred and rated higher on quality, imaginability, relevance, and plausibility than context-free baselines. It also reports a technical audit for hallucinations, subjectivity, and irrelevance, and surfaces risks around trust, privacy, and person identification. This directly supports your claim that VLMs can act as accessibility assistants and offers concrete design, evaluation, and governance patterns you can adapt to GLAM workflows.\n\nEnsure consistent vocabulary for disability justice framing Reference:\n\nNYC Disability-Inclusive Terminology Guide (2021)\nUN Geneva Disability-Inclusive Language Guidelines\nStanford Disability Language Guide\n\n\n\n\n\n\nDocument model selection and changes:\n\nInitial use of allenai/molmo-7b-d abandoned due to inconsistency\nSwitched from openai/gpt-4.1-nano to openai/gpt-4o-mini for better performance\nEvaluated models with comparable costs:\n\n\n\n\n\nModel Name & ID\nInput (\\(/1M) | Output (\\)/1M)\nContext (tokens)\n\n\n\n\n\nMistral: Pixtral 12Bmistralai/pixtral-12b\n0.10\n0.10\n32 768\n\n\nGoogle: Gemini 2.5 Flash Litegoogle/gemini-2.5-flash-lite\n0.10\n0.40\n1 048 576\n\n\nMeta: Llama 4 Maverickmeta-llama/llama-4-maverick\n0.15\n0.60\n1 048 576\n\n\nOpenAI: GPT-4o-miniopenai/gpt-4o-mini\n0.15\n0.60\n128 000"
-  },
-  {
-    "objectID": "TODO.html#analysis-analysis",
-    "href": "TODO.html#analysis-analysis",
-    "title": "CHR 2025 Project TODO",
-    "section": "",
-    "text": "To be completed during paper writing"
-  },
-  {
-    "objectID": "TODO.html#runs-runs",
-    "href": "TODO.html#runs-runs",
-    "title": "CHR 2025 Project TODO",
-    "section": "",
-    "text": "Final run with full dataset"
-  },
-  {
-    "objectID": "TODO.html#survey-survey",
-    "href": "TODO.html#survey-survey",
-    "title": "CHR 2025 Project TODO",
-    "section": "",
-    "text": "survey/questions.csv — update after final run\nsurvey/results.csv — update after expert survey"
-  },
-  {
-    "objectID": "TODO.html#source-code-src",
-    "href": "TODO.html#source-code-src",
-    "title": "CHR 2025 Project TODO",
-    "section": "",
-    "text": "analysis scripts — completed via ranking_tests.py, analyze_survey_time.py"
-  },
-  {
-    "objectID": "TODO.html#presentation-presentations",
-    "href": "TODO.html#presentation-presentations",
-    "title": "CHR 2025 Project TODO",
-    "section": "",
-    "text": "Align slides with final paper\nAdd examples, visualizations, and demonstrations\nFinal review and rehearsal"
-  },
-  {
-    "objectID": "TODO.html#documentation-documentation",
-    "href": "TODO.html#documentation-documentation",
-    "title": "CHR 2025 Project TODO",
-    "section": "",
-    "text": "Update after final paper version and publication\nReview README workflow diagram whenever src scripts change\nDocument pipeline script order and artefacts in README (2025-10-27)"
-  },
-  {
-    "objectID": "TODO.html#testing-test",
-    "href": "TODO.html#testing-test",
-    "title": "CHR 2025 Project TODO",
-    "section": "",
-    "text": "TBD after final version"
-  },
-  {
-    "objectID": "TODO.html#research-tasks-research",
-    "href": "TODO.html#research-tasks-research",
-    "title": "CHR 2025 Project TODO",
-    "section": "",
-    "text": "Complete user study with blind/low-vision participants\nFinalize evaluation of AI models\nRelease benchmark dataset\nDraft practical guidelines for heritage institutions"
-  },
-  {
-    "objectID": "TODO.html#agents.md",
-    "href": "TODO.html#agents.md",
-    "title": "CHR 2025 Project TODO",
-    "section": "",
-    "text": "Update to support paper writing and model comparison (2025-10-27)"
-  },
-  {
-    "objectID": "TODO.html#notes",
-    "href": "TODO.html#notes",
-    "title": "CHR 2025 Project TODO",
-    "section": "",
-    "text": "Keep this document current\nUse [x], [ ], and status emojis consistently\nArchive historical TODOs after publication in ARCHIVE.md"
+    "text": "…",
+    "crumbs": [
+      "Home",
+      "Project",
+      "Changelog"
+    ]
   },
   {
     "objectID": "CONTRIBUTING.html",

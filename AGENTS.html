@@ -330,11 +330,12 @@
 <h2 class="anchored" data-anchor-id="pipeline-workflow-src">Pipeline Workflow (src/)</h2>
 <ol type="1">
 <li><code>generate_alt_text.py</code> — fetch metadata, call configured models, and write timestamped runs under <code>runs/&lt;timestamp&gt;/</code> (raw JSON, prompt tables, manifests, cached images).</li>
+<li>Human experts complete the ranking survey (Formspree) using the generated prompts/questions.</li>
 <li><code>clean_survey_data.py</code> — strip excluded submissions/emails from <code>data/raw/formspree_*_export.json</code>, saving <code>data/processed/processed_survey_submissions.json</code>.</li>
 <li><code>process_survey_rankings.py</code> — expand per-object rankings into <code>data/processed/survey_rankings.csv</code> with elapsed time per rater.</li>
 <li><code>process_best_answers.py</code> — derive consensus winners and export <code>data/processed/best_answers.csv</code> with exemplar texts.</li>
 <li><code>analyze_survey_time.py</code> — summarise completion durations and write <code>analysis/time_stats_by_{object,submission}.csv</code>.</li>
-<li><code>ranking_tests.py</code> — run Friedman/Wilcoxon tests, generate CSV summaries, and save plots (boxplots, heatmaps) in <code>analysis/</code>.</li>
+<li><code>ranking_tests.py</code> — required step that runs Friedman/Wilcoxon tests, generates CSV summaries, and saves plots (boxplots, heatmaps) in <code>analysis/</code>.</li>
 <li><code>viz_dataset.py</code> — build manuscript figures at <code>paper/images/fig_type_era_{full,subset}.png</code>.</li>
 </ol>
 <p>See <code>README.md</code> for the mermaid workflow diagram and an artefact directory table.</p>
