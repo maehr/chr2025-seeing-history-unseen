@@ -33,7 +33,7 @@ Our research explores the feasibility, accuracy, and ethics of using state-of-th
 - `presentation/`: Will contain presentation slides and supporting materials
 - `documentation/`: Additional documentation and resources (including WCAG guidelines in `notes.md`)
 - `src/`: Alt-text generation pipeline
-  - `main.py`: Standalone script for generating WCAG-compliant alt-text using OpenRouter models
+  - `generate_alt_text.py`: Standalone script for generating WCAG-compliant alt-text using OpenRouter models
   - `playground.ipynb`: Interactive Jupyter notebook for experimenting with the pipeline
 - `runs/`: Output directory for generated alt-text results, including raw API responses and CSV/JSONL/Parquet tables
 - `data/`: Data directories for raw and cleaned datasets
@@ -176,7 +176,7 @@ cp example.env .env
 3. Run the alt-text generation pipeline:
 
 ```bash
-uv run python src/main.py
+uv run python src/generate_alt_text.py
 ```
 
 This will:
@@ -199,7 +199,7 @@ uv run jupyter notebook src/playground.ipynb
 
 #### Configuration
 
-Edit `src/main.py` to customize:
+Edit `src/generate_alt_text.py` to customize:
 
 - `MODELS`: List of OpenRouter model identifiers to use
 - `MEDIA_IDS`: List of media object IDs to process

@@ -275,7 +275,7 @@ If a model refuses to describe an image due to some built-in safety filter (misi
 %%| fig-cap: Alt-text generation, survey, and analysis pipeline (best model by consensus and cost).
 flowchart LR
   %% Generation
-  subgraph GEN[src/main.py — Generation]
+  subgraph GEN[src/generate_alt_text.py — Generation]
     M0[Fetch metadata JSON (METADATA_URL)]
     M1[Select MEDIA_IDS]
     M2[Build prompts with metadata]

@@ -2,6 +2,12 @@
 # ruff: noqa
 from __future__ import annotations
 
+"""Batch alt-text generation pipeline.
+
+Generates WCAG-compliant alt text for selected media items via OpenRouter
+and saves timestamped outputs under runs/.
+"""
+
 import hashlib, json, logging, os, sys, time
 from datetime import datetime, timezone
 from pathlib import Path

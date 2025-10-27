@@ -29,7 +29,7 @@ Archived on 2025-10-19. Completed or superseded items moved from `TODO.md` to ke
 
 ## Source Code /src/
 
-- [x] `main.py` — final config, tested, pending final run
+- [x] `generate_alt_text.py` — final config, tested, pending final run
 
 ## Presentation /presentations/
 

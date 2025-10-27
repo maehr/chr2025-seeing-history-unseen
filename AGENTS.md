@@ -5,7 +5,7 @@
 Authoring sources live in:
 
 - `paper/` — manuscript (`paper.md`), wrapper (`index.qmd`), `bibliography.bib`, and `images/`
-- `src/` — Python alt-text pipeline (`main.py`) writing timestamped outputs to `runs/`
+- `src/` — Python alt-text pipeline (`generate_alt_text.py`) writing timestamped outputs to `runs/`
 - `abstract/`, `presentation/`, `documentation/` — ancillary materials; published HTML in `_site/`
 
 ## Paper Authoring Workflow
@@ -15,13 +15,13 @@ Authoring sources live in:
 - Citations: add BibTeX to `paper/bibliography.bib` and cite with `[@key]`. Example: “...explicit detail [@cecilia2023b]”.
 - Figures: place under `paper/images/` and reference with labels. Example: `![Model comparison.](images/fig_models.png){#fig:models width=60%}`.
 - Tables: use Markdown tables with captions. Example: `Table: Model costs {#tbl:models}` then reference as `[Table @tbl:models]`.
-- From TODO to paper: items under `TODO.md` → “Paper/Literature and Context” and “Methodology Updates” should become citations and a maintained `@tbl:models` in `paper.md`. Keep model IDs and costs aligned with `src/main.py` and recent runs.
+- From TODO to paper: items under `TODO.md` → “Paper/Literature and Context” and “Methodology Updates” should become citations and a maintained `@tbl:models` in `paper.md`. Keep model IDs and costs aligned with `src/generate_alt_text.py` and recent runs.
 
 ## Build, Test, and Development Commands
 
 - `npm install && uv sync` — install Node and Python toolchains.
 - `quarto preview` — preview the website; add `paper/` to focus on the manuscript.
-- `uv run python src/main.py` — execute the batch job (requires `.env`). [DO NOT EXECUTE UNLESS EXPLICITLY AUTHORIZED]
+- `uv run python src/generate_alt_text.py` — execute the batch job (requires `.env`). [DO NOT EXECUTE UNLESS EXPLICITLY AUTHORIZED]
 - `npm run check` / `npm run format` — Prettier verify/fix.
 - `uv run ruff check` / `uv run ruff fix` — Ruff verify/fix.
 
