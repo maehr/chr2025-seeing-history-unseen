@@ -32,8 +32,10 @@ number-sections: true
 format:
   html: default
   pdf:
-    keep-tex: true
     cite-method: biblatex
+    keep-tex: true
+  # latex:
+  #   cite-method: biblatex
 ---
 
 # Introduction {#sec-introduction}
@@ -275,7 +277,7 @@ A manual close reading inspection of hand-picked alt texts with highest mean ran
 
 #### Example for Factually Wrong Text
 
-![Faltblatt der Gruppe ‹Freiräume für Frauen› (FFF) ([m92410](https://forschung.stadtgeschichtebasel.ch/items/abb92410.html#m92410))](./images/m92410.jpg)
+![Faltblatt der Gruppe ‹Freiräume für Frauen› (FFF) ([m92410](https://forschung.stadtgeschichtebasel.ch/items/abb92410.html#m92410))](./images/m92410.jpg){width="600"}
 
 -   **Best-ranked alt-text**: «Faltblatt der Gruppe ‹Freiräume für Frauen› (FFF) von 1992. Zwei Personen gehen eine Treppe hinunter, Frau mit Zigarette, Mann mit Sonnenbrille und Händen in den Hosentaschen» (Google Gemini 2.5 Flash Lite)
 -   **Translation**: "Leaflet of the 'Freiräume für Frauen' (FFF) group from 1992. Two people walk down a staircase, a woman with a cigarette, a man with sunglasses and hands in his pockets"
@@ -283,7 +285,7 @@ A manual close reading inspection of hand-picked alt texts with highest mean ran
 
 #### Example for Reproduction of Stereotypes
 
-![‹Gegen den Eisenbahnhandel›, anonyme antisemitische Karikatur in der Extraausgabe der Basler ‹Allgemeinen Schweizer Zeitung› vom 14. Februar 1898 ([m91960](https://forschung.stadtgeschichtebasel.ch/items/abb92410.html#m92410))](./images/m91960.jpg)
+![‹Gegen den Eisenbahnhandel›, anonyme antisemitische Karikatur in der Extraausgabe der Basler ‹Allgemeinen Schweizer Zeitung› vom 14. Februar 1898 ([m91960](https://forschung.stadtgeschichtebasel.ch/items/abb92410.html#m92410))](./images/m91960.jpg){width="600"}
 
 -   **Best-ranked alt-text**: «Antisemitische Karikatur zur Eisenbahnverstaatlichung 1898. Links: Wehrhafte Helvetia zwingt knienden Geldverleiher nieder. Rechts: Kniende Helvetia bittet reichen Juden um Geld. Kontrastdarstellung zum Volksentscheid über die Eisenbahnverstaatlichung» (Meta Llama 4 Maverick)
 -   **Translation**: "Antisemitic caricature on the nationalization of the railways 1898. Left: Defensive Helvetia forces a kneeling moneylender down. Right: Kneeling Helvetia asks a rich Jew for money. Contrasting depiction of the referendum on the nationalization of the railways"
@@ -291,7 +293,7 @@ A manual close reading inspection of hand-picked alt texts with highest mean ran
 
 #### Example for Selective Description
 
-![Zuschauerzahlen von FC Basel und Konzerten im St. Jakob-Stadion, 1960–2022 ([m88415_1](https://forschung.stadtgeschichtebasel.ch/items/abb88415.html#m88415_1))](./images/m88415_1.jpg)
+![Zuschauerzahlen von FC Basel und Konzerten im St. Jakob-Stadion, 1960–2022 ([m88415_1](https://forschung.stadtgeschichtebasel.ch/items/abb88415.html#m88415_1))](./images/m88415_1.jpg){width="600"}
 
 -   **Best ranked alt-text**: «Balkendiagramm: Zuschauerzahlen von FC Basel (blau) und Konzerten (gelb) im St. Jakob-Stadion, 1960–2022. Höchstwerte bei Fußballspielen ab 2001 im neuen St. Jakob-Park, Einbruch 2020 durch Corona-Pandemie» (Meta Llama 4 Maverick)
 -   **Translation**: "Bar chart: Audience numbers for FC Basel (blue) and concerts (yellow) at St. Jakob-Stadion, 1960–2022. Peak values for football matches from 2001 in the new St. Jakob-Park, slump in 2020 due to the Corona pandemic"
