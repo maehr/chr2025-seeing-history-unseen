@@ -311,7 +311,7 @@ This combination highlights the **limits of rank-based evaluation alone**: exper
 -   **RQ1 Feasibility:** All four VLMs achieved full coverage, low latency, and negligible cost, confirming the operational viability of automated WCAG-aligned alt text generation for heritage corpora.
 -   **RQ2 Relative quality:** Expert rankings showed *no statistically significant hierarchy* among models ($p = 0.11$, $W \approx 0.01$), and qualitative inspection exposed factual inaccuracies, biased reproduction, and selective omissions even in top-rated outputs.
 
-Overall, current VLMs are **operationally ready but epistemically fragile**: They can populate heritage databases at scale but require **expert review and critical post-editing** to ensure factual precision, ethical compliance, and contextual adequacy. Automated alt text workflows should therefore combine model ensembles with targeted human oversight to meet both accessibility and historiographical standards.
+Overall, current VLMs can populate heritage databases at scale but require **expert review and critical post-editing** to ensure factual precision, ethical compliance, and contextual adequacy. Automated alt text workflows should therefore combine model ensembles with targeted human oversight to meet both accessibility and historiographical standards.
 
 # Discussion {#sec-discussion}
 

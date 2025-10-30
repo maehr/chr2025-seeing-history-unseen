@@ -9,6 +9,29 @@
 \usepackage{booktabs}
 \usepackage{graphicx}
 % ADD your own packages using \usepackage{}
+\usepackage{tabularx}
+\usepackage{array,makecell}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\setlength{\tabcolsep}{5pt} % tighter columns
+\usepackage{ltablex} % longtable + X columns
+\keepXColumns
+\usepackage{booktabs,array}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X} % wrapping, left-aligned
+\usepackage{listings}
+\usepackage{xcolor}
+\lstset{
+  basicstyle=\ttfamily\footnotesize,
+  breaklines=true,
+  breakatwhitespace=true,
+  postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space},
+  frame=single,
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{brown},
+  showstringspaces=false
+}
 
 % TITLE OF THE SUBMISSION
 % Change this to the name of your submission
@@ -76,7 +99,7 @@ mini, Qwen 3 VL 8B Instruct). Our pipeline fixes WCAG and output
 constraints in the system prompt and injects concise,
 collection-specific metadata at the user turn to mitigate
 ``lost-in-the-middle'' effects. Feasibility benchmarks on a 20-item
-subset show 100 \% coverage, latencies of \textasciitilde2--4 s per
+subset show 100\% coverage, latencies of \textasciitilde2--4 s per
 item, and sub-cent costs per description. A rater study with 21
 humanities scholars ranks per-image model outputs; Friedman and Wilcoxon
 tests reveal no statistically significant performance differences, while
@@ -152,23 +175,22 @@ We selected \textbf{four multimodal vision-language models (VLMs)} representing 
 
 \begin{table}[htbp]
 \centering
-\begin{tabular}{lllrrlrrl}
+\begin{tabularx}{\linewidth}{lYYYY}
 \toprule
-\textbf{Model} & \textbf{Developer} & \textbf{Openness} &
-\rotatebox{90}{\textbf{Context}} &
-\rotatebox{90}{\textbf{\shortstack[l]{Latency\\(s)}}} &
-\rotatebox{90}{\textbf{\shortstack[l]{Input\\\$/M}}} &
-\rotatebox{90}{\textbf{\shortstack[l]{Output\\\$/M}}} &
-\textbf{Notes} \\
+\textbf{Attribute} & \textbf{Gemini 2.5 Flash Lite} & \textbf{Llama 4 Maverick} & \textbf{GPT-4o mini} & \textbf{Qwen3 VL 8B Instruct} \\
 \midrule
-\textbf{Gemini 2.5 Flash Lite} & Google & Proprietary & 1.05M & 0.42 & 0.10 & 0.40 & Fast, low-cost; optimized for captioning. \\
-\textbf{Llama 4 Maverick} & Meta & Open weights & 1.05M & 0.56 & 0.15 & 0.60 & Multilingual, multimodal reasoning. \\
-\textbf{GPT-4o mini} & OpenAI & Proprietary & 128K & 0.58 & 0.15 & 0.60 & Compact GPT-4o variant; strong factual grounding. \\
-\textbf{Qwen3 VL 8B Instruct} & Alibaba & Open-weight & 131K & 1.29 & 0.08 & 0.50 & Robust open baseline with OCR features. \\
+Developer & Google & Meta & OpenAI & Alibaba \\
+Openness & Proprietary & Open weights & Proprietary & Open-weight \\
+Context & 1.05M & 1.05M & 128K & 131K \\
+Latency (s) & 0.42 & 0.56 & 0.58 & 1.29 \\
+Input \$/M & 0.10 & 0.15 & 0.15 & 0.08 \\
+Output \$/M & 0.40 & 0.60 & 0.60 & 0.50 \\
+Notes & Fast, low-cost; optimized for captioning. & Multilingual, multimodal reasoning. & Compact GPT-4o variant; strong factual grounding. & Robust open baseline with OCR features. \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \caption{Models used for evaluation. Data reported by \href{https://openrouter.ai/}{OpenRouter} (27.10.2025).}
 \end{table}
+
 
 Selection criteria:
 
@@ -188,7 +210,7 @@ This supports our design choice to inject structured collection metadata into th
 These results are consistent with findings that \textbf{prompt structure and multimodal fusion} can systematically shift which visual cues VLMs rely on \cite{gavrikov2025}.
 By anchoring metadata before the image input, we effectively steer the model toward shape- and context-based reasoning rather than shallow texture correlations—an effect analogous to prompt-based cue steering observed in vision-language bias studies.
 
-\begin{verbatim}
+\begin{lstlisting}[language=Python]
 def build_prompt(media: MediaObject) -> str:
     return f"""Titel: {media.title or "Kein Titel"}
 Beschreibung: {media.description or "Keine Beschreibung"}
@@ -256,7 +278,7 @@ Nur visuelle Analyse (Bildinhalt) und übergebene Metadaten. Keine externen Kont
         system,
         prompt,
     )
-\end{verbatim}
+\end{lstlisting}
 
 \subsection{Alt Text Generation and Post-processing}
 
@@ -289,7 +311,7 @@ Each model generated alt-text descriptions for 20 representative heritage images
 
 \subsubsection{Coverage and reliability}
 
-All models returned non-empty outputs for all 20 prompts, yielding \textbf{100\% coverage} and \textbf{no failed responses}.
+All models returned non-empty outputs for all 20 prompts, yielding \textbf{100 \% coverage} and \textbf{no failed responses}.
 This demonstrates that current VLMs can reliably produce textual descriptions even for heterogeneous heritage data without the need for fallback mechanisms.
 
 \subsubsection{Throughput and latency}
@@ -359,12 +381,12 @@ OpenAI and Qwen outputs received more first-place and fewer last-place rankings,
 
 A manual close reading inspection of hand-picked alt texts with highest mean rank scores revealed that even those outputs deemed to be the ‘best’ were not free from substantive and ethical shortcomings. In fact, all models produced at least one error. Some are easy to catch in a manual review (factually wrong descriptions), others require expert domain knowledge (reproduction of stereotypes).
 
-\paragraph{Example for Factually Wrong Text}
+\paragraph{Example for Factually Wrong Text (Figure~\ref{faltblatt})}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.8\textwidth]{./images/m92410.jpg}
-\caption{Faltblatt der Gruppe ‹Freiräume für Frauen› (FFF) (\href{https://forschung.stadtgeschichtebasel.ch/items/abb92410.html\#m92410}{m92410})}
+\caption{Faltblatt der Gruppe ‹Freiräume für Frauen› (FFF) (\href{https://forschung.stadtgeschichtebasel.ch/items/abb92410.html\#m92410}{m92410})}\label{faltblatt}
 \end{figure}
 
 \begin{itemize}
@@ -373,12 +395,12 @@ A manual close reading inspection of hand-picked alt texts with highest mean ran
     \item \textbf{Shortcoming}: This description is factually incorrect. The two people in the photograph are clearly walking up the staircase, not down.
 \end{itemize}
 
-\paragraph{Example for Reproduction of Stereotypes}
+\paragraph{Example for Reproduction of Stereotypes (Figure~\ref{karikatur})}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.8\textwidth]{./images/m91960.jpg}
-\caption{‹Gegen den Eisenbahnhandel›, anonyme antisemitische Karikatur in der Extraausgabe der Basler ‹Allgemeinen Schweizer Zeitung› vom 14. Februar 1898 (\href{https://forschung.stadtgeschichtebasel.ch/items/abb92410.html\#m92410}{m91960})}
+\caption{‹Gegen den Eisenbahnhandel›, anonyme antisemitische Karikatur in der Extraausgabe der Basler ‹Allgemeinen Schweizer Zeitung› vom 14. Februar 1898 (\href{https://forschung.stadtgeschichtebasel.ch/items/abb92410.html\#m92410}{m91960})}\label{karikatur}
 \end{figure}
 
 \begin{itemize}
@@ -387,12 +409,12 @@ A manual close reading inspection of hand-picked alt texts with highest mean ran
     \item \textbf{Shortcoming}: The text uncritically reproduces the term \enquote{reichen Juden} (rich Jew). This is an antisemitic stereotype likely drawn from the item's metadata or biased training data, not a neutral description of the visual content.
 \end{itemize}
 
-\paragraph{Example for Selective Description}
+\paragraph{Example for Selective Description (Figure~\ref{diagram})}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.8\textwidth]{./images/m88415_1.jpg}
-\caption{Zuschauerzahlen von FC Basel und Konzerten im St. Jakob-Stadion, 1960–2022 (\href{https://forschung.stadtgeschichtebasel.ch/items/abb88415.html\#m88415_1}{m88415\_1})}
+\caption{Zuschauerzahlen von FC Basel und Konzerten im St. Jakob-Stadion, 1960–2022 (\href{https://forschung.stadtgeschichtebasel.ch/items/abb88415.html\#m88415_1}{m88415\_1})}\label{diagram}
 \end{figure}
 
 \begin{itemize}
@@ -415,7 +437,7 @@ This combination highlights the \textbf{limits of rank-based evaluation alone}: 
     \item \textbf{RQ2 Relative quality:} Expert rankings showed \emph{no statistically significant hierarchy} among models ($p = 0.11$, $W \approx 0.01$), and qualitative inspection exposed factual inaccuracies, biased reproduction, and selective omissions even in top-rated outputs.
 \end{itemize}
 
-Overall, current VLMs are \textbf{operationally ready but epistemically fragile}: They can populate heritage databases at scale but require \textbf{expert review and critical post-editing} to ensure factual precision, ethical compliance, and contextual adequacy. Automated alt text workflows should therefore combine model ensembles with targeted human oversight to meet both accessibility and historiographical standards.
+Overall, current VLMs can populate heritage databases at scale but require \textbf{expert review and critical post-editing} to ensure factual precision, ethical compliance, and contextual adequacy. Automated alt text workflows should therefore combine model ensembles with targeted human oversight to meet both accessibility and historiographical standards.
 
 \section{Discussion}\label{sec-discussion}
 
@@ -608,12 +630,27 @@ Multiple-Item Object (Figure and separate Legend) & 16 & 4 \\
 \label{rank_distributions_boxplot}
 \end{figure}
 
-\begin{table}[htbp]
-\centering
-\begin{tabular}{llrrrr}
+\begingroup
+\setlength{\tabcolsep}{3pt}\scriptsize
+\begin{longtable}{llrrrrr}
+\caption{Rank counts per object and model.}\label{tab:rank-counts}\\
 \toprule
-\textbf{objectid} & \textbf{model} & \rotatebox{90}{\textbf{count\_rank\_1}} & \rotatebox{90}{\textbf{count\_rank\_2}} & \rotatebox{90}{\textbf{count\_rank\_3}} & \rotatebox{90}{\textbf{count\_rank\_4}} \\
+\textbf{objectid} & \textbf{model} & \textbf{count\_rank\_1} & \textbf{count\_rank\_2} & \textbf{count\_rank\_3} & \textbf{count\_rank\_4} \\
 \midrule
+\endfirsthead
+
+\caption[]{Rank counts per object and model (continued)}\\
+\toprule
+\textbf{objectid} & \textbf{model} & \textbf{count\_rank\_1} & \textbf{count\_rank\_2} & \textbf{count\_rank\_3} & \textbf{count\_rank\_4} \\
+\midrule
+\endhead
+
+\midrule \multicolumn{6}{r}{\emph{continued on next page}}\\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
 m12965 & google/gemini-2.5-flash-lite & 0 & 9 & 8 & 4 \\
 m12965 & meta-llama/llama-4-maverick & 11 & 0 & 4 & 6 \\
 m12965 & openai/gpt-4o-mini & 7 & 5 & 4 & 5 \\
@@ -694,10 +731,8 @@ m95804 & google/gemini-2.5-flash-lite & 2 & 6 & 10 & 3 \\
 m95804 & meta-llama/llama-4-maverick & 3 & 2 & 5 & 11 \\
 m95804 & openai/gpt-4o-mini & 9 & 4 & 1 & 7 \\
 m95804 & qwen/qwen3-vl-8b-instruct & 7 & 9 & 5 & 0 \\
-\bottomrule
-\end{tabular}
-\caption{Rank counts per object and model.}
-\end{table}
+\end{longtable}
+\endgroup
 
 \begin{table}[htbp]
 \centering
@@ -728,7 +763,7 @@ m95804 & qwen/qwen3-vl-8b-instruct & 7 & 9 & 5 & 0 \\
 
 \begin{table}[htbp]
 \centering
-\begin{tabular}{llrrr}
+\begin{tabularx}{\linewidth}{lYYYY}
 \toprule
 \textbf{model\_a} & \textbf{model\_b} & \textbf{statistic} & \textbf{pvalue} & \textbf{p\_adjusted\_holm} \\
 \midrule
@@ -739,7 +774,7 @@ meta-llama/llama-4-maverick & openai/gpt-4o-mini & 60.0 & 0.085639 & 0.513834 \\
 meta-llama/llama-4-maverick & qwen/qwen3-vl-8b-instruct & 61.5 & 0.103028 & 0.513834 \\
 openai/gpt-4o-mini & qwen/qwen3-vl-8b-instruct & 105.0 & 1.0 & 1.0 \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \caption{Pairwise Wilcoxon Signed-Rank Tests between Models with Holm Adjustment}
 \end{table}
 
@@ -785,6 +820,6 @@ The project adheres to the \textbf{FAIR} (Findable, Accessible, Interoperable, R
     \item \textbf{Ethics}: Evaluation limited to non-personal, publicly available heritage materials; compliance with institutional research ethics guidelines.
 \end{itemize}
 
-Together, these practices ensure that the entire workflow – from model evaluation to figure generation – is transparent, reproducible, and reusable across digital humanities and accessibility research contexts.
+Together, these practices ensure that the entire workflow - from model evaluation to figure generation – is transparent, reproducible, and reusable across digital humanities and accessibility research contexts.
 
 \end{document}
