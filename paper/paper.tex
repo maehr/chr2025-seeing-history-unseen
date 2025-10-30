@@ -154,7 +154,12 @@ We selected \textbf{four multimodal vision-language models (VLMs)} representing 
 \centering
 \begin{tabular}{lllrrlrrl}
 \toprule
-\textbf{Model} & \textbf{Developer} & \textbf{Openness} & \textbf{Context} & \textbf{Latency (s)} & \textbf{Input \$/M} & \textbf{Output \$/M} & \textbf{Notes} \\
+\textbf{Model} & \textbf{Developer} & \textbf{Openness} &
+\rotatebox{90}{\textbf{Context}} &
+\rotatebox{90}{\textbf{\shortstack[l]{Latency\\(s)}}} &
+\rotatebox{90}{\textbf{\shortstack[l]{Input\\\$/M}}} &
+\rotatebox{90}{\textbf{\shortstack[l]{Output\\\$/M}}} &
+\textbf{Notes} \\
 \midrule
 \textbf{Gemini 2.5 Flash Lite} & Google & Proprietary & 1.05M & 0.42 & 0.10 & 0.40 & Fast, low-cost; optimized for captioning. \\
 \textbf{Llama 4 Maverick} & Meta & Open weights & 1.05M & 0.56 & 0.15 & 0.60 & Multilingual, multimodal reasoning. \\
@@ -301,7 +306,7 @@ Unit generation costs differed by two orders of magnitude, reflecting API pricin
 \centering
 \begin{tabular}{lrrrr}
 \toprule
-\textbf{Model} & \textbf{Coverage (\%)} & \textbf{Throughput (items/s)} & \textbf{Median Latency (s)} & \textbf{Mean Cost (USD/item)} \\
+\textbf{Model} & \rotatebox{90}{\textbf{Coverage (\%)}} & \rotatebox{90}{\textbf{\shortstack[l]{Throughput\\(items/s)}}} & \rotatebox{90}{\textbf{\shortstack[l]{Median\\Latency (s)}}} & \rotatebox{90}{\textbf{\shortstack[l]{Mean Cost\\(USD/item)}}} \\
 \midrule
 Google Gemini 2.5 Flash Lite & 100 & 0.31 & 2.72 & 0.000215 \\
 Meta Llama 4 Maverick & 100 & 0.41 & 2.38 & 0.000395 \\
@@ -501,7 +506,7 @@ Early Modern period & 21 & 3 \\
 \centering
 \begin{tabular}{llllllll}
 \toprule
-\textbf{Type} & \textbf{Protohistory} & \textbf{Antiquity} & \textbf{Middle Ages} & \textbf{Early Modern Period} & \textbf{19th century} & \textbf{20th century} & \textbf{21st century} \\
+\textbf{Type} & \rotatebox{90}{\textbf{Protohistory}} & \rotatebox{90}{\textbf{Antiquity}} & \rotatebox{90}{\textbf{Middle Ages}} & \rotatebox{90}{\textbf{\shortstack[l]{Early Modern\\Period}}} & \rotatebox{90}{\textbf{19\textsuperscript{th} century}} & \rotatebox{90}{\textbf{20\textsuperscript{th} century}} & \rotatebox{90}{\textbf{21\textsuperscript{st} century}} \\
 \midrule
 Scan of Newspapers, Lists, etc. & 0 (0) & 0 (0) & 1 (0) & 2 (0) & 3 (2) & 4 (1) & 0 (0) \\
 Photograph (Historical Scenes) & 0 (0) & 0 (0) & 0 (0) & 0 (0) & 3 (1) & 7 (1) & 0 (0) \\
@@ -605,7 +610,7 @@ Multiple-Item Object (Figure and separate Legend) & 16 & 4 \\
 \centering
 \begin{tabular}{llrrrr}
 \toprule
-\textbf{objectid} & \textbf{model} & \textbf{count\_rank\_1} & \textbf{count\_rank\_2} & \textbf{count\_rank\_3} & \textbf{count\_rank\_4} \\
+\textbf{objectid} & \textbf{model} & \rotatebox{90}{\textbf{count\_rank\_1}} & \rotatebox{90}{\textbf{count\_rank\_2}} & \rotatebox{90}{\textbf{count\_rank\_3}} & \rotatebox{90}{\textbf{count\_rank\_4}} \\
 \midrule
 m12965 & google/gemini-2.5-flash-lite & 0 & 9 & 8 & 4 \\
 m12965 & meta-llama/llama-4-maverick & 11 & 0 & 4 & 6 \\
@@ -694,7 +699,7 @@ m95804 & qwen/qwen3-vl-8b-instruct & 7 & 9 & 5 & 0 \\
 
 \begin{table}[htbp]
 \centering
-\begin{tabular}{lr}
+\begin{tabular}{ll}
 \toprule
 \textbf{Statistic} & \textbf{Value} \\
 \midrule
@@ -764,23 +769,19 @@ A pre-configured \textbf{GitHub Codespace} enables fully containerised reproduct
 
 The project adheres to the \textbf{FAIR} (Findable, Accessible, Interoperable, Reusable) and \textbf{CARE} (Collective Benefit, Authority to Control, Responsibility, Ethics) principles for open humanities data.
 
-\begin{table}[htbp]
-\centering
-\begin{tabular}{ll}
-\toprule
-\textbf{Principle} & \textbf{Implementation in this project} \\
-\midrule
-\textbf{Findable (FAIR)} & Repository indexed on GitHub and Zenodo with persistent DOI; structured metadata and semantic filenames. \\
-\textbf{Accessible} & Publicly accessible under AGPL-3.0 (code) and CC BY 4.0 (data, documentation). No authentication barriers. \\
-\textbf{Interoperable} & Machine-readable CSV, JSONL, and Parquet formats; consistent column schemas; human- and machine-readable metadata. \\
-\textbf{Reusable} & Version-controlled pipeline, deterministic random seeds, explicit dependencies, and complete provenance logs. \\
-\textbf{Collective Benefit (CARE)} & Focus on accessibility and inclusion in digital heritage; results aim to improve equitable access to cultural data. \\
-\textbf{Authority to Control} & No personal or culturally sensitive material; contributors retain authorship and citation credit. \\
-\textbf{Responsibility} & Transparent methodological reporting and ethical safeguards for AI-assisted heritage interpretation. \\
-\textbf{Ethics} & Evaluation limited to non-personal, publicly available heritage materials; compliance with institutional research ethics guidelines. \\
-\bottomrule
-\end{tabular}
-\end{table}
+\begin{itemize}
+    \item \textbf{Findable}: Repository indexed on GitHub and Zenodo with persistent DOI; structured metadata and semantic filenames.
+    \item \textbf{Accessible}: Publicly accessible under AGPL-3.0 (code) and CC BY 4.0 (data, documentation). No authentication barriers.
+    \item \textbf{Interoperable}: Machine-readable CSV, JSONL, and Parquet formats; consistent column schemas; human- and machine-readable metadata.
+    \item \textbf{Reusable}: Version-controlled pipeline, deterministic random seeds, explicit dependencies, and complete provenance logs.
+\end{itemize}
+
+\begin{itemize}
+    \item \textbf{Collective Benefit}: Focus on accessibility and inclusion in digital heritage; results aim to improve equitable access to cultural data.
+    \item \textbf{Authority to Control}: No personal or culturally sensitive material; contributors retain authorship and citation credit.
+    \item \textbf{Responsibility}: Transparent methodological reporting and ethical safeguards for AI-assisted heritage interpretation.
+    \item \textbf{Ethics}: Evaluation limited to non-personal, publicly available heritage materials; compliance with institutional research ethics guidelines.
+\end{itemize}
 
 Together, these practices ensure that the entire workflow—from model evaluation to figure generation—is transparent, reproducible, and reusable across digital humanities and accessibility research contexts.
 
