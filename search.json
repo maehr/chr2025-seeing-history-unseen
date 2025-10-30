@@ -420,7 +420,19 @@
     "href": "paper/index.html#survey",
     "title": "Seeing History Unseen: Evaluating Vision-Language Models for WCAG-Compliant Alt-Text in Digital Heritage Collections",
     "section": "2.6 Survey",
-    "text": "2.6 Survey\nTwenty-one humanities scholars ranked, per image, four model-generated descriptions from best (1) to worst (4) under WCAG-intended criteria for alt text. Raters were asked to consider: (a) concise rendering of the core visual content; (b) avoidance of redundant phrases (e.g., “image of”); (c) prioritisation of salient visual features (persons, objects, actions, visible text); and (d) context inclusion only when it improves comprehension. While factual accuracy, completeness, and absence of bias were not primary ranking dimensions, they may have been factored in implicitly.\n\n2.6.1 Close reading\nTo check for these dimensions, the authors conducted a qualitative close reading of a selection of the generated alt-text. This analysis specifically targeted outputs that had received the highest rankings from the expert panel.\n\nFactual accuracy (Did the generated description contain any incorrect identifications of people, objects, or actions?)\nContextual adequacy (Did the generated description include any incorrect or misleading historical context?)\nBias reproduction (Did the model reproduce sensitive, derogatory, or racist terminology from the source material?)\n\nThis allowed us to investigate whether an alt-text could be ranked highly for WCAG alignment while simultaneously being factually incorrect or ethically problematic.",
+    "text": "2.6 Survey\nTwenty-one humanities scholars ranked, per image, four model-generated descriptions from best (1) to worst (4) under WCAG-intended criteria for alt text. Raters were asked to consider: (a) concise rendering of the core visual content; (b) avoidance of redundant phrases (e.g., “image of”); (c) prioritisation of salient visual features (persons, objects, actions, visible text); and (d) context inclusion only when it improves comprehension. While factual accuracy, completeness, and absence of bias were not primary ranking dimensions, they may have been factored in implicitly.",
+    "crumbs": [
+      "Home",
+      "Research",
+      "Paper"
+    ]
+  },
+  {
+    "objectID": "paper/index.html#close-reading",
+    "href": "paper/index.html#close-reading",
+    "title": "Seeing History Unseen: Evaluating Vision-Language Models for WCAG-Compliant Alt-Text in Digital Heritage Collections",
+    "section": "2.7 Close reading",
+    "text": "2.7 Close reading\nTo check for these dimensions, the authors conducted a qualitative close reading of a selection of the generated alt-text. This analysis specifically targeted outputs that had received the highest rankings from the expert panel.\n\nFactual accuracy (Did the generated description contain any incorrect identifications of people, objects, or actions?)\nContextual adequacy (Did the generated description include any incorrect or misleading historical context?)\nBias reproduction (Did the model reproduce sensitive, derogatory, or racist terminology from the source material?)\n\nThis allowed us to investigate whether an alt-text could be ranked highly for WCAG alignment while simultaneously being factually incorrect or ethically problematic.",
     "crumbs": [
       "Home",
       "Research",
