@@ -7,7 +7,8 @@ This repository contains the abstract and presentation materials for the CHR 202
 [![GitHub stars](https://img.shields.io/github/stars/maehr/chr2025-seeing-history-unseen.svg)](https://github.com/maehr/chr2025-seeing-history-unseen/stargazers)
 [![Code license](https://img.shields.io/github/license/maehr/chr2025-seeing-history-unseen.svg)](https://github.com/maehr/chr2025-seeing-history-unseen/blob/main/LICENSE-AGPL.md)
 [![Data license](https://img.shields.io/github/license/maehr/chr2025-seeing-history-unseen.svg)](https://github.com/maehr/chr2025-seeing-history-unseen/blob/main/LICENSE-CCBY.md)
-[![DOI](https://zenodo.org/badge/614287827.svg)](https://zenodo.org/badge/latestdoi/ZENODO_RECORD)
+
+<!-- [![DOI](https://zenodo.org/badge/614287827.svg)](https://zenodo.org/badge/latestdoi/ZENODO_RECORD) -->
 
 ## About This Repository
 
@@ -54,7 +55,7 @@ We recommend using **[GitHub Codespaces](https://github.com/features/codespaces)
 1. **[Use this template](https://github.com/new?template_name=open-research-data-template&template_owner=maehr)** for your project in a new repository on your GitHub account.
 
    <div align="center">
-     <img src=".github/docs/assets/img_use.png" alt="Use the repository" style="width: 540px; margin: 1em 0;" />
+     <img src="https://raw.githubusercontent.com/maehr/chr2025-seeing-history-unseen/main/.github/docs/assets/img_use.png" alt="Use the repository" style="width: 540px; margin: 1em 0;" />
    </div>
 
 2. Click the green **`<> Code`** button at the top right of this repository.
@@ -67,7 +68,7 @@ We recommend using **[GitHub Codespaces](https://github.com/features/codespaces)
    - ✅ Quarto
 
    <div align="center">
-     <img src=".github/docs/assets/img_codespace.png" alt="Create Codespace" style="width: 540px; margin: 1em 0;" />
+     <img src="https://raw.githubusercontent.com/maehr/chr2025-seeing-history-unseen/main/.github/docs/assets/img_codespace.png" alt="Create Codespace" style="width: 540px; margin: 1em 0;" />
    </div>
 
 4. Once the Codespace is ready, open a terminal and preview the documentation:
@@ -77,7 +78,7 @@ We recommend using **[GitHub Codespaces](https://github.com/features/codespaces)
    ```
 
    <div align="center">
-     <img src=".github/docs/assets/img_terminal.png" alt="Terminal window showing command" style="width: 540px; margin: 1em 0;" />
+     <img src="https://raw.githubusercontent.com/maehr/chr2025-seeing-history-unseen/main/.github/docs/assets/img_terminal.png" alt="Terminal window showing command" style="width: 540px; margin: 1em 0;" />
    </div>
 
 > **Note:** All dependencies (Node.js, Python, R, Quarto) are pre-installed in the Codespace.
