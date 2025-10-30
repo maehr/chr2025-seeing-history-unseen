@@ -35,8 +35,8 @@
 % There should be one call to \affiliation for each affiliation of
 % the authors. Multiple affiliations can be given to each author
 % and an affiliation can be given to multiple authors. 
-\affiliation{1}{Stadt.Geschichte.Basel, University of Basel, Switzerland}
-\affiliation{2}{Digital Humanities, University of Bern, Switzerland}
+\affiliation{1}{Stadt.Geschichte.Basel, University of Basel, Basel, Switzerland}
+\affiliation{2}{Digital Humanities, University of Bern, Bern, Switzerland}
 
 % KEYWORDS
 % Provide one or more keywords or key phrases seperated by commas
@@ -152,7 +152,6 @@ We selected \textbf{four multimodal vision-language models (VLMs)} representing 
 
 \begin{table}[htbp]
 \centering
-\caption{Models used for evaluation. Data reported by \href{https://openrouter.ai/}{OpenRouter} (27.10.2025).}
 \begin{tabular}{lllrrlrrl}
 \toprule
 \textbf{Model} & \textbf{Developer} & \textbf{Openness} & \textbf{Context} & \textbf{Latency (s)} & \textbf{Input \$/M} & \textbf{Output \$/M} & \textbf{Notes} \\
@@ -163,6 +162,7 @@ We selected \textbf{four multimodal vision-language models (VLMs)} representing 
 \textbf{Qwen3 VL 8B Instruct} & Alibaba & Open-weight & 131K & 1.29 & 0.08 & 0.50 & Robust open baseline with OCR features. \\
 \bottomrule
 \end{tabular}
+\caption{Models used for evaluation. Data reported by \href{https://openrouter.ai/}{OpenRouter} (27.10.2025).}
 \end{table}
 
 Selection criteria:
@@ -299,7 +299,6 @@ Unit generation costs differed by two orders of magnitude, reflecting API pricin
 
 \begin{table}[htbp]
 \centering
-\caption{Feasibility metrics for alt text generation (n = 20).}
 \begin{tabular}{lrrrr}
 \toprule
 \textbf{Model} & \textbf{Coverage (\%)} & \textbf{Throughput (items/s)} & \textbf{Median Latency (s)} & \textbf{Mean Cost (USD/item)} \\
@@ -310,6 +309,7 @@ OpenAI GPT-4o Mini & 100 & 0.24 & 4.00 & 0.003625 \\
 Qwen 3 VL 8B Instruct & 100 & \textbf{0.43} & \textbf{2.27} & \textbf{0.000182} \\
 \bottomrule
 \end{tabular}
+\caption{Feasibility metrics for alt text generation (n = 20).}
 \end{table}
 
 \subsubsection{Summary of RQ1}
@@ -378,7 +378,7 @@ A manual close reading inspection of hand-picked alt texts with highest mean ran
 
 \begin{itemize}
     \item \textbf{Best-ranked alt-text}: \enquote{Antisemitische Karikatur zur Eisenbahnverstaatlichung 1898. Links: Wehrhafte Helvetia zwingt knienden Geldverleiher nieder. Rechts: Kniende Helvetia bittet reichen Juden um Geld. Kontrastdarstellung zum Volksentscheid über die Eisenbahnverstaatlichung} (Meta Llama 4 Maverick)
-    \item \textbf{Translation}: \enquote{Antisemitic caricature on the nationalization of the railways 1898. Left: Defensive Helvetia forces a kneeling moneylender down. Right: Kneeling Helvetia asks a rich Jew for money. Contrasting depiction of the referendum on the nationalization of the railways}
+    \item \textbf{Translation}: \enquote{Antisemitic cartoon on the nationalization of the railways 1898. Left: Defensive Helvetia forces a kneeling moneylender down. Right: Kneeling Helvetia asks a rich Jew for money. Contrasting depiction of the referendum on the nationalization of the railways}
     \item \textbf{Shortcoming}: The text uncritically reproduces the term \enquote{reichen Juden} (rich Jew). This is an antisemitic stereotype likely drawn from the item's metadata or biased training data, not a neutral description of the visual content.
 \end{itemize}
 
@@ -439,7 +439,6 @@ Building on this study's findings, we identify several critical paths for future
 
 We thank \textbf{Cristina Münch} and \textbf{Noëlle Schnegg} for curating metadata and providing image assets from the \emph{Stadt.Geschichte.Basel} collection. We are grateful to the \textbf{21 expert participants} for their careful rankings and comments. For insightful feedback on an early draft, we thank \textbf{Dr. Mehrdad Almasi} (Luxembourg Centre for Contemporary and Digital History, C²DH). Any remaining errors are our own.
 
-\section*{References}
 \printbibliography
 
 \appendix
@@ -453,7 +452,6 @@ In both our selection of 100-item and the 20-item survey subset, we tried to fin
 
 \begin{table}[htbp]
 \centering
-\caption{Distribution of media types in the dataset and survey subset.}
 \begin{tabular}{lrr}
 \toprule
 \textbf{Type} & \textbf{Dataset} & \textbf{Survey} \\
@@ -471,6 +469,7 @@ Diagram (Flowchart, Schema etc.) & 5 & 2 \\
 \textbf{Total} & \textbf{100} & \textbf{20} \\
 \bottomrule
 \end{tabular}
+\caption{Distribution of media types in the dataset and survey subset.}
 \end{table}
 
 \subsubsection{Distribution by Era}
@@ -479,7 +478,6 @@ With regards to the historical eras represented in the subset, we aimed to cover
 
 \begin{table}[htbp]
 \centering
-\caption{Distribution of historical eras in the dataset and survey subset.}
 \begin{tabular}{lrr}
 \toprule
 \textbf{Era} & \textbf{Dataset} & \textbf{Survey} \\
@@ -494,13 +492,13 @@ Early Modern period & 21 & 3 \\
 \textbf{Total} & \textbf{100} & \textbf{20} \\
 \bottomrule
 \end{tabular}
+\caption{Distribution of historical eras in the dataset and survey subset.}
 \end{table}
 
 \subsubsection{Distribution across Era and Type (survey count in parentheses)}
 
 \begin{table}[htbp]
 \centering
-\caption{Distribution of media types across historical eras in the survey subset (counts in parentheses).}
 \begin{tabular}{llllllll}
 \toprule
 \textbf{Type} & \textbf{Protohistory} & \textbf{Antiquity} & \textbf{Middle Ages} & \textbf{Early Modern Period} & \textbf{19th century} & \textbf{20th century} & \textbf{21st century} \\
@@ -517,15 +515,15 @@ Diagram (Flowchart, Schema etc.) & 0 (0) & 0 (0) & 3 (2) & 0 (0) & 1 (0) & 1 (0)
 Painting & 0 (0) & 0 (0) & 2 (0) & 6 (0) & 4 (0) & 0 (0) & 0 (0) \\
 \bottomrule
 \end{tabular}
+\caption{Distribution of media types across historical eras in the survey subset (counts in parentheses).}
 \end{table}
 
 \subsubsection{Language Distribution}
 
-Our research data collection primarily contains items in German, with a small number of items in Latin, French and Dutch. We aimed to reflect this language distribution in our selection. In a similar vein, we wanted to take into account different typographic styles. However, writing is not fully legible in many cases anyway – since we are working with 800x800 pixel JPG image thumbnails – and thus played only a minor factor in the selection process.
+Our research data collection primarily contains items in German, with a small number of items in Latin, French and Dutch. We aimed to reflect this language distribution in our selection. In a similar vein, we wanted to take into account different typographic styles. However, writing is not fully legible in many cases anyway – since we are working with 800$\times$800 pixel JPG image thumbnails – and thus played only a minor factor in the selection process.
 
 \begin{table}[htbp]
 \centering
-\caption{Distribution of languages in the dataset and survey subset.}
 \begin{tabular}{lrr}
 \toprule
 \textbf{Language} & \textbf{Dataset} & \textbf{Survey} \\
@@ -536,6 +534,7 @@ French & 2 & 0 \\
 Without written text & 57 & 9 \\
 \bottomrule
 \end{tabular}
+\caption{Distribution of languages in the dataset and survey subset.}
 \end{table}
 
 \subsubsection{Spatial Context}
@@ -544,7 +543,6 @@ While geospatial context is not a part of our data model, most items in the Stad
 
 \begin{table}[htbp]
 \centering
-\caption{Distribution of spatial contexts in the dataset and survey subset.}
 \begin{tabular}{lrr}
 \toprule
 \textbf{Spatial Context} & \textbf{Dataset} & \textbf{Survey} \\
@@ -558,6 +556,7 @@ Worldwide & 5 & 2 \\
 NA & 5 & 0 \\
 \bottomrule
 \end{tabular}
+\caption{Distribution of spatial contexts in the dataset and survey subset.}
 \end{table}
 
 \subsubsection{Media Complexity}
@@ -566,7 +565,6 @@ For technical reasons, some objects in our collection consist of several media i
 
 \begin{table}[htbp]
 \centering
-\caption{Distribution of media complexity in the dataset and survey subset.}
 \begin{tabular}{lrr}
 \toprule
 \textbf{Media Complexity} & \textbf{Dataset} & \textbf{Survey} \\
@@ -575,6 +573,7 @@ Single-Item Object & 81 & 19 \\
 Multiple-Item Object (Figure and separate Legend) & 16 & 4 \\
 \bottomrule
 \end{tabular}
+\caption{Distribution of media complexity in the dataset and survey subset.}
 \end{table}
 
 \subsection{System Performance Analysis}
@@ -604,7 +603,6 @@ Multiple-Item Object (Figure and separate Legend) & 16 & 4 \\
 
 \begin{table}[htbp]
 \centering
-\caption{Rank counts per object and model.}
 \begin{tabular}{llrrrr}
 \toprule
 \textbf{objectid} & \textbf{model} & \textbf{count\_rank\_1} & \textbf{count\_rank\_2} & \textbf{count\_rank\_3} & \textbf{count\_rank\_4} \\
@@ -691,11 +689,11 @@ m95804 & openai/gpt-4o-mini & 9 & 4 & 1 & 7 \\
 m95804 & qwen/qwen3-vl-8b-instruct & 7 & 9 & 5 & 0 \\
 \bottomrule
 \end{tabular}
+\caption{Rank counts per object and model.}
 \end{table}
 
 \begin{table}[htbp]
 \centering
-\caption{Ranked Friedman and Kendall's W Test Summary}
 \begin{tabular}{lr}
 \toprule
 \textbf{Statistic} & \textbf{Value} \\
@@ -709,6 +707,7 @@ m95804 & qwen/qwen3-vl-8b-instruct & 7 & 9 & 5 & 0 \\
 \textbf{Total submissions} & 420 \\
 \bottomrule
 \end{tabular}
+\caption{Ranked Friedman and Kendall's W Test Summary}
 \end{table}
 
 \subsection{Pairwise Comparison of Models}\label{sec-appendix-pairwise-comparison}
@@ -722,7 +721,6 @@ m95804 & qwen/qwen3-vl-8b-instruct & 7 & 9 & 5 & 0 \\
 
 \begin{table}[htbp]
 \centering
-\caption{Pairwise Wilcoxon Signed-Rank Tests between Models with Holm Adjustment}
 \begin{tabular}{llrrr}
 \toprule
 \textbf{model\_a} & \textbf{model\_b} & \textbf{statistic} & \textbf{pvalue} & \textbf{p\_adjusted\_holm} \\
@@ -735,6 +733,7 @@ meta-llama/llama-4-maverick & qwen/qwen3-vl-8b-instruct & 61.5 & 0.103028 & 0.51
 openai/gpt-4o-mini & qwen/qwen3-vl-8b-instruct & 105.0 & 1.0 & 1.0 \\
 \bottomrule
 \end{tabular}
+\caption{Pairwise Wilcoxon Signed-Rank Tests between Models with Holm Adjustment}
 \end{table}
 
 \subsection{Reproducibility and Data Availability}
