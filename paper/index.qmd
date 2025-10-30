@@ -33,7 +33,7 @@ format:
   html: default
   pdf:
     cite-method: biblatex
-    keep-tex: true
+    keep-tex: false
   # latex:
   #   cite-method: biblatex
 ---
