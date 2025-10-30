@@ -199,7 +199,7 @@ No model refused to describe an image due to some built-in safety filter (labell
 
 Twenty-one humanities scholars ranked, per image, four model-generated descriptions from **best (1) to worst (4)** under **WCAG-intended criteria for alt text**. Raters were asked to consider: (a) concise rendering of the **core visual content**; (b) **avoidance of redundant** phrases (e.g., “image of”); (c) prioritisation **of salient visual features** (persons, objects, actions, visible text); and (d) **context inclusion only when it improves comprehension**. While factual accuracy, completeness, and absence of bias were *not* primary ranking dimensions, they may have been factored in implicitly.
 
-### Close reading
+## Close reading
 
 To check for these dimensions, the authors conducted a qualitative close reading of a selection of the generated alt-text. This analysis specifically targeted outputs that had received the highest rankings from the expert panel.
 
