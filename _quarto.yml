@@ -6,6 +6,9 @@ project:
     - survey/images/*
     - abstract/paper.pdf
     - paper/images/*
+    - paper/index.pdf
+    - paper/paper.pdf
+    - paper/155.zip
     - data/processed/*.csv
     - data/processed/*.json
     - analysis/*.csv
