@@ -31,11 +31,10 @@ bibliography: bibliography.bib
 number-sections: true
 format:
   html: default
-  pdf:
-    cite-method: biblatex
-    keep-tex: false
-  # latex:
-  #   cite-method: biblatex
+other-links:
+  - text: Paper (draft)
+    icon: filetype-pdf
+    href: 'paper.pdf'
 ---
 
 # Introduction {#sec-introduction}
@@ -340,12 +339,10 @@ We thank **Cristina Münch** and **Noëlle Schnegg** for curating metadata and p
 
 # References
 
-::: {.content-visible when-format="html"}
-
+:::: {.content-visible when-format="html"}
 ::: {#refs}
 :::
-
-:::
+::::
 
 ::: {.content-visible when-format="latex"}
 \printbibliography
@@ -600,7 +597,7 @@ A pre-configured **GitHub Codespace** enables fully containerised reproduction w
 The project adheres to the **FAIR** (Findable, Accessible, Interoperable, Reusable) and **CARE** (Collective Benefit, Authority to Control, Responsibility, Ethics) principles for open humanities data.
 
 | Principle | Implementation in this project |
-|:------------------|:----------------------------------------------------|
+|:-------------------|:---------------------------------------------------|
 | **Findable (FAIR)** | Repository indexed on GitHub and Zenodo with persistent DOI; structured metadata and semantic filenames. |
 | **Accessible** | Publicly accessible under AGPL-3.0 (code) and CC BY 4.0 (data, documentation). No authentication barriers. |
 | **Interoperable** | Machine-readable CSV, JSONL, and Parquet formats; consistent column schemas; human- and machine-readable metadata. |
