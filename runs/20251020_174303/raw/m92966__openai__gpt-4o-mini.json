@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760974998-JyjPFzXaQc9sgBBITaR1",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1760974998,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "alt=\"Plan eines Friedhofs mit kirchlichem Grundriss, entworfen von Amadeus Merian 1865. Gezeigt werden geschwungene Wege, Grünflächen und markierte Bereiche für verschiedene Bestattungen.\"",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26565,
+		"completion_tokens": 49,
+		"total_tokens": 26614,
+		"cost": 0.00401415,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00398475,
+			"upstream_inference_completions_cost": 2.94e-5
+		}
+	}
+}

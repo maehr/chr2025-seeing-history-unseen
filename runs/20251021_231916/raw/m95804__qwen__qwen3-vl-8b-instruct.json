@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761081579-TaegBy8nrwpgSXgSf9MH",
+	"provider": "Alibaba",
+	"model": "qwen/qwen3-vl-8b-instruct",
+	"object": "chat.completion",
+	"created": 1761081579,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Abbruch des St. Johanns-Schwibbogens im 19. Jahrhundert. Steinbogen mit Bruchstücken und Arbeitern; Umgebung städtisch, Gebäude an beiden Seiten.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 2075,
+		"completion_tokens": 39,
+		"total_tokens": 2114,
+		"cost": 0.0004008,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0003735,
+			"upstream_inference_completions_cost": 2.73e-5
+		}
+	}
+}

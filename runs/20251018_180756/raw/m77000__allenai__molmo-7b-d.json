@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804389-CAdzTaLS6SQ8rZjrhVFj",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760804389,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " Man zeigt Kaninchen an, zwei Männer beobachten. 1930-1950. Plattform mit historischen Quellen und Forschungsdaten.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1666,
+		"completion_tokens": 39,
+		"total_tokens": 1705,
+		"cost": 0.0001744,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001666,
+			"upstream_inference_completions_cost": 7.8e-6
+		}
+	}
+}

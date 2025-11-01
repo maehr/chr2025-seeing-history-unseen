@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760998803-jbZiR4fp2WBJ2vht1pXk",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1760998804,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Illustration für die Anzeige einer \"Merkwürdigen Seltenheit\" in den Wöchentlichen Nachrichten vom 30. Oktober 1834. Es wird ein \"Afrikaner der Ashantées\" für eine Ausstellung während der Herbstmesse angekündigt. Darunter eine Abbildung des Afrikaners in traditioneller Kleidung mit einem Speer.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26129,
+		"completion_tokens": 70,
+		"total_tokens": 26199,
+		"cost": 0.00396135,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00391935,
+			"upstream_inference_completions_cost": 4.2e-5
+		}
+	}
+}

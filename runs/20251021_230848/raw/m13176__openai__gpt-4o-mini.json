@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761081085-zqqmX0stzbsiwOb0vU5H",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761081085,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Bild eines ‹fressenden Narren› aus Jacob Götz' Stammbuch. Abgebildet ist ein Mann in buntem Gewand mit einer Narrenkappe, der am Tisch sitzt und aus einem großen Gefäß isst. Neben ihm befindet sich ein Schwein. Das Bild thematisiert Exzesse, die während Badeausflügen vorkommen, und wird im dazugehörigen Gedicht ironisch verurteilt.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26086,
+		"completion_tokens": 89,
+		"total_tokens": 26175,
+		"cost": 0.0039663,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0039129,
+			"upstream_inference_completions_cost": 5.34e-5
+		}
+	}
+}

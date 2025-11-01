@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761069415-CmoOgLlPScjkpzLH8Xy4",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761069416,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Illustration zu einer Anzeige über einen „Afrikaner von der bekannten kriegerischen Nation der Ashantées“ im Kontext der Herbstmesse 1834. Das Bild zeigt einen Mann mit Speer und militärischer Kleidung. Die Anzeige thematisiert den Besuch eines Angehörigen dieser Nation in Basel.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26129,
+		"completion_tokens": 61,
+		"total_tokens": 26190,
+		"cost": 0.00395595,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00391935,
+			"upstream_inference_completions_cost": 3.66e-5
+		}
+	}
+}

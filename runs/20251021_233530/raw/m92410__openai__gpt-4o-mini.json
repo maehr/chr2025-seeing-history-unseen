@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761082617-iLOVqVFFrV4hXFo2e1hU",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761082617,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Zwei Personen bewegen sich eine Treppe hinunter. Eine Frau in einem oversized Outfit mit langen, offenen Haaren geht mit neutralem Gesichtsausdruck, während ein Mann im gestreiften Hemd mit Sonnenbrille und selbstbewusstem Auftreten nach oben schaut. Im Hintergrund ist ein Gewässer zu sehen, umgeben von einem Geländer. Die Szene vermittelt eine Momentaufnahme im öffentlichen Raum.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26031,
+		"completion_tokens": 81,
+		"total_tokens": 26112,
+		"cost": 0.00395325,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00390465,
+			"upstream_inference_completions_cost": 4.86e-5
+		}
+	}
+}

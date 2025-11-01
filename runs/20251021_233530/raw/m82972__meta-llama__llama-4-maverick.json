@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761082651-rV3RGPx7Wdpu0Er2UkbI",
+	"provider": "DeepInfra",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1761082651,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Anteil der Life Sciences am regionalen BIP und Wachstum der Life Sciences 2000-2010, Vergleich von Zürich, San Francisco Bay Area, Genf, Singapur, Schanghai, Cambridge (Massachusetts) und Basel.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1688,
+		"completion_tokens": 48,
+		"total_tokens": 1736,
+		"cost": 0.000282,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0002532,
+			"upstream_inference_completions_cost": 2.88e-5
+		}
+	}
+}

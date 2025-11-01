@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804880-CvUY9fF8gOgTSVmPR3L3",
+	"provider": "Hyperbolic",
+	"model": "mistralai/pixtral-12b",
+	"object": "chat.completion",
+	"created": 1760804880,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Archaeological site with ruins of a Roman villa rustica, 2nd-3rd century AD.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 431,
+		"completion_tokens": 24,
+		"total_tokens": 455,
+		"cost": 4.55e-5,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 4.31e-5,
+			"upstream_inference_completions_cost": 2.4e-6
+		}
+	}
+}

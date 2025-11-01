@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761080953-fPtGYgKv1yRvJqdOIar9",
+	"provider": "Parasail",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1761080953,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Splitter einer Bombe aus der französischen Festung Hüningen, 1815, dunkles Metall, gezackte Bruchkanten.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1611,
+		"completion_tokens": 27,
+		"total_tokens": 1638,
+		"cost": 0.0002646,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00024165,
+			"upstream_inference_completions_cost": 2.295e-5
+		}
+	}
+}

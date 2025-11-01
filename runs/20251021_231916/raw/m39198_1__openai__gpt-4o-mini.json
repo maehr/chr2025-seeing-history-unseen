@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761081763-UpIWMdRgIGMIc8jGBRw6",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761081763,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Flussdiagramm zum Textilhandel des Basler Kaufmanns Ulrich Meltinger (1468–1493). Es zeigt Handelsbeziehungen zu verschiedenen Regionen, darunter England, Flandern und Frankfurt a. M., sowie Akteure wie Schäfer, Hutmacher und Tuchmacher aus dem Elsass, Baden und der Schweiz. Zentraler Punkt ist Ulrich Meltinger, von dem die Handelsströme ausgehen.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26106,
+		"completion_tokens": 91,
+		"total_tokens": 26197,
+		"cost": 0.0038841,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 1152,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0038295,
+			"upstream_inference_completions_cost": 5.46e-5
+		}
+	}
+}

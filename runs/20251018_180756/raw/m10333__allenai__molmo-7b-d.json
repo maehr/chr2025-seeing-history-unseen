@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804431-OcrORt6lTqd4cDOWtLxK",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760804431,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " *Nutzungskontext: Plattform mit historischen Quellen und Forschungsdaten für Forschende und Studierende aus historischen und archäologischen Disziplinen.*\n\n*Metadaten:\n* Titel: Anfang des Matthäusevangeliums im Novum Instrumentum omne\n* Beschreibung: 1516 druckte Johannes Froben das von Erasmus herausgegebene und übersetzte ‹Novum Instrumentum omne› und setzte damit einen Meilenstein in der europäischen Kultur- und Geistesgeschichte. Es handelte sich um den ersten Druck des Neuen Testaments in griechischer Sprache. In die rechte Spalte liess Erasmus eine von ihm selbst angefertigte lateinische Übersetzung setzen.\n* Datum (Extended Date Time Format): 1516\n* Epoche: Frühe Neuzeit\n* Ersteller: [Erasmus von Rotterdam](https://www.wikidata.org/wiki/Q43499)\n* Herausgeber: [Universitätsbibliothek Basel](https://ub.unibas.ch/de/)\n* Quelle: [UBH BibG B3](https://ubs.swisscovery.slsp.ch/discovery/fulldisplay?docid=alma9972650368305504&context=L&vid=41SLSP_UBS:live&lang=de&adaptor=Local%20Search%20Engine&tab=LibraryCatalog&offset=0)*\n\n*Alternativtext: Novum Instrumentum omne, Erasmus' 1516er griechischer Neutestamentliche Druck, erster der europäischen Literatur.*",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1764,
+		"completion_tokens": 384,
+		"total_tokens": 2148,
+		"cost": 0.0002532,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001764,
+			"upstream_inference_completions_cost": 7.68e-5
+		}
+	}
+}

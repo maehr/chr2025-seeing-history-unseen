@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761082767-3uiPTG9bOj4kEZvhhofy",
+	"provider": "Novita",
+	"model": "qwen/qwen3-vl-8b-instruct",
+	"object": "chat.completion",
+	"created": 1761082767,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Grabinschrift des römischen Offiziers Lucius Munatius Plancus. Sie nennt seine Funktion, seine Gründung von Lugudunum und Raurica in Gallien und seine Tätigkeit in Italien.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 947,
+		"completion_tokens": 51,
+		"total_tokens": 998,
+		"cost": 0.00010126,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 7.576e-5,
+			"upstream_inference_completions_cost": 2.55e-5
+		}
+	}
+}

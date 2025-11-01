@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760765949-7yBNTkriQuz7hcS5vwLm",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760765949,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " Spielzeugladen für Kolonialwaren\nZum Warenkorb\nViele präzise Reproduktionen von Kolonialwaren und Baumwollstoffen aus den Jahren 1770 bis 1790. Er gehörte der Ausserrhoder Familie Zellweger und zeigt die Bedeutung globaler Waren wie Gewürze, Tee oder Zucker.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1366,
+		"completion_tokens": 88,
+		"total_tokens": 1454,
+		"cost": 0.0001542,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001366,
+			"upstream_inference_completions_cost": 1.76e-5
+		}
+	}
+}

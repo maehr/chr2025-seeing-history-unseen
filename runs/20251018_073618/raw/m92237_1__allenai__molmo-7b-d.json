@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760766789-3z2tCOhGMkXys1LqZGrc",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760766789,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " Basel-Stadt: Bevölkerung growth from 30,000 to 135,000 (1850-1910)\nGlarus: Population increased from 30,000 to 33,000 (1850-1910)\nSwitzerland: Demographic changes in the 19th century",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1000,
+		"completion_tokens": 84,
+		"total_tokens": 1084,
+		"cost": 0.0001168,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001,
+			"upstream_inference_completions_cost": 1.68e-5
+		}
+	}
+}

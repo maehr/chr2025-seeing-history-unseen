@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760975012-hjGL6XiX3non7sxDg8Jl",
+	"provider": "Google",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1760975012,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "\"Familienkonzert in einem bürgerlichen Wohnzimmer, vermutlich von Sebastian Gutzwiller, 1849. Mehrere Generationen musizieren gemeinsam, ein Mann singt, eine Frau spielt Klavier, andere hören zu oder machen Notizen.\"",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 2084,
+		"completion_tokens": 52,
+		"total_tokens": 2136,
+		"cost": 0.0007892,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0007294,
+			"upstream_inference_completions_cost": 5.98e-5
+		}
+	}
+}

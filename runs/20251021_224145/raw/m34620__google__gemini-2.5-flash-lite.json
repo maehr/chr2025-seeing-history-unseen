@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761079364-MK13UHI19VfuQNefgpVf",
+	"provider": "Google",
+	"model": "google/gemini-2.5-flash-lite",
+	"object": "chat.completion",
+	"created": 1761079364,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "STOP",
+			"message": {
+				"role": "assistant",
+				"content": "Ausgrabungsstätte des Chors der Peterskirche Basel: Fundamente aus verschiedenen Epochen, 1962.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1862,
+		"completion_tokens": 27,
+		"total_tokens": 1889,
+		"cost": 0.000197,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001862,
+			"upstream_inference_completions_cost": 1.08e-5
+		}
+	}
+}

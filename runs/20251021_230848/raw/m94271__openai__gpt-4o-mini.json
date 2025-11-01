@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761080950-qgTXIK8yuVliHbycYXoL",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761080950,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Splitter einer Bombe aus der Festung Hüningen, datiert 1815. Der Splitter ist aus Eisen und an einer Kette befestigt. Die Kante ist unregelmäßig und zeigt Spuren von Korrosion. Historisches Artefakt der militärischen Konflikte in der Region Basel.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26101,
+		"completion_tokens": 61,
+		"total_tokens": 26162,
+		"cost": 0.00395175,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00391515,
+			"upstream_inference_completions_cost": 3.66e-5
+		}
+	}
+}

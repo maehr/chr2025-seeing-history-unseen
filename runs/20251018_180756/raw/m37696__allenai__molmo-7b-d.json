@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804931-U7Ek8X7vq3LMxxCj95Gh",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760804931,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " *Ziel: Funktionelle, kontextabhängige, prägnante Alt-Texte.\n\nRegeln:\n- Beschreibe Bedeutung, nicht Aussehen.\n- Max. 125 Zeichen, nur was für Inhalt/Zweck relevant ist.\n- Für dekorative Bilder: `alt=\"\"`.\n- Für funktionale Bilder: Funktion oder Ziel nennen („Zum Warenkorb“).\n- Keine Formulierungen wie „Bild von“ oder „Foto von“.\n- Für komplexe Grafiken: Ausführliche Erklärung.\n\nAusgabe: Nur der Alternativtext (kein HTML, keine Erklärungen).*\n\n*Walter von Klingen kämpft in einer Turnierszene. Er tritt in Kampfarraye gegen einen Feind. Seine Familie gehörte zu den führenden Basler Adelsgeschlechtern. Walter war Parteigänger Rudolfs von Habsburg und gründete das Frauenkloster Klingental in Kleinbasel. Seine Heldensage und Ritterlichkeit wurden in minnesangischen Liedern und Zeichnungen honiert. Der mittelalterliche Zeichner hat ihn in diesem Bild trotz seines kriegerischen Auftretens als Minnesänger dargestellt, um seine künstlerische und literarische Bedeutung zu betonen.*",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1450,
+		"completion_tokens": 297,
+		"total_tokens": 1747,
+		"cost": 0.0002044,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.000145,
+			"upstream_inference_completions_cost": 5.94e-5
+		}
+	}
+}

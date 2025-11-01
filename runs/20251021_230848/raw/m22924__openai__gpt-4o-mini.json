@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761081072-3LBnNLu4UMbPd7h4waZw",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761081072,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Federzeichnung eines zirkumpolaren Horizontalpanoramas von Basel. 360-Grad-Umsicht aus der Perspektive eines Kamins, zeigt Stadt und Umgebung mit architektonischen Details. Schwarz-Weiß-Darstellung ohne Datierungsangabe.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26088,
+		"completion_tokens": 53,
+		"total_tokens": 26141,
+		"cost": 0.003945,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0039132,
+			"upstream_inference_completions_cost": 3.18e-5
+		}
+	}
+}

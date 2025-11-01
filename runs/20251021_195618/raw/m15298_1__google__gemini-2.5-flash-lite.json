@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761069431-UK5w8DiGgBfkdDwnmORp",
+	"provider": "Google",
+	"model": "google/gemini-2.5-flash-lite",
+	"object": "chat.completion",
+	"created": 1761069431,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "STOP",
+			"message": {
+				"role": "assistant",
+				"content": "Karte von Basel mit neu erbauten Gotteshäusern zwischen 1912 und 1966. Verzeichnet sind katholische, evangelisch-reformierte und jüdische Gotteshäuser.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 2052,
+		"completion_tokens": 40,
+		"total_tokens": 2092,
+		"cost": 0.0002212,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0002052,
+			"upstream_inference_completions_cost": 1.6e-5
+		}
+	}
+}

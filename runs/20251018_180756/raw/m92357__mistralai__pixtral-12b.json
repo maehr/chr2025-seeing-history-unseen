@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760803880-FbbvhnzSAzR3PdHYWv2w",
+	"provider": "Hyperbolic",
+	"model": "mistralai/pixtral-12b",
+	"object": "chat.completion",
+	"created": 1760803880,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Vereinte Spalemer 1901: Fasnachtszettel mit karikaturierten Figuren und Texten zur Zuwanderung nach Basel.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 491,
+		"completion_tokens": 35,
+		"total_tokens": 526,
+		"cost": 5.26e-5,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 4.91e-5,
+			"upstream_inference_completions_cost": 3.5e-6
+		}
+	}
+}

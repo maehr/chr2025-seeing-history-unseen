@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761069392-eqfidXl7Lb0vJuHS2qj3",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761069393,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Splitter einer Bombe aus der Festung Hüningen, 1815. Zwei Halbschalen aus Eisen mit einer Kette verbunden, der Splitter hat eine unregelmäßige Form und erdige Farben. Historisches Objekt aus der Zeit der Kampfhandlungen um Basel während der Besetzung durch alliierte Truppen.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26108,
+		"completion_tokens": 64,
+		"total_tokens": 26172,
+		"cost": 0.0039546,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0039162,
+			"upstream_inference_completions_cost": 3.84e-5
+		}
+	}
+}

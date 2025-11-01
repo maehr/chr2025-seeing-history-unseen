@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760766507-IMXwgvNlsknNzE1G65mK",
+	"provider": "Hyperbolic",
+	"model": "mistralai/pixtral-12b",
+	"object": "chat.completion",
+	"created": 1760766507,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Durchschnittliche Wachstumsrate der Life Sciences in verschiedenen Regionen, 2000-2010.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 529,
+		"completion_tokens": 27,
+		"total_tokens": 556,
+		"cost": 5.56e-5,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 5.29e-5,
+			"upstream_inference_completions_cost": 2.7e-6
+		}
+	}
+}

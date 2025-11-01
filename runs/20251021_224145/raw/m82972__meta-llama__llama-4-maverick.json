@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761079402-OFPVK8SLVvyqMHj5dSd9",
+	"provider": "Groq",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1761079402,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Anteil der Life Sciences am BIP und Wachstumsrate im Vergleich: Zürich 4,6 % / 4,5 %; San Francisco 6,2 % / 6,5 %; Singapur 7,2 % / 8,6 %; Genf 5,8 % / 10,5 %; Schanghai 2,8 % / 13,3 %; Cambridge 5 % / 12,2 %; Region Basel 19,3 % / 10,4 %.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1690,
+		"completion_tokens": 108,
+		"total_tokens": 1798,
+		"cost": 0.0004028,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.000338,
+			"upstream_inference_completions_cost": 6.48e-5
+		}
+	}
+}

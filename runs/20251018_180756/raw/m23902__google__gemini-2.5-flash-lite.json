@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804568-V7lyiM3l4suUpnPhYdvq",
+	"provider": "Google",
+	"model": "google/gemini-2.5-flash-lite",
+	"object": "chat.completion",
+	"created": 1760804568,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "STOP",
+			"message": {
+				"role": "assistant",
+				"content": "Peter Ochs als Korrespondent und Historiker am Schreibtisch in Paris, mit seinen Werken zur Basler Geschichte und einer Büste von Benjamin Franklin.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1861,
+		"completion_tokens": 31,
+		"total_tokens": 1892,
+		"cost": 0.0001985,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001861,
+			"upstream_inference_completions_cost": 1.24e-5
+		}
+	}
+}

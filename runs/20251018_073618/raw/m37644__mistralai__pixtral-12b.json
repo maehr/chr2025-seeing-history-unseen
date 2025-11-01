@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760767023-GV6UjDciLkf0LcMXX2nc",
+	"provider": "Hyperbolic",
+	"model": "mistralai/pixtral-12b",
+	"object": "chat.completion",
+	"created": 1760767023,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Mathilde von Tuszien und Abt Hugo von Cluny bitten Papst Gregor VII., Heinrich IV. zu vergeben.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 498,
+		"completion_tokens": 25,
+		"total_tokens": 523,
+		"cost": 5.23e-5,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 4.98e-5,
+			"upstream_inference_completions_cost": 2.5e-6
+		}
+	}
+}

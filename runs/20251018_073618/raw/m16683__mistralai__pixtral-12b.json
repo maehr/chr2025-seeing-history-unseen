@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760766662-uAUB4q8A59A1O0RZjzhX",
+	"provider": "Mistral",
+	"model": "mistralai/pixtral-12b",
+	"object": "chat.completion",
+	"created": 1760766662,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Historisches Monatsblatt Februar aus dem Jahr 1745, enthaltend Wochen-, Namens- und Feiertage sowie astrologische Handlungsempfehlungen.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 2555,
+		"completion_tokens": 38,
+		"total_tokens": 2593,
+		"cost": 0.00038895,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00038325,
+			"upstream_inference_completions_cost": 5.7e-6
+		}
+	}
+}

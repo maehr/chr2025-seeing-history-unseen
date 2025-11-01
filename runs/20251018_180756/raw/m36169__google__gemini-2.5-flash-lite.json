@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760803835-pZolbhaKMSqwX7M9954i",
+	"provider": "Google",
+	"model": "google/gemini-2.5-flash-lite",
+	"object": "chat.completion",
+	"created": 1760803835,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "STOP",
+			"message": {
+				"role": "assistant",
+				"content": "Biologe rettet Efeubewuchs an Basler Kohlenbergmauer vor Sanierung",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1649,
+		"completion_tokens": 16,
+		"total_tokens": 1665,
+		"cost": 0.0001713,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001649,
+			"upstream_inference_completions_cost": 6.4e-6
+		}
+	}
+}

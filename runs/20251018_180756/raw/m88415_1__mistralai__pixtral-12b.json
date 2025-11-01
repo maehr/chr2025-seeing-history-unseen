@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804834-2Q19KnG7W3NfUAikyghF",
+	"provider": "Hyperbolic",
+	"model": "mistralai/pixtral-12b",
+	"object": "chat.completion",
+	"created": 1760804834,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Historische Besucherzahlen von Konzerten und FCB-Spielen im St. Jakob-Stadion, 1960–2022.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 594,
+		"completion_tokens": 33,
+		"total_tokens": 627,
+		"cost": 6.27e-5,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 5.94e-5,
+			"upstream_inference_completions_cost": 3.3e-6
+		}
+	}
+}

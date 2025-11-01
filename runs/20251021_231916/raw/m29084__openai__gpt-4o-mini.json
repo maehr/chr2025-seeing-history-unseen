@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761081743-4VLGqdzY7vxO9pW51Iq1",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761081744,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Schematische Zeichnungen verschiedener frühmittelalterlicher Grabtypen aus Basel. Oben: Steinplatten- und Mauergräber (Aufsicht und Frontalansicht), Kammergräber (Aufsicht und Querschnitt) mit Hügeln. Unten: Brandgräber (Querschnitt) und einfache Erdbestattungen (Aufsicht). Grobe Darstellungen der Grablegen und Beisetzungsarten.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26113,
+		"completion_tokens": 92,
+		"total_tokens": 26205,
+		"cost": 0.00397215,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00391695,
+			"upstream_inference_completions_cost": 5.52e-5
+		}
+	}
+}

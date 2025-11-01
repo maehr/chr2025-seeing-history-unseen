@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761081712-pXVtM7tAkRRiXHkZydXf",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761081712,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Ein Szenenbild aus einem Stammbuch zeigt einen als Narren gekleideten Mann, der in jovialer Pose auf einem Platz sitzt und ein großes Stück Fleisch hält. Um ihn herum sind verschiedene Esswaren und ein Schwein, das an einem Essensrest schnüffelt. Über dem Mann und der Szene steht ein Text, der ironisch auf Exzesse beim Essen und Trinken hinweist. Die Farbgebung ist lebhaft, die Darstellung humorvoll und lehrreich.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26086,
+		"completion_tokens": 100,
+		"total_tokens": 26186,
+		"cost": 0.0039729,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0039129,
+			"upstream_inference_completions_cost": 6e-5
+		}
+	}
+}

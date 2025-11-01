@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761079473-V80H2MIZTl80G5bCVc2G",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761079473,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Grafik zu den Wahlverfahren gemäß der ‹Handfeste› um 1260. Sie zeigt die Struktur des indirekten Wahlverfahrens mit einem temporären Kieserkollegium, das zwischen dem alten und neuen Rat vermittelt. Zu sehen sind verschiedene farbige Punkte, die die Abstimmenden im alten und neuen Rat repräsentieren. Das Kieserkollegium befindet sich in der Mitte und spielt eine entscheidende Rolle bei der Wahl.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 14830,
+		"completion_tokens": 92,
+		"total_tokens": 14922,
+		"cost": 0.0022797,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0022245,
+			"upstream_inference_completions_cost": 5.52e-5
+		}
+	}
+}

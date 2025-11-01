@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761081612-MKL9YDrWsi9W6X7UwK61",
+	"provider": "Fireworks",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1761081620,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Balkendiagramm: Besucherzahlen von FCB-Spielen (blau) und Konzerten (gelb) im St. Jakob-Stadion, 1960–2022. Zahlen steigen bis 2002 an, Einbruch 2020.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1739,
+		"completion_tokens": 54,
+		"total_tokens": 1793,
+		"cost": 0.0004301,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00038258,
+			"upstream_inference_completions_cost": 4.752e-5
+		}
+	}
+}

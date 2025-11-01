@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761081761-0mbA33XMxpyw4q0F2ALB",
+	"provider": "DeepInfra",
+	"model": "qwen/qwen3-vl-8b-instruct",
+	"object": "chat.completion",
+	"created": 1761081761,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Handelsnetz des Basler Kaufmanns Ulrich Meltinger (1468–1493). Flussdiagramm zeigt regionale und überregionale Handelsverbindungen mit Tuch- und Wollehandel, Produzenten in Flandern, England, Elsass, Baden und Schweiz, sowie Vertriebspunkte in Frankfurt, Zürich und Kleinbasel.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1258,
+		"completion_tokens": 90,
+		"total_tokens": 1348,
+		"cost": 0.00028854,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00022644,
+			"upstream_inference_completions_cost": 6.21e-5
+		}
+	}
+}

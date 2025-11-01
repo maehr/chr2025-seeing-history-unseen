@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760766578-zEnTrYtI2OfZjoRRLBn7",
+	"provider": "Hyperbolic",
+	"model": "mistralai/pixtral-12b",
+	"object": "chat.completion",
+	"created": 1760766578,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Historischer Schreibkalender mit Eintragungen und Zeichnungen von Lukas Vischer, 1794.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 478,
+		"completion_tokens": 26,
+		"total_tokens": 504,
+		"cost": 5.04e-5,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 4.78e-5,
+			"upstream_inference_completions_cost": 2.6e-6
+		}
+	}
+}

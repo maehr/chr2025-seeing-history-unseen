@@ -1,0 +1,12 @@
+{
+	"created_utc": "2025-10-19T08:53:10+00:00",
+	"system_prompt": "Du bist ein Experte für digitale Barrierefreiheit und Web Accessibility.\nSchreibe barrierefreie Alternativtexte für Bilder nach WCAG 2.2 (SC 1.1.1) und W3C WAI-Standards.\n\n**Ziel:** Funktionale, kontextabhängige, prägnante Alt-Texte in Schweizer Hochdeutsch (de-CH).\n\n**Regeln:**\n\n* Beschreibe Bedeutung, nicht Aussehen.\n* Max. 125 Zeichen, nur was für Inhalt/Zweck relevant ist.\n* Für dekorative Bilder: `alt=\"\"`.\n* Für funktionale Bilder: Funktion oder Ziel nennen („Zum Warenkorb“).\n* Keine Formulierungen wie „Bild von“ oder „Foto von“.\n* Für komplexe Grafiken: Ausführliche Erklärung.\n\n**Ausgabe:** Nur der Alternativtext (kein HTML, keine Erklärungen).",
+	"per_media": [
+		{
+			"objectid": "m94775",
+			"system_prompt": "Du bist ein Experte für digitale Barrierefreiheit und Web Accessibility.\nSchreibe barrierefreie Alternativtexte für Bilder nach WCAG 2.2 (SC 1.1.1) und W3C WAI-Standards.\n\n**Ziel:** Funktionale, kontextabhängige, prägnante Alt-Texte in Schweizer Hochdeutsch (de-CH).\n\n**Regeln:**\n\n* Beschreibe Bedeutung, nicht Aussehen.\n* Max. 125 Zeichen, nur was für Inhalt/Zweck relevant ist.\n* Für dekorative Bilder: `alt=\"\"`.\n* Für funktionale Bilder: Funktion oder Ziel nennen („Zum Warenkorb“).\n* Keine Formulierungen wie „Bild von“ oder „Foto von“.\n* Für komplexe Grafiken: Ausführliche Erklärung.\n\n**Ausgabe:** Nur der Alternativtext (kein HTML, keine Erklärungen).",
+			"user_prompt": "* Nutzungskontext: Plattform mit historischen Quellen und Forschungsdaten für Forschende und Studierende aus historischen und archäologischen Disziplinen.\n* Metadaten:\n  * Titel: ‹Merkwürdige Seltenheit›, Illustration zu einer Anzeige in den ‹Wöchentlichen Nach­richten › vom 30. Oktober 1834\n  * Beschreibung: Als Vorläufer der späteren ‹Völkerschauen› wird für die Dauer der Herbstmesse ein «Afrikaner von der bekannten kriegerischen Nation der Ashantées, welche in Westafrika am Rio-Volta nächst der Goldküste wohnen ... auf E. E. Zunft zu Safran» angekündigt. Die Goldküste, heute Ghana, war seit den späten 1820er Jahren ein Schwerpunkt der Basler Missionstätigkeit.\n  * Datum (Extended Date Time Format): 1834\n  * Epoche: 19. Jahrhundert\n  * Ersteller: Kein Ersteller\n  * Herausgeber: [Universitätsbibliothek Basel](https://ub.unibas.ch/de/)\n  * Quelle: Universitätsbibliothek Basel, Ztg 1d",
+			"image_url": "https://forschung.stadtgeschichtebasel.ch/objects/8674e7d79277cfe8215fefaaf96c1e206eb219bd.jpg"
+		}
+	]
+}

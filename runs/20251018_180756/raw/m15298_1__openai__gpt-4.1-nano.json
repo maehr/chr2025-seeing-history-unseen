@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804778-pQHMWf7IGtJC2b5CvtoG",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4.1-nano",
+	"object": "chat.completion",
+	"created": 1760804779,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "completed",
+			"message": {
+				"role": "assistant",
+				"content": "Karte zeigt neu errichtete Gotteshäuser in Basel zwischen 1912 und 1966, kategorisiert nach Religion: katholisch, reformiert, jüdisch.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 2088,
+		"completion_tokens": 38,
+		"total_tokens": 2126,
+		"cost": 0.000224,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0002088,
+			"upstream_inference_completions_cost": 1.52e-5
+		}
+	}
+}

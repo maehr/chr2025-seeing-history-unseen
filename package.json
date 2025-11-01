@@ -1,7 +1,7 @@
 {
 	"name": "chr2025-seeing-history-unseen",
 	"description": "CHR 2025 conference materials: Seeing History Unseen - Evaluating Vision-Language Models for WCAG-Compliant Alt-Text in Digital Heritage Collections",
-	"author": "Moritz Mähr <[INSERT CONTACT METHOD]>",
+	"author": "Moritz Mähr <moritz.maehr@gmail.com>",
 	"url": "https://github.com/maehr/chr2025-seeing-history-unseen/issues",
 	"license": "AGPL-3.0",
 	"scripts": {

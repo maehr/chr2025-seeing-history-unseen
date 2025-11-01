@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761081584-k3KQiT5JFeA8UJN07uPO",
+	"provider": "Google",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1761081584,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "STOP",
+			"message": {
+				"role": "assistant",
+				"content": "Abbruch des St. Johanns-Schwibbogens, Arbeiter auf dem teilweise abgerissenen Torbogen, Schutt und Karre auf der Strasse.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 2114,
+		"completion_tokens": 34,
+		"total_tokens": 2148,
+		"cost": 0.000779,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0007399,
+			"upstream_inference_completions_cost": 3.91e-5
+		}
+	}
+}

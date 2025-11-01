@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760803868-A6TYaAMOVIa7b520o61g",
+	"provider": "Mistral",
+	"model": "mistralai/pixtral-12b",
+	"object": "chat.completion",
+	"created": 1760803868,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Umschrift der Grabinschrift des römischen Offiziers Lucius Munatius Plancus.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1389,
+		"completion_tokens": 22,
+		"total_tokens": 1411,
+		"cost": 0.00021165,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00020835,
+			"upstream_inference_completions_cost": 3.3e-6
+		}
+	}
+}

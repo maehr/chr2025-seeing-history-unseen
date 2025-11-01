@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761080968-e35TdfFVvM05TkutUAIi",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761080968,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Illustration zur Anzeige eines afrikanischen Mannes aus der kriegerischen Nation der Ashantées für die Herbstmesse. Die Darstellung zeigt den Mann mit einem Speer in traditioneller Kleidung. Die Anzeige stammt aus den «Wöchentlichen Nachrichten» vom 30. Oktober 1834, veröffentlicht von der Universitätsbibliothek Basel.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26122,
+		"completion_tokens": 67,
+		"total_tokens": 26189,
+		"cost": 0.0039585,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0039183,
+			"upstream_inference_completions_cost": 4.02e-5
+		}
+	}
+}

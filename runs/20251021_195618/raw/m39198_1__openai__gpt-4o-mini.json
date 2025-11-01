@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761069543-ncajfqHpqTCJNAtvOfLm",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761069543,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Diagramm zur Handelsaktivität von Ulrich Meltinger im Textilsektor zwischen 1468 und 1493. Es zeigt Handelsbeziehungen zwischen den Produktionsstandorten und verschiedenen Akteuren im Textilhandel, einschließlich Schäfern, Hutmachern und Tuchmachern in Städten wie Frankfurt, Colmar, Freiburg und Zürich. Die Farbmarkierungen verdeutlichen die Handelswege und Verbindungen.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26116,
+		"completion_tokens": 84,
+		"total_tokens": 26200,
+		"cost": 0.0039678,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0039174,
+			"upstream_inference_completions_cost": 5.04e-5
+		}
+	}
+}

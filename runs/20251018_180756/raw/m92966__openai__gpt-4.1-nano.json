@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760803930-rbr3fEZjQmKjw7wiW2v4",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4.1-nano",
+	"object": "chat.completion",
+	"created": 1760803931,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "completed",
+			"message": {
+				"role": "assistant",
+				"content": "Grundrissplan des Wolfgottesackers mit parkähnlicher Anlage, Alleen, Rasenflächen und Wasserbecken, entworfen 1865 für den Friedhof.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1982,
+		"completion_tokens": 38,
+		"total_tokens": 2020,
+		"cost": 0.0002134,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001982,
+			"upstream_inference_completions_cost": 1.52e-5
+		}
+	}
+}

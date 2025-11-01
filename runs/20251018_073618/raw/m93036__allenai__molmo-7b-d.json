@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760766400-ikZoBvxpBfGuAWvD8EPJ",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760766400,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "length",
+			"native_finish_reason": "length",
+			"message": {
+				"role": "assistant",
+				"content": " Banane\nGebäck\nGemüse\nGetreide\nGetränke\nLebensmittel\nHandtassen\nMode\nReis\nRahmen\nWasser\nWein\nWurst\nZucker\nZwiebeln\nZuckerhut\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebeln\nZwiebel",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1606,
+		"completion_tokens": 1917,
+		"total_tokens": 3523,
+		"cost": 0.000544,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001606,
+			"upstream_inference_completions_cost": 0.0003834
+		}
+	}
+}

@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761069520-ZPbIwSDkaBZ7BGvtGjVA",
+	"provider": "Parasail",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1761069520,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Rekonstruktion einer mittelpaläolithischen Landschaft bei Riehen vor 48 000 Jahren mit Neandertalern beim Jagen von Wildtieren wie Mammuten und Riesenhirschen an einem mäandrierenden Rhein.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1638,
+		"completion_tokens": 49,
+		"total_tokens": 1687,
+		"cost": 0.00028735,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 416,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0002457,
+			"upstream_inference_completions_cost": 4.165e-5
+		}
+	}
+}

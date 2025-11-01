@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761079447-XrfphvagxedlrWH0ksjc",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761079447,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Darstellung einer prähistorischen Landschaft bei Riehen-Ausserberg im Mittelpaläolithikum. Ein Neandertaler trägt ein Kind auf dem Rücken, während er mit einem Stock in der Hand die Umgebung beobachtet. Im Hintergrund sind Wildtiere und eine Gewässerlandschaft sichtbar, umgeben von Bäumen und Gestrüpp.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26120,
+		"completion_tokens": 71,
+		"total_tokens": 26191,
+		"cost": 0.0039606,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.003918,
+			"upstream_inference_completions_cost": 4.26e-5
+		}
+	}
+}

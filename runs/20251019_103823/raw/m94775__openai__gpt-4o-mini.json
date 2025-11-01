@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760863108-9bK2os0mOAE17vTLtzqD",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1760863108,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Illustration einer Anzeige für eine Vorstellung eines Ashantée während der Herbstmesse 1834.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 25938,
+		"completion_tokens": 19,
+		"total_tokens": 25957,
+		"cost": 0.0039021,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0038907,
+			"upstream_inference_completions_cost": 1.14e-5
+		}
+	}
+}

@@ -1,0 +1,121 @@
+objectid,prompt,google__gemini-2.5-flash-lite__content,google__gemini-2.5-flash-lite__finish_reason,google__gemini-2.5-flash-lite__usage_prompt_tokens,google__gemini-2.5-flash-lite__usage_completion_tokens,google__gemini-2.5-flash-lite__usage_total_tokens,google__gemini-2.5-flash-lite__usage_cost,google__gemini-2.5-flash-lite__provider,google__gemini-2.5-flash-lite__created,google__gemini-2.5-flash-lite__id,google__gemini-2.5-flash-lite__request_started_utc,google__gemini-2.5-flash-lite__request_ended_utc,google__gemini-2.5-flash-lite__latency_seconds,mistralai__pixtral-12b__content,mistralai__pixtral-12b__finish_reason,mistralai__pixtral-12b__usage_prompt_tokens,mistralai__pixtral-12b__usage_completion_tokens,mistralai__pixtral-12b__usage_total_tokens,mistralai__pixtral-12b__usage_cost,mistralai__pixtral-12b__provider,mistralai__pixtral-12b__created,mistralai__pixtral-12b__id,mistralai__pixtral-12b__request_started_utc,mistralai__pixtral-12b__request_ended_utc,mistralai__pixtral-12b__latency_seconds,openai__gpt-4o-mini__content,openai__gpt-4o-mini__finish_reason,openai__gpt-4o-mini__usage_prompt_tokens,openai__gpt-4o-mini__usage_completion_tokens,openai__gpt-4o-mini__usage_total_tokens,openai__gpt-4o-mini__usage_cost,openai__gpt-4o-mini__provider,openai__gpt-4o-mini__created,openai__gpt-4o-mini__id,openai__gpt-4o-mini__request_started_utc,openai__gpt-4o-mini__request_ended_utc,openai__gpt-4o-mini__latency_seconds,meta-llama__llama-4-maverick__content,meta-llama__llama-4-maverick__finish_reason,meta-llama__llama-4-maverick__usage_prompt_tokens,meta-llama__llama-4-maverick__usage_completion_tokens,meta-llama__llama-4-maverick__usage_total_tokens,meta-llama__llama-4-maverick__usage_cost,meta-llama__llama-4-maverick__provider,meta-llama__llama-4-maverick__created,meta-llama__llama-4-maverick__id,meta-llama__llama-4-maverick__request_started_utc,meta-llama__llama-4-maverick__request_ended_utc,meta-llama__llama-4-maverick__latency_seconds,created_utc,system_prompt,user_prompt
+m94775,"{""Titel"": ""‹Merkwürdige Seltenheit›, Illustration zu einer Anzeige in den ‹Wöchentlichen Nach­richten › vom 30. Oktober 1834"", ""Beschreibung"": ""Als Vorläufer der späteren ‹Völkerschauen› wird für die Dauer der Herbstmesse ein «Afrikaner von der bekannten kriegerischen Nation der Ashantées, welche in Westafrika am Rio-Volta nächst der Goldküste wohnen ... auf E. E. Zunft zu Safran» angekündigt. Die Goldküste, heute Ghana, war seit den späten 1820er Jahren ein Schwerpunkt der Basler Missionstätigkeit."", ""Ersteller"": """", ""Herausgeber"": ""[Universitätsbibliothek Basel](https://ub.unibas.ch/de/)"", ""Quelle"": ""Universitätsbibliothek Basel, Ztg 1d"", ""Datum"": ""1834"", ""Epoche"": """"}","Merkwürdiger Afrikaner von den Ashantées, ausgestellt während der Herbstmesse in Basel.",stop,1900,20,1920,6.147e-05,Google,1760998797,gen-1760998797-7EnN9kEeUEn3lF7jlNkT,2025-10-20T22:19:56+00:00,2025-10-20T22:20:00+00:00,3.985614,"Illustration zu einer Anzeige in den ""Wöchentlichen Nachrichten"" vom 30. Oktober 1834. Ankündigung eines ""Afrikaners von der kriegerischen Nation der Ashantées"" an der Herbstmesse.",stop,659,54,713,7.13e-05,Hyperbolic,1760998801,gen-1760998801-781v6EFz4RbIxmVuxxjH,2025-10-20T22:20:00+00:00,2025-10-20T22:20:03+00:00,2.072719,"Illustration für die Anzeige einer ""Merkwürdigen Seltenheit"" in den Wöchentlichen Nachrichten vom 30. Oktober 1834. Es wird ein ""Afrikaner der Ashantées"" für eine Ausstellung während der Herbstmesse angekündigt. Darunter eine Abbildung des Afrikaners in traditioneller Kleidung mit einem Speer.",stop,26129,70,26199,0.00396135,OpenAI,1760998804,gen-1760998803-jbZiR4fp2WBJ2vht1pXk,2025-10-20T22:20:03+00:00,2025-10-20T22:20:08+00:00,5.672833,Zeitungsannonce von 1834 mit Illustration eines Ashanti-Kriegers mit Speer und Schild in traditioneller Kleidung.,stop,1630,27,1657,0.00030005,Novita,1760998809,gen-1760998809-gKFM0JL9JdbmIKP97OXe,2025-10-20T22:20:09+00:00,2025-10-20T22:20:11+00:00,2.835054,2025-10-20T22:19:56+00:00,"ZIEL
+
+Alt-Texte für historische und archäologische Sammlungsbilder.
+Kurz, sachlich, zugänglich. Erfassung der visuellen Essenz für Screenreader.
+
+REGELN
+
+1. Essenz statt Detail. Keine Redundanz zum Seitentext, kein „Bild von“.
+2. Zentralen Text im Bild wiedergeben oder kurz paraphrasieren.
+3. Kontext (Epoche, Ort, Gattung, Material, Datierung) nur bei Relevanz für Verständnis.
+4. Prägnante visuelle Merkmale nennen: Farbe, Haltung, Zustand, Attribute.
+5. Karten/Diagramme: zentrale Aussage oder Variablen.
+6. Sprache: neutral, präzise, faktenbasiert; keine Wertung, keine Spekulation.
+7. Umfang:
+   * Standard: 90–180 Zeichen
+   * Komplexe Karten/Tabellen: max. 400 Zeichen
+
+VERBOTE
+
+* Kein alt=, Anführungszeichen, Preambeln oder Füllwörter („zeigt“, „darstellt“).
+* Keine offensichtlichen Metadaten (z. B. Jahreszahlen aus Beschriftung).
+* Keine Bewertungen, Hypothesen oder Stilkommentare.
+* Keine Emojis oder emotionalen Begriffe.
+
+HEURISTIKEN
+
+Porträt: Person (Name, falls bekannt), Epoche, Pose oder Attribut, ggf. Funktion.
+Objekt: Gattung, Material, Datierung, auffällige Besonderheit.
+Dokument: Typ, Sprache/Schrift, Datierung, Kernaussage.
+Karte: Gebiet, Zeitraum, Zweck, Hauptvariablen.
+Ereignisfoto: Wer, was, wo, situativer Kontext.
+Plakat/Cover: Titel, Zweck, zentrale Schlagzeile.
+
+FALLBACK
+
+Unklarer Inhalt: generische, aber sinnvolle Essenz aus Metadaten.
+
+QUELLEN
+
+Nur visuelle Analyse (Bildinhalt) und übergebene Metadaten. Keine externen Kontexte.","{""Titel"": ""‹Merkwürdige Seltenheit›, Illustration zu einer Anzeige in den ‹Wöchentlichen Nach­richten › vom 30. Oktober 1834"", ""Beschreibung"": ""Als Vorläufer der späteren ‹Völkerschauen› wird für die Dauer der Herbstmesse ein «Afrikaner von der bekannten kriegerischen Nation der Ashantées, welche in Westafrika am Rio-Volta nächst der Goldküste wohnen ... auf E. E. Zunft zu Safran» angekündigt. Die Goldküste, heute Ghana, war seit den späten 1820er Jahren ein Schwerpunkt der Basler Missionstätigkeit."", ""Ersteller"": """", ""Herausgeber"": ""[Universitätsbibliothek Basel](https://ub.unibas.ch/de/)"", ""Quelle"": ""Universitätsbibliothek Basel, Ztg 1d"", ""Datum"": ""1834"", ""Epoche"": """"}"
+m27909_1,"{""Titel"": ""Verbreitung der Latènekultur"", ""Beschreibung"": ""Ähnlichkeiten in der materiellen Kultur liessen Grösste Ausdehnung der Latènekultur Archäolog:innen einen gemeinsamen latènezeitlichen Kulturraum rekonstruieren, der West- bis Osteuropa vom 4. bis zum 1. Jahrhundert v. Chr. prägte. Dennoch weist jedes Gebiet regionalspezifische Besonderheiten auf."", ""Ersteller"": ""[Stadt.Geschichte.Basel](https://www.wikidata.org/wiki/Q122442230)"", ""Herausgeber"": ""[Stadt.Geschichte.Basel](https://stadtgeschichtebasel.ch/)"", ""Quelle"": ""Quelle: https://srtm.csi.cgiar.org/&#59 Hauschild, Maya: Quer durch Europa. Die keltischen Wanderungen, in: Archäologisches Landesmuseum Baden-Württemberg (Hg.): Die Welt der Kelten. Zentren der Macht – Kostbarkeiten der Kunst, Ostfildern 2012, S. 257. Bearbeitung: Nico Görlich / Moritz Twente."", ""Datum"": """", ""Epoche"": """"}",Karte der Verbreitung der Latènekultur in Europa vom 4. bis 1. Jahrhundert v. Chr. mit Fundorten auf der Karte markiert.,stop,1947,31,1978,0.0002071,Google,1760998812,gen-1760998812-MC4RP5gVuC2a3JkAJnL3,2025-10-20T22:20:12+00:00,2025-10-20T22:20:15+00:00,3.053958,"Verbreitung der Latènekultur in Europa vom 4. bis 1. Jahrhundert v. Chr. Gelb schattierte Region, rote Punkte markieren Fundorte.",stop,702,39,741,7.41e-05,Hyperbolic,1760998815,gen-1760998815-TG5WY0XUy71pcoXnbp2c,2025-10-20T22:20:15+00:00,2025-10-20T22:20:17+00:00,2.007022,"Karte zur Verbreitung der Latènekultur in Europa zwischen dem 4. und 1. Jahrhundert v. Chr. Gelber Bereich zeigt den kulturhistorischen Raum, während rote Punkte archäologische Fundstätten markieren. Regionen weisen spezifische Unterschiede auf.",stop,26172,54,26226,0.0039582,OpenAI,1760998819,gen-1760998817-bBeORn8JtYrqQ7rfsZiP,2025-10-20T22:20:17+00:00,2025-10-20T22:20:21+00:00,4.038861,"Verbreitung der Latènekultur in Europa vom 4. bis 1. Jahrhundert v. Chr., markiert durch orange Färbung und rote Punkte. Eingetragen sind wichtige Orte wie Basel, Marseille, Rom und Delphi.",stop,2118,49,2167,0.00061351,Together,1760998822,gen-1760998822-1Vi8rbiDIuSwLIxNilvS,2025-10-20T22:20:21+00:00,2025-10-20T22:20:26+00:00,4.053659,2025-10-20T22:20:12+00:00,"ZIEL
+
+Alt-Texte für historische und archäologische Sammlungsbilder.
+Kurz, sachlich, zugänglich. Erfassung der visuellen Essenz für Screenreader.
+
+REGELN
+
+1. Essenz statt Detail. Keine Redundanz zum Seitentext, kein „Bild von“.
+2. Zentralen Text im Bild wiedergeben oder kurz paraphrasieren.
+3. Kontext (Epoche, Ort, Gattung, Material, Datierung) nur bei Relevanz für Verständnis.
+4. Prägnante visuelle Merkmale nennen: Farbe, Haltung, Zustand, Attribute.
+5. Karten/Diagramme: zentrale Aussage oder Variablen.
+6. Sprache: neutral, präzise, faktenbasiert; keine Wertung, keine Spekulation.
+7. Umfang:
+   * Standard: 90–180 Zeichen
+   * Komplexe Karten/Tabellen: max. 400 Zeichen
+
+VERBOTE
+
+* Kein alt=, Anführungszeichen, Preambeln oder Füllwörter („zeigt“, „darstellt“).
+* Keine offensichtlichen Metadaten (z. B. Jahreszahlen aus Beschriftung).
+* Keine Bewertungen, Hypothesen oder Stilkommentare.
+* Keine Emojis oder emotionalen Begriffe.
+
+HEURISTIKEN
+
+Porträt: Person (Name, falls bekannt), Epoche, Pose oder Attribut, ggf. Funktion.
+Objekt: Gattung, Material, Datierung, auffällige Besonderheit.
+Dokument: Typ, Sprache/Schrift, Datierung, Kernaussage.
+Karte: Gebiet, Zeitraum, Zweck, Hauptvariablen.
+Ereignisfoto: Wer, was, wo, situativer Kontext.
+Plakat/Cover: Titel, Zweck, zentrale Schlagzeile.
+
+FALLBACK
+
+Unklarer Inhalt: generische, aber sinnvolle Essenz aus Metadaten.
+
+QUELLEN
+
+Nur visuelle Analyse (Bildinhalt) und übergebene Metadaten. Keine externen Kontexte.","{""Titel"": ""Verbreitung der Latènekultur"", ""Beschreibung"": ""Ähnlichkeiten in der materiellen Kultur liessen Grösste Ausdehnung der Latènekultur Archäolog:innen einen gemeinsamen latènezeitlichen Kulturraum rekonstruieren, der West- bis Osteuropa vom 4. bis zum 1. Jahrhundert v. Chr. prägte. Dennoch weist jedes Gebiet regionalspezifische Besonderheiten auf."", ""Ersteller"": ""[Stadt.Geschichte.Basel](https://www.wikidata.org/wiki/Q122442230)"", ""Herausgeber"": ""[Stadt.Geschichte.Basel](https://stadtgeschichtebasel.ch/)"", ""Quelle"": ""Quelle: https://srtm.csi.cgiar.org/&#59 Hauschild, Maya: Quer durch Europa. Die keltischen Wanderungen, in: Archäologisches Landesmuseum Baden-Württemberg (Hg.): Die Welt der Kelten. Zentren der Macht – Kostbarkeiten der Kunst, Ostfildern 2012, S. 257. Bearbeitung: Nico Görlich / Moritz Twente."", ""Datum"": """", ""Epoche"": """"}"
+m30203_1_1,"{""Titel"": ""Fundstellen der Spätantike im Umland von Basel"", ""Beschreibung"": ""Siedlungslandschaft im Umfeld des Kastells Kaiseraugst gemäss dem aktuellen Forschungsstand. Kartiert sind die bekannten Fundstellen des späten 3. und 4. Jahrhunderts n. Chr."", ""Ersteller"": ""[Stadt.Geschichte.Basel](https://www.wikidata.org/wiki/Q122442230)"", ""Herausgeber"": ""[Stadt.Geschichte.Basel](https://stadtgeschichtebasel.ch/)"", ""Quelle"": ""NASA, SRTM, 2013&#59 Bundesamt für Landestopografie swisstopo&#59 Andreas Kettner (GVA)&#59 Salvisberg, André (Hg.): Historischer Atlas der Region Basel, Basel 2010. Bearbeitung: Nico Görlich / Moritz"", ""Datum"": ""0275~/0400"", ""Epoche"": """"}",Karte der Fundstellen der Spätantike im Umland von Basel. Zeigt Siedlungen des 3. und 4. Jahrhunderts n. Chr. rund um das Kastell Kaiseraugst.,stop,1910,41,1951,0.0002074,Google,1760998826,gen-1760998826-BZazwRt2nebj8PW0VgJq,2025-10-20T22:20:26+00:00,2025-10-20T22:20:29+00:00,2.78504,"Karte zeigt Siedlungslandschaft um Kaiseraugst, 3.-4. Jahrhundert n. Chr. Wichtige Fundstellen wie Breisach, Oedenburg-Biesheim und Kembs markiert.",stop,666,47,713,7.13e-05,Hyperbolic,1760998829,gen-1760998829-nRLxcGHkT7VCwKzHQedA,2025-10-20T22:20:29+00:00,2025-10-20T22:20:31+00:00,1.779155,"Karte der Fundstellen der Spätantike im Umland von Basel. Markiert sind bekannte archäologische Standorte aus dem späten 3. und 4. Jahrhundert n. Chr. im Umfeld des Kastells Kaiseraugst. Geografische Merkmale und die Verteilung der Fundorte sind verzeichnet, mit Distanzangaben in Kilometern.",stop,26128,76,26204,0.0039648,OpenAI,1760998832,gen-1760998831-YBsj9eW16LN4vbhB4OUq,2025-10-20T22:20:31+00:00,2025-10-20T22:20:35+00:00,4.06474,"Fundstellen der Spätantike um Basel, 3./4. Jh. n. Chr. Kartiert: Siedlungen, Kastelle, Straßen. Gebiet: Basel bis Breisach und Solothurn.",stop,1351,45,1396,0.0002972,Groq,1760998835,gen-1760998835-ao2M7iR8LwG4dAFFA7w3,2025-10-20T22:20:35+00:00,2025-10-20T22:20:36+00:00,0.9433,2025-10-20T22:20:26+00:00,"ZIEL
+
+Alt-Texte für historische und archäologische Sammlungsbilder.
+Kurz, sachlich, zugänglich. Erfassung der visuellen Essenz für Screenreader.
+
+REGELN
+
+1. Essenz statt Detail. Keine Redundanz zum Seitentext, kein „Bild von“.
+2. Zentralen Text im Bild wiedergeben oder kurz paraphrasieren.
+3. Kontext (Epoche, Ort, Gattung, Material, Datierung) nur bei Relevanz für Verständnis.
+4. Prägnante visuelle Merkmale nennen: Farbe, Haltung, Zustand, Attribute.
+5. Karten/Diagramme: zentrale Aussage oder Variablen.
+6. Sprache: neutral, präzise, faktenbasiert; keine Wertung, keine Spekulation.
+7. Umfang:
+   * Standard: 90–180 Zeichen
+   * Komplexe Karten/Tabellen: max. 400 Zeichen
+
+VERBOTE
+
+* Kein alt=, Anführungszeichen, Preambeln oder Füllwörter („zeigt“, „darstellt“).
+* Keine offensichtlichen Metadaten (z. B. Jahreszahlen aus Beschriftung).
+* Keine Bewertungen, Hypothesen oder Stilkommentare.
+* Keine Emojis oder emotionalen Begriffe.
+
+HEURISTIKEN
+
+Porträt: Person (Name, falls bekannt), Epoche, Pose oder Attribut, ggf. Funktion.
+Objekt: Gattung, Material, Datierung, auffällige Besonderheit.
+Dokument: Typ, Sprache/Schrift, Datierung, Kernaussage.
+Karte: Gebiet, Zeitraum, Zweck, Hauptvariablen.
+Ereignisfoto: Wer, was, wo, situativer Kontext.
+Plakat/Cover: Titel, Zweck, zentrale Schlagzeile.
+
+FALLBACK
+
+Unklarer Inhalt: generische, aber sinnvolle Essenz aus Metadaten.
+
+QUELLEN
+
+Nur visuelle Analyse (Bildinhalt) und übergebene Metadaten. Keine externen Kontexte.","{""Titel"": ""Fundstellen der Spätantike im Umland von Basel"", ""Beschreibung"": ""Siedlungslandschaft im Umfeld des Kastells Kaiseraugst gemäss dem aktuellen Forschungsstand. Kartiert sind die bekannten Fundstellen des späten 3. und 4. Jahrhunderts n. Chr."", ""Ersteller"": ""[Stadt.Geschichte.Basel](https://www.wikidata.org/wiki/Q122442230)"", ""Herausgeber"": ""[Stadt.Geschichte.Basel](https://stadtgeschichtebasel.ch/)"", ""Quelle"": ""NASA, SRTM, 2013&#59 Bundesamt für Landestopografie swisstopo&#59 Andreas Kettner (GVA)&#59 Salvisberg, André (Hg.): Historischer Atlas der Region Basel, Basel 2010. Bearbeitung: Nico Görlich / Moritz"", ""Datum"": ""0275~/0400"", ""Epoche"": """"}"

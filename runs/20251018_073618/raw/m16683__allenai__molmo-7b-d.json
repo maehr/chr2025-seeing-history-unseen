@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760766667-GTjYRyVELyljdCEheg3U",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760766667,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " Monatsblatt Februar\nEin 1745 gedrucktes Schreibkalender des Bieler Mathematikers und Astrologen Jakob Rosius, der die Wochen-, Namens- und Feiertage dokumentierte und Handlungsempfehlungen auf der Basis astrologischer Berechnungen und langjähriger Beobachtungen gab. Zudem listete er die Jahrmarktstermine in der Eidgenossenschaft und anderen Regionen.\n\nZiel des Kalenders: half den Leser, seine täglichen Aktivitäten und决策与当天的星座相协调。\n\n* Monat: Februar\n* Jahr: 1745\n* Autor: Jakob Rosius\n* Standort: ETH-Bibliothek Zürich, Rar 1380\n* URL: https://doi.org/10.3931/e-rara-13479",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1711,
+		"completion_tokens": 194,
+		"total_tokens": 1905,
+		"cost": 0.0002099,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001711,
+			"upstream_inference_completions_cost": 3.88e-5
+		}
+	}
+}

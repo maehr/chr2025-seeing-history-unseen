@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804953-QVXssUpNSACnYgqEA9y6",
+	"provider": "Mistral",
+	"model": "mistralai/pixtral-12b",
+	"object": "chat.completion",
+	"created": 1760804953,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Rekonstruktion des befestigten Kirchhofs von Riehen im 11. Jahrhundert mit romanischer Kirche und Meierhof.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 2762,
+		"completion_tokens": 28,
+		"total_tokens": 2790,
+		"cost": 0.0004185,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0004143,
+			"upstream_inference_completions_cost": 4.2e-6
+		}
+	}
+}

@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761081733-IxVhaXtXdl7j1xVT4Rj4",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761081733,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Darstellung einer prähistorischen Landschaft bei Riehen-Ausserberg vor 48.000 Jahren. Ein Neandertaler trägt ein Kind auf den Schultern, während er mit einem Stab eine weite, grüne Umgebung mit verschiedenen Tieren und einem Gewässer erkundet. Im Hintergrund sind Bäume und Tiere wie Mammute sichtbar.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26120,
+		"completion_tokens": 70,
+		"total_tokens": 26190,
+		"cost": 0.0038736,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 1152,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0038316,
+			"upstream_inference_completions_cost": 4.2e-5
+		}
+	}
+}

@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761082769-be3ArWbyEQiUTamoMsEv",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761082770,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Grabinschrift des römischen Offiziers Lucius Munatius Plancus, der in Gallien die Kolonien Lugudunum und Raurica gründete. Die Inschrift ist in lateinischer Sprache verfasst und stammt von seinem Grabmal auf Cap Gaëta, südlich von Rom. Sie zeigt typische Merkmale römischer Inschriftenkunst.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 14772,
+		"completion_tokens": 77,
+		"total_tokens": 14849,
+		"cost": 0.002262,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0022158,
+			"upstream_inference_completions_cost": 4.62e-5
+		}
+	}
+}

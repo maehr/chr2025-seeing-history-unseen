@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761069541-YIhSX0UICRH1xPqPNHCJ",
+	"provider": "Mistral",
+	"model": "mistralai/pixtral-12b",
+	"object": "chat.completion",
+	"created": 1761069541,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Handelspfade des Kaufmanns Ulrich Meltinger. Engagiert in Textilhandel, importierte und regionale Produkte. Zentrale Knotenpunkte: England, Flandern, Frankfurt, Elsass, Colmar, Masmünster, Freiburg, Solothurn, Zürich, Glarus, Freiburg/Üe.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 2852,
+		"completion_tokens": 69,
+		"total_tokens": 2921,
+		"cost": 0.00043815,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0004278,
+			"upstream_inference_completions_cost": 1.035e-5
+		}
+	}
+}

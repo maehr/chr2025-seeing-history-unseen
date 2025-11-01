@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761069422-O74N8F3zYCTAopkVVWlw",
+	"provider": "Google",
+	"model": "google/gemini-2.5-flash-lite",
+	"object": "chat.completion",
+	"created": 1761069422,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "STOP",
+			"message": {
+				"role": "assistant",
+				"content": "Balkendiagramm zeigt Publikumszahlen an Konzerten (gelb) und FCB-Spielen (blau) im St. Jakob-Stadion von 1960 bis 2022.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 2574,
+		"completion_tokens": 44,
+		"total_tokens": 2618,
+		"cost": 0.000275,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0002574,
+			"upstream_inference_completions_cost": 1.76e-5
+		}
+	}
+}

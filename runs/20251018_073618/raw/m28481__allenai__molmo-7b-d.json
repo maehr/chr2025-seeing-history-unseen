@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760766294-5n3NXksXb6jlkYwleI7Q",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760766294,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " Skeletal remains being carefully excavated for study. Researcher documenting and preserving historical artifacts.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1611,
+		"completion_tokens": 19,
+		"total_tokens": 1630,
+		"cost": 0.0001649,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001611,
+			"upstream_inference_completions_cost": 3.8e-6
+		}
+	}
+}

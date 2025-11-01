@@ -1,0 +1,721 @@
+<script type="module">
+	/* ---------- Configuration ---------- */
+	const CSV_URL = 'questions.csv';
+	const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xrbyjror';
+	const MODEL_COLS = [
+		'google__gemini-2.5-flash-lite__content',
+		'meta-llama__llama-4-maverick__content',
+		'openai__gpt-4o-mini__content',
+		'qwen__qwen3-vl-8b-instruct__content'
+	];
+
+	/* ---------- Util ---------- */
+	function rng(seed) {
+		let t = seed >>> 0;
+		return () => {
+			t |= 0;
+			t = (t + 0x6d2b79f5) | 0;
+			let r = Math.imul(t ^ (t >>> 15), 1 | t);
+			r ^= r + Math.imul(r ^ (r >>> 7), 61 | r);
+			return ((r ^ (r >>> 14)) >>> 0) / 4294967296;
+		};
+	}
+	function shuffle(a, rand = Math.random) {
+		const x = a.slice();
+		for (let i = x.length - 1; i > 0; i--) {
+			const j = Math.floor(rand() * (i + 1));
+			[x[i], x[j]] = [x[j], x[i]];
+		}
+		return x;
+	}
+	function seedFromCrypto() {
+		const b = new Uint32Array(1);
+		crypto.getRandomValues(b);
+		return b[0];
+	}
+	function clamp(n, min, max) {
+		return Math.max(min, Math.min(max, n));
+	}
+
+	/* ---------- Load Papa Parse ---------- */
+	await new Promise((ok, err) => {
+		const s = document.createElement('script');
+		s.src = 'https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js';
+		s.onload = ok;
+		s.onerror = err;
+		document.head.appendChild(s);
+	});
+
+	/* ---------- Load questions (CSV schema: one row per image with four model columns) ---------- */
+	async function loadQuestions() {
+		const res = await fetch(CSV_URL, { cache: 'no-store' });
+		const text = await res.text();
+		const { data } = Papa.parse(text, { header: true, skipEmptyLines: true });
+		const qs = [];
+		for (const row of data) {
+			if (!row || !row.objectid) continue;
+			const id = String(row.objectid).trim();
+			const title = String(row.title || '').trim();
+			const options = [];
+			for (const col of MODEL_COLS) {
+				let label = String(row[col] || '').trim();
+				if (!label) {
+					label =
+						'Für diese Abbildung hat das Model fälschlicherweise kein Alternativtext generiert.';
+				}
+				options.push({ id: col, label });
+			}
+			if (options.length < 2) continue; // skip malformed rows
+			qs.push({
+				id,
+				title: title,
+				img: `images/${id}.jpg`,
+				options
+			});
+			if (qs.length === 20) break; // enforce 20 images if file contains more
+		}
+		return qs;
+	}
+
+	/* ---------- State ---------- */
+	const state = {
+		seed: seedFromCrypto(),
+		email: '',
+		consent: false,
+		questions: [],
+		qOrder: [],
+		idx: 0,
+		// final/live order (mutates as the user reorders)
+		answersById: {}, // { [objectid]: [model_col, ...] }
+		timestampsById: {}, // { [objectid]: ISOString } last change
+		// initial frozen order captured on first render
+		initialOrderById: {}, // { [objectid]: [model_col, ...] }
+		initialTimestampsById: {} // { [objectid]: ISOString }
+	};
+
+	/* ---------- UI refs (Grouped for maintainability) ---------- */
+	const ui = {
+		pageIntro: document.getElementById('page-intro'),
+		pageQ: document.getElementById('page-q'),
+		pageFinish: document.getElementById('page-finish'),
+		startBtn: document.getElementById('start'),
+		consent: document.getElementById('consent'),
+		email: document.getElementById('email'),
+		emailMsg: document.getElementById('email-msg'),
+		progress: document.getElementById('progress'),
+		imgEl: document.getElementById('q-image'),
+		captionEl: document.getElementById('q-caption'),
+		instrEl: document.getElementById('q-instr'),
+		prevBtn: document.getElementById('prev'),
+		nextBtn: document.getElementById('next'),
+		rankList: document.getElementById('rank-list'),
+		liveRegion: document.getElementById('aria-live'),
+		submitBtn: document.getElementById('submit'),
+		sendMsg: document.getElementById('send-msg'),
+		summary: document.getElementById('summary')
+	};
+
+	function show(el) {
+		[ui.pageIntro, ui.pageQ, ui.pageFinish].forEach((p) => p.classList.add('d-none'));
+		el.classList.remove('d-none');
+	}
+
+	function currentQuestion() {
+		const qid = state.qOrder[state.idx];
+		return state.questions.find((q) => q.id === qid);
+	}
+
+	/* ---------- Render ---------- */
+	function renderQuestion() {
+		const q = currentQuestion();
+		ui.progress.textContent = `Frage ${state.idx + 1} von ${state.qOrder.length}`;
+		ui.imgEl.src = q.img;
+		ui.imgEl.alt = q.title || 'Abbildung';
+		ui.captionEl.innerHTML = `<strong>${q.title || 'Ohne Titel'}</strong>`;
+		ui.instrEl.textContent =
+			'Ordnen Sie die vier Beschreibungen per Drag & Drop. Beste nach oben, schlechteste nach unten. Tastatur: ↑/↓ verschieben, 1–4 springt zur Position.';
+
+		// Initial order: previously saved ranking or shuffled
+		let orderIds = state.answersById[q.id];
+		if (!orderIds) {
+			const shuffled = shuffle(q.options, rng(state.seed + state.idx));
+			orderIds = shuffled.map((o) => o.id);
+			state.answersById[q.id] = orderIds.slice();
+		}
+
+		// Freeze and timestamp the initial randomized order once
+		if (!state.initialOrderById[q.id]) {
+			state.initialOrderById[q.id] = orderIds.slice();
+			state.initialTimestampsById[q.id] = new Date().toISOString();
+		}
+
+		// Build list …
+		ui.rankList.innerHTML = '';
+		ui.rankList.setAttribute('aria-label', `Ranking für ${q.title}`);
+		const size = orderIds.length;
+		orderIds.forEach((optId, i) => {
+			const opt = q.options.find((o) => o.id === optId);
+			const li = document.createElement('li');
+			li.className = 'rank-item';
+			li.draggable = true;
+			li.tabIndex = 0;
+			li.dataset.id = opt.id;
+			li.setAttribute('role', 'option');
+			li.setAttribute('aria-roledescription', 'verschiebbare Option');
+			li.setAttribute('aria-setsize', String(size));
+			li.setAttribute('aria-posinset', String(i + 1));
+			li.setAttribute('aria-grabbed', 'false');
+
+			const badge = document.createElement('span');
+			badge.className = 'rank-badge';
+			badge.textContent = String(i + 1);
+
+			const text = document.createElement('div');
+			text.className = 'rank-text';
+			text.textContent = opt.label;
+
+			const handle = document.createElement('span');
+			handle.className = 'rank-handle';
+			handle.setAttribute('aria-hidden', 'true');
+			handle.textContent = '⋮⋮';
+
+			li.appendChild(badge);
+			li.appendChild(text);
+			li.appendChild(handle);
+			ui.rankList.appendChild(li);
+		});
+		updateNavButtons();
+	}
+
+	function updatePosAria() {
+		const items = [...ui.rankList.querySelectorAll('.rank-item')];
+		items.forEach((el, i) => {
+			el.setAttribute('aria-posinset', String(i + 1));
+			const b = el.querySelector('.rank-badge');
+			if (b) b.textContent = String(i + 1);
+		});
+	}
+
+	function saveCurrentRanking() {
+		const q = currentQuestion();
+		const ids = [...ui.rankList.querySelectorAll('.rank-item')].map((el) => el.dataset.id);
+		state.answersById[q.id] = ids;
+		state.timestampsById[q.id] = new Date().toISOString();
+	}
+
+	function restoreFocusAfterReorder(targetId) {
+		const el = ui.rankList.querySelector(`.rank-item[data-id="${CSS.escape(targetId)}"]`);
+		if (el) el.focus();
+	}
+
+	function updateNavButtons() {
+		ui.prevBtn.classList.toggle('disabled', state.idx === 0);
+		ui.nextBtn.textContent = state.idx === state.qOrder.length - 1 ? 'Zur Auswertung' : 'Weiter';
+	}
+
+	function escapeHtml(s) {
+		return s.replace(
+			/[&<>"']/g,
+			(m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[m]
+		);
+	}
+
+	/* ---------- Drag & Drop ---------- */
+	let dragId = null;
+
+	ui.rankList.addEventListener('dragstart', (e) => {
+		const li = e.target.closest('.rank-item');
+		if (!li) return;
+		dragId = li.dataset.id;
+		li.setAttribute('aria-grabbed', 'true');
+		li.classList.add('dragging');
+		e.dataTransfer.setData('text/plain', dragId);
+		e.dataTransfer.effectAllowed = 'move';
+		ui.liveRegion.textContent = `Greife Element, Position ${li.getAttribute('aria-posinset')}.`;
+	});
+
+	ui.rankList.addEventListener('dragend', (e) => {
+		const li = e.target.closest('.rank-item');
+		if (li) {
+			li.setAttribute('aria-grabbed', 'false');
+			li.classList.remove('dragging');
+		}
+		dragId = null;
+		saveCurrentRanking();
+		updatePosAria();
+	});
+
+	ui.rankList.addEventListener('dragover', (e) => {
+		e.preventDefault();
+		const after = getDragAfterElement(ui.rankList, e.clientY);
+		const dragging = ui.rankList.querySelector('.dragging');
+		if (!dragging) return;
+		if (after == null) {
+			ui.rankList.appendChild(dragging);
+		} else {
+			ui.rankList.insertBefore(dragging, after);
+		}
+	});
+
+	function getDragAfterElement(container, y) {
+		const els = [...container.querySelectorAll('.rank-item:not(.dragging)')];
+		return (
+			els
+				.map((el) => {
+					const box = el.getBoundingClientRect();
+					const offset = y - box.top - box.height / 2;
+					return { el, offset };
+				})
+				.filter((x) => x.offset < 0)
+				.sort((a, b) => b.offset - a.offset)[0]?.el || null
+		);
+	}
+
+	/* ---------- Keyboard reordering ---------- */
+	ui.rankList.addEventListener('keydown', (e) => {
+		const item = e.target.closest('.rank-item');
+		if (!item) return;
+
+		const items = [...ui.rankList.querySelectorAll('.rank-item')];
+		const idx = items.indexOf(item);
+		const last = items.length - 1;
+
+		if (e.key === 'ArrowUp') {
+			e.preventDefault();
+			if (idx > 0) {
+				ui.rankList.insertBefore(item, items[idx - 1]);
+				updatePosAria();
+				saveCurrentRanking();
+				restoreFocusAfterReorder(item.dataset.id);
+				ui.liveRegion.textContent = `Verschoben auf Position ${idx}.`;
+			}
+		} else if (e.key === 'ArrowDown') {
+			e.preventDefault();
+			if (idx < last) {
+				ui.rankList.insertBefore(items[idx + 1], item);
+				updatePosAria();
+				saveCurrentRanking();
+				restoreFocusAfterReorder(item.dataset.id);
+				ui.liveRegion.textContent = `Verschoben auf Position ${idx + 2}.`;
+			}
+		} else if (/^[1-9]$/.test(e.key)) {
+			const pos = clamp(parseInt(e.key, 10) - 1, 0, last); // target 0-based index
+			e.preventDefault();
+
+			if (pos !== idx) {
+				// idx is current 0-based index
+				const currentItems = [...ui.rankList.querySelectorAll('.rank-item')];
+				let ref = null;
+
+				if (idx < pos) {
+					// Moving DOWN: Insert before the item *after* the target position.
+					// e.g., move index 0 to 2: insert before item at index 3.
+					ref = currentItems[pos + 1]; // This will be undefined if moving to the last position, which is correct.
+				} else {
+					// Moving UP: Insert before the item *at* the target position.
+					// e.g., move index 3 to 1: insert before item at index 1.
+					ref = currentItems[pos];
+				}
+				ui.rankList.insertBefore(item, ref || null);
+
+				updatePosAria();
+				saveCurrentRanking();
+				restoreFocusAfterReorder(item.dataset.id);
+				ui.liveRegion.textContent = `Gesetzt auf Position ${pos + 1}.`;
+			}
+		}
+	});
+
+	/* ---------- Flow ---------- */
+	ui.startBtn.addEventListener('click', async () => {
+		state.email = ui.email.value.trim();
+		state.consent = ui.consent.checked;
+
+		if (!state.consent) {
+			ui.emailMsg.textContent = 'Bitte Einwilligung erteilen.';
+			return;
+		}
+		if (!state.email) {
+			ui.emailMsg.textContent = 'E-Mail ist erforderlich.';
+			return;
+		}
+		if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(state.email)) {
+			ui.emailMsg.textContent = 'Ungültige E-Mail.';
+			return;
+		}
+
+		state.questions = await loadQuestions();
+		if (!state.questions.length) {
+			ui.emailMsg.textContent = 'Keine Fragen geladen. Prüfe questions.csv.';
+			return;
+		}
+		state.qOrder = shuffle(
+			state.questions.map((q) => q.id),
+			rng(state.seed)
+		);
+		state.idx = 0;
+		state.answersById = {};
+		show(ui.pageQ);
+		renderQuestion();
+		ui.emailMsg.textContent = '';
+	});
+
+	ui.nextBtn.addEventListener('click', () => {
+		saveCurrentRanking();
+		if (state.idx < state.qOrder.length - 1) {
+			state.idx++;
+			renderQuestion();
+		} else {
+			const done = Object.keys(state.answersById).length;
+			ui.summary.textContent = `Bereit zum Senden. ${done} vollständige Rankings erfasst.`;
+			show(ui.pageFinish);
+		}
+	});
+
+	ui.prevBtn.addEventListener('click', () => {
+		if (state.idx > 0) {
+			saveCurrentRanking();
+			state.idx--;
+			renderQuestion();
+		}
+	});
+
+	ui.submitBtn.addEventListener('click', async () => {
+		// Validate completion
+		const expected = state.qOrder.length;
+		const done = Object.keys(state.answersById).length;
+		if (done !== expected) {
+			alert(`Es fehlen Rankings. Erfasst: ${done} von ${expected}.`);
+			return;
+		}
+
+		// Build compact payload
+		const answers = state.qOrder.map((qid) => {
+			const q = state.questions.find((x) => x.id === qid);
+
+			// 1. Get FINAL order and texts
+			const finalOrder = state.answersById[qid] || [];
+			const final_order_ids = {};
+			const final_order_texts = {};
+			finalOrder.forEach((optId, i) => {
+				const rankNum = i + 1;
+				const label = q.options.find((o) => o.id === optId)?.label || '';
+				final_order_ids[String(rankNum)] = optId;
+				final_order_texts[String(rankNum)] = label.length > 1200 ? label.slice(0, 1200) : label;
+			});
+
+			// 2. Get INITIAL order
+			const initialOrder = state.initialOrderById[qid] || [];
+			const initial_order_ids = {};
+			initialOrder.forEach((optId, i) => {
+				initial_order_ids[String(i + 1)] = optId;
+			});
+
+			return {
+				objectid: qid,
+				img: q.img,
+
+				// Add both timestamps for comparison
+				timestamp_initial_utc: state.initialTimestampsById[qid] || null,
+				timestamp_final_utc: state.timestampsById[qid] || new Date().toISOString(),
+
+				// Add both initial and final rankings
+				initial_order_ids,
+				final_order_ids,
+				final_order_texts
+			};
+		});
+
+		const payload = {
+			seed: String(state.seed),
+			email: state.email,
+			answers
+		};
+
+		ui.sendMsg.textContent = 'Senden…';
+		try {
+			const r = await fetch(FORMSPREE_ENDPOINT, {
+				method: 'POST',
+				headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+				body: JSON.stringify(payload)
+			});
+			ui.sendMsg.textContent = r.ok ? 'Danke. Antworten gespeichert.' : 'Fehler beim Senden.';
+			if (r.ok) ui.submitBtn.disabled = true;
+		} catch (err) {
+			ui.sendMsg.textContent = 'Netzwerkfehler: ' + err;
+		}
+	});
+</script>
+
+<div class="container my-4" id="app">
+	<div class="card" id="page-intro">
+		<div class="card-body">
+			<h3 class="card-title mb-3">Studie: Vergleich von automatisch erzeugten Alternativtexten</h3>
+
+			<p>Liebe Teilnehmerin, lieber Teilnehmer,</p>
+			<p>
+				im Rahmen des Projekts Stadt.Geschichte.Basel stellen wir historische Quellen und
+				Forschungsdaten Open Access zur Verfügung. Ziel ist es, diese digitale Infrastruktur
+				möglichst barrierearm zu gestalten, damit auch sehbehinderte und blinde Personen Zugang zu
+				den visuellen Beständen erhalten.
+			</p>
+			<p>
+				Das Verfassen von Alternativtexten (Alt-Texten) für Bilder ist jedoch sehr aufwendig. Da uns
+				die personellen Mittel für eine vollständige manuelle Erschliessung fehlen, untersuchen wir
+				in dieser Vorstudie, ob multimodale KI-Modelle (Vision-Language Models) bei dieser Aufgabe
+				unterstützen können.
+			</p>
+
+			<h5 class="mt-4">Ziel der Studie</h5>
+			<p>
+				Wir testen, wie gut verschiedene KI-Systeme kurze Beschreibungen von historischen Objekten
+				erzeugen, die als barrierefreie Alternativtexte verwendet werden können. Dazu wurden 20
+				Bilder ausgewählt und mit ihren Metadaten an vier verschiedene Modelle übergeben. Die
+				Auswahl bildet die unterschiedlichen in der Sammlung von Stadt.Geschichte.Basel abgedeckten
+				Epochen und Medientypen (Fotografien, Karten, Drucke, Objekte etc.) repräsentativ ab.
+			</p>
+			<p>
+				Ihre Einschätzung hilft uns zu ermitteln, welches Modell sich am besten für den Einsatz in
+				der historischen Forschung eignet.
+			</p>
+			<p class="small text-muted">
+				Weitere Fragen der Studie sind, welche Kosten damit verbunden sind, und wie algorithmische
+				Verfahren verantwortungsvoll in geisteswissenschaftliche Arbeitsprozesse integriert werden
+				können. Die Ergebnisse werden auf der Computational Humanities Research Conference (CHR
+				2025) vom 9.–12. Dezember 2025 am Luxembourg Centre for Contemporary and Digital History
+				(C²DH) vorgestellt.
+			</p>
+
+			<hr class="my-4" />
+
+			<h5 class="mt-4">Ablauf und Bewertungskriterien</h5>
+			<p>
+				Die Umfrage umfasst 20 Objekte und dauert etwa <strong>10 bis 15 Minuten</strong> (ca. 30
+				bis 45 Sekunden pro Bild).
+			</p>
+			<p>
+				Auf jeder Seite sehen Sie ein Sammlungsbild und vier kurze Beschreibungen. Ordnen Sie die
+				Beschreibungen von <strong>beste Beschreibung</strong> nach
+				<strong>schlechteste Beschreibung</strong>
+				per Drag &amp; Drop. Alle Texte wurden automatisch generiert und können Fehler enthalten.
+			</p>
+
+			<div class="mb-2">
+				<strong>Bewertungsregeln (nach WCAG-Intention):</strong>
+				<ul class="small mb-2">
+					<li>den Kerninhalt sachlich und knapp wiedergeben,</li>
+					<li>keine redundanten Angaben wie „Bild von …“ enthalten,</li>
+					<li>
+						wesentliche visuelle Merkmale (z. B. Personen, Objekte, Handlungen, Schrift)
+						priorisieren,
+					</li>
+					<li>und nur dann Kontext liefern, wenn er zum Verständnis beiträgt.</li>
+					<li>
+						Weiterführende Links:
+						<a
+							href="https://www.hilfsgemeinschaft.at/aktuelles/blog/detail/7-regeln-fuer-gute-alt-texte/"
+							target="_blank"
+							rel="noopener"
+							>7 Regeln für gute Alt-Texte</a
+						>
+						(nur lesen, falls Unklarheiten bestehen)
+					</li>
+				</ul>
+				<p class="small text-muted mb-1">
+					<strong>Tastatur:</strong> ↑/↓ verschiebt fokussierten Eintrag; 1–4 setzt direkt auf
+					Position; Tab für Fokus.
+				</p>
+				<p class="small text-muted">
+					Fokus-Indikator sichtbar. Elemente sind per ARIA ausgezeichnet.
+				</p>
+			</div>
+			<p>
+				Wir danken Ihnen herzlich für Ihre Zeit und Ihre fachliche Einschätzung. Sie leisten damit
+				einen wichtigen Beitrag zu inklusiver, nachhaltiger und kritischer digitaler
+				Geschichtsforschung.
+			</p>
+			<p class="mb-4">
+				Mit freundlichen Grüssen,<br />
+				Dr. Moritz Mähr und Moritz Twente<br />
+				<span class="small text-muted"
+					>Universität Bern / Universität Basel<br />
+					Kontakt: <a href="mailto:moritz.maehr@unibas.ch">moritz.maehr@unibas.ch</a> /
+					<a href="mailto:moritz.twente@unibas.ch">moritz.twente@unibas.ch</a></span
+				>
+			</p>
+
+			<hr class="my-4" />
+
+			<h5 class="mt-4">Einwilligung und Start</h5>
+			<p class="small text-muted">
+				Ihre Teilnahme ist freiwillig. Die personenbezogene Angabe (E-Mail-Adresse) dient
+				ausschliesslich möglichen Rückfragen und wird nicht in die Forschungsdatenbank aufgenommen.
+			</p>
+
+			<div class="mb-3">
+				<label for="email" class="form-label">
+					E-Mail<span class="text-danger">*</span>
+					<span class="small text-muted">(nur für eventuelle Rückfragen)</span>
+				</label>
+				<input
+					id="email"
+					type="email"
+					class="form-control"
+					placeholder="name@example.org"
+					required
+				/>
+			</div>
+
+			<div class="form-check mb-3">
+				<input class="form-check-input" type="checkbox" id="consent" />
+				<label class="form-check-label" for="consent">
+					Ich willige in die Verarbeitung meiner Daten für diese Studie ein.
+				</label>
+			</div>
+
+			<p class="small text-muted">
+				Hinweis: Einige Objekte enthalten veraltete, vorurteilsbeladene oder diskriminierende
+				Darstellungen. Als historische Quellen werden diese Inhalte unverändert präsentiert.
+			</p>
+
+			<button id="start" class="btn btn-primary">Start</button>
+			<p id="email-msg" class="text-muted mt-2"></p>
+		</div>
+	</div>
+
+	<div class="card d-none" id="page-q">
+		<div class="card-body">
+			<div id="progress" class="text-muted mb-3"></div>
+
+			<div class="q-grid">
+				<figure class="figure mb-0 text-center q-figure">
+					<img id="q-image" class="q-image img-fluid" alt="" />
+					<figcaption id="q-caption" class="small text-muted mt-2"></figcaption>
+				</figure>
+
+				<div class="q-right">
+					<p id="q-instr" class="text-muted mb-2"></p>
+					<ol
+						id="rank-list"
+						class="rank-list"
+						role="listbox"
+						aria-label="Ranking"
+						aria-describedby="rank-help"
+					></ol>
+					<p id="rank-help" class="visually-hidden">
+						Verschiebe Elemente per Drag und Drop oder nutze Pfeiltasten. Beste Beschreibung nach
+						oben.
+					</p>
+					<div id="aria-live" class="visually-hidden" aria-live="polite"></div>
+
+					<div class="d-flex gap-2 mt-3">
+						<button
+							id="prev"
+							class="btn btn-outline-secondary"
+							aria-label="Zurück zur vorherigen Frage"
+						>
+							Zurück
+						</button>
+						<button id="next" class="btn btn-primary" aria-label="Weiter zur nächsten Frage">
+							Weiter
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="card d-none" id="page-finish">
+		<div class="card-body">
+			<h3 class="card-title mb-3">Abschluss</h3>
+			<p class="text-muted" id="summary">Übermittlung…</p>
+			<button id="submit" class="btn btn-primary">Antworten senden</button>
+			<div id="send-msg" class="text-muted mt-2"></div>
+		</div>
+	</div>
+</div>
+
+<style>
+	/* Q layout */
+	.q-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1rem;
+		align-items: start;
+	}
+
+	@media (max-width: 800px) {
+		.q-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	.q-image {
+		max-height: 60vh;
+		width: auto;
+		object-fit: contain;
+	}
+
+	.q-figure {
+		margin: 0;
+	}
+
+	/* Ranking list */
+	.rank-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		border: 1px solid #e5e7eb;
+		border-radius: 0.5rem;
+		background: #fff;
+	}
+
+	.rank-item {
+		display: grid;
+		grid-template-columns: auto 1fr auto;
+		align-items: start;
+		gap: 0.75rem;
+		padding: 0.75rem;
+		border-bottom: 1px solid #f1f5f9;
+		background: #fff;
+		outline: none;
+	}
+
+	.rank-item:last-child {
+		border-bottom: 0;
+	}
+
+	/* Use Bootstrap's focus ring variable if available, otherwise fallback */
+	.rank-item:focus {
+		box-shadow: 0 0 0 3px var(--bs-primary-border-subtle, rgba(59, 130, 246, 0.45));
+		border-radius: 0.375rem;
+	}
+
+	.rank-item.dragging {
+		opacity: 0.75;
+		background: #f8fafc;
+	}
+
+	.rank-badge {
+		font-weight: 600;
+		background: #eef2ff;
+		color: #3730a3;
+		border: 1px solid #c7d2fe;
+		border-radius: 0.375rem;
+		padding: 0.1rem 0.4rem;
+		min-width: 1.6rem;
+		text-align: center;
+	}
+
+	.rank-text {
+		white-space: pre-wrap;
+		word-break: break-word;
+	}
+
+	.rank-handle {
+		cursor: grab;
+		user-select: none;
+		color: #9ca3af;
+		align-self: center;
+	}
+</style>

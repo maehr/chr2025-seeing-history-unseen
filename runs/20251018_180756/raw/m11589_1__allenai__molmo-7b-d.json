@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804791-duoSuyANTuzwoaA4nuWX",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760804791,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " Barrierefreie Alternative:\n\nVerkehrsträger pro 100 Einwohner und Einwohnerinnen in Basel-Stadt von 1916 bis 1970. Die Zahl der Fahrräder stieg langsam an, bis sie nach dem Zweiten Weltkrieg rasch zunahm. Motorisierte Verkehrsmittel machten immer mehr Platz. Basler und Baslerinnen nutzten immer mehr diverse Verkehrsmittel, was die mobilitäre Vielfalt in der Stadt steigerte.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1241,
+		"completion_tokens": 117,
+		"total_tokens": 1358,
+		"cost": 0.0001475,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001241,
+			"upstream_inference_completions_cost": 2.34e-5
+		}
+	}
+}

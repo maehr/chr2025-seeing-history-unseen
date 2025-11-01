@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761081701-V0zjrnyyUqk959d4obyj",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761081701,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Federzeichnung eines zirkumpolaren Horizontalpanoramas der Stadt Basel aus dem Jahr 1787. 360-Grad-Umsicht zeigt Basel und Umgebung, mit markanten Gebäuden und der Ringform des Panoramas. Die Darstellung umfasst Details der Stadtarchitektur und ist im oberen Bereich durch den Himmel und Flusslandschaften ergänzt.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26088,
+		"completion_tokens": 71,
+		"total_tokens": 26159,
+		"cost": 0.0038694,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 1152,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0038268,
+			"upstream_inference_completions_cost": 4.26e-5
+		}
+	}
+}

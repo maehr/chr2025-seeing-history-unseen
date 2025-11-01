@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761081756-77P67d3dF6afHzK7SrXf",
+	"provider": "Novita",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1761081756,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Wahlverfahren: Alter Rat wählt Kieserkollegium (Wahlbehörde), Kieserkollegium wählt neuen Rat. Mitglieder farblich nach Gruppen sortiert.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1371,
+		"completion_tokens": 37,
+		"total_tokens": 1408,
+		"cost": 0.00026452,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00023307,
+			"upstream_inference_completions_cost": 3.145e-5
+		}
+	}
+}

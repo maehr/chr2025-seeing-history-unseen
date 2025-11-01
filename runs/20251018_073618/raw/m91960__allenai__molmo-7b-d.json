@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760766750-21i4X7cLrXUqMVfGzEDa",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760766750,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " *Bild 1: Kneeling woman before a man in a top hat and fur coat, holding a shield with a cross. Text above reads \"Wenn das Wolf in ihn um.\"*\n\n*Bild 2: Woman kneeling before a man in a top hat and fur coat, holding a shield with a cross. Text above reads \"Wenn das Wolf in ihn um.\"*\n\n*This image appears to be a historical anti-Semitic cartoon from the Swiss newspaper \"Allgemeine Schweizer Zeitung\" (General Swiss Newspaper) dated February 14, 1898. It depicts the conflict over railway nationalization in Switzerland. The cartoon contrasts two scenarios: if the railway nationalization is rejected, a strong Switzerland (represented by a powerful woman) is forced into a position of need by foreign capitalists (the kneeling woman). If acceptance is proposed, a weaker Switzerland (the kneeling woman) begs for financial support from these capitalists.*\n\n*The cartoon uses anti-Semitic stereotypes to portray foreign capitalists as exploitative Jews who would take advantage of Switzerland's interests. It reflects the divisive political climate surrounding railway modernization in late 19th-century Switzerland, highlighting fears about economic control and national identity.*",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1462,
+		"completion_tokens": 243,
+		"total_tokens": 1705,
+		"cost": 0.0001948,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001462,
+			"upstream_inference_completions_cost": 4.86e-5
+		}
+	}
+}

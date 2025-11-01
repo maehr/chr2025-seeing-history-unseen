@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760766797-0KWezojeHWnfjEMmsN03",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760766797,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " Bar representing the proportion of workers in key industries in Basel, Switzerland, for the years 1870 and 1910. The graph shows significant changes in the workforce composition over this 40-year period. The agricultural sector experienced a substantial decline, with the proportion of workers falling below 2%. The industrial sector, particularly the building industry, saw a rise in employment. The service sector, including domestic workers, became increasingly important. This visualization highlights the economic transformations in Basel during the late 19th and early 20th centuries, reflecting broader changes in the Swiss economy and society.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1079,
+		"completion_tokens": 125,
+		"total_tokens": 1204,
+		"cost": 0.0001329,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001079,
+			"upstream_inference_completions_cost": 2.5e-5
+		}
+	}
+}

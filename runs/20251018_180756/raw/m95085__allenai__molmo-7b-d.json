@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804693-qoCrdHaMKBPeHVyU5sEU",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760804693,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " Blick vom Isteiner Klotz rheinaufwärts gegen Basel. Der fließende Rhein mit seinen Nebenarmen und umliegende Landschaft. Städte und Dörfer an den Ufern. Historische Architektur und Landschaften. Blick aus dem Nordwesten auf die Südseite des Rheins. Archäologische Bedeutung für die Region Basel.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1364,
+		"completion_tokens": 90,
+		"total_tokens": 1454,
+		"cost": 0.0001544,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001364,
+			"upstream_inference_completions_cost": 1.8e-5
+		}
+	}
+}

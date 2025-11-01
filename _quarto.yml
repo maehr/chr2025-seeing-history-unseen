@@ -1,5 +1,18 @@
 project:
   type: website
+  resources:
+    - survey/questions.csv
+    - survey/index.html
+    - survey/images/*
+    - abstract/paper.pdf
+    - paper/images/*
+    - paper/paper.pdf
+    - paper/155.zip
+    - data/processed/*.csv
+    - data/processed/*.json
+    - analysis/*.csv
+    - analysis/*.png
+    - runs/20251021_233530/**/*
 
 website:
   title: CHR 2025 - Seeing History Unseen
@@ -24,30 +37,61 @@ website:
       - icon: github
         url: https://github.com/maehr/chr2025-seeing-history-unseen/
     left:
-      - text: Readme
+      - text: Home
         href: index.qmd
-      - text: Report
-        href: report.md
+      - text: Paper
+        href: paper/index.qmd
+      - text: Abstract
+        href: abstract/index.qmd
+      - text: Survey
+        href: survey/index.qmd
+      - text: Presentation
+        href: presentation/README.md
 
   sidebar:
     contents:
-      - section: CHR 2025 Materials
-        href: index.qmd
+      - section: Research
         contents:
+          - text: Presentation
+            href: presentation/README.md
+          - text: Paper
+            href: paper/index.qmd
+          - text: Abstract
+            href: abstract/index.qmd
+      - section: Data & Survey
+        contents:
+          - text: Survey
+            href: survey/index.qmd
+
+      - section: Run Artefacts
+        contents:
+          - text: 2025-10-21 Manifest
+            href: runs/20251021_233530/manifest.json
+          - text: 2025-10-21 Wide CSV
+            href: runs/20251021_233530/alt_text_runs_20251021_233933_wide.csv
+          - text: 2025-10-21 Long CSV
+            href: runs/20251021_233530/alt_text_runs_20251021_233933_long.csv
+          - text: 2025-10-21 Prompts
+            href: runs/20251021_233530/alt_text_runs_20251021_233933_prompts.csv
+
+      - section: Project
+        contents:
+          - text: Overview
+            href: index.qmd
           - text: Changelog
             href: CHANGELOG.md
-          - text: Code of Conduct
-            href: CODE_OF_CONDUCT.md
           - text: Contributing
             href: CONTRIBUTING.md
-          - text: License (Data)
-            href: LICENSE-CCBY.md
-          - text: License (Code)
-            href: LICENSE-AGPL.md
+          - text: Code of Conduct
+            href: CODE_OF_CONDUCT.md
           - text: Security
             href: SECURITY.md
-      - href: report.md
-        contents: project-management/*
+      - section: Licenses
+        contents:
+          - text: Data (CC BY 4.0)
+            href: LICENSE-CCBY.md
+          - text: Code (AGPL 3.0)
+            href: LICENSE-AGPL.md
 
 format:
   html:
@@ -58,6 +102,8 @@ format:
     css: styles.css
     code-copy: true
     code-overflow: wrap
+    mermaid:
+      theme: default
 
 freeze: true
 

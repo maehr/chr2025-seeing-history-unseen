@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760766581-GcORiYnGmsW6E8QdxuTK",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760766581,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " *Nutzungskontext: Plattform mit historischen Quellen und Forschungsdaten für Forschende und Studierende aus historischen und archäologischen Disziplinen.*\n\n*Metadaten:\n* Titel: Schreibkalender von Lukas Vischer, 1794\n* Beschreibung: Der 14jährige Lukas Vischer (1780-1840) nutzte den Schreibkalender («Schreibkalender für mich Lukas Vischer») des Jahres 1814 für wenige tagebuchartige Eintragungen auf freien Seiten am Anfang und Ende. Bei den einzelnen Tagen schrieb er fromme Verse und Lebensweisheiten, die er in einem Fall (Eintrag vom 15. April) auch zeichnete («Es ist besser ein Gericht Kraut mit Liebe, denn ein gemästeter Ochse mit Hass»).\n* Datum (Extended Date Time Format): 1794\n* Epoche: Frühe Neuzeit\n* Ersteller: Kein Ersteller\n* Herausgeber: [Staatsarchiv Basel-Stadt](https://dls.staatsarchiv.bs.ch/)\n* Quelle: [Staatsarchiv Basel-Stadt, PA 694a B 7 c](https://dls.staatsarchiv.bs.ch/records/438699)*\n\n*Alternativtext:*\nEin 14jähriger Junge nutzte einen Schreibkalender, um seine täglichen Gedanken und Erkenntnisse in verse form zu niederschreiben. Beim Eintrag vom 15. April zeigte er kreativer Denkweise und Moralphilosophie, indem er eine Metapher nutzte, um die Bedeutung der Liebe und Hass auszudrücken.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1726,
+		"completion_tokens": 405,
+		"total_tokens": 2131,
+		"cost": 0.0002536,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001726,
+			"upstream_inference_completions_cost": 8.1e-5
+		}
+	}
+}

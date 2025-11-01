@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804921-4XNAfEYUeUfZHlo5yEG1",
+	"provider": "Google",
+	"model": "google/gemini-2.5-flash-lite",
+	"object": "chat.completion",
+	"created": 1760804921,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "STOP",
+			"message": {
+				"role": "assistant",
+				"content": "Manessische Liederhandschrift, fol. 52r: Ritterliche Turnierszene mit Walter von Klingen.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 2264,
+		"completion_tokens": 25,
+		"total_tokens": 2289,
+		"cost": 0.0002364,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0002264,
+			"upstream_inference_completions_cost": 1e-5
+		}
+	}
+}

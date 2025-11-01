@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761081062-C1XDevgHwpGpqlqRD7vo",
+	"provider": "Parasail",
+	"model": "qwen/qwen2.5-vl-72b-instruct",
+	"object": "chat.completion",
+	"created": 1761081062,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Längere Stadtmauerreste bei Bauarbeiten im städtischen Bauprojekt, Archäologen in Schutzkleidung untersuchen Fundament.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1255,
+		"completion_tokens": 37,
+		"total_tokens": 1292,
+		"cost": 0.001041,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.001004,
+			"upstream_inference_completions_cost": 3.7e-5
+		}
+	}
+}

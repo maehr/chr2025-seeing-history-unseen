@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804807-7aZjuTTDWTnNFo7M1j1J",
+	"provider": "Hyperbolic",
+	"model": "mistralai/pixtral-12b",
+	"object": "chat.completion",
+	"created": 1760804807,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Historische Beschäftigtenzahlen im Dienstleistungssektor im Kanton Basel-Stadt von 1929 bis 1965.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 508,
+		"completion_tokens": 31,
+		"total_tokens": 539,
+		"cost": 5.39e-5,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 5.08e-5,
+			"upstream_inference_completions_cost": 3.1e-6
+		}
+	}
+}

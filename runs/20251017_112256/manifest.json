@@ -1,0 +1,17 @@
+{
+	"created_utc": "2025-10-17T09:23:38+00:00",
+	"runs_dir": "/Users/maehr0000/src/chr2025-seeing-history-unseen/runs/20251017_112256",
+	"metadata_url": "https://forschung.stadtgeschichtebasel.ch/assets/data/metadata.json",
+	"saved_metadata": "/Users/maehr0000/src/chr2025-seeing-history-unseen/runs/20251017_112256/metadata.json",
+	"models": [
+		"google/gemini-2.5-flash-lite",
+		"mistralai/pixtral-12b",
+		"openai/gpt-4.1-nano",
+		"allenai/molmo-7b-d"
+	],
+	"media_ids": ["m93036"],
+	"table_csv": "/Users/maehr0000/src/chr2025-seeing-history-unseen/runs/20251017_112256/alt_text_runs_20251017_112338.csv",
+	"table_parquet": "/Users/maehr0000/src/chr2025-seeing-history-unseen/runs/20251017_112256/alt_text_runs_20251017_112338.parquet",
+	"table_jsonl": "/Users/maehr0000/src/chr2025-seeing-history-unseen/runs/20251017_112256/alt_text_runs_20251017_112338.jsonl",
+	"python_version": "3.11.11 (main, Mar 11 2025, 17:41:13) [Clang 20.1.0 ]"
+}

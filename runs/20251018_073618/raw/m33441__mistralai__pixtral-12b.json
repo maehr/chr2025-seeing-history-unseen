@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760766987-yGwUz32NpqpUMiGqVTLM",
+	"provider": "Mistral",
+	"model": "mistralai/pixtral-12b",
+	"object": "chat.completion",
+	"created": 1760766987,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Historische Karte von Riehen, Schweiz, aus dem Jahr 1750. Zeigt das Dorf und umliegende Gebiete.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 2607,
+		"completion_tokens": 29,
+		"total_tokens": 2636,
+		"cost": 0.0003954,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00039105,
+			"upstream_inference_completions_cost": 4.35e-6
+		}
+	}
+}

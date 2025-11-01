@@ -1,0 +1,25 @@
+[project]
+name = "chr2025-seeing-history-unseen"
+version = "0.1.0"
+description = "CHR 2025 conference materials: Seeing History Unseen - Evaluating Vision-Language Models for WCAG-Compliant Alt-Text in Digital Heritage Collections"
+authors = [
+    { name = "Moritz Mähr", email = "" }
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "matplotlib>=3.10.7",
+    "pandas>=2.2.0",
+    "pyarrow>=21.0.0",
+    "pydantic>=2.12.2",
+    "pydantic-settings>=2.11.0",
+    "requests>=2.32.5",
+    "scipy>=1.16.2",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+    "ruff>=0.14.0",
+    "ty>=0.0.1a22",
+]

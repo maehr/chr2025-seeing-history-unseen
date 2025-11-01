@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760975009-7FYfEPOvJQ19spbhNwBB",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1760975009,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "alt=\"Familienkonzert in einem städtischen Wohnzimmer um 1849; mehrere Personen sind am Tisch versammelt, während ein Mann Geige spielt, eine Frau am Piano sitzt und Kinder spielen. Der Raum ist mit Möbeln und Bildern dekoriert.\"",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26561,
+		"completion_tokens": 52,
+		"total_tokens": 26613,
+		"cost": 0.00401535,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00398415,
+			"upstream_inference_completions_cost": 3.12e-5
+		}
+	}
+}

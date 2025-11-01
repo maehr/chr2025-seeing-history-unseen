@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761069495-vObGeY5Dy1VTNmaycg00",
+	"provider": "Google",
+	"model": "google/gemini-2.5-flash-lite",
+	"object": "chat.completion",
+	"created": 1761069495,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "STOP",
+			"message": {
+				"role": "assistant",
+				"content": "Gestochener Narr bei Tisch mit Würsten, Brot und Krug, daneben ein Schwein, das kotend frisst. Gouache, 17. Jh.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 2383,
+		"completion_tokens": 35,
+		"total_tokens": 2418,
+		"cost": 0.0002523,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0002383,
+			"upstream_inference_completions_cost": 1.4e-5
+		}
+	}
+}

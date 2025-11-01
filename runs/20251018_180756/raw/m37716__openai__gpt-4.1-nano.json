@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760803921-C7BSr5y5Rfdi1bFKkepM",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4.1-nano",
+	"object": "chat.completion",
+	"created": 1760803921,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "completed",
+			"message": {
+				"role": "assistant",
+				"content": "Bauarbeiten an einer Straßenunterführung, Arbeiter im Tiefbau mit Maschinen im urbanen Umfeld.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1485,
+		"completion_tokens": 22,
+		"total_tokens": 1507,
+		"cost": 0.0001573,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001485,
+			"upstream_inference_completions_cost": 8.8e-6
+		}
+	}
+}

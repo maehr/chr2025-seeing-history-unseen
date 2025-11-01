@@ -1,0 +1,48 @@
+{
+	"created_utc": "2025-10-21T21:39:33+00:00",
+	"runs_dir": "/Users/maehr0000/src/chr2025-seeing-history-unseen/runs/20251021_233530",
+	"metadata_url": "https://forschung.stadtgeschichtebasel.ch/assets/data/metadata.json",
+	"saved_metadata": "/Users/maehr0000/src/chr2025-seeing-history-unseen/runs/20251021_233530/metadata.json",
+	"models": [
+		"google/gemini-2.5-flash-lite",
+		"qwen/qwen3-vl-8b-instruct",
+		"openai/gpt-4o-mini",
+		"meta-llama/llama-4-maverick"
+	],
+	"mode": "subsample",
+	"media_ids": [
+		"m91000_1",
+		"m94271",
+		"m95804",
+		"m94775",
+		"m88415_1",
+		"m15298_1",
+		"m34620",
+		"m92410",
+		"m92357",
+		"m82972",
+		"m37716",
+		"m22924",
+		"m13176",
+		"m12965",
+		"m28635",
+		"m29084",
+		"m37030_1",
+		"m39198_1",
+		"m91960",
+		"m20435"
+	],
+	"tables": {
+		"wide_csv": "/Users/maehr0000/src/chr2025-seeing-history-unseen/runs/20251021_233530/alt_text_runs_20251021_233933_wide.csv",
+		"wide_parquet": "/Users/maehr0000/src/chr2025-seeing-history-unseen/runs/20251021_233530/alt_text_runs_20251021_233933_wide.parquet",
+		"long_csv": "/Users/maehr0000/src/chr2025-seeing-history-unseen/runs/20251021_233530/alt_text_runs_20251021_233933_long.csv",
+		"long_parquet": "/Users/maehr0000/src/chr2025-seeing-history-unseen/runs/20251021_233530/alt_text_runs_20251021_233933_long.parquet",
+		"long_jsonl": "/Users/maehr0000/src/chr2025-seeing-history-unseen/runs/20251021_233530/alt_text_runs_20251021_233933_long.jsonl",
+		"prompts_csv": "/Users/maehr0000/src/chr2025-seeing-history-unseen/runs/20251021_233530/alt_text_runs_20251021_233933_prompts.csv"
+	},
+	"python_version": "3.11.11 (main, Mar 11 2025, 17:41:13) [Clang 20.1.0 ]",
+	"images_dir": "/Users/maehr0000/src/chr2025-seeing-history-unseen/runs/20251021_233530/images",
+	"run_wall_time_seconds": 243.727897,
+	"logfile": "/Users/maehr0000/src/chr2025-seeing-history-unseen/runs/20251021_233530/run.log",
+	"openrouter_url": "https://openrouter.ai/api/v1/chat/completions"
+}

@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761081668-4N2fcZgxE2f3J8OBPlZH",
+	"provider": "Fireworks",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1761081675,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Fasnachtszettel 1901 der Vereinigten Spalemer mit Karikaturen und Volkszählungsergebnis: 89.999 \"Vo Drausse rai\", 19.999 Basler Bürger, 2614 \"Katzenstreker, Zürihaggle, Mutze, Rübliländer\".",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1658,
+		"completion_tokens": 67,
+		"total_tokens": 1725,
+		"cost": 0.00042372,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00036476,
+			"upstream_inference_completions_cost": 5.896e-5
+		}
+	}
+}

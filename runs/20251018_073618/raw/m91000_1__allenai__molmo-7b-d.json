@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760766720-jRenciAGlQi4jq0t4sZD",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760766720,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " *Kartendarstellung des weltweiten Korrespondenznetzes der Firma Forcart-Weis & Burckhardt-Wildt (1865-1894)*\n\n*Wichtigste Orte, von denen aus Korrespondenz an die Firma Forcart-Weis & Burckhardt-Wildt gesandt wurde, um ein globales Netzwerk zu bilden.*\n\n*Datum (Extended Date Time Format): 1865/1894*\n\n*Epoche: 19. Jahrhundert*\n\n*Ersteller: [Stadt.Geschichte.Basel](https://www.wikidata.org/wiki/Q122442230)*\n\n*Herausgeber: [Stadt.Geschichte.Basel](https://www.wikidata.org/wiki/Q122442230)*\n\n*Quelle: https://www.naturalearthdata.com/downloads/110m-physical-vectors/&#59 SWA,  HS  260  W  und  261  L.  Bearbeitung:  Nico  Görlich / Moritz  Twente*",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1739,
+		"completion_tokens": 251,
+		"total_tokens": 1990,
+		"cost": 0.0002241,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001739,
+			"upstream_inference_completions_cost": 5.02e-5
+		}
+	}
+}

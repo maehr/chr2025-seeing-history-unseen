@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760863981-sIvQ2OTbr7k3gu19OycF",
+	"provider": "Parasail",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1760863988,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "\"Illustration eines Ashanti-Mannes in traditioneller Kleidung und Bewaffnung in einer Anzeige der Zunft zu Safran in Basel für eine Völkerschau während der Herbstmesse 1834\"",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1456,
+		"completion_tokens": 44,
+		"total_tokens": 1500,
+		"cost": 0.0002558,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0002184,
+			"upstream_inference_completions_cost": 3.74e-5
+		}
+	}
+}

@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804662-M3XludFAzomPzY6CXNvl",
+	"provider": "Hyperbolic",
+	"model": "mistralai/pixtral-12b",
+	"object": "chat.completion",
+	"created": 1760804662,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Konservative Gegner der Eisenbahnverstaatlichung nutzen antisemitische Stereotype. Karikatur zeigt Folgen von Nein oder Ja zur Verstaatlichung.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 493,
+		"completion_tokens": 34,
+		"total_tokens": 527,
+		"cost": 5.27e-5,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 4.93e-5,
+			"upstream_inference_completions_cost": 3.4e-6
+		}
+	}
+}

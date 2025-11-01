@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761079417-lwNzcgB17xoMwpCyum9w",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761079417,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Federzeichnung eines zirkumpolaren Horizontalpanoramas von Basel, erstellt 1787. 360-Grad-Umsicht vom Kamin des ‹Blauen Hauses› mit detaillierter Darstellung von Gebäuden und der Umgebung, in runder Komposition. Schwarz-weiße Töne dominieren, mit feinen Texturen und perspektivischen Elementen.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26088,
+		"completion_tokens": 73,
+		"total_tokens": 26161,
+		"cost": 0.003957,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0039132,
+			"upstream_inference_completions_cost": 4.38e-5
+		}
+	}
+}

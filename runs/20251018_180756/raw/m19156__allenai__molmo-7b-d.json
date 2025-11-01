@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804448-fSujpKaGmG1v4RwZYSma",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760804448,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " **Zwischen den Strassen in der Stadt, am 17. Februar 1700, wurde die grosse Verfassungskrise von 1691 beendet, indem die Obrigkeit die Hinrichtung des Arztes Johannes Fatio und zweier weiterer Anführer veranstaltete.**\n\n*Zweck: Darstellung der Hinrichtung von Johannes Fatio und seinen Mitgeprägten am 17. Februar 1700.*",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1617,
+		"completion_tokens": 108,
+		"total_tokens": 1725,
+		"cost": 0.0001833,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001617,
+			"upstream_inference_completions_cost": 2.16e-5
+		}
+	}
+}

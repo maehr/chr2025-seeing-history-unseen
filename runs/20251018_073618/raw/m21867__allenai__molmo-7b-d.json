@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760766611-YpcbYuFKZzaqMVC0XPrq",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760766611,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " *Ziel der porträtierten Person: Oberster der Britischen Ostindien-Kompanie\nFührungrolle in der englischen Armee in Indien\nKarriere in der Britischen Kolonialarmee\nKommando der Zitadelle St. George in Madras\nKeine Verbindung zum britischen Königshaus\nGeburt im Jahr 1722\nTodesdatum im Jahr 1790\nRolle: Schlüsselbahn in Indien und britischer Kolonialarmee*",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1636,
+		"completion_tokens": 118,
+		"total_tokens": 1754,
+		"cost": 0.0001872,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001636,
+			"upstream_inference_completions_cost": 2.36e-5
+		}
+	}
+}

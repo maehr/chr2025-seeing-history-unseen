@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760997910-fcUKcVX9vRGGEFBUAiM0",
+	"provider": "Fireworks",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1760997910,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Zeitungsseite mit Anzeige für einen \"Afrikaner von der kriegerischen Nation der Ashantées\". Rechts unten Illustration eines stehenden Mannes mit Speer und Schild.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1630,
+		"completion_tokens": 37,
+		"total_tokens": 1667,
+		"cost": 0.00039116,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0003586,
+			"upstream_inference_completions_cost": 3.256e-5
+		}
+	}
+}

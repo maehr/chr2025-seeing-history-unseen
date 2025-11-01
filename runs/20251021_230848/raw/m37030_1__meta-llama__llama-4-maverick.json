@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761081127-t5r9orBqjKyOtWF0hKAT",
+	"provider": "Google",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1761081127,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "STOP",
+			"message": {
+				"role": "assistant",
+				"content": "Schema eines mittelalterlichen Wahlverfahrens: Alter Rat wählt Kieserkollegium, dieses wählt neuen Rat. Drei Gruppen mit farbigen Punkten symbolisieren Zusammensetzung.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1422,
+		"completion_tokens": 37,
+		"total_tokens": 1459,
+		"cost": 0.00054025,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0004977,
+			"upstream_inference_completions_cost": 4.255e-5
+		}
+	}
+}

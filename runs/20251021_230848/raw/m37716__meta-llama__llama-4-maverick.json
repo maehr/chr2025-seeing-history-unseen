@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761081067-KmU8MhqagDZ40qzzyRnz",
+	"provider": "Groq",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1761081067,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Freigelegte historische Stadtmauer während der Bauarbeiten neben einem modernen Glasgebäude. Arbeiter in Sicherheitskleidung untersuchen die Mauer.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1583,
+		"completion_tokens": 28,
+		"total_tokens": 1611,
+		"cost": 0.0003334,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0003166,
+			"upstream_inference_completions_cost": 1.68e-5
+		}
+	}
+}

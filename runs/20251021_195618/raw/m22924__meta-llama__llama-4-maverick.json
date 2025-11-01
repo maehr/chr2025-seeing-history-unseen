@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761069493-8m2gPZBj13zpnVCthPfC",
+	"provider": "Google",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1761069493,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "STOP",
+			"message": {
+				"role": "assistant",
+				"content": "Zirkumpolares Horizontalpanorama der Stadt Basel, Federzeichnung, 1787, mit zentralem Kamin des \"Blauen Hauses\" und 360-Grad-Sicht auf Basel und Umgebung, schwarz-weiß, mit Beschriftung am Rand.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 2061,
+		"completion_tokens": 55,
+		"total_tokens": 2116,
+		"cost": 0.0007846,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00072135,
+			"upstream_inference_completions_cost": 6.325e-5
+		}
+	}
+}

@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804112-Wijb1VsTInsN3b0RBFOW",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760804112,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " Arnold Böcklin und sein schwieriger Ruf bei den Basleren. Der berühmte Maler, abtrünniger Sohn eines Seidenfabrikanten, war in Basel geboren und machte seine Karriere im Ausland. Seine letzten Jahre verbrachte er in Zürich und Florenz. Die Kunsthalle Basel veranstaltete 1897 eine Ausstellung seines Werkes, 70 Jahre nach seinem Geburtstag, um seine wagende Künstlertätigkeit zu Ehren zu bringen. Das Plakat wurde von Böcklins wichtigstem Schüler Hans Sandreuter gestaltet.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1551,
+		"completion_tokens": 142,
+		"total_tokens": 1693,
+		"cost": 0.0001835,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001551,
+			"upstream_inference_completions_cost": 2.84e-5
+		}
+	}
+}

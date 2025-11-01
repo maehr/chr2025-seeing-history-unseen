@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761082635-V3Qb1D1kToDBiZ6lafIN",
+	"provider": "Google",
+	"model": "google/gemini-2.5-flash-lite",
+	"object": "chat.completion",
+	"created": 1761082635,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "STOP",
+			"message": {
+				"role": "assistant",
+				"content": "Streudiagramm: Anteil der Life-Science-Industrie am BIP und deren durchschnittliche jährliche Wachstumsrate zwischen 2000 und 2010. Region Basel mit höchstem Anteil, Schanghai mit höchster Wachstumsrate.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 2493,
+		"completion_tokens": 52,
+		"total_tokens": 2545,
+		"cost": 0.00010189,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 1869,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 8.109e-5,
+			"upstream_inference_completions_cost": 2.08e-5
+		}
+	}
+}

@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760997903-fJZYn97vHkhAQ9EAZROn",
+	"provider": "Mistral",
+	"model": "mistralai/pixtral-12b",
+	"object": "chat.completion",
+	"created": 1760997903,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Historische Anzeige, 1834. Ankündigung eines «Afrikaners» von der kriegerischen Nation der Ashantées an der Herbstmesse. Basler Missionstätigkeit in Westafrika.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 2809,
+		"completion_tokens": 47,
+		"total_tokens": 2856,
+		"cost": 0.0004284,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00042135,
+			"upstream_inference_completions_cost": 7.05e-6
+		}
+	}
+}

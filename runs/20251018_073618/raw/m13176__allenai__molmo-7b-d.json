@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760766635-yDNM4BDoVwxapD9Bfs1u",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760766635,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " Narr fressend, sitzend am Tisch mit leeren Trinkgläsern. Drei Pigs in der Nähe. Bestandteil eines historischen Stammbuchs.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1654,
+		"completion_tokens": 39,
+		"total_tokens": 1693,
+		"cost": 0.0001732,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001654,
+			"upstream_inference_completions_cost": 7.8e-6
+		}
+	}
+}

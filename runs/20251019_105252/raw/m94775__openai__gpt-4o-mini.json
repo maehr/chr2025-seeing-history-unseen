@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760863977-t4H2ddtbvnEQQTNufqdX",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1760863978,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Illustration einer Anzeige, die einen Afrikaner von der kriegerischen Nation der Ashantées zur Herbstmesse ankündigt.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 25938,
+		"completion_tokens": 27,
+		"total_tokens": 25965,
+		"cost": 0.0038301,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 1024,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0038139,
+			"upstream_inference_completions_cost": 1.62e-5
+		}
+	}
+}

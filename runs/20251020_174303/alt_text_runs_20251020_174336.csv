@@ -1,0 +1,135 @@
+objectid,prompt,google__gemini-2.5-flash-lite__content,google__gemini-2.5-flash-lite__finish_reason,google__gemini-2.5-flash-lite__usage_prompt_tokens,google__gemini-2.5-flash-lite__usage_completion_tokens,google__gemini-2.5-flash-lite__usage_total_tokens,google__gemini-2.5-flash-lite__usage_cost,google__gemini-2.5-flash-lite__provider,google__gemini-2.5-flash-lite__created,google__gemini-2.5-flash-lite__id,google__gemini-2.5-flash-lite__request_started_utc,google__gemini-2.5-flash-lite__request_ended_utc,google__gemini-2.5-flash-lite__latency_seconds,mistralai__pixtral-12b__content,mistralai__pixtral-12b__finish_reason,mistralai__pixtral-12b__usage_prompt_tokens,mistralai__pixtral-12b__usage_completion_tokens,mistralai__pixtral-12b__usage_total_tokens,mistralai__pixtral-12b__usage_cost,mistralai__pixtral-12b__provider,mistralai__pixtral-12b__created,mistralai__pixtral-12b__id,mistralai__pixtral-12b__request_started_utc,mistralai__pixtral-12b__request_ended_utc,mistralai__pixtral-12b__latency_seconds,openai__gpt-4o-mini__content,openai__gpt-4o-mini__finish_reason,openai__gpt-4o-mini__usage_prompt_tokens,openai__gpt-4o-mini__usage_completion_tokens,openai__gpt-4o-mini__usage_total_tokens,openai__gpt-4o-mini__usage_cost,openai__gpt-4o-mini__provider,openai__gpt-4o-mini__created,openai__gpt-4o-mini__id,openai__gpt-4o-mini__request_started_utc,openai__gpt-4o-mini__request_ended_utc,openai__gpt-4o-mini__latency_seconds,meta-llama__llama-4-maverick__content,meta-llama__llama-4-maverick__finish_reason,meta-llama__llama-4-maverick__usage_prompt_tokens,meta-llama__llama-4-maverick__usage_completion_tokens,meta-llama__llama-4-maverick__usage_total_tokens,meta-llama__llama-4-maverick__usage_cost,meta-llama__llama-4-maverick__provider,meta-llama__llama-4-maverick__created,meta-llama__llama-4-maverick__id,meta-llama__llama-4-maverick__request_started_utc,meta-llama__llama-4-maverick__request_ended_utc,meta-llama__llama-4-maverick__latency_seconds,created_utc,system_prompt,user_prompt
+m37716,"{""Titel"": ""Reste der Inneren Stadtmauer"", ""Beschreibung"": ""Eine längere Strecke der Inneren Stadtmauer wurde 2020 beim Bau des Kunstmuseum-Parkings am St. Alban-Graben freigelegt. Das Bild zeigt die Mächtigkeit des städtischen Befestigungsrings, von dem heute nur noch wenig zu sehen ist."", ""Ersteller"": """", ""Herausgeber"": ""[Archäologische Bodenforschung Basel-Stadt](https://www.bs.ch/pd/kultur/museen-und-andere-dienststellen/archaeologie)"", ""Quelle"": ""ABBS, T22557"", ""Datum"": """", ""Epoche"": """"}","Archäologische Grabung zeigt Reste der Inneren Stadtmauer von Basel, freigelegt 2020 am St. Alban-Graben.",stop,2783,31,2814,0.0002907,Google,1760974984,gen-1760974984-LKzW69XbgbIIq6spkbKI,2025-10-20T15:43:03+00:00,2025-10-20T15:43:06+00:00,2.479935,"Alt-Text: ""Reste der Inneren Stadtmauer, 2020 freigelegt beim Bau des Kunstmuseum-Parkings am St. Alban-Graben.""",stop,1038,38,1076,0.0001076,Hyperbolic,1760974986,gen-1760974986-h8tyeP44fb0vrMsbtPYn,2025-10-20T15:43:06+00:00,2025-10-20T15:43:08+00:00,1.756844,"Blick auf eine freigelegte Strecke der Inneren Stadtmauer am St. Alban-Graben in Basel. Im Vordergrund arbeiten zwei Personen mit Schutzhelmen und Warnwesten in einem Graben, der die Mächtigkeit des städtischen Befestigungsrings zeigt. Im Hintergrund sind moderne Gebäude und Baumaschinen sichtbar. Alt-Text: ""Freigelegte Innnenstadtmauer während archäologischer Arbeiten.""",stop,26494,88,26582,0.0040269,OpenAI,1760974988,gen-1760974988-erpHrwPFS4iTKxc6BC31,2025-10-20T15:43:08+00:00,2025-10-20T15:43:12+00:00,4.202474,"Freilegung der Inneren Stadtmauer beim Bau des Kunstmuseum-Parkings am St. Alban-Graben, 2020. Arbeiter untersuchen und sichern die freigelegten Mauerteile in einer Baugrube neben einem modernen Glasbau.",stop,2019,52,2071,0.000435,Groq,1760974993,gen-1760974992-zrLPBewWwP7vsyiLDkU8,2025-10-20T15:43:12+00:00,2025-10-20T15:43:13+00:00,1.001538,2025-10-20T15:43:03+00:00,"Zielgruppe: Forschende und Studierende in Geschichtswissenschaften und Archäologie. Du erzeugst ausschliesslich präzise, kontextbezogene Alt-Texte für Bilder aus historischen Sammlungen.
+
+Begriffe:
+- Alt-Text: knappe verbale Repräsentation der Bild-ESSENZ für Nutzerinnen und Nutzer mit Screenreader.
+- Dekorativ: Bild ohne eigenständige Informationsfunktion; dann Alt-Attribut leer: alt="""".
+
+Grundsätze (erzwinge):
+1) Entscheide zuerst: sinntragend vs. dekorativ.
+2) Wenn sinntragend: transportiere die Essenz, nicht jedes Detail. Kein „Bild von …“. Keine Redundanz mit benachbartem Seitentext (soweit aus Metadaten ersichtlich).
+3) Wenn im Bild signifikanter Text erscheint (z. B. Inschrift, Legende, Titel im Cover): gib den Text wieder, wenn er für das Verständnis zentral ist; sonst erwähne „beschriftet“ mit kurzer Paraphrase.
+4) Wenn das Bild klickbar/verlinkt ist: nenne die Ziel-Funktion („Zur Objektseite …“, „Zum Dossier …“) im Alt-Text.
+5) Nutze fachlichen Kontext: Epoche, Ort, Objektgattung, abgebildete Handlung/Personen, Material/Technik, Datierung – aber nur soweit nötig, um die Bildaussage zu verstehen.
+6) Benenne markante visuelle Merkmale, die die Aussage tragen (z. B. Farbe, Zustand, Haltung, ikonische Attribute).
+7) Karten/Diagramme/Organigramme: gib die zentrale Aussage/Variablen an; bei komplexen Fällen nutze optional ein „longdesc“-Feld (siehe Ausgabeschema).
+8) Verwende neutrale, präzise Sprache; max. 1–2 Sätze. Keine Wertungen, keine Spekulation als Fakt.
+
+Ausgabesprache: Schweizer Hochdeutsch.
+
+Längenrichtwerte:
+- 90–180 Zeichen für informative Bilder.
+- Max. 400 Zeichen bei komplexen Karten/Diagrammen/Tabellen/Collagen.
+
+Verbote:
+- Keine Preambeln, keine Erklärungen, keine Emojis, keine Anführungsfloskeln wie „Abbildung zeigt“.
+- Keine Wiederholung offensichtlicher Metadaten, die direkt daneben als Text erscheinen (soweit übergeben).
+- Keine personenbezogenen Bewertungen.
+
+Heuristiken pro Bildtyp:
+- Porträt/Historische Figur: Wer (falls benannt), ungefähre Datierung/Epoche aus Metadaten, Pose/Attribut, Ort/Innen/Aussen, ggf. Funktion („offizielles Porträt“).
+- Artefakt/Objekt: Objektgattung, Material/Technik, Datierung/Provenienz falls relevant zur Erkennung, markanter Zustand/Besonderheit.
+- Manuskript/Dokument: Gattung (Urkunde, Brief, Tagebuch), Sprache/Schrift, Datierung, Kerninhalt (z. B. „Kaufvertrag über …“), ggf. Anfangsworte.
+- Karte/Plan: Gebiet/Zeitraum, Art der Darstellung, Kernvariable/Zweck; Detail in ""longdesc"" bei Bedarf.
+- Ereignis/Foto Szene: Wer macht was wo; zentrale Handlung und Kontextbezug.
+- Cover/Plakat/Flyer: Titel und Zweck. Wichtige Schlagzeile vollständig wiedergeben.
+- Icon/CTA: Bedeutung oder Zielaktion nennen.
+- Dekorativ: alt="""".
+
+Eingabefehler/Fall-Back:
+- Falls Bildinhalt unklar und Metadaten dünn: formuliere generisch, aber nicht leer. Nutze vorhandene Metadaten zur sinnvollen Essenz.
+- Bei fehlendem Informationswert: klassifiziere als dekorativ.
+
+NUTZE AUSSCHLIESSLICH DIESE QUELLEN:
+- Visuelle Analyse der JPEG-Datei
+- Übergebene Metadaten","{""Titel"": ""Reste der Inneren Stadtmauer"", ""Beschreibung"": ""Eine längere Strecke der Inneren Stadtmauer wurde 2020 beim Bau des Kunstmuseum-Parkings am St. Alban-Graben freigelegt. Das Bild zeigt die Mächtigkeit des städtischen Befestigungsrings, von dem heute nur noch wenig zu sehen ist."", ""Ersteller"": """", ""Herausgeber"": ""[Archäologische Bodenforschung Basel-Stadt](https://www.bs.ch/pd/kultur/museen-und-andere-dienststellen/archaeologie)"", ""Quelle"": ""ABBS, T22557"", ""Datum"": """", ""Epoche"": """"}"
+m92966,"{""Titel"": ""Plan für die Friedhofsanlage auf dem Wolf"", ""Beschreibung"": ""Nekropole für das Patriziat: Der 1872 eingeweihte Wolfgottesacker hatte den Grundriss einer Kirche. Er war der bevorzugte Friedhof des Grossbürgertums. Architekt und Bauinspektor Amadeus Merian zeichnete 1865 den ersten Entwurf. Er reiste mit einer Delegation nach Süddeutschland, um sich von den Parkfriedhöfen mit ihren geschwungenen Kieswegen, Weihern und Ruhezonen inspirieren zu lassen (Hofmann; Nagel; Winkler 2022, S. 16 f.)."", ""Ersteller"": ""[Amadeus Merian](https://www.wikidata.org/wiki/Q451953)"", ""Herausgeber"": ""[Staatsarchiv Basel-Stadt](https://dls.staatsarchiv.bs.ch/)"", ""Quelle"": """", ""Datum"": ""1865"", ""Epoche"": """"}","Plan des Wolfgottesackers in Basel, Entwurf von Amadeus Merian, 1865. Er zeigt die architektonische Anlage des Friedhofs mit Wegen, Grünflächen und Grabstätten.",stop,2335,42,2377,0.0002503,Google,1760974994,gen-1760974994-wUMzkEfq72UJr0RFxKiS,2025-10-20T15:43:14+00:00,2025-10-20T15:43:16+00:00,2.385053,"```html
+<img src=""plan-friedhofsanlage.jpg"" alt=""Plan für die Friedhofsanlage auf dem Wolf. Nekropole für das Patriziat. Grundriss einer Kirche, inspiriert von Parkfriedhöfen in Süddeutschland."">
+```",stop,3616,53,3669,0.00055035,Mistral,1760974996,gen-1760974996-Nyb4CnAlLk8qdFWNJFWW,2025-10-20T15:43:16+00:00,2025-10-20T15:43:18+00:00,1.454132,"alt=""Plan eines Friedhofs mit kirchlichem Grundriss, entworfen von Amadeus Merian 1865. Gezeigt werden geschwungene Wege, Grünflächen und markierte Bereiche für verschiedene Bestattungen.""",stop,26565,49,26614,0.00401415,OpenAI,1760974998,gen-1760974998-JyjPFzXaQc9sgBBITaR1,2025-10-20T15:43:18+00:00,2025-10-20T15:43:22+00:00,4.043673,"Plan für den Wolfgottesacker in Basel, 1865 von Amadeus Merian erstellt. Der Entwurf zeigt einen rechteckigen Friedhof mit Wegen, Bäumen und einem zentralen Rondell, umgeben von einer roten Umrandung. Zur Objektseite des Staatsarchivs Basel-Stadt.",stop,2521,63,2584,0.000542,Groq,1760975004,gen-1760975002-Iq77LoLTVjzmmFDooC6o,2025-10-20T15:43:22+00:00,2025-10-20T15:43:25+00:00,2.621976,2025-10-20T15:43:14+00:00,"Zielgruppe: Forschende und Studierende in Geschichtswissenschaften und Archäologie. Du erzeugst ausschliesslich präzise, kontextbezogene Alt-Texte für Bilder aus historischen Sammlungen.
+
+Begriffe:
+- Alt-Text: knappe verbale Repräsentation der Bild-ESSENZ für Nutzerinnen und Nutzer mit Screenreader.
+- Dekorativ: Bild ohne eigenständige Informationsfunktion; dann Alt-Attribut leer: alt="""".
+
+Grundsätze (erzwinge):
+1) Entscheide zuerst: sinntragend vs. dekorativ.
+2) Wenn sinntragend: transportiere die Essenz, nicht jedes Detail. Kein „Bild von …“. Keine Redundanz mit benachbartem Seitentext (soweit aus Metadaten ersichtlich).
+3) Wenn im Bild signifikanter Text erscheint (z. B. Inschrift, Legende, Titel im Cover): gib den Text wieder, wenn er für das Verständnis zentral ist; sonst erwähne „beschriftet“ mit kurzer Paraphrase.
+4) Wenn das Bild klickbar/verlinkt ist: nenne die Ziel-Funktion („Zur Objektseite …“, „Zum Dossier …“) im Alt-Text.
+5) Nutze fachlichen Kontext: Epoche, Ort, Objektgattung, abgebildete Handlung/Personen, Material/Technik, Datierung – aber nur soweit nötig, um die Bildaussage zu verstehen.
+6) Benenne markante visuelle Merkmale, die die Aussage tragen (z. B. Farbe, Zustand, Haltung, ikonische Attribute).
+7) Karten/Diagramme/Organigramme: gib die zentrale Aussage/Variablen an; bei komplexen Fällen nutze optional ein „longdesc“-Feld (siehe Ausgabeschema).
+8) Verwende neutrale, präzise Sprache; max. 1–2 Sätze. Keine Wertungen, keine Spekulation als Fakt.
+
+Ausgabesprache: Schweizer Hochdeutsch.
+
+Längenrichtwerte:
+- 90–180 Zeichen für informative Bilder.
+- Max. 400 Zeichen bei komplexen Karten/Diagrammen/Tabellen/Collagen.
+
+Verbote:
+- Keine Preambeln, keine Erklärungen, keine Emojis, keine Anführungsfloskeln wie „Abbildung zeigt“.
+- Keine Wiederholung offensichtlicher Metadaten, die direkt daneben als Text erscheinen (soweit übergeben).
+- Keine personenbezogenen Bewertungen.
+
+Heuristiken pro Bildtyp:
+- Porträt/Historische Figur: Wer (falls benannt), ungefähre Datierung/Epoche aus Metadaten, Pose/Attribut, Ort/Innen/Aussen, ggf. Funktion („offizielles Porträt“).
+- Artefakt/Objekt: Objektgattung, Material/Technik, Datierung/Provenienz falls relevant zur Erkennung, markanter Zustand/Besonderheit.
+- Manuskript/Dokument: Gattung (Urkunde, Brief, Tagebuch), Sprache/Schrift, Datierung, Kerninhalt (z. B. „Kaufvertrag über …“), ggf. Anfangsworte.
+- Karte/Plan: Gebiet/Zeitraum, Art der Darstellung, Kernvariable/Zweck; Detail in ""longdesc"" bei Bedarf.
+- Ereignis/Foto Szene: Wer macht was wo; zentrale Handlung und Kontextbezug.
+- Cover/Plakat/Flyer: Titel und Zweck. Wichtige Schlagzeile vollständig wiedergeben.
+- Icon/CTA: Bedeutung oder Zielaktion nennen.
+- Dekorativ: alt="""".
+
+Eingabefehler/Fall-Back:
+- Falls Bildinhalt unklar und Metadaten dünn: formuliere generisch, aber nicht leer. Nutze vorhandene Metadaten zur sinnvollen Essenz.
+- Bei fehlendem Informationswert: klassifiziere als dekorativ.
+
+NUTZE AUSSCHLIESSLICH DIESE QUELLEN:
+- Visuelle Analyse der JPEG-Datei
+- Übergebene Metadaten","{""Titel"": ""Plan für die Friedhofsanlage auf dem Wolf"", ""Beschreibung"": ""Nekropole für das Patriziat: Der 1872 eingeweihte Wolfgottesacker hatte den Grundriss einer Kirche. Er war der bevorzugte Friedhof des Grossbürgertums. Architekt und Bauinspektor Amadeus Merian zeichnete 1865 den ersten Entwurf. Er reiste mit einer Delegation nach Süddeutschland, um sich von den Parkfriedhöfen mit ihren geschwungenen Kieswegen, Weihern und Ruhezonen inspirieren zu lassen (Hofmann; Nagel; Winkler 2022, S. 16 f.)."", ""Ersteller"": ""[Amadeus Merian](https://www.wikidata.org/wiki/Q451953)"", ""Herausgeber"": ""[Staatsarchiv Basel-Stadt](https://dls.staatsarchiv.bs.ch/)"", ""Quelle"": """", ""Datum"": ""1865"", ""Epoche"": """"}"
+m94115,"{""Titel"": ""Basler Familienkonzert, Gemälde von Sebastian Gutzwiller, 1849"", ""Beschreibung"": ""Das Gemälde von Sebastian Gutzwiller (1798–1872) zeigt vermutlich seine eigene Familie beim Hauskonzert im Jahr 1849. Die generationenübergreifende familiäre Intimität wird deutlich. Dienstpersonal, das in Basler Haushalten üblich war und die Stadt zu Tausenden bevölkerte, wäre in dieser Idealdarstellung als störend empfunden worden."", ""Ersteller"": """", ""Herausgeber"": ""[Kunstmuseum Basel](https://kunstmuseumbasel.ch/)"", ""Quelle"": ""[Kunstmuseum Basel,  Inv. 1779](https://sammlungonline.kunstmuseumbasel.ch/eMP/eMuseumPlus?service=ExternalInterface&module=collection&objectId=2204&viewType=detailView)"", ""Datum"": ""1849"", ""Epoche"": """"}","Gemälde zeigt eine Familie beim Hauskonzert, Sebastian Gutzwiller, 1849. Generationenübergreifende Intimität in einem bürgerlichen Wohnraum. Zur Objektseite des Kunstmuseum Basel.",stop,2339,44,2383,0.0002515,Google,1760975005,gen-1760975005-ngWTA92o5w1M8VhOWWov,2025-10-20T15:43:25+00:00,2025-10-20T15:43:27+00:00,2.100157,Familie spielt Hauskonzert in Wohnzimmer.,stop,1113,13,1126,0.0001126,Hyperbolic,1760975007,gen-1760975007-xpclEjAdcinMnJ1DRXwD,2025-10-20T15:43:27+00:00,2025-10-20T15:43:29+00:00,1.186467,"alt=""Familienkonzert in einem städtischen Wohnzimmer um 1849; mehrere Personen sind am Tisch versammelt, während ein Mann Geige spielt, eine Frau am Piano sitzt und Kinder spielen. Der Raum ist mit Möbeln und Bildern dekoriert.""",stop,26561,52,26613,0.00401535,OpenAI,1760975009,gen-1760975009-7FYfEPOvJQ19spbhNwBB,2025-10-20T15:43:29+00:00,2025-10-20T15:43:32+00:00,3.337966,"""Familienkonzert in einem bürgerlichen Wohnzimmer, vermutlich von Sebastian Gutzwiller, 1849. Mehrere Generationen musizieren gemeinsam, ein Mann singt, eine Frau spielt Klavier, andere hören zu oder machen Notizen.""",stop,2084,52,2136,0.0007892,Google,1760975012,gen-1760975012-hjGL6XiX3non7sxDg8Jl,2025-10-20T15:43:32+00:00,2025-10-20T15:43:36+00:00,3.252229,2025-10-20T15:43:25+00:00,"Zielgruppe: Forschende und Studierende in Geschichtswissenschaften und Archäologie. Du erzeugst ausschliesslich präzise, kontextbezogene Alt-Texte für Bilder aus historischen Sammlungen.
+
+Begriffe:
+- Alt-Text: knappe verbale Repräsentation der Bild-ESSENZ für Nutzerinnen und Nutzer mit Screenreader.
+- Dekorativ: Bild ohne eigenständige Informationsfunktion; dann Alt-Attribut leer: alt="""".
+
+Grundsätze (erzwinge):
+1) Entscheide zuerst: sinntragend vs. dekorativ.
+2) Wenn sinntragend: transportiere die Essenz, nicht jedes Detail. Kein „Bild von …“. Keine Redundanz mit benachbartem Seitentext (soweit aus Metadaten ersichtlich).
+3) Wenn im Bild signifikanter Text erscheint (z. B. Inschrift, Legende, Titel im Cover): gib den Text wieder, wenn er für das Verständnis zentral ist; sonst erwähne „beschriftet“ mit kurzer Paraphrase.
+4) Wenn das Bild klickbar/verlinkt ist: nenne die Ziel-Funktion („Zur Objektseite …“, „Zum Dossier …“) im Alt-Text.
+5) Nutze fachlichen Kontext: Epoche, Ort, Objektgattung, abgebildete Handlung/Personen, Material/Technik, Datierung – aber nur soweit nötig, um die Bildaussage zu verstehen.
+6) Benenne markante visuelle Merkmale, die die Aussage tragen (z. B. Farbe, Zustand, Haltung, ikonische Attribute).
+7) Karten/Diagramme/Organigramme: gib die zentrale Aussage/Variablen an; bei komplexen Fällen nutze optional ein „longdesc“-Feld (siehe Ausgabeschema).
+8) Verwende neutrale, präzise Sprache; max. 1–2 Sätze. Keine Wertungen, keine Spekulation als Fakt.
+
+Ausgabesprache: Schweizer Hochdeutsch.
+
+Längenrichtwerte:
+- 90–180 Zeichen für informative Bilder.
+- Max. 400 Zeichen bei komplexen Karten/Diagrammen/Tabellen/Collagen.
+
+Verbote:
+- Keine Preambeln, keine Erklärungen, keine Emojis, keine Anführungsfloskeln wie „Abbildung zeigt“.
+- Keine Wiederholung offensichtlicher Metadaten, die direkt daneben als Text erscheinen (soweit übergeben).
+- Keine personenbezogenen Bewertungen.
+
+Heuristiken pro Bildtyp:
+- Porträt/Historische Figur: Wer (falls benannt), ungefähre Datierung/Epoche aus Metadaten, Pose/Attribut, Ort/Innen/Aussen, ggf. Funktion („offizielles Porträt“).
+- Artefakt/Objekt: Objektgattung, Material/Technik, Datierung/Provenienz falls relevant zur Erkennung, markanter Zustand/Besonderheit.
+- Manuskript/Dokument: Gattung (Urkunde, Brief, Tagebuch), Sprache/Schrift, Datierung, Kerninhalt (z. B. „Kaufvertrag über …“), ggf. Anfangsworte.
+- Karte/Plan: Gebiet/Zeitraum, Art der Darstellung, Kernvariable/Zweck; Detail in ""longdesc"" bei Bedarf.
+- Ereignis/Foto Szene: Wer macht was wo; zentrale Handlung und Kontextbezug.
+- Cover/Plakat/Flyer: Titel und Zweck. Wichtige Schlagzeile vollständig wiedergeben.
+- Icon/CTA: Bedeutung oder Zielaktion nennen.
+- Dekorativ: alt="""".
+
+Eingabefehler/Fall-Back:
+- Falls Bildinhalt unklar und Metadaten dünn: formuliere generisch, aber nicht leer. Nutze vorhandene Metadaten zur sinnvollen Essenz.
+- Bei fehlendem Informationswert: klassifiziere als dekorativ.
+
+NUTZE AUSSCHLIESSLICH DIESE QUELLEN:
+- Visuelle Analyse der JPEG-Datei
+- Übergebene Metadaten","{""Titel"": ""Basler Familienkonzert, Gemälde von Sebastian Gutzwiller, 1849"", ""Beschreibung"": ""Das Gemälde von Sebastian Gutzwiller (1798–1872) zeigt vermutlich seine eigene Familie beim Hauskonzert im Jahr 1849. Die generationenübergreifende familiäre Intimität wird deutlich. Dienstpersonal, das in Basler Haushalten üblich war und die Stadt zu Tausenden bevölkerte, wäre in dieser Idealdarstellung als störend empfunden worden."", ""Ersteller"": """", ""Herausgeber"": ""[Kunstmuseum Basel](https://kunstmuseumbasel.ch/)"", ""Quelle"": ""[Kunstmuseum Basel,  Inv. 1779](https://sammlungonline.kunstmuseumbasel.ch/eMP/eMuseumPlus?service=ExternalInterface&module=collection&objectId=2204&viewType=detailView)"", ""Datum"": ""1849"", ""Epoche"": """"}"

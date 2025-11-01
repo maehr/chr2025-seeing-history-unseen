@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761081630-6OL0BE4slx72pIcISOZs",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761081630,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Karte der zwischen 1912 und 1966 neu erbauten Gotteshäuser in Basel. Markierungen zeigen die Standorte römisch-katholischer (blau) und evangelisch-reformierter (gelb) Kirchen sowie der jüdischen Synagoge (grün). Die Karte umfasst verschiedene Kirchen, die zwischen 1912 und 1966 errichtet wurden.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26243,
+		"completion_tokens": 80,
+		"total_tokens": 26323,
+		"cost": 0.00388845,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 1280,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00384045,
+			"upstream_inference_completions_cost": 4.8e-5
+		}
+	}
+}

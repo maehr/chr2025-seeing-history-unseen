@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761079326-nutJeQKiVBohQ162KXXN",
+	"provider": "Google",
+	"model": "google/gemini-2.5-flash-lite",
+	"object": "chat.completion",
+	"created": 1761079326,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "STOP",
+			"message": {
+				"role": "assistant",
+				"content": "Abbruch eines steinernen Schwibbogens mit Schutt und Arbeitern im Jahr 1874.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1963,
+		"completion_tokens": 23,
+		"total_tokens": 1986,
+		"cost": 0.0002055,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001963,
+			"upstream_inference_completions_cost": 9.2e-6
+		}
+	}
+}

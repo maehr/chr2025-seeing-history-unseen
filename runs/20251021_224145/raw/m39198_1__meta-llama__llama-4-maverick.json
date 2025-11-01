@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761079483-LD4hbs6T5mXW2e3yySxK",
+	"provider": "Novita",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1761079483,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Handelsbeziehungen von Ulrich Meltinger: Textilhandel zwischen England, Flandern, Oberrheinregion und Schweiz, 1468-1493.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 2037,
+		"completion_tokens": 33,
+		"total_tokens": 2070,
+		"cost": 0.00037434,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00034629,
+			"upstream_inference_completions_cost": 2.805e-5
+		}
+	}
+}

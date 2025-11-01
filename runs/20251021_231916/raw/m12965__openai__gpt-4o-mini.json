@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761081723-lWNK5i1iWO2ykxd8VO4b",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761081724,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Kartoffelpflanze (Solanum tuberosum esculentum) aus dem Herbarium von Caspar Bauhin. Getrocknete Pflanze mit grünen Blättern und gelben Blütenresten auf beigem Untergrund. Notizen und Beschriftungen am unteren Rand. Datierung etwa 1600.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26171,
+		"completion_tokens": 67,
+		"total_tokens": 26238,
+		"cost": 0.00386985,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 1280,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00382965,
+			"upstream_inference_completions_cost": 4.02e-5
+		}
+	}
+}

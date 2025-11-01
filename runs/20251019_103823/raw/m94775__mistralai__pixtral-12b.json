@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760863107-fLyYqQsEaH13ZDSnahom",
+	"provider": "Mistral",
+	"model": "mistralai/pixtral-12b",
+	"object": "chat.completion",
+	"created": 1760863107,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Illustration eines afrikanischen Kriegers, angekündigt auf der Herbstmesse 1834.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 2605,
+		"completion_tokens": 25,
+		"total_tokens": 2630,
+		"cost": 0.0003945,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00039075,
+			"upstream_inference_completions_cost": 3.75e-6
+		}
+	}
+}

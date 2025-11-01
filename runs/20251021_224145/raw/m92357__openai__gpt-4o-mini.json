@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761079388-4KfHwZg7aqvLPaXCrWy2",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1761079388,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Fasnachtszettel aus 1901 der Vereinigten Spalemer. Betont die Zuwanderung in Basel mit humorvollen Bezeichnungen für verschiedene Gruppen. Enthält die Einwohnerzahlen: Basler Bürger 19.999, Katzenstreker, Zürichgle, Mutze 2.614, Türken 1, Vo Drausse rai 89.999, Orang-Utang 2. Gesamt: 112.615. Illustrationen von zwei karikaturhaften Figuren und Wappen.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26160,
+		"completion_tokens": 103,
+		"total_tokens": 26263,
+		"cost": 0.0039858,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.003924,
+			"upstream_inference_completions_cost": 6.18e-5
+		}
+	}
+}

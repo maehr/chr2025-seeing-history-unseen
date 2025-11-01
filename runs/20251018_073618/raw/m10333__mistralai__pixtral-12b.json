@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760766543-5h0vlhcmYpKoV7Hsk1UC",
+	"provider": "Mistral",
+	"model": "mistralai/pixtral-12b",
+	"object": "chat.completion",
+	"created": 1760766543,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Historische Seite des Matthäusevangeliums von 1516.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 2352,
+		"completion_tokens": 19,
+		"total_tokens": 2371,
+		"cost": 0.00035565,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0003528,
+			"upstream_inference_completions_cost": 2.85e-6
+		}
+	}
+}

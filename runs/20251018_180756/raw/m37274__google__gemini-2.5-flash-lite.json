@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804275-cx5dOeTm9Y4gG9HSPJ4I",
+	"provider": "Google",
+	"model": "google/gemini-2.5-flash-lite",
+	"object": "chat.completion",
+	"created": 1760804275,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "STOP",
+			"message": {
+				"role": "assistant",
+				"content": "‹Tabula nova heremi Helvetiorum›, älteste gedruckte Karte der Eidgenossenschaft, Strassburg 1513",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1786,
+		"completion_tokens": 31,
+		"total_tokens": 1817,
+		"cost": 0.000191,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001786,
+			"upstream_inference_completions_cost": 1.24e-5
+		}
+	}
+}

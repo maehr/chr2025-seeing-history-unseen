@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804891-brw7hdLtrHrlHQ3lw3KE",
+	"provider": "Hyperbolic",
+	"model": "mistralai/pixtral-12b",
+	"object": "chat.completion",
+	"created": 1760804891,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Sozialer Überblick der Bevölkerung von Basel 1910 mit farbiger Markierung nach Einkommensgruppen.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 454,
+		"completion_tokens": 29,
+		"total_tokens": 483,
+		"cost": 4.83e-5,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 4.54e-5,
+			"upstream_inference_completions_cost": 2.9e-6
+		}
+	}
+}

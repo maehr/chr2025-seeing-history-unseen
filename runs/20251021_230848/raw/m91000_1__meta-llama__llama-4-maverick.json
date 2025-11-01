@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761080942-5G9CS3Ii7MazrdiMwEoo",
+	"provider": "Google",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1761080942,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "STOP",
+			"message": {
+				"role": "assistant",
+				"content": "Weltkarte mit Verbindungslinien zwischen Basel und verschiedenen Orten weltweit, u.a. New York, Buenos Aires, Konstantinopel und Batavia; zeigt das Netzwerk der Geschäftskorrespondenz der Firma Forcart-Weis & Burckhardt-Wildt, 1865–1894.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1725,
+		"completion_tokens": 62,
+		"total_tokens": 1787,
+		"cost": 0.00067505,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00060375,
+			"upstream_inference_completions_cost": 7.13e-5
+		}
+	}
+}

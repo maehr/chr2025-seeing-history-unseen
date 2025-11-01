@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760766103-7KSNzNNHLV2S4bEOPSZX",
+	"provider": "Parasail",
+	"model": "allenai/molmo-7b-d",
+	"object": "chat.completion",
+	"created": 1760766103,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": " Der Rheinbene während der letzten Eiszeit hatte viel mehr Wasser und Geschiebe. Es formte ein verästeltes Flusssystem in einer weiten Schotterebene. Karge Kältesteppe prägte die Region, und die Basellandschaft entstand später.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1712,
+		"completion_tokens": 66,
+		"total_tokens": 1778,
+		"cost": 0.0001844,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0001712,
+			"upstream_inference_completions_cost": 1.32e-5
+		}
+	}
+}

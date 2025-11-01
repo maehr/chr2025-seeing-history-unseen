@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760998829-nRLxcGHkT7VCwKzHQedA",
+	"provider": "Hyperbolic",
+	"model": "mistralai/pixtral-12b",
+	"object": "chat.completion",
+	"created": 1760998829,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Karte zeigt Siedlungslandschaft um Kaiseraugst, 3.-4. Jahrhundert n. Chr. Wichtige Fundstellen wie Breisach, Oedenburg-Biesheim und Kembs markiert.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 666,
+		"completion_tokens": 47,
+		"total_tokens": 713,
+		"cost": 7.13e-5,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 6.66e-5,
+			"upstream_inference_completions_cost": 4.7e-6
+		}
+	}
+}

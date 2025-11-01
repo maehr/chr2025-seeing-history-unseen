@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761069512-7K6uEyLm5IySqWLbukt9",
+	"provider": "Google",
+	"model": "google/gemini-2.5-flash-lite",
+	"object": "chat.completion",
+	"created": 1761069512,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "STOP",
+			"message": {
+				"role": "assistant",
+				"content": "Szene der Eiszeit bei Basel: Ein Neandertaler mit Kind auf den Schultern blickt auf eine Landschaft mit Mammuten, Vögeln und Aas.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 2420,
+		"completion_tokens": 35,
+		"total_tokens": 2455,
+		"cost": 0.000256,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.000242,
+			"upstream_inference_completions_cost": 1.4e-5
+		}
+	}
+}

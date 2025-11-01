@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760804038-m9crQYewz39H3XdkzMk9",
+	"provider": "Google",
+	"model": "google/gemini-2.5-flash-lite",
+	"object": "chat.completion",
+	"created": 1760804038,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "STOP",
+			"message": {
+				"role": "assistant",
+				"content": "Flussdiagramm: Wahlverfahren mit Kieserkollegium von altem zu neuem Rat um 1260.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 2286,
+		"completion_tokens": 26,
+		"total_tokens": 2312,
+		"cost": 0.000239,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0002286,
+			"upstream_inference_completions_cost": 1.04e-5
+		}
+	}
+}

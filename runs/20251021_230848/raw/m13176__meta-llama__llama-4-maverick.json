@@ -1,0 +1,40 @@
+{
+	"id": "gen-1761081089-e0p8qb54bR9hvICHe3W6",
+	"provider": "Fireworks",
+	"model": "meta-llama/llama-4-maverick",
+	"object": "chat.completion",
+	"created": 1761081089,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Narr in roter Kutte isst vor einem Schwein, das aus einem Topf frisst; handkolorierte Federzeichnung mit begleitendem Gedicht.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 1585,
+		"completion_tokens": 36,
+		"total_tokens": 1621,
+		"cost": 0.00038038,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.0003487,
+			"upstream_inference_completions_cost": 3.168e-5
+		}
+	}
+}

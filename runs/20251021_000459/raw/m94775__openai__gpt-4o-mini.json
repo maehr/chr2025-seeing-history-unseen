@@ -1,0 +1,40 @@
+{
+	"id": "gen-1760997904-iyG4cVKtRUUGTCOLgDzl",
+	"provider": "OpenAI",
+	"model": "openai/gpt-4o-mini",
+	"object": "chat.completion",
+	"created": 1760997907,
+	"choices": [
+		{
+			"index": 0,
+			"finish_reason": "stop",
+			"native_finish_reason": "stop",
+			"message": {
+				"role": "assistant",
+				"content": "Illustration zu einer Anzeige in den ‹Wöchentlichen Nachrichten› vom 30. Oktober 1834. Eingekreist ist eine Figur eines Mannes in traditioneller afrikanischer Kleidung mit einer Waffe, die einen Ashanti aus Westafrika darstellen soll. Im Kontext der Anzeige wird auf die bevorstehende Herbstmesse hingewiesen, bei der dieser „Afrikaner“ vorgestellt wird.",
+				"refusal": null,
+				"reasoning": null
+			}
+		}
+	],
+	"usage": {
+		"prompt_tokens": 26129,
+		"completion_tokens": 81,
+		"total_tokens": 26210,
+		"cost": 0.00396795,
+		"is_byok": false,
+		"prompt_tokens_details": {
+			"cached_tokens": 0,
+			"audio_tokens": 0
+		},
+		"completion_tokens_details": {
+			"reasoning_tokens": 0,
+			"image_tokens": 0
+		},
+		"cost_details": {
+			"upstream_inference_cost": null,
+			"upstream_inference_prompt_cost": 0.00391935,
+			"upstream_inference_completions_cost": 4.86e-5
+		}
+	}
+}
