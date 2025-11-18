@@ -46,14 +46,14 @@ website:
       - text: Survey
         href: survey/index.qmd
       - text: Presentation
-        href: presentation/README.md
+        href: presentation/index.qmd
 
   sidebar:
     contents:
       - section: Research
         contents:
           - text: Presentation
-            href: presentation/README.md
+            href: presentation/index.qmd
           - text: Paper
             href: paper/index.qmd
           - text: Abstract

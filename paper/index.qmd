@@ -27,6 +27,7 @@ keywords:
   ]
 abstract: |
   Digitized heritage collections remain partially inaccessible because images often lack descriptive alternative text (alt-text). We evaluate whether contemporary Vision-Language Models (VLMs) can assist in producing WCAG-compliant alt-text for heterogeneous historical materials. Using a 100-item dataset curated from the Stadt.Geschichte.Basel Open Research Data Platform—covering photographs, maps, drawings, objects, diagrams, and print ephemera across multiple eras—we generate candidate descriptions with four VLMs (Google Gemini 2.5 Flash Lite, Meta Llama 4 Maverick, OpenAI GPT-4o mini, Qwen 3 VL 8B Instruct). Our pipeline fixes WCAG and output constraints in the system prompt and injects concise, collection-specific metadata at the user turn to mitigate “lost-in-the-middle” effects. Feasibility benchmarks on a 20-item subset show 100 % coverage, latencies of ~2–4 s per item, and sub-cent costs per description. A rater study with 21 humanities scholars ranks per-image model outputs; Friedman and Wilcoxon tests reveal no statistically significant performance differences, while qualitative audits identify recurring errors: factual misrecognition, selective omission, and uncritical reproduction of harmful historical terminology. We argue that VLMs are operationally viable but epistemically fragile in heritage contexts. Effective adoption requires editorial policies, sensitivity filtering, and targeted human-in-the-loop review, especially for sensitive content and complex figures. The study contributes a transparent, reproducible workflow, a small but representative evaluation set, and an initial cost–quality baseline to inform GLAM institutions considering AI-assisted accessibility at scale.
+doi: 10.63744/njQVYcLndSPE
 bibliography: bibliography.bib
 number-sections: true
 format:
@@ -576,7 +577,7 @@ All code, datasets, and analysis artefacts supporting this study are openly avai
 
 **Repository:** <https://github.com/maehr/chr2025-seeing-history-unseen>
 
-**Persistent record:** [FIXME Zenodo DOI](https://doi.org/XXXX)
+**Persistent record:** [DOI 10.5281/zenodo.17639517](https://doi.org/10.5281/zenodo.17639517)
 
 The repository provides a complete, executable research pipeline for the CHR 2025 paper *“Seeing History Unseen: Evaluating Vision-Language Models for WCAG-Compliant Alt-Text in Digital Heritage Collections.”*
 
@@ -597,7 +598,7 @@ A pre-configured **GitHub Codespace** enables fully containerised reproduction w
 The project adheres to the **FAIR** (Findable, Accessible, Interoperable, Reusable) and **CARE** (Collective Benefit, Authority to Control, Responsibility, Ethics) principles for open humanities data.
 
 | Principle | Implementation in this project |
-|:-------------------|:---------------------------------------------------|
+|:---------------------|:-------------------------------------------------|
 | **Findable (FAIR)** | Repository indexed on GitHub and Zenodo with persistent DOI; structured metadata and semantic filenames. |
 | **Accessible** | Publicly accessible under AGPL-3.0 (code) and CC BY 4.0 (data, documentation). No authentication barriers. |
 | **Interoperable** | Machine-readable CSV, JSONL, and Parquet formats; consistent column schemas; human- and machine-readable metadata. |
