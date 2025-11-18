@@ -1,0 +1,473 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><style>:where(img[jampack-sized]){max-width:100%;height:auto}</style>
+<link href="../android-chrome-512x512.png" rel="icon" type="image/png">
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+  <meta name="generator" content="quarto-1.8.26">
+
+  <meta name="author" content="Moritz Mähr">
+  <meta name="author" content="Moritz Twente">
+  <meta name="keywords" content="alt-text, vision-language models, accessibility, WCAG 2.2, digital heritage collections, historical accuracy, human-in-the-loop, ethical implications, metadata, disability justice">
+  <title>CHR 2025 - Seeing History Unseen – Seeing History Unseen</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>code{white-space:pre-wrap}span.smallcaps{font-variant:small-caps}div.columns{gap:min(4vw,1.5em);display:flex}div.column{flex:auto;overflow-x:auto}div.hanging-indent{text-indent:-1.5em;margin-left:1.5em}ul.task-list{list-style:none}ul.task-list li input[type=checkbox]{vertical-align:middle;width:.8em;margin:0 .8em .2em -1em}</style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-534cd8e3a96973385dffff3f4709048d.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">.reveal div.sourceCode{margin:0;overflow:auto}.reveal div.hanging-indent{text-indent:-1em;margin-left:1em}.reveal .slide:not(.center){height:100%}.reveal .slide.scrollable{overflow-y:auto}.reveal .footnotes{height:100%;overflow-y:auto}.reveal .slide .absolute{display:block;position:absolute}.reveal .footnotes ol{counter-reset:ol;margin-left:0;list-style-type:none}.reveal .footnotes ol li:before{counter-increment:ol;content:counter(ol)". "}.reveal .footnotes ol li>p:first-child{display:inline-block}.reveal .slide ul,.reveal .slide ol{margin-bottom:.5em}.reveal .slide ul li,.reveal .slide ol li{margin-top:.4em;margin-bottom:.2em}.reveal .slide ul[role=tablist] li{margin-bottom:0}.reveal .slide ul li>:first-child,.reveal .slide ol li>:first-child{margin-block-start:0}.reveal .slide ul li>:last-child,.reveal .slide ol li>:last-child{margin-block-end:0}.reveal .slide .columns:nth-child(3){margin-block-start:.8em}.reveal blockquote{box-shadow:none}.reveal .tippy-content>*{margin-top:.2em;margin-bottom:.7em}.reveal .tippy-content>:last-child{margin-bottom:.2em}.reveal .slide>img.stretch.quarto-figure-center,.reveal .slide>img.r-stretch.quarto-figure-center{margin-left:auto;margin-right:auto;display:block}.reveal .slide>img.stretch.quarto-figure-left,.reveal .slide>img.r-stretch.quarto-figure-left{margin-left:0;margin-right:auto;display:block}.reveal .slide>img.stretch.quarto-figure-right,.reveal .slide>img.r-stretch.quarto-figure-right{margin-left:auto;margin-right:0;display:block}</style>
+<meta property="og:title" content="Seeing History Unseen – CHR 2025 - Seeing History Unseen">
+<meta property="og:description" content="Digitized heritage collections remain partially inaccessible because images often lack descriptive alternative text (alt-text). We evaluate whether contemporary Vision-Language Models (VLMs) can assist in producing WCAG-compliant alt-text for heterogeneous historical materials. Using a 100-item dataset curated from the Stadt.Geschichte.Basel Open Research Data Platform—covering photographs, maps, drawings, objects, diagrams, and print ephemera across multiple eras—we generate candidate descriptions with four VLMs (Google Gemini 2.5 Flash Lite, Meta Llama 4 Maverick, OpenAI GPT-4o mini, Qwen 3 VL 8B Instruct). Our pipeline fixes WCAG and output constraints in the system prompt and injects concise, collection-specific metadata at the user turn to mitigate “lost-in-the-middle” effects. Feasibility benchmarks on a 20-item subset show 100 % coverage, latencies of ~2–4 s per item, and sub-cent costs per description. A rater study with 21 humanities scholars ranks per-image model outputs; Friedman and Wilcoxon tests reveal no statistically significant performance differences, while qualitative audits identify recurring errors: factual misrecognition, selective omission, and uncritical reproduction of harmful historical terminology. We argue that VLMs are operationally viable but epistemically fragile in heritage contexts. Effective adoption requires editorial policies, sensitivity filtering, and targeted human-in-the-loop review, especially for sensitive content and complex figures. The study contributes a transparent, reproducible workflow, a small but representative evaluation set, and an initial cost–quality baseline to inform GLAM institutions considering AI-assisted accessibility at scale.">
+<meta property="og:image" content="https://maehr.github.io/chr2025-seeing-history-unseen/presentation/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==">
+<meta property="og:site_name" content="CHR 2025 - Seeing History Unseen">
+<meta name="twitter:title" content="Seeing History Unseen – CHR 2025 - Seeing History Unseen">
+<meta name="twitter:description" content="Digitized heritage collections remain partially inaccessible because images often lack descriptive alternative text (alt-text). We evaluate whether contemporary Vision-Language Models (VLMs) can assist in producing WCAG-compliant alt-text for heterogeneous historical materials. Using a 100-item dataset curated from the Stadt.Geschichte.Basel Open Research Data Platform—covering photographs, maps, drawings, objects, diagrams, and print ephemera across multiple eras—we generate candidate descriptions with four VLMs (Google Gemini 2.5 Flash Lite, Meta Llama 4 Maverick, OpenAI GPT-4o mini, Qwen 3 VL 8B Instruct). Our pipeline fixes WCAG and output constraints in the system prompt and injects concise, collection-specific metadata at the user turn to mitigate “lost-in-the-middle” effects. Feasibility benchmarks on a 20-item subset show 100 % coverage, latencies of ~2–4 s per item, and sub-cent costs per description. A rater study with 21 humanities scholars ranks per-image model outputs; Friedman and Wilcoxon tests reveal no statistically significant performance differences, while qualitative audits identify recurring errors: factual misrecognition, selective omission, and uncritical reproduction of harmful historical terminology. We argue that VLMs are operationally viable but epistemically fragile in heritage contexts. Effective adoption requires editorial policies, sensitivity filtering, and targeted human-in-the-loop review, especially for sensitive content and complex figures. The study contributes a transparent, reproducible workflow, a small but representative evaluation set, and an initial cost–quality baseline to inform GLAM institutions considering AI-assisted accessibility at scale.">
+<meta name="twitter:image" content="https://maehr.github.io/chr2025-seeing-history-unseen/presentation/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="center quarto-title-block">
+  <h1 class="title">Seeing History Unseen</h1>
+  <p class="subtitle">Evaluating Vision-Language Models for WCAG-Compliant Alt-Text in Digital Heritage Collections</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Moritz Mähr <a href="https://orcid.org/0000-0002-1367-1618" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==" alt=""></a>
+</div>
+<div class="quarto-title-author-email">
+<a href="mailto:moritz.maehr@gmail.com">moritz.maehr@gmail.com</a>
+</div>
+        <p class="quarto-title-affiliation">
+            Stadt.Geschichte.Basel, University of Basel, Switzerland
+          </p>
+        <p class="quarto-title-affiliation">
+            Digital Humanities, University of Bern, Switzerland
+          </p>
+    </div>
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Moritz Twente <a href="https://orcid.org/0009-0005-7187-9774" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==" alt=""></a>
+</div>
+<div class="quarto-title-author-email">
+<a href="mailto:mtwente@protonmail.com">mtwente@protonmail.com</a>
+</div>
+        <p class="quarto-title-affiliation">
+            Stadt.Geschichte.Basel, University of Basel, Switzerland
+          </p>
+    </div>
+</div>
+
+</section>
+<section>
+<section id="seeing-history-unseen" class="slide center level1 title-slide">
+<h1>Seeing History Unseen</h1>
+<!-- callout warning that this i a draft -->
+<div class="callout callout-style-default callout-titled callout-warning">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Draft presentation</strong> — work in progress, not for distribution or citation</p>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">Evaluating vision–language models (VLMs) for alt-text in digital heritage collections</li>
+<li class="fragment">Case study: Stadt.Geschichte.Basel Open Research Data platform</li>
+<li class="fragment">Focus: WCAG-compliant, historically informed alt-text for heterogeneous images</li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="motivation-accessibility-gap" class="slide center level1 title-slide">
+<h1>Motivation: Accessibility Gap</h1>
+<ul>
+<li class="fragment">Digitized archives still exclude blind and low-vision users</li>
+<li class="fragment">Many images lack meaningful alt-text or rely on minimal, generic captions</li>
+<li class="fragment">Alt-text is not just a technical requirement but part of historical justice</li>
+<li class="fragment">Rich descriptions also benefit other groups (e.g., neurodivergent readers)</li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="alt-text-in-digital-heritage" class="slide center level1 title-slide">
+<h1>Alt-Text in Digital Heritage</h1>
+<ul>
+<li class="fragment">Alt-text translates visual evidence into language</li>
+<li class="fragment">Requires:
+<ul>
+<li class="fragment">Domain knowledge (history, archives, local context)</li>
+<li class="fragment">Accessibility expertise (WCAG, screenreader use)</li>
+<li class="fragment">Editorial judgement (what is salient, what is harmful)</li>
+</ul></li>
+<li class="fragment">Production is labor-intensive; often postponed or dropped entirely</li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="opportunity-and-risks-of-vlms" class="slide center level1 title-slide">
+<h1>Opportunity and Risks of VLMs</h1>
+<ul>
+<li class="fragment">Multimodal models (e.g., GPT-4o mini, Gemini, Llama, Qwen) can caption images at scale</li>
+<li class="fragment">Promise:
+<ul>
+<li class="fragment">High coverage, fast throughput, low marginal cost</li>
+<li class="fragment">Potential to “fill the gap” for large collections</li>
+</ul></li>
+<li class="fragment">Risk:
+<ul>
+<li class="fragment">Hallucinations, misrecognitions, and subtle biases</li>
+<li class="fragment">Uncritical reproduction of harmful terminology from sources or training data</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="research-questions" class="slide center level1 title-slide">
+<h1>Research Questions</h1>
+<ul>
+<li class="fragment"><strong>RQ1 — Feasibility</strong>
+<ul>
+<li class="fragment">What coverage, throughput, and unit cost can current VLMs achieve for WCAG-aligned alt-text on a heterogeneous heritage corpus?</li>
+</ul></li>
+<li class="fragment"><strong>RQ2 — Relative quality</strong>
+<ul>
+<li class="fragment">How do humanities experts rank model outputs?</li>
+<li class="fragment">Which error patterns recur in “best” alt-texts?</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="corpus-and-dataset" class="slide center level1 title-slide">
+<h1>Corpus and Dataset</h1>
+<ul>
+<li class="fragment">Source: Stadt.Geschichte.Basel Open Research Data platform</li>
+<li class="fragment">≈1700 media objects (as of Oct 2025), diverse in:
+<ul>
+<li class="fragment">Media type: photographs, maps, drawings, objects, diagrams, ephemera</li>
+<li class="fragment">Time period: from prehistory to contemporary Basel</li>
+<li class="fragment">Complexity: multi-part figures, legends, text-heavy items</li>
+</ul></li>
+<li class="fragment">Study datasets:
+<ul>
+<li class="fragment">100-item benchmark set (released with the paper)</li>
+<li class="fragment">20-item subset for detailed expert evaluation</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="models-under-study" class="slide center level1 title-slide">
+<h1>Models Under Study</h1>
+<ul>
+<li class="fragment">Four vision–language models via OpenRouter:
+<ul>
+<li class="fragment"><strong>Google Gemini 2.5 Flash Lite</strong></li>
+<li class="fragment"><strong>Meta Llama 4 Maverick</strong></li>
+<li class="fragment"><strong>OpenAI GPT-4o mini</strong></li>
+<li class="fragment"><strong>Qwen 3 VL 8B Instruct</strong></li>
+</ul></li>
+<li class="fragment">Selection criteria:
+<ul>
+<li class="fragment">Mix of proprietary and open-weight models</li>
+<li class="fragment">Similar cost range and context window</li>
+<li class="fragment">Multimodal and multilingual (incl.&nbsp;German)</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="prompt-and-pipeline-design" class="slide center level1 title-slide">
+<h1>Prompt and Pipeline Design</h1>
+<ul>
+<li class="fragment">Fixed, WCAG-aligned <strong>system prompt</strong>:
+<ul>
+<li class="fragment">Short, neutral, factual descriptions</li>
+<li class="fragment">No “image of …”, no <code>alt=</code> wrappers, no emojis</li>
+<li class="fragment">Length targets (90–180 chars; up to 400 for complex charts)</li>
+<li class="fragment">Rules for portraits, objects, documents, maps, event photos</li>
+</ul></li>
+<li class="fragment"><strong>User prompt</strong>:
+<ul>
+<li class="fragment">Concise, structured metadata (title, description, date, era, creator, publisher, source)</li>
+<li class="fragment">Image URL at the end</li>
+</ul></li>
+<li class="fragment">Pipeline:
+<ul>
+<li class="fragment">Standardized JPG (800×800) + JSON metadata → 4 candidate alt-texts per image</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="expert-ranking-study" class="slide center level1 title-slide">
+<h1>Expert Ranking Study</h1>
+<ul>
+<li class="fragment">Participants: 21 humanities scholars</li>
+<li class="fragment">Task:
+<ul>
+<li class="fragment">For each of 20 images, rank 4 model outputs from <strong>1 (best) to 4 (worst)</strong></li>
+</ul></li>
+<li class="fragment">Instructions:
+<ul>
+<li class="fragment">Focus on WCAG-aligned criteria:
+<ul>
+<li class="fragment">Core visual content, no redundancy</li>
+<li class="fragment">Salient features and visible text</li>
+<li class="fragment">Context only when it aids understanding</li>
+</ul></li>
+<li class="fragment">Factual accuracy and bias not foregrounded but may influence judgement</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="rq1-feasibility-results" class="slide center level1 title-slide">
+<h1>RQ1 — Feasibility Results</h1>
+<ul>
+<li class="fragment"><strong>Coverage</strong>
+<ul>
+<li class="fragment">All four models produced non-empty alt-text for all 20 images → <strong>100% coverage</strong></li>
+</ul></li>
+<li class="fragment"><strong>Latency and throughput</strong>
+<ul>
+<li class="fragment">≈2–4 seconds per item; ≈0.24–0.43 items/s</li>
+<li class="fragment">Qwen 3 VL 8B: fastest; GPT-4o mini: slower but stable</li>
+</ul></li>
+<li class="fragment"><strong>Cost</strong>
+<ul>
+<li class="fragment">≈1.8×10⁻⁴ to 3.6×10⁻³ USD per description</li>
+<li class="fragment">Sub-cent cost even for multiple candidates per image</li>
+</ul></li>
+<li class="fragment">Conclusion: technically and economically feasible at collection scale</li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="rq2-quantitative-ranking-results" class="slide center level1 title-slide">
+<h1>RQ2 — Quantitative Ranking Results</h1>
+<ul>
+<li class="fragment">Rank distributions:
+<ul>
+<li class="fragment">GPT-4o mini and Qwen receive more first-place and fewer last-place ranks</li>
+<li class="fragment">Gemini and Llama perform slightly worse descriptively</li>
+</ul></li>
+<li class="fragment">Statistical tests:
+<ul>
+<li class="fragment">Friedman test: χ²(3, N=20) = 6.02, p = 0.11</li>
+<li class="fragment">Kendall’s W ≈ 0.01 → very low agreement across tasks</li>
+<li class="fragment">Pairwise Wilcoxon tests (Holm-corrected): no significant differences</li>
+</ul></li>
+<li class="fragment">Takeaway: <strong>no clear “winner”</strong>; relative model quality varies by image</li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="qualitative-error-patterns" class="slide center level1 title-slide">
+<h1>Qualitative Error Patterns</h1>
+<ul>
+<li class="fragment">Close reading of top-ranked alt-texts reveals recurring problems:
+<ul>
+<li class="fragment"><strong>Factual misrecognition</strong>
+<ul>
+<li class="fragment">Example: describing people walking <em>down</em> a staircase when image shows them walking <em>up</em></li>
+</ul></li>
+<li class="fragment"><strong>Reproduction of stereotypes</strong>
+<ul>
+<li class="fragment">Example: uncritical repetition of phrases like “reicher Jude” from metadata or training data</li>
+</ul></li>
+<li class="fragment"><strong>Selective omission</strong>
+<ul>
+<li class="fragment">Example: summarising trends for one data series in a chart while ignoring others</li>
+</ul></li>
+</ul></li>
+<li class="fragment">Even “best” alt-texts can be epistemically misleading or harmful</li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="operationally-viable-epistemically-fragile" class="slide center level1 title-slide">
+<h1>Operationally Viable, Epistemically Fragile</h1>
+<ul>
+<li class="fragment"><strong>Operationally viable (RQ1)</strong>
+<ul>
+<li class="fragment">High coverage, low latency, negligible cost</li>
+<li class="fragment">Easy to integrate into existing pipelines</li>
+</ul></li>
+<li class="fragment"><strong>Epistemically fragile (RQ2)</strong>
+<ul>
+<li class="fragment">Errors are uneven and task-dependent</li>
+<li class="fragment">Biases and omissions require domain-sensitive review</li>
+</ul></li>
+<li class="fragment">Tension:
+<ul>
+<li class="fragment">VLMs can rapidly “fill missing alt-text”</li>
+<li class="fragment">But may distort historical evidence or reproduce injustice if used uncritically</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="implications-for-glam-institutions" class="slide center level1 title-slide">
+<h1>Implications for GLAM Institutions</h1>
+<ul>
+<li class="fragment">Do <strong>not</strong> use VLMs as fully automated captioners</li>
+<li class="fragment">Treat alt-text as:
+<ul>
+<li class="fragment">An interpretive, historiographical act</li>
+<li class="fragment">An ethical responsibility toward diverse audiences</li>
+</ul></li>
+<li class="fragment">Recommended use:
+<ul>
+<li class="fragment">VLMs as drafting aids for trained editors</li>
+<li class="fragment">Human-in-the-loop workflows with:
+<ul>
+<li class="fragment">Editorial guidelines for sensitive content</li>
+<li class="fragment">Checks for bias, factual errors, and omissions</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="practical-recommendations" class="slide center level1 title-slide">
+<h1>Practical Recommendations</h1>
+<ul>
+<li class="fragment">For collections and digital humanities teams:
+<ul>
+<li class="fragment">Start with limited, well-documented pilot runs</li>
+<li class="fragment">Prioritise sensitive or high-impact items for manual review</li>
+<li class="fragment">Develop internal style guides for alt-text and metadata</li>
+<li class="fragment">Log model version, prompts, and provenance for transparency</li>
+</ul></li>
+<li class="fragment">For model and tool builders:
+<ul>
+<li class="fragment">Support context-aware prompting (metadata + image)</li>
+<li class="fragment">Provide better controls for bias and harmful content</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="limitations-and-future-work" class="slide center level1 title-slide">
+<h1>Limitations and Future Work</h1>
+<ul>
+<li class="fragment">Scope:
+<ul>
+<li class="fragment">Single institutional corpus; 100-item dataset, 20-item survey subset</li>
+<li class="fragment">Four models at one point in time (Oct 2025)</li>
+</ul></li>
+<li class="fragment">Future directions:
+<ul>
+<li class="fragment">Larger and more diverse participant pools, including blind and low-vision users</li>
+<li class="fragment">Comparative studies of different prompt and review strategies</li>
+<li class="fragment">Integration with authoring tools and cataloguing workflows</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section id="take-home-messages" class="slide center level1 title-slide">
+<h1>Take-Home Messages</h1>
+<ul>
+<li class="fragment">VLMs can make large-scale alt-text generation <strong>operationally feasible</strong></li>
+<li class="fragment">However, they remain <strong>epistemically fragile</strong>, especially for historical and sensitive materials</li>
+<li class="fragment">Effective adoption requires:
+<ul>
+<li class="fragment">Clear editorial policies and sensitivity guidelines</li>
+<li class="fragment">Human-in-the-loop review with domain and accessibility expertise</li>
+<li class="fragment">Transparent, reproducible workflows and open data</li>
+</ul></li>
+<li class="fragment">Accessibility with AI is not automatic; it is a design and governance choice</li>
+</ul>
+
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display:none">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine=window.define,window.define=void 0;
+</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define=window.backupDefine,window.backupDefine=void 0;
+</script>
+
+  <script>Reveal.initialize({controlsAuto:!0,previewLinksAuto:!1,pdfSeparateFragments:!1,autoAnimateEasing:"ease",autoAnimateDuration:1,autoAnimateUnmatched:!0,jumpToSlide:!0,menu:{side:"left",useTextContentForMissingTitles:!0,markers:!1,loadIcons:!1,custom:[{title:"Tools",icon:'<i class="fas fa-gear"></i>',content:`<ul class="slide-menu-items">
+<li class="slide-tool-item active" data-item="0"><a href="#" onclick="RevealMenuToolHandlers.fullscreen(event)"><kbd>f</kbd> Fullscreen</a></li>
+<li class="slide-tool-item" data-item="1"><a href="#" onclick="RevealMenuToolHandlers.speakerMode(event)"><kbd>s</kbd> Speaker View</a></li>
+<li class="slide-tool-item" data-item="2"><a href="#" onclick="RevealMenuToolHandlers.overview(event)"><kbd>o</kbd> Slide Overview</a></li>
+<li class="slide-tool-item" data-item="3"><a href="#" onclick="RevealMenuToolHandlers.togglePdfExport(event)"><kbd>e</kbd> PDF Export Mode</a></li>
+<li class="slide-tool-item" data-item="4"><a href="#" onclick="RevealMenuToolHandlers.toggleScrollView(event)"><kbd>r</kbd> Scroll View Mode</a></li>
+<li class="slide-tool-item" data-item="5"><a href="#" onclick="RevealMenuToolHandlers.keyboardHelp(event)"><kbd>?</kbd> Keyboard Help</a></li>
+</ul>`}],openButton:!0},smaller:!1,controls:!1,controlsTutorial:!1,controlsLayout:"edges",controlsBackArrows:"faded",progress:!0,slideNumber:!1,showSlideNumber:"all",hash:!0,hashOneBasedIndex:!1,respondToHashChanges:!0,history:!0,keyboard:!0,overview:!0,disableLayout:!1,center:!1,touch:!0,loop:!1,rtl:!1,navigationMode:"linear",shuffle:!1,fragments:!0,fragmentInURL:!1,embedded:!1,help:!0,pause:!0,showNotes:!1,autoPlayMedia:null,preloadIframes:null,autoSlide:0,autoSlideStoppable:!0,autoSlideMethod:null,defaultTiming:null,mouseWheel:!1,display:"block",hideInactiveCursor:!0,hideCursorTime:5e3,previewLinks:!1,transition:"none",transitionSpeed:"default",backgroundTransition:"none",viewDistance:3,mobileViewDistance:2,width:1050,height:700,margin:.1,math:{mathjax:"https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js",config:"TeX-AMS_HTML-full",tex2jax:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]],balanceBraces:!0,processEscapes:!1,processRefs:!0,processEnvironments:!0,preview:"TeX",skipTags:["script","noscript","style","textarea","pre","code"],ignoreClass:"tex2jax_ignore",processClass:"tex2jax_process"}},plugins:[QuartoLineHighlight,PdfExport,RevealMenu,QuartoSupport,RevealMath,RevealNotes,RevealSearch,RevealZoom]});
+</script>
+    <script id="quarto-html-after-body" type="application/javascript">window.document.addEventListener("DOMContentLoaded",function(y){window.document.querySelectorAll(".panel-tabset-tabby").forEach(function(e){const t=new Tabby("#"+e.id)});const m=e=>{for(const t of e.classList)if(t.startsWith("code-annotation-"))return!0;return!1},c=function(e){const t=e.trigger;t.blur(),t.classList.add("code-copy-button-checked");var o=t.getAttribute("title");t.setAttribute("title","Copied!");let n;window.bootstrap&&(t.setAttribute("data-bs-toggle","tooltip"),t.setAttribute("data-bs-placement","left"),t.setAttribute("data-bs-title","Copied!"),n=new bootstrap.Tooltip(t,{trigger:"manual",customClass:"code-copy-button-tooltip",offset:[0,-8]}),n.show()),setTimeout(function(){n&&(n.hide(),t.removeAttribute("data-bs-title"),t.removeAttribute("data-bs-toggle"),t.removeAttribute("data-bs-placement")),t.setAttribute("title",o),t.classList.remove("code-copy-button-checked")},1e3),e.clearSelection()},d=function(e){const o=e.parentElement.cloneNode(!0).querySelector("code");for(const n of o.children)m(n)&&n.remove();return o.innerText};new window.ClipboardJS(".code-copy-button:not([data-in-quarto-modal])",{text:d}).on("success",c),window.document.getElementById("quarto-embedded-source-code-modal")&&new window.ClipboardJS(".code-copy-button[data-in-quarto-modal]",{text:d,container:window.document.getElementById("quarto-embedded-source-code-modal")}).on("success",c);for(var w=new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//),g=new RegExp(/^mailto:/),h=new RegExp("https://maehr.github.io/chr2025-seeing-history-unseen/"),v=e=>h.test(e)||w.test(e)||g.test(e),s=window.document.querySelectorAll("a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)"),i=0;i<s.length;i++){const e=s[i];v(e.href)||e.dataset.originalHref!==void 0&&(e.href=e.dataset.originalHref)}function l(e,t,o,n){const r={allowHTML:!0,maxWidth:500,delay:100,arrow:!1,appendTo:function(a){return a.closest("section.slide")||a.parentElement},interactive:!0,interactiveBorder:10,theme:"light-border",placement:"bottom-start"};t&&(r.content=t),o&&(r.onTrigger=o),n&&(r.onUntrigger=n),r.offset=[0,0],r.maxWidth=700,window.tippy(e,r)}const u=window.document.querySelectorAll('a[role="doc-noteref"]');for(var i=0;i<u.length;i++){const t=u[i];l(t,function(){let o=t.getAttribute("data-footnote-href")||t.getAttribute("href");try{o=new URL(o).hash}catch{}const n=o.replace(/^#\/?/,""),r=window.document.getElementById(n);return r?r.innerHTML:""})}const f=e=>{const t=e.parentElement;if(t){const o=t.dataset.cites;return o?{el:e,cites:o.split(" ")}:f(e.parentElement)}else return};for(var b=window.document.querySelectorAll('a[role="doc-biblioref"]'),i=0;i<b.length;i++){const t=b[i],o=f(t);o&&l(o.el,function(){var n=window.document.createElement("div");return o.cites.forEach(function(r){var a=window.document.createElement("div");a.classList.add("hanging-indent"),a.classList.add("csl-entry");var p=window.document.getElementById("ref-"+r);p&&(a.innerHTML=p.innerHTML),n.appendChild(a)}),n.innerHTML})}});
+</script>
+    
+
+</body></html>
