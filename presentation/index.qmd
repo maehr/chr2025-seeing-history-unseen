@@ -1,0 +1,250 @@
+---
+title: 'Seeing History Unseen'
+subtitle: 'Evaluating Vision-Language Models for WCAG-Compliant Alt-Text in Digital Heritage Collections'
+author:
+  - name: Moritz Mähr
+    affiliation:
+      - 'Stadt.Geschichte.Basel, University of Basel, Switzerland'
+      - 'Digital Humanities, University of Bern, Switzerland'
+    orcid: '0000-0002-1367-1618'
+    email: 'moritz.maehr@gmail.com'
+  - name: Moritz Twente
+    affiliation:
+      - 'Stadt.Geschichte.Basel, University of Basel, Switzerland'
+    orcid: '0009-0005-7187-9774'
+    email: 'mtwente@protonmail.com'
+keywords:
+  [
+    alt-text,
+    vision-language models,
+    accessibility,
+    WCAG 2.2,
+    digital heritage collections,
+    historical accuracy,
+    human-in-the-loop,
+    ethical implications,
+    metadata,
+    disability justice
+  ]
+abstract: |
+  Digitized heritage collections remain partially inaccessible because images often lack descriptive alternative text (alt-text). We evaluate whether contemporary Vision-Language Models (VLMs) can assist in producing WCAG-compliant alt-text for heterogeneous historical materials. Using a 100-item dataset curated from the Stadt.Geschichte.Basel Open Research Data Platform—covering photographs, maps, drawings, objects, diagrams, and print ephemera across multiple eras—we generate candidate descriptions with four VLMs (Google Gemini 2.5 Flash Lite, Meta Llama 4 Maverick, OpenAI GPT-4o mini, Qwen 3 VL 8B Instruct). Our pipeline fixes WCAG and output constraints in the system prompt and injects concise, collection-specific metadata at the user turn to mitigate “lost-in-the-middle” effects. Feasibility benchmarks on a 20-item subset show 100 % coverage, latencies of ~2–4 s per item, and sub-cent costs per description. A rater study with 21 humanities scholars ranks per-image model outputs; Friedman and Wilcoxon tests reveal no statistically significant performance differences, while qualitative audits identify recurring errors: factual misrecognition, selective omission, and uncritical reproduction of harmful historical terminology. We argue that VLMs are operationally viable but epistemically fragile in heritage contexts. Effective adoption requires editorial policies, sensitivity filtering, and targeted human-in-the-loop review, especially for sensitive content and complex figures. The study contributes a transparent, reproducible workflow, a small but representative evaluation set, and an initial cost–quality baseline to inform GLAM institutions considering AI-assisted accessibility at scale.
+format:
+  revealjs:
+    incremental: true
+  pptx: default
+---
+
+# Seeing History Unseen
+
+<!-- callout warning that this i a draft -->
+::: {.callout-warning}
+**Draft presentation** — work in progress, not for distribution or citation
+:::
+
+- Evaluating vision–language models (VLMs) for alt-text in digital heritage collections
+- Case study: Stadt.Geschichte.Basel Open Research Data platform
+- Focus: WCAG-compliant, historically informed alt-text for heterogeneous images
+
+---
+
+# Motivation: Accessibility Gap
+
+- Digitized archives still exclude blind and low-vision users
+- Many images lack meaningful alt-text or rely on minimal, generic captions
+- Alt-text is not just a technical requirement but part of historical justice
+- Rich descriptions also benefit other groups (e.g., neurodivergent readers)
+
+---
+
+# Alt-Text in Digital Heritage
+
+- Alt-text translates visual evidence into language
+- Requires:
+  - Domain knowledge (history, archives, local context)
+  - Accessibility expertise (WCAG, screenreader use)
+  - Editorial judgement (what is salient, what is harmful)
+- Production is labor-intensive; often postponed or dropped entirely
+
+---
+
+# Opportunity and Risks of VLMs
+
+- Multimodal models (e.g., GPT-4o mini, Gemini, Llama, Qwen) can caption images at scale
+- Promise:
+  - High coverage, fast throughput, low marginal cost
+  - Potential to “fill the gap” for large collections
+- Risk:
+  - Hallucinations, misrecognitions, and subtle biases
+  - Uncritical reproduction of harmful terminology from sources or training data
+
+---
+
+# Research Questions
+
+- **RQ1 — Feasibility**
+  - What coverage, throughput, and unit cost can current VLMs achieve for WCAG-aligned alt-text on a heterogeneous heritage corpus?
+- **RQ2 — Relative quality**
+  - How do humanities experts rank model outputs?
+  - Which error patterns recur in “best” alt-texts?
+
+---
+
+# Corpus and Dataset
+
+- Source: Stadt.Geschichte.Basel Open Research Data platform
+- ≈1700 media objects (as of Oct 2025), diverse in:
+  - Media type: photographs, maps, drawings, objects, diagrams, ephemera
+  - Time period: from prehistory to contemporary Basel
+  - Complexity: multi-part figures, legends, text-heavy items
+- Study datasets:
+  - 100-item benchmark set (released with the paper)
+  - 20-item subset for detailed expert evaluation
+
+---
+
+# Models Under Study
+
+- Four vision–language models via OpenRouter:
+  - **Google Gemini 2.5 Flash Lite**
+  - **Meta Llama 4 Maverick**
+  - **OpenAI GPT-4o mini**
+  - **Qwen 3 VL 8B Instruct**
+- Selection criteria:
+  - Mix of proprietary and open-weight models
+  - Similar cost range and context window
+  - Multimodal and multilingual (incl. German)
+
+---
+
+# Prompt and Pipeline Design
+
+- Fixed, WCAG-aligned **system prompt**:
+  - Short, neutral, factual descriptions
+  - No “image of …”, no `alt=` wrappers, no emojis
+  - Length targets (90–180 chars; up to 400 for complex charts)
+  - Rules for portraits, objects, documents, maps, event photos
+- **User prompt**:
+  - Concise, structured metadata (title, description, date, era, creator, publisher, source)
+  - Image URL at the end
+- Pipeline:
+  - Standardized JPG (800×800) + JSON metadata → 4 candidate alt-texts per image
+
+---
+
+# Expert Ranking Study
+
+- Participants: 21 humanities scholars
+- Task:
+  - For each of 20 images, rank 4 model outputs from **1 (best) to 4 (worst)**
+- Instructions:
+  - Focus on WCAG-aligned criteria:
+    - Core visual content, no redundancy
+    - Salient features and visible text
+    - Context only when it aids understanding
+  - Factual accuracy and bias not foregrounded but may influence judgement
+
+---
+
+# RQ1 — Feasibility Results
+
+- **Coverage**
+  - All four models produced non-empty alt-text for all 20 images → **100% coverage**
+- **Latency and throughput**
+  - ≈2–4 seconds per item; ≈0.24–0.43 items/s
+  - Qwen 3 VL 8B: fastest; GPT-4o mini: slower but stable
+- **Cost**
+  - ≈1.8×10⁻⁴ to 3.6×10⁻³ USD per description
+  - Sub-cent cost even for multiple candidates per image
+- Conclusion: technically and economically feasible at collection scale
+
+---
+
+# RQ2 — Quantitative Ranking Results
+
+- Rank distributions:
+  - GPT-4o mini and Qwen receive more first-place and fewer last-place ranks
+  - Gemini and Llama perform slightly worse descriptively
+- Statistical tests:
+  - Friedman test: χ²(3, N=20) = 6.02, p = 0.11
+  - Kendall’s W ≈ 0.01 → very low agreement across tasks
+  - Pairwise Wilcoxon tests (Holm-corrected): no significant differences
+- Takeaway: **no clear “winner”**; relative model quality varies by image
+
+---
+
+# Qualitative Error Patterns
+
+- Close reading of top-ranked alt-texts reveals recurring problems:
+  - **Factual misrecognition**
+    - Example: describing people walking *down* a staircase when image shows them walking *up*
+  - **Reproduction of stereotypes**
+    - Example: uncritical repetition of phrases like “reicher Jude” from metadata or training data
+  - **Selective omission**
+    - Example: summarising trends for one data series in a chart while ignoring others
+- Even “best” alt-texts can be epistemically misleading or harmful
+
+---
+
+# Operationally Viable, Epistemically Fragile
+
+- **Operationally viable (RQ1)**
+  - High coverage, low latency, negligible cost
+  - Easy to integrate into existing pipelines
+- **Epistemically fragile (RQ2)**
+  - Errors are uneven and task-dependent
+  - Biases and omissions require domain-sensitive review
+- Tension:
+  - VLMs can rapidly “fill missing alt-text”
+  - But may distort historical evidence or reproduce injustice if used uncritically
+
+---
+
+# Implications for GLAM Institutions
+
+- Do **not** use VLMs as fully automated captioners
+- Treat alt-text as:
+  - An interpretive, historiographical act
+  - An ethical responsibility toward diverse audiences
+- Recommended use:
+  - VLMs as drafting aids for trained editors
+  - Human-in-the-loop workflows with:
+    - Editorial guidelines for sensitive content
+    - Checks for bias, factual errors, and omissions
+
+---
+
+# Practical Recommendations
+
+- For collections and digital humanities teams:
+  - Start with limited, well-documented pilot runs
+  - Prioritise sensitive or high-impact items for manual review
+  - Develop internal style guides for alt-text and metadata
+  - Log model version, prompts, and provenance for transparency
+- For model and tool builders:
+  - Support context-aware prompting (metadata + image)
+  - Provide better controls for bias and harmful content
+
+---
+
+# Limitations and Future Work
+
+- Scope:
+  - Single institutional corpus; 100-item dataset, 20-item survey subset
+  - Four models at one point in time (Oct 2025)
+- Future directions:
+  - Larger and more diverse participant pools, including blind and low-vision users
+  - Comparative studies of different prompt and review strategies
+  - Integration with authoring tools and cataloguing workflows
+
+---
+
+# Take-Home Messages
+
+- VLMs can make large-scale alt-text generation **operationally feasible**
+- However, they remain **epistemically fragile**, especially for historical and sensitive materials
+- Effective adoption requires:
+  - Clear editorial policies and sensitivity guidelines
+  - Human-in-the-loop review with domain and accessibility expertise
+  - Transparent, reproducible workflows and open data
+- Accessibility with AI is not automatic; it is a design and governance choice
+
