@@ -33,7 +33,7 @@ number-sections: true
 format:
   html: default
 other-links:
-  - text: Paper (draft)
+  - text: Paper
     icon: filetype-pdf
     href: 'paper.pdf'
 ---
@@ -598,7 +598,7 @@ A pre-configured **GitHub Codespace** enables fully containerised reproduction w
 The project adheres to the **FAIR** (Findable, Accessible, Interoperable, Reusable) and **CARE** (Collective Benefit, Authority to Control, Responsibility, Ethics) principles for open humanities data.
 
 | Principle | Implementation in this project |
-|:---------------------|:-------------------------------------------------|
+|:----------------------|:------------------------------------------------|
 | **Findable (FAIR)** | Repository indexed on GitHub and Zenodo with persistent DOI; structured metadata and semantic filenames. |
 | **Accessible** | Publicly accessible under AGPL-3.0 (code) and CC BY 4.0 (data, documentation). No authentication barriers. |
 | **Interoperable** | Machine-readable CSV, JSONL, and Parquet formats; consistent column schemas; human- and machine-readable metadata. |
