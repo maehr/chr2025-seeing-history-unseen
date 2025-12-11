@@ -31,6 +31,7 @@
 .reveal,
 .reveal * {
 	font-family: 'Euclid Circular B', sans-serif;
+	line-height: 95%;
 }
 
 .reveal h1,
@@ -41,8 +42,7 @@
 .reveal h6,
 .reveal-header {
 	font-family: 'Euclid Circular B', sans-serif !important;
-	font-weight: 600; /* or 500/400 depending on your aesthetic */
-	text-transform: uppercase;
+	font-weight: 600;
 }
 
 .reveal ::selection {
