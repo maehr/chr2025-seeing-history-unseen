@@ -39,7 +39,6 @@ format:
     show-slide-number: all
     theme: [default, styles.scss]
     embed-resources: true
-  pptx: default
 brand: _brand.yml
 filters:
   - reveal-header

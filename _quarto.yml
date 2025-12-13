@@ -13,6 +13,7 @@ project:
     - analysis/*.csv
     - analysis/*.png
     - runs/20251021_233530/**/*
+    - presentation/index.pdf
 
 website:
   title: CHR 2025 - Seeing History Unseen
