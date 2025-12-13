@@ -1,0 +1,458 @@
+---
+title: 'Seeing History Unseen'
+subtitle: 'Evaluating Vision-Language Models for WCAG-Compliant Alt-Text in Digital Heritage Collections'
+author:
+  - name: Moritz Mähr
+    affiliation:
+      - 'University of Basel'
+      - 'University of Bern'
+    orcid: '0000-0002-1367-1618'
+    email: 'moritz.maehr@gmail.com'
+  - name: Moritz Twente
+    affiliation:
+      - 'University of Basel'
+    orcid: '0009-0005-7187-9774'
+    email: 'mtwente@protonmail.com'
+keywords:
+  [
+    alt-text,
+    vision-language models,
+    accessibility,
+    WCAG 2.2,
+    digital heritage collections,
+    historical accuracy,
+    human-in-the-loop,
+    ethical implications,
+    metadata,
+    disability justice
+  ]
+abstract: |
+  Digitized heritage collections remain partially inaccessible because images often lack descriptive alternative text (alt-text). We evaluate whether contemporary Vision-Language Models (VLMs) can assist in producing WCAG-compliant alt-text for heterogeneous historical materials. Using a 100-item dataset curated from the Stadt.Geschichte.Basel Open Research Data Platform—covering photographs, maps, drawings, objects, diagrams, and print ephemera across multiple eras—we generate candidate descriptions with four VLMs (Google Gemini 2.5 Flash Lite, Meta Llama 4 Maverick, OpenAI GPT-4o mini, Qwen 3 VL 8B Instruct). Our pipeline fixes WCAG and output constraints in the system prompt and injects concise, collection-specific metadata at the user turn to mitigate “lost-in-the-middle” effects. Feasibility benchmarks on a 20-item subset show 100 % coverage, latencies of ~2–4 s per item, and sub-cent costs per description. A rater study with 21 humanities scholars ranks per-image model outputs; Friedman and Wilcoxon tests reveal no statistically significant performance differences, while qualitative audits identify recurring errors: factual misrecognition, selective omission, and uncritical reproduction of harmful historical terminology. We argue that VLMs are operationally viable but epistemically fragile in heritage contexts. Effective adoption requires editorial policies, sensitivity filtering, and targeted human-in-the-loop review, especially for sensitive content and complex figures. The study contributes a transparent, reproducible workflow, a small but representative evaluation set, and an initial cost–quality baseline to inform GLAM institutions considering AI-assisted accessibility at scale.
+format:
+  revealjs:
+    #incremental: true
+    header-logo: images/logo.svg
+    header-logo-link: "https://dokumentation.stadtgeschichtebasel.ch"
+    sc-sb-title: true
+    hide-from-titleSlide: logo
+    slide-number: true
+    show-slide-number: all
+    theme: [default, styles.scss]
+    embed-resources: true
+brand: _brand.yml
+filters:
+  - reveal-header
+---
+
+# {#seeing-history-unseen-intro data-menu-title="Seeing History Unseen Intro"}
+
+::: header
+Seeing History Unseen
+:::
+
+::: {.center-text}
+Evaluating vision–language models (VLMs) for alt-text in digital heritage collections
+:::
+
+::: {.column width="50%"}
+<span style="color:#ffe880">*Case Study*</span>
+:::
+
+:::: {.column width="50%"}
+
+::: {.right-justify}
+<span style="color:#ffe880">*Focus*</span>
+:::
+
+::::
+
+::::: {.fragment}
+
+:::: {.column width="50%"}
+Stadt.Geschichte.Basel<br/>Open Research Data Platform
+::::
+
+:::: {.column width="50%"}
+
+::: {.right-justify}
+WCAG-compliant,<br/>historically informed alt-text for heterogeneous images 
+:::
+
+::::
+
+:::::
+
+# {#accessibility-gap data-menu-title="Accessibility Gapppp"}
+
+::: header
+Motivation: Accessibility Gap
+:::
+
+- Digitized archives still exclude blind and low-vision users
+- Many images lack meaningful alt-text or rely on minimal, generic captions
+- Alt-text is not just a technical requirement but part of historical justice
+- Rich descriptions also benefit other groups<br/>(e.g., neurodivergent readers)
+
+
+# {#alt-text-digital-heritage data-menu-title="Alt-Text in Digital Heritage"}
+
+::: header
+Alt-Text in Digital Heritage
+:::
+
+
+- Alt-text translates visual evidence into language
+- Production is labor-intensive; often postponed or dropped entirely
+- Requires:
+  - Domain knowledge (history, archives, local context)
+  - Accessibility expertise (WCAG, screenreader use)
+  - Editorial judgement (what is salient, what is harmful)
+
+# {#opportunity-and-risks data-menu-title="Opportunity and Risks of VLMs"}
+
+::: header
+Opportunity and Risks of VLMs
+:::
+
+
+- Multimodal models can caption images at scale<br/>(e.g., GPT-4o mini, Gemini, Llama, Qwen)
+- Promises
+
+  ::: {.fragment}
+  - High coverage, fast throughput, low marginal cost
+  - Potential to *fill the gap* for large collections
+  :::
+
+- Risks
+
+  ::: {.fragment}
+  - Hallucinations, misrecognitions, and subtle biases
+  - Uncritical reproduction of harmful terminology from sources or training data
+  :::
+
+# {#rq data-menu-title="Research Questions"}
+
+::: header
+
+Research Questions
+
+:::
+
+- **RQ1 — Feasibility**
+  - What coverage, throughput, and unit cost can current VLMs achieve for WCAG-aligned alt-text on a heterogeneous heritage corpus?
+- **RQ2 — Relative quality**
+  - How do humanities experts rank model outputs?
+  - Which error patterns recur in ‹best› alt-texts?
+
+# {#corpus-data data-menu-title="Corpus and Dataset"}
+
+::: header
+Corpus and Dataset
+:::
+
+:::  {.column width="40%"}
+[![](images/screenshot_fdp.png)](https://forschung.stadtgeschichtebasel.ch/)
+:::
+
+:::  {.column width="60%"}
+<br/>
+Stadt.Geschichte.Basel<br/>[Open Research Data Platform](https://forschung.stadtgeschichtebasel.ch)
+
+≈1900 media objects (as of Dec 2025)
+:::
+
+- Media Types: photographs, maps, drawings, objects, diagrams, ephemera
+- Time Periods: from prehistoric to contemporary Basel
+- Complexity: multi-part figures, text-heavy items
+
+<!-- ::::: {.content-visible when-format="html"}
+
+# {#corpus-examples data-menu-title="Corpus and Dataset Examples"}
+
+::: header
+Corpus and Dataset
+:::
+
+:::: {.r-stack .nostretch}
+
+::: {fig-align="center" style="width: 50%;"}
+[![](images/abb13184_thumb.jpg)](https://forschung.stadtgeschichtebasel.ch/items/abb13184.html)
+:::
+
+::: {fig-align="center" style="width: 45%;"}
+[![](images/abb22924_thumb.jpg)](https://forschung.stadtgeschichtebasel.ch/items/abb22924.html){.fragment}
+:::
+
+::: {fig-align="center" style="width: 60%;"}
+[![](images/abb37030_thumb.jpg)](https://forschung.stadtgeschichtebasel.ch/items/abb37030.html){.fragment}
+:::
+
+::: {fig-align="center" style="width: 60%;"}
+[![](images/abb90429_thumb.jpg)](https://forschung.stadtgeschichtebasel.ch/items/abb90429.html){.fragment}
+:::
+
+::::
+
+::::: -->
+
+# {#corpus-examples-1 data-menu-title="Corpus and Dataset Examples" data-background-image="images/abb13184_small.jpg"}
+
+# {#corpus-examples-2 data-menu-title="Corpus and Dataset Examples" data-background-image="images/abb22924_thumb.jpg"}
+
+# {#corpus-examples-3 data-menu-title="Corpus and Dataset Examples" data-background-image="images/abb37030_small.jpg"}
+
+# {#corpus-examples-4 data-menu-title="Corpus and Dataset Examples" data-background-image="images/abb90429_small.jpg"}
+
+<!-- # {#study-data data-menu-title="Corpus and Dataset (Study Datasets)"}
+
+::: header
+Corpus and Dataset
+:::
+
+::: {style="width: 70%; display: block; margin: auto;"}
+[![](images/screenshot_dataset.png)](https://github.com/maehr/chr2025-seeing-history-unseen/blob/018659420607d0d1727873e45351a19cf36e38ca/data/processed/item_selection.csv){width="60%"}
+:::
+
+::: {.center-text}
+100-item benchmark set (released with the paper)
+
+20-item subset for detailed expert evaluation
+::: -->
+
+# {#study-data-fullscreen data-menu-title="Dataset and Survey Subset" data-background-image="images/screenshot_dataset.png"}
+
+# {#models data-menu-title="Models under Study"}
+
+::: header
+Models under Study
+:::
+
+- Four vision–language models via OpenRouter:
+  - **Google Gemini 2.5 Flash Lite**
+  - **Meta Llama 4 Maverick**
+  - **OpenAI GPT-4o mini**
+  - **Qwen 3 VL 8B Instruct**
+- Selection criteria:
+  - Mix of proprietary and open-weight models
+  - Similar cost range and context window
+  - Multimodal and multilingual (incl. German)
+
+# {#prompt-design-system data-menu-title="Prompt and Pipeline Design (System Prompt)"}
+
+::: header
+Prompt and Pipeline Design
+:::
+
+- Fixed, WCAG-aligned <span style="color:#ffe880">system prompt</span>
+  - Short, neutral, factual descriptions
+  - No “image of …”, no `alt=` wrappers, no emojis
+  - Length targets
+    - 90–180 characters
+    - up to 400 for complex charts
+  - Rules for portraits, objects, documents, maps, event photos
+
+# {#prompt-design-user data-menu-title="Prompt and Pipeline Design (User Prompt)"}
+
+::: header
+Prompt and Pipeline Design
+:::
+
+- <span style="color:#ffe880">User prompt</span>
+  - Concise, structured metadata (title, description, date, era, creator, publisher, source)
+  - Image URL at the end
+
+::: {.fragment}
+- Pipeline:
+  - Standardized JPG (800×800) + JSON metadata<br/>&rarr; 4 candidate alt-texts per image
+:::
+
+<!-- # {#ranking-study data-menu-title="Expert Ranking Study (Setup)"}
+
+::: header
+Expert Ranking Study
+:::
+
+::: {style="width: 70%; display: block; margin: auto;"}
+![](images/screenshot_survey.png)
+:::
+
+::: {.center-text}
+Task: For each of the 20 images, rank 4 model outputs<br/>from **1 (best) to 4 (worst)**
+::: -->
+
+# {#study-setup data-menu-title="Expert Ranking Study (Setup)" data-background-image="images/screenshot_survey.png"}
+
+# {#ranking-study2 data-menu-title="Expert Ranking Study (Instructions)"}
+
+::: header
+Expert Ranking Study
+:::
+
+- Participants: 21 humanities scholars
+
+- Instructions:
+  - For each of the 20 images, rank 4 model outputs<br/>from **1 (best) to 4 (worst)**
+  - Focus on WCAG-aligned criteria:
+    - Core visual content, no redundancy
+    - Salient features and visible text
+    - Context only when it aids understanding
+  - Factual accuracy and bias not foregrounded but may influence judgement
+
+# {#rq1-results data-menu-title="RQ1 -- Feasibility Results"}
+
+::: header
+RQ1 -- Feasibility Results
+:::
+
+- **Coverage**
+
+  ::: {.fragment}
+  - All four models produced non-empty alt-text for all 20 images → **100% coverage**
+  :::
+
+- **Latency and throughput**
+
+  ::: {.fragment}
+  - ≈2–4 seconds per item; ≈0.24–0.43 items/s
+  - Qwen 3 VL 8B: fastest; GPT-4o mini: slower but stable
+  :::
+
+- **Cost**
+
+  ::: {.fragment}
+  - ≈1.8×10⁻⁴ to 3.6×10⁻³ USD per description
+  - Sub-cent cost even for multiple candidates per image
+  :::
+
+- <span style="color:#ffe880">technically and economically feasible at collection scale</span>
+
+# {#rq2-results data-menu-title="RQ2 -- Quantitative Ranking Results"}
+
+::: header
+RQ2 -- Quantitative Ranking Results
+:::
+
+- **Rank distributions**
+
+  ::: {.fragment}
+  - GPT-4o mini and Qwen receive more first-place and fewer last-place ranks
+  - Gemini and Llama perform slightly worse descriptively
+  :::
+
+- **Statistical tests**
+
+  ::: {.fragment}
+  - Friedman test: χ²(3, N=20) = 6.02, p = 0.11
+  - Kendall’s W ≈ 0.01 → very low agreement across tasks
+  - Pairwise Wilcoxon tests (Holm-corrected): no significant differences
+  :::
+
+- <span style="color:#ffe880">**no clear ‹winner›**; relative model quality varies by image</span>
+
+# {#error-patterns-facts data-menu-title="Qualitative Error Patterns: Factual Misrecognition"}
+
+::: header
+Error Patterns: Factual Misrecognition
+:::
+
+::: {.center-text}
+[![e.g., describing people walking *down* a staircase when image shows them walking *up*<br>*(Faltblatt der Gruppe ‹Freiräume für Frauen› FFF, 1992)*](/survey/images/m92410.jpg)](https://forschung.stadtgeschichtebasel.ch/items/abb92410.html)
+:::
+
+# {#error-patterns-stereotypes data-menu-title="Qualitative Error Patterns: Reproduction of Stereotypes"}
+
+::: header
+Error Patterns: Reproduction of Stereotypes
+:::
+
+::: {.center-text}
+[![e.g., uncritical repetition of phrases like ‹reicher Jude› from metadata or training data<br>*(Karikatur ‹Gegen den Eisenbahnhandel›, 1898)*](/survey/images/m91960.jpg)](https://forschung.stadtgeschichtebasel.ch/items/abb91960.html)
+:::
+
+# {#error-patterns-omission data-menu-title="Qualitative Error Patterns: Selective Omission"}
+
+::: header
+Error Patterns: Selective Omission
+:::
+
+::: {.center-text}
+[![e.g., summarising trends for one data series in a chart while ignoring others<br/>*(Publikumszahlen an Konzerten und FCB-Spielen im St. Jakob-Stadion, 1960–2022)*](/survey/images/m88415_1.jpg)](https://forschung.stadtgeschichtebasel.ch/items/abb88415.html)
+:::
+
+# {#viable-fragile data-menu-title="Operationally Viable, Epistemically Fragile"}
+
+::: header
+Operationally Viable, Epistemically Fragile
+:::
+
+- <span style="color:#ffe880">**Operationally viable**</span> (RQ1)
+  - High coverage, low latency, negligible cost
+  - Easy to integrate into existing pipelines
+- <span style="color:#ffe880">**Epistemically fragile**</span> (RQ2)
+  - Errors are uneven and task-dependent
+  - Biases and omissions require domain-sensitive review
+
+# {#limitations-future-work data-menu-title="Limitations and Future Work"}
+
+::: header
+Limitations and Future Work
+:::
+
+- Single institutional corpus; 100-item dataset, 20-item survey subset
+- Four models at one point in time (Oct 2025)
+- Future directions:
+  - Larger and more diverse participant pools, including blind and low-vision users
+  - Comparative studies of different prompt and review strategies
+  - Integration with authoring tools and cataloguing workflows
+
+# {#recommendations data-menu-title="Practical Recommendations I"}
+
+::: header
+Practical Recommendations
+:::
+
+- Recommended use:
+  - VLMs as drafting aids for trained editors
+  - Human-in-the-loop workflows with:
+    - Editorial guidelines for sensitive content
+    - Checks for bias, factual errors, and omissions
+
+# {#workflow data-menu-title="Practical Recommendations II"}
+
+::: header
+Practical Recommendations
+:::
+
+- For DH Teams and GLAM Institutions:
+
+  ::: {.fragment}
+  - Start with limited, well-documented pilot runs
+  - Prioritise sensitive or high-impact items for manual review
+  - Develop internal style guides for alt-text and metadata
+  - Log model version, prompts, and provenance for transparency
+  :::
+
+- For Model and Tool Builders:
+
+  ::: {.fragment}
+  - Support context-aware prompting (metadata + image)
+  - Provide better controls for bias and harmful content
+  :::
+
+# {#take-home data-menu-title="Take-Home Messages"}
+
+::: header
+Take-Home Messages
+:::
+
+- Do **not** use VLMs as fully automated captioners
+- Treat alt-text as:
+  - An <span style="color:#ffe880">interpretive, historiographical act</span>
+  - An <span style="color:#ffe880">ethical responsibility</span> toward diverse audiences
+
+- Effective adoption requires:
+  - Clear <span style="color:#ffe880">editorial policies</span> and sensitivity guidelines
+  - Human-in-the-loop <span style="color:#ffe880">review</span> with domain and accessibility expertise
+  - <span style="color:#ffe880">Transparent, reproducible workflows</span> and open data
+
+&rarr; <span style="color:#ffe880">Accessibility with AI is a design and governance choice</span>
