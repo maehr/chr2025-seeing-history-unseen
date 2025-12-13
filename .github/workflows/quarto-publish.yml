@@ -112,11 +112,25 @@ jobs:
           name: built-site
           path: _site
 
+      - name: Start static server
+        run: |
+          cd _site
+          python3 -m http.server 5528 &
+          echo $! > server.pid
+          sleep 3
+
       - name: Check for broken links with lychee
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --verbose --no-progress --base ${{ github.workspace }}/_site '${{ github.workspace }}/_site/**/*.html'
+          args: --verbose --no-progress http://localhost:5528/
           fail: true
+
+      - name: Stop server
+        if: always()
+        run: |
+          if [ -f _site/server.pid ]; then
+            kill $(cat _site/server.pid) || true
+          fi
 
   deploy:
     name: Deploy
