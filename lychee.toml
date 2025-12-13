@@ -6,7 +6,7 @@ exclude = [
   # Placeholder URLs in template files
   '^https://github.com/USERNAME/REPO_NAME',
   # GitHub URLs requiring authentication
-  'github\. com/.*/edit/',
+  'github\.com/.*/edit/.*',
   'github\.com/.*/issues/new',
   'github\.com/new\?template',
 ]
