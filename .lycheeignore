@@ -3,9 +3,3 @@
 
 # Ignore placeholder URLs in template files
 ^https://github.com/USERNAME/REPO_NAME
-
-# Ignore fragment-only file:// URLs (in-page anchors)
-file://.*#.*
-
-# Ignore local file anchors
-.*\#[^/]*$
